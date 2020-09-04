@@ -1,7 +1,7 @@
 {
   "paperId": "1",
   "content": {
-    "title": "Advanced Level 2019 Physics",
+    "title": "Advanced Level 2018 Chemistry",
     "showProgressBar": "bottom",
     "showTimerPanel": "top",
     "maxTimeToFinish": 7200,
@@ -13,7 +13,7 @@
         "questions": [
           {
             "type": "html",
-            "html": "<p>You are about to start quiz <b>Advanced Level 2019 Physics</b>. <br/>You have 2 hours for the whole paper of 50 questions.<br/>Please click on <b>'Start Quiz'</b> button when you are ready.</p>"
+            "html": "<p>You are about to start quiz <b>Advanced Level 2018 Physics</b>. <br/>You have 2 hours for the whole paper of 50 questions.<br/>Please click on <b>'Start Quiz'</b> button when you are ready.</p>"
           }
         ]
       },
@@ -21,7 +21,7 @@
         "questions": [
           {
             "type": "radiogroup",
-            "title": "1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1",
+            "title": "lab",
             "choices": [
               "1750-1800",
               "1800-1850",
@@ -37,7 +37,7 @@
         "questions": [
           {
             "type": "radiogroup",
-            "title": "ගුරුත්වාකර්ෂණ නියතය GB මාන දෙනු ලබන්නේ, ",
+            "title": "ගුරුත්වාකර්ෂණ magnisium GB මාන දෙනු ලබන්නේ, ",
             "choices": ["L’M-'T-", "LM-2", "LPM-zT-I", "L’M'T-2", "LM-1"],
             "correctAnswer": "L’M-'T-"
           }
