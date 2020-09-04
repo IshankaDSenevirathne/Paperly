@@ -16,8 +16,8 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Landing} />
-          <Route path="/quiz" component={Questions} />
           <Route exact path="/survey" component={SurveyPages} />
+          <Route path="/quiz/:id" component={Questions} />
           {/* <Route path="*" component={Notfound} /> */}
         </Switch>
       </BrowserRouter>
