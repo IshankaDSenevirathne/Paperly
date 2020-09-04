@@ -2,25 +2,41 @@ import React, { useEffect, useState } from "react";
 import logo from "../../img/logo_transparent.png";
 import Quizcard from "../quizcard/quizcard";
 import "./questions.css";
-var paperData = require("../../paperdata/paperdata.json");
 
 const Questions = (props) => {
   // const [paperId, setpaperId] = useState("");
   const [data, setdata] = useState("");
 
   useEffect(() => {
-    console.log(props.match.params.id);
+    console.log(props);
 
-    let datas = paperData.filter(
-      (ele) => ele.paperId === props.match.params.id
-    );
-    console.log(datas);
+    console.log(props.match.params);
+
+    var name = "paperdata";
+    let datas = [];
+    try {
+      var paperData = require(`../../paperdata/${name}.json`);
+      datas = paperData.filter((ele) => ele.paperId === props.match.params.id);
+      console.log(datas);
+    } catch (error) {
+      setdata({ paperName: "error paper not found" });
+    }
 
     if (datas.length) {
       setdata(datas[0]);
     } else {
       setdata({ paperName: "error paper not found" });
     }
+
+    // var paperData1 = require("../../paperdata/paperdata");
+    // fetch(paperData1)
+    //   .then((res) => res.json())
+    //   .then((result) => {
+    //     console.log(result);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
 
     console.log(data);
   }, []);
