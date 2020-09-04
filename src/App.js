@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 
 import Landing from "./components/Landing/Landing";
 import Questions from "./components/questions/questions";
+import SurveyPages from "./components/SurveyPages/SurveyPages";
 
 AOS.init();
 
@@ -15,6 +16,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Landing} />
+          <Route exact path="/survey" component={SurveyPages} />
           <Route path="/quiz/:id" component={Questions} />
           {/* <Route path="*" component={Notfound} /> */}
         </Switch>

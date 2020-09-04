@@ -10,23 +10,28 @@ import github from "../../img/icons/github.png";
 
 import logo from "../../img/icons/favicon.png";
 
-export default function Footer() {
+export default function Footer(props) {
+  const pos = props.position;
+  console.log(pos);
   return (
     <div
       id="contact"
       style={{
         backgroundColor: "#383838",
         textAlign: "center",
-        paddingBottom: "30px",
         color: "whitesmoke",
+        width: "100%",
+        bottom: 0,
+        position: `${pos}`,
       }}
     >
-      <div>
-        <h1 style={{ paddingTop: "20px" }}>
-          <u>CONTACT</u>
-        </h1>
-      </div>
-      <div style={{ textAlign: "center", paddingBottom: "20px" }}>
+      <div
+        style={{
+          textAlign: "center",
+          paddingBottom: "20px",
+          paddingTop: "20px",
+        }}
+      >
         <IconButton aria-label="More info">
           <img src={gmail} />
         </IconButton>

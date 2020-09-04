@@ -26,10 +26,12 @@ export default function HeadLine() {
         data-aos="fade-down"
         style={{
           padding: "20px 20px 20px 20px",
-          marginTop: "50px",
+          marginTop: "30px",
           marginBottom: "100px",
           color: "#767676",
         }}
+        data-aos-delay="500"
+        data-aos-duration="800"
       >
         <h3>
           It’s not that I’m so smart, it’s just that I stay with problems longer
@@ -51,7 +53,7 @@ export default function HeadLine() {
               }}
             >
               <InsertDriveFile style={{ color: blue[500], fontSize: "60" }} />
-              <p>Past Papers from O/L A/L Examinations</p>
+              <p>Past Papers from O/L, A/L</p>
             </div>
           </Grid>
           <Grid item sm={12} md={3} xs={12}>
@@ -67,7 +69,7 @@ export default function HeadLine() {
               }}
             >
               <Alarm style={{ color: red[500], fontSize: "60" }} />
-              <p>Time your answeres</p>
+              <p>Improve your Time Management</p>
             </div>
           </Grid>
           <Grid item sm={12} md={3} xs={12}>

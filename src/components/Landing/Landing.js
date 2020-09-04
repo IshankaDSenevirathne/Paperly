@@ -18,7 +18,7 @@ export default function Landing() {
         <HeadLine />
         <Categories />
       </div>
-      <Footer />
+      <Footer position="relative" />
     </div>
   );
 }

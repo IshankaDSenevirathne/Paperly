@@ -6,7 +6,7 @@ import CardTile from "./CardTile";
 import Physics from "../../../img/Physics2.jpg";
 import Biology from "../../../img/Biology.jpg";
 import Chemistry from "../../../img/Chemistry.jpg";
-import iT from "../../../img/IT1.jpg";
+import iT from "../../../img/IT2.jpg";
 import Mathematics from "../../../img/Mathematics.jpg";
 import Marketing from "../../../img/Marketing.jpg";
 
@@ -74,10 +74,9 @@ const subjects = {
 };
 export default function Categories() {
   return (
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center", marginBottom: "100px" }}>
       <div data-aos="fade-down">
         <h1
-          className="sub_Title"
           style={{
             paddingTop: "20px",
           }}

@@ -1,41 +1,61 @@
 [
   {
-    "paperName": "Advanced Level 2019 Physics",
-    "paperYear": "2019",
-    "paperSubject": "Physics",
     "paperId": "1",
-    "questions": [
-      {
-        "question": "1+1",
-        "awnsers": [
-          { "awsId": "1", "value": "1" },
-          { "awsId": "2", "value": "0" },
-          { "awsId": "3", "value": "yellow" },
-          { "awsId": "4", "value": "2" }
-        ],
-        "correctAwneser": "1"
-      },
-      {
-        "question": "ගුරුත්වාකර්ෂණ නියතය GB මාන දෙනු ලබන්නේ,  ",
-        "awnsers": [
-          { "awsId": "1", "value": "L’M-'T- " },
-          { "awsId": "2", "value": " LM-2" },
-          { "awsId": "3", "value": " LPM-zT-I" },
-          { "awsId": "4", "value": ") L’M'T-2" }
-        ],
-        "correctAwneser": "1"
-      },
-      {
-        "question": "පහත සඳහන් ඒකක අතුරෙන් මූලික ඒකකයක් නොවන්නේ කුමක් ද?",
-        "awnsers": [
-          { "awsId": "1", "value": "m" },
-          { "awsId": "2", "value": "j" },
-          { "awsId": "3", "value": "cd" },
-          { "awsId": "4", "value": "k" },
-          { "awsId": "5", "value": "mol" }
-        ],
-        "correctAwneser": "1"
-      }
-    ]
+    "content": {
+      "title": "Advanced Level 2019 Physics",
+      "showProgressBar": "bottom",
+      "showTimerPanel": "top",
+      "maxTimeToFinish": 7200,
+      "firstPageIsStarted": true,
+      "showPrevButton": true,
+      "startSurveyText": "Start Quiz",
+      "pages": [
+        {
+          "questions": [
+            {
+              "type": "html",
+              "html": "<p>You are about to start quiz <b>Advanced Level 2019 Physics</b>. <br/>You have 2 hours for the whole paper of 50 questions.<br/>Please click on <b>'Start Quiz'</b> button when you are ready.</p>"
+            }
+          ]
+        },
+        {
+          "questions": [
+            {
+              "type": "radiogroup",
+              "title": "1+1",
+              "choices": [
+                "1750-1800",
+                "1800-1850",
+                "1850-1900",
+                "1900-1950",
+                "after 1950"
+              ],
+              "correctAnswer": "1850-1900"
+            }
+          ]
+        },
+        {
+          "questions": [
+            {
+              "type": "radiogroup",
+              "title": "ගුරුත්වාකර්ෂණ නියතය GB මාන දෙනු ලබන්නේ, ",
+              "choices": ["L’M-'T-", "LM-2", "LPM-zT-I", "L’M'T-2", "LM-1"],
+              "correctAnswer": "L’M-'T-"
+            }
+          ]
+        },
+        {
+          "questions": [
+            {
+              "type": "radiogroup",
+              "title": "පහත සඳහන් ඒකක අතුරෙන් මූලික ඒකකයක් නොවන්නේ කුමක් ද?",
+              "choices": ["m", "j", "cd", "k", "mol"],
+              "correctAnswer": "m"
+            }
+          ]
+        }
+      ],
+      "completedHtml": "<h4>You have answered correctly <b>{correctedAnswers}</b> questions from <b>{questionCount}</b>.</h4>"
+    }
   }
 ]
