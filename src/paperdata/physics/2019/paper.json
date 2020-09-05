@@ -2,6 +2,8 @@
   "paperId": "1",
   "content": {
     "title": "Advanced Level 2019 Physics",
+    "description": "Please take look at the survey title and logo. Test the settings on the right panel ->",
+    "logo": "https://img.icons8.com/pastel-glyph/344/physics--v1.png",
     "showProgressBar": "bottom",
     "showTimerPanel": "top",
     "maxTimeToFinish": 7200,
@@ -54,6 +56,6 @@
         ]
       }
     ],
-    "completedHtml": "<h4>You have answered correctly <b>{correctedAnswers}</b> questions from <b>{questionCount}</b>.</h4>"
+    "completedHtml": "<h4>You have answered correctly <b>{correctedAnswers}</b> questions from <b>{questionCount} {correctedAnswers}/{questionCount*100}  </b>.</h4>"
   }
 }
