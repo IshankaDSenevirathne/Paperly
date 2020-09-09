@@ -3,6 +3,7 @@ import Navigation from "../Navigation/Navigation";
 import Footer from "../Footer/Footer";
 import SurveyPages from "../SurveyPages/SurveyPages";
 import logo from "../../img/logo_transparent.png";
+import Navbar from "../navbar/navbar";
 var qs = require("qs");
 
 const Questions = (props) => {
@@ -30,15 +31,18 @@ const Questions = (props) => {
     // console.log(data);
   }, []);
   return (
-    <div>
-      <div style={{ textAlign: "center", backgroundColor: "#383838" }}>
+    <div className="mainconteainer">
+      <div className="footerpadding">
+        {/* <div style={{ textAlign: "center", backgroundColor: "#383838" }}>
         <img alt="logo" src={logo} />
-      </div>{" "}
-      {/* <Navigation /> */}
-      <div className="content">
-        <SurveyPages paperContent={data} />
+      </div>{" "} */}
+        {/* <Navigation /> */}
+        <Navbar />
+        <div className="content">
+          <SurveyPages paperContent={data} />
+        </div>
       </div>
-      {/* <Footer position="fixed" /> */}
+      <Footer position="fixed" />
     </div>
   );
 };

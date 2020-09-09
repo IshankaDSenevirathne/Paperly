@@ -8,16 +8,18 @@ import HeadLine from "./HeadLine/HeadLine";
 
 export default function Landing() {
   return (
-    <div>
-      <div style={{ textAlign: "center", backgroundColor: "#383838" }}>
-        <img src={logo} />
-      </div>
-      <div className="landing"></div>
-      <Navigation />
-      <div className="content">
-        <HeadLine />
-        <Categories />
-      </div>
+    <div className="mainconteainer">
+      <div className="footerpadding">
+        <div style={{ textAlign: "center", backgroundColor: "#383838" }}>
+          <img src={logo} alt="logo" />
+        </div>
+        <div className="landing"></div>
+        <Navigation />
+        <div className="content">
+          <HeadLine />
+          <Categories />
+        </div>{" "}
+      </div>{" "}
       <Footer position="relative" />
     </div>
   );
