@@ -8,7 +8,7 @@ import Navbar from "./components/navbar/navbar";
 import Landing from "./components/Landing/Landing";
 import SurveyPages from "./components/SurveyPages/SurveyPages";
 import QuizesPage from "./components/QuizesPage/QuizesPage";
-import questions from "./components/questions/questions";
+import Questions from "./components/questions/questions";
 import Footer from "./components/Footer/Footer";
 
 AOS.init();
@@ -22,7 +22,7 @@ function App() {
           <Route exact path="/" component={Landing} />
           <Route exact path="/survey" component={SurveyPages} />
           <Route path="/quizes" component={QuizesPage} />
-          <Route path="/quiz" component={questions} />
+          <Route path="/quiz" component={Questions} />
           {/* <Route path="*" component={Notfound} /> */}
         </Switch>
         <Footer position="relative" />
