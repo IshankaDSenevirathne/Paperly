@@ -3,12 +3,12 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 
 import CardTile from "./CardTile";
-import Physics from "../../../img/Physics2.jpg";
-import Biology from "../../../img/Biology.jpg";
-import Chemistry from "../../../img/Chemistry.jpg";
-import iT from "../../../img/IT2.jpg";
-import Mathematics from "../../../img/Mathematics.jpg";
-import Marketing from "../../../img/Marketing.jpg";
+import Physics from "../../../img/Physics2.png";
+import Biology from "../../../img/dna-helix.png";
+import Chemistry from "../../../img/test-tube.png";
+import iT from "../../../img/ic.png";
+import Mathematics from "../../../img/pi.png";
+import Marketing from "../../../img/chart.png";
 
 const subjects = {
   subject1: {
@@ -19,7 +19,7 @@ const subjects = {
       Lizards are a widespread group of squamate reptiles, with over
       6,000 species, ranging across all continents except Antarctica`,
     delay: "0",
-    link: "",
+    link: "physics",
   },
   subject2: {
     image: `${Chemistry}`,
@@ -29,7 +29,7 @@ const subjects = {
         Lizards are a widespread group of squamate reptiles, with over
         6,000 species, ranging across all continents except Antarctica`,
     delay: "200",
-    link: "",
+    link: "chemistry",
   },
   subject3: {
     image: `${Biology}`,
@@ -39,7 +39,7 @@ const subjects = {
         Lizards are a widespread group of squamate reptiles, with over
         6,000 species, ranging across all continents except Antarctica`,
     delay: "400",
-    link: "",
+    link: "biology",
   },
   subject4: {
     image: `${Mathematics}`,
@@ -49,7 +49,7 @@ const subjects = {
         Lizards are a widespread group of squamate reptiles, with over
         6,000 species, ranging across all continents except Antarctica`,
     delay: "600",
-    link: "",
+    link: "mathematics",
   },
   subject5: {
     image: `${iT}`,
@@ -59,7 +59,7 @@ const subjects = {
         Lizards are a widespread group of squamate reptiles, with over
         6,000 species, ranging across all continents except Antarctica`,
     delay: "800",
-    link: "",
+    link: "it",
   },
   subject6: {
     image: `${Marketing}`,
@@ -69,16 +69,23 @@ const subjects = {
         Lizards are a widespread group of squamate reptiles, with over
         6,000 species, ranging across all continents except Antarctica`,
     delay: "1000",
-    link: "",
+    link: "marketing",
   },
 };
 export default function Categories() {
   return (
-    <div style={{ textAlign: "center", marginBottom: "100px" }}>
+    <div
+      style={{
+        textAlign: "center",
+        marginBottom: "100px",
+        marginLeft: "50px",
+        marginRight: "50px",
+      }}
+    >
       <div data-aos="fade-down">
         <h1
           style={{
-            paddingTop: "20px",
+            paddingBottom: "20px",
           }}
         >
           <u>PAST PAPERS</u>

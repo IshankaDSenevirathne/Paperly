@@ -1,20 +1,53 @@
-import React from "react";
-
-import IconButton from "@material-ui/core/IconButton";
+import React, { useState } from "react";
 
 import fb from "../../img/icons/facebook.png";
 import gmail from "../../img/icons/gmail.png";
-import instagram from "../../img/icons/instagram.png";
-import twitter from "../../img/icons/twitter.png";
 import github from "../../img/icons/github.png";
 
-import logo from "../../img/icons/favicon.png";
+import "./footer.css";
 
 export default function Footer(props) {
   const pos = props.position;
+
+  // const [year, setyear] = useState();
+
   console.log(pos);
   return (
-    <div
+    <div className="container ">
+      <div className="footer">
+        <div className="footeritem">
+          <a href="/">
+            <img src={fb} alt="facebook logo"></img>
+          </a>
+        </div>
+        <div className="footeritem">
+          <a href="/">
+            <img src={github} alt="github logo"></img>
+          </a>
+        </div>
+        <div className="footeritem">
+          <a href="/">
+            <img src={gmail} alt="github logo"></img>
+          </a>
+        </div>
+
+        <div className="footerspacer"></div>
+
+        <div className="footeritemlogo">
+          <a className="link" href="/">
+            Terms
+          </a>
+          <div className="footeritem">
+            © {new Date().getFullYear()} EduEra LLC{" "}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+   <div
       id="contact"
       style={{
         backgroundColor: "#383838",
@@ -52,5 +85,4 @@ export default function Footer(props) {
         <img src={logo} />
       </div>
     </div>
-  );
-}
+ */

@@ -4,9 +4,12 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+import Navbar from "./components/navbar/navbar";
 import Landing from "./components/Landing/Landing";
-import Questions from "./components/questions/questions";
 import SurveyPages from "./components/SurveyPages/SurveyPages";
+import QuizesPage from "./components/QuizesPage/QuizesPage";
+import questions from "./components/questions/questions";
+import Footer from "./components/Footer/Footer";
 
 AOS.init();
 
@@ -14,12 +17,15 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Navbar />
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/survey" component={SurveyPages} />
-          <Route path="/quiz/:id" component={Questions} />
+          <Route path="/quizes" component={QuizesPage} />
+          <Route path="/quiz" component={questions} />
           {/* <Route path="*" component={Notfound} /> */}
         </Switch>
+        <Footer position="relative" />
       </BrowserRouter>
     </div>
   );

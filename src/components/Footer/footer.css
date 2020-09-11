@@ -1,0 +1,35 @@
+.footer {
+  position: fixed;
+  margin-top: -200px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: center;
+  /* height: 11vh; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #e4e4e4;
+  /* border-top: 1px solid #aaa6a6; */
+  height: 8rem;
+}
+
+.footeritem {
+  flex: 0.5;
+}
+
+.footeritemlogo {
+  flex: 1.5;
+}
+
+.footerspacer {
+  flex: 8;
+}
+
+.link {
+  text-decoration: none !important;
+  color: #8ea4ec;
+}

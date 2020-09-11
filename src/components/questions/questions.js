@@ -1,40 +1,36 @@
 import React, { useEffect, useState } from "react";
-
-import logo from "../../img/logo_transparent.png";
-
-import Navigation from "../Navigation/Navigation";
-import Footer from "../Footer/Footer";
 import SurveyPages from "../SurveyPages/SurveyPages";
-
-var paperData = require("../../paperdata/paperdata.json");
+var qs = require("qs");
 
 const Questions = (props) => {
   // const [paperId, setpaperId] = useState("");
   const [data, setdata] = useState("");
 
   useEffect(() => {
-    // console.log(props.match.params.id);
+    console.log(props);
 
-    let datas = paperData.filter(
-      (ele) => ele.paperId === props.match.params.id
-    );
-    if (datas.length) {
-      setdata(datas[0].content);
-    } else {
-      setdata({ paperName: "error paper not found" });
+    let query = qs.parse(props.location.search, {
+      ignoreQueryPrefix: true,
+    });
+
+    try {
+      let paperData = require(`../../paperdata/${query.subject}/${query.year}/paper.json`);
+      console.log(paperData);
+      setdata(paperData.content);
+    } catch (error) {
+      console.log(error);
+      alert(`error ${query.subject} / ${query.year} paper not found`);
     }
-    // console.log(data);
+
+    console.log(data);
   }, [data]);
   return (
-    <div>
-      <div style={{ textAlign: "center", backgroundColor: "#383838" }}>
-        <img alt="logo" src={logo} />
-      </div>{" "}
-      <Navigation />
-      <div className="content">
-        <SurveyPages paperContent={data} />
+    <div className="mainconteainer">
+      <div className="footerpadding">
+        <div className="content">
+          <SurveyPages paperContent={data} />
+        </div>
       </div>
-      <Footer position="fixed" />
     </div>
   );
 };

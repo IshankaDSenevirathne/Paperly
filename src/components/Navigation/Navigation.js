@@ -28,7 +28,7 @@ const styles = {
     top: 0,
     zIndex: 99,
     borderBottom: "1px solid #E6E6E6",
-    backgroundColor: "#ECF0F1",
+    backgroundColor: "#383838",
   },
 };
 
