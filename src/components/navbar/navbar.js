@@ -4,7 +4,7 @@ import "./navbar.css";
 
 const Navbar = () => {
   return (
-    <div style={{ textAlign: "center", backgroundColor: "#383838" }}>
+    <div style={{ textAlign: "center", backgroundColor: "#383838" }} id="home">
       <a href="/">
         <img src={logo} alt="logo" />
       </a>

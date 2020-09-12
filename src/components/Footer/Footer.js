@@ -6,8 +6,6 @@ import github from "../../img/icons/github.png";
 
 import "./footer.css";
 
-import "./footer.css";
-
 export default function Footer(props) {
   const pos = props.position;
 

@@ -81,6 +81,7 @@ export default function Categories() {
         marginLeft: "50px",
         marginRight: "50px",
       }}
+      id="pastpapers"
     >
       <div data-aos="fade-down">
         <h1

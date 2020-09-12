@@ -35,7 +35,7 @@ export default function QuizesPage(props) {
   return (
     <div className="content">
       <Grid container spacing={2}>
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12} md={5}>
           <Typography variant="h5" className={classes.title}>
             SELECT A PAPER TO CONTINUE
           </Typography>
