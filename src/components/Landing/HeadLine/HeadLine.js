@@ -1,33 +1,31 @@
 import React from "react";
 
+import { Typography } from "@material-ui/core";
+
 export default function HeadLine() {
   return (
     <div
       style={{
         textAlign: "center",
+        paddingTop: "50px",
+        paddingBottom: "100px",
         paddingLeft: "15%",
         paddingRight: "15%",
-        paddingTop: "20px",
-        paddingBottom: "20px",
-        marginBottom: "100px",
         textTransform: "uppercase",
       }}
     >
       <div
-        data-aos="fade-down"
         style={{
-          padding: "20px 20px 20px 20px",
-          marginTop: "30px",
-          marginBottom: "20px",
-          color: "#767676",
+          color: "#383838",
         }}
-        data-aos-delay="500"
-        data-aos-duration="800"
       >
-        <h3>
+        <h3>Quote of the day</h3>
+      </div>
+      <div style={{ color: "#B2B2B2" }}>
+        <h4>
           It’s not that I’m so smart, it’s just that I stay with problems longer
-        </h3>
-        <br></br> Albert Einstein
+          - Albert Einstein
+        </h4>
       </div>
     </div>
   );

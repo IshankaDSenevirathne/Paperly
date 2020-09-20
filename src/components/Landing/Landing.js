@@ -1,15 +1,16 @@
 import React from "react";
 
+import Box from "@material-ui/core/Box";
+
 import Navigation from "../Navigation/Navigation";
 import Categories from "./Subjects/Categories";
-import logo from "../../img/logo_transparent.png";
 import HeadLine from "./HeadLine/HeadLine";
 
 export default function Landing() {
   return (
     <div className="mainconteainer">
       <div className="footerpadding">
-        <div className="landing"></div>
+        <Box display={{ xs: "none", md: "block" }} className="landing"></Box>
         <Navigation />
         <div className="content">
           <HeadLine />

@@ -80,7 +80,9 @@ export default function Categories() {
         marginBottom: "100px",
         marginLeft: "50px",
         marginRight: "50px",
+        color: "#383838",
       }}
+      id="pastpapers"
     >
       <div data-aos="fade-down">
         <h1
@@ -88,30 +90,24 @@ export default function Categories() {
             paddingBottom: "20px",
           }}
         >
-          <u>PAST PAPERS</u>
+          PAST PAPERS
         </h1>
       </div>
       <Grid container justify="center" alignContent="center">
         <CardTile
           image={subjects.subject1.image}
-          imageTitle={subjects.subject1.imageTitle}
-          description={subjects.subject1.description}
           title={subjects.subject1.title}
           link={subjects.subject1.link}
           delay={subjects.subject1.delay}
         />
         <CardTile
           image={subjects.subject2.image}
-          imageTitle={subjects.subject2.imageTitle}
-          description={subjects.subject2.description}
           title={subjects.subject2.title}
           link={subjects.subject2.link}
           delay={subjects.subject2.delay}
         />
         <CardTile
           image={subjects.subject3.image}
-          imageTitle={subjects.subject3.imageTitle}
-          description={subjects.subject3.description}
           title={subjects.subject3.title}
           link={subjects.subject3.link}
           delay={subjects.subject3.delay}
@@ -120,24 +116,18 @@ export default function Categories() {
       <Grid container justify="center" alignContent="center">
         <CardTile
           image={subjects.subject4.image}
-          imageTitle={subjects.subject4.imageTitle}
-          description={subjects.subject4.description}
           title={subjects.subject4.title}
           link={subjects.subject4.link}
           delay={subjects.subject4.delay}
         />
         <CardTile
           image={subjects.subject5.image}
-          imageTitle={subjects.subject5.imageTitle}
-          description={subjects.subject5.description}
           title={subjects.subject5.title}
           link={subjects.subject5.link}
           delay={subjects.subject5.delay}
         />
         <CardTile
           image={subjects.subject6.image}
-          imageTitle={subjects.subject6.imageTitle}
-          description={subjects.subject6.description}
           title={subjects.subject6.title}
           link={subjects.subject6.link}
           delay={subjects.subject6.delay}

@@ -4,8 +4,8 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: white;
-  color: black;
+  background-color: #f7f7f7;
+  color: #383838;
   text-align: center;
   /* height: 11vh; */
   display: flex;
@@ -14,11 +14,11 @@
   align-items: center;
   border-top: 1px solid #e4e4e4;
   /* border-top: 1px solid #aaa6a6; */
-  height: 8rem;
+  height: 5rem;
 }
 
 .footeritem {
-  flex: 0.5;
+  margin: 0px 5px 0px 20px;
 }
 
 .footeritemlogo {
@@ -26,7 +26,7 @@
 }
 
 .footerspacer {
-  flex: 8;
+  flex: 3;
 }
 
 .link {

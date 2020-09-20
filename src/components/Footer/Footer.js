@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
+import Box from "@material-ui/core/Box";
+
 import fb from "../../img/icons/facebook.png";
 import gmail from "../../img/icons/gmail.png";
 import github from "../../img/icons/github.png";
-
-import "./footer.css";
 
 import "./footer.css";
 
@@ -27,14 +27,16 @@ export default function Footer(props) {
             <img src={github} alt="github logo"></img>
           </a>
         </div>
+
         <div className="footeritem">
           <a href="/">
             <img src={gmail} alt="github logo"></img>
           </a>
         </div>
-
-        <div className="footerspacer"></div>
-
+        <Box
+          display={{ xs: "none", md: "block" }}
+          className="footerspacer"
+        ></Box>
         <div className="footeritemlogo">
           <a className="link" href="/">
             Terms
