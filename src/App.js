@@ -25,10 +25,10 @@ function App() {
           <Route path="/quiz" component={Questions} />
           {/* <Route path="*" component={Notfound} /> */}
         </Switch>
-        <Footer position="relative" />
       </BrowserRouter>
     </div>
   );
 }
 
 export default App;
+// <Footer position="relative" />

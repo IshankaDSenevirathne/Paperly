@@ -3,10 +3,11 @@ html {
 }
 .landing {
   background-image: url("./img/frontCover2.jpg");
-  height: 450px;
+  height: 600px;
   width: 100%;
 }
 .content {
+  text-align: center;
   padding: 10 0 20 0;
   margin-left: 7%;
   margin-right: 7%;

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Sun from "../../../img/sun.png";
+import { Typography } from "@material-ui/core";
 
 export default function HeadLine() {
   return (
@@ -16,13 +16,12 @@ export default function HeadLine() {
     >
       <div
         style={{
-          color: "#767676",
+          color: "#383838",
         }}
-        data-aos="fade-down"
-        data-aos-duration="1000"
       >
-        <img src={Sun}></img>
         <h3>Quote of the day</h3>
+      </div>
+      <div style={{ color: "#B2B2B2" }}>
         <h4>
           It’s not that I’m so smart, it’s just that I stay with problems longer
           - Albert Einstein

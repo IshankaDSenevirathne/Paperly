@@ -1,0 +1,15 @@
+.tile_link {
+  text-decoration: none;
+}
+
+.tile div {
+  border-left: 5px solid whitesmoke;
+  transition: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.tile img {
+  border: 2px solid whitesmoke;
+}
+.tile:hover div {
+  border-left: 5px solid #1fa2ff;
+}

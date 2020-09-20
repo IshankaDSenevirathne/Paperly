@@ -1,0 +1,7 @@
+.link_item {
+  color: grey;
+  text-decoration: none;
+}
+.link_item:hover {
+  color: #383838;
+}

@@ -11,10 +11,10 @@ import Announcement from "@material-ui/icons/Announcement";
 const navTheme = createMuiTheme({
   palette: {
     primary: {
-      main: "#469E84",
+      main: "#1fa2ff",
     },
     text: {
-      secondary: "#AFAFAF",
+      secondary: "#383838",
     },
   },
 });
@@ -24,8 +24,8 @@ const styles = {
     position: "sticky",
     top: 0,
     zIndex: 99,
-    borderBottom: "1px solid #E6E6E6",
-    backgroundColor: "#383838",
+    borderBottom: "1px solid #e4e4e4",
+    backgroundColor: "#F8F8F8",
   },
 };
 
