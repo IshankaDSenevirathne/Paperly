@@ -21,6 +21,7 @@ import gmail from "../../img/icons/gmail.png";
 import Icon from "@material-ui/core/Icon";
 import Slide from "../Slide/Slide";
 import SlideImg from "../Slide/slidehomeimages";
+import Categories from "./subject/subjecttiles";
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -125,7 +126,6 @@ export default function Album() {
           </Typography>
         </Toolbar>
       </AppBar>
-
       <div>
         <div className={classes.heroContent}>
           <Container style={{ marginLeft: "2%" }} maxWidth="sm">
@@ -163,7 +163,8 @@ export default function Album() {
             <Slide />
           </Container>
         </div>
-      </div>
+      </div>{" "}
+      <Categories />
       <Container className={classes.cardGrid} maxWidth="md">
         <Container style={{ textAlign: "center", paddingBottom: "1rem" }}>
           <Typography style={{ color: "#1FA2FF" }} variant="h4" color="inherit">
@@ -182,7 +183,6 @@ export default function Album() {
 
         {/* End hero unit */}
       </Container>
-
       <footer className={classes.footer}>
         <div className="footerdiv">
           <div className="footerinner">
