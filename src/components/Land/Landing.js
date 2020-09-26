@@ -164,7 +164,9 @@ export default function Album() {
           </Container>
         </div>
       </div>{" "}
-      <Categories />
+      <div className="content">
+        <Categories />
+      </div>
       <Container className={classes.cardGrid} maxWidth="md">
         <Container style={{ textAlign: "center", paddingBottom: "1rem" }}>
           <Typography style={{ color: "#1FA2FF" }} variant="h4" color="inherit">

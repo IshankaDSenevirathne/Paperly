@@ -6,9 +6,7 @@ import "aos/dist/aos.css";
 
 import Navbar from "./components/navbar/navbar";
 // import Landing from "./components/Landing/Landing";
-import SurveyPages from "./components/SurveyPages/SurveyPages";
 import QuizesPage from "./components/QuizesPage/QuizesPage";
-import Questions from "./components/questions/questions";
 import Footer from "./components/Footer/Footer";
 import Landing from "./components/Land/Landing";
 import Tos from "./components/tos/tos";
@@ -22,9 +20,7 @@ function App() {
         {/* <Navbar /> */}
         <Switch>
           <Route exact path="/" component={Landing} />
-          <Route exact path="/survey" component={SurveyPages} />
           <Route path="/quizes" component={QuizesPage} />
-          <Route path="/quiz" component={Questions} />
           <Route path="/terms" component={Tos} />
           {/* <Route path="*" component={Notfound} /> */}
         </Switch>

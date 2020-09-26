@@ -3,9 +3,10 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
 import Grid from "@material-ui/core/Grid";
-import { Check, Clear } from "@material-ui/icons";
+
+import Correct from "../../img/correct.png";
+import Wrong from "../../img/wrong.png";
 import { green, red } from "@material-ui/core/colors";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -47,7 +48,7 @@ export default function ResultTemp(props) {
             </Grid>
             <Grid item>
               <div style={{ textAlign: "left" }}>
-                <Check fontSize="large" style={{ color: green[500] }} />
+                <img src={Correct}></img>
               </div>
             </Grid>
           </Grid>
@@ -113,7 +114,7 @@ export default function ResultTemp(props) {
             </Grid>
             <Grid item>
               <div style={{ textAlign: "left" }}>
-                <Clear fontSize="large" style={{ color: red[500] }} />
+                <img src={Wrong}></img>
               </div>
             </Grid>
           </Grid>

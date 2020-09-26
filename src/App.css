@@ -9,8 +9,29 @@ html {
 .content {
   text-align: center;
   padding: 10 0 20 0;
-  margin-left: 7%;
-  margin-right: 7%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+@media (max-width: 768px) {
+  .content {
+    text-align: center;
+    padding: 10 0 20 0;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+.evaluation {
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: 20px 30px 20px 30px;
+  text-transform: uppercase;
+}
+@media (max-width: 768px) {
+  .evaluation {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
 }
 .sv-btn {
   padding: 0.1em 1.786em 0.6em !important;

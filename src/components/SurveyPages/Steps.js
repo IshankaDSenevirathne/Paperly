@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import QuizList from "./QuizList";
 import QuizTemp from "./QuizTemp";
 import Results from "./Results";
+import Review from "./Review";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
@@ -44,7 +45,12 @@ const theme = createMuiTheme({
 });
 
 function getSteps() {
-  return ["Select", "Exam", "Results"];
+  return [
+    "SELECT PAPER",
+    "ANSWER THE QUESTIONS",
+    "EVALUATE YOUR ANSWERS",
+    "REVIEW YOUR ANSWERS",
+  ];
 }
 
 export default function Steps(props) {
@@ -53,6 +59,7 @@ export default function Steps(props) {
   const [activePaper, setActivePaper] = useState(undefined);
   const [activeQuestions, setActiveQuestions] = useState(undefined);
   const [activeAnswers, setActiveAnswers] = useState([]);
+  const [timeSpent, setTimeSpent] = useState(120 * 60);
   const steps = getSteps();
 
   const { papersList, subject } = props;
@@ -86,6 +93,10 @@ export default function Steps(props) {
     // console.log(answers);
     setActiveAnswers(answers);
   };
+  const getTimeSpent = (timeSpent) => {
+    // console.log(answers);
+    setTimeSpent(timeSpent);
+  };
   return (
     <div className={classes.root}>
       <ThemeProvider theme={theme}>
@@ -106,6 +117,7 @@ export default function Steps(props) {
             <div>
               <QuizTemp
                 getAnswers={getAnswers}
+                getTimeSpent={getTimeSpent}
                 questions={activeQuestions}
                 paper={activePaper}
               />
@@ -115,6 +127,16 @@ export default function Steps(props) {
         <div>
           {activeStep == 2 && (
             <Results
+              paper={activePaper}
+              questions={activeQuestions}
+              answers={activeAnswers}
+              timeSpent={timeSpent}
+            />
+          )}
+        </div>
+        <div>
+          {activeStep == 3 && (
+            <Review
               paper={activePaper}
               questions={activeQuestions}
               answers={activeAnswers}
