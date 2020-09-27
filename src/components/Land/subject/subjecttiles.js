@@ -3,12 +3,18 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 
 import CardTile from "./CardTile";
-import Physics from "../../../img/atom.svg";
-import Biology from "../../../img/dna.svg";
-import Chemistry from "../../../img/flask.svg";
-import iT from "../../../img/cloud.svg";
-import Mathematics from "../../../img/function.svg";
-import Economics from "../../../img/economics.svg";
+// import Physics from "../../../img/atom.svg";
+// import Biology from "../../../img/dna.svg";
+// import Chemistry from "../../../img/flask.svg";
+// import iT from "../../../img/cloud.svg";
+// import Mathematics from "../../../img/function.svg";
+// import Economics from "../../../img/economics.svg";
+import Physics from "../../../img/physics.png";
+import Biology from "../../../img/biology.png";
+import Chemistry from "../../../img/chemistry.png";
+import iT from "../../../img/IT.png";
+import Mathematics from "../../../img/maths.png";
+import Marketing from "../../../img/marketing.png";
 
 const subjects = {
   subject1: {
@@ -62,14 +68,14 @@ const subjects = {
     link: "it",
   },
   subject6: {
-    image: `${Economics}`,
-    title: "Economics",
-    imageTitle: "Economics",
+    image: `${Marketing}`,
+    title: "Marketing",
+    imageTitle: "Marketing",
     description: `
         Lizards are a widespread group of squamate reptiles, with over
         6,000 species, ranging across all continents except Antarctica`,
     delay: "1000",
-    link: "Economics",
+    link: "Marketing",
   },
 };
 export default function Categories() {

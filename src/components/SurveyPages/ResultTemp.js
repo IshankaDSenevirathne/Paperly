@@ -3,16 +3,18 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
 import Grid from "@material-ui/core/Grid";
-import { Check, Clear } from "@material-ui/icons";
-import { green, red } from "@material-ui/core/colors";
+
+import CheckCircleOutlineOutlined from "@material-ui/icons/CheckCircleOutlineOutlined";
+import CancelOutlined from "@material-ui/icons/CancelOutlined";
+
+import { teal } from "@material-ui/core/colors";
 import { withStyles } from "@material-ui/core/styles";
 
 const GreenRadio = withStyles({
   root: {
     "&$checked": {
-      color: green[500],
+      color: teal["A400"],
     },
   },
   checked: {},
@@ -47,7 +49,7 @@ export default function ResultTemp(props) {
             </Grid>
             <Grid item>
               <div style={{ textAlign: "left" }}>
-                <Check fontSize="large" style={{ color: green[500] }} />
+                <CheckCircleOutlineOutlined style={{ color: teal["A400"] }} />
               </div>
             </Grid>
           </Grid>
@@ -113,7 +115,7 @@ export default function ResultTemp(props) {
             </Grid>
             <Grid item>
               <div style={{ textAlign: "left" }}>
-                <Clear fontSize="large" style={{ color: red[500] }} />
+                <CancelOutlined style={{ color: "#F86E6E" }} />
               </div>
             </Grid>
           </Grid>

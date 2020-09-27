@@ -8,7 +8,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 
-import Physics from "../../img/Physics2.png";
+import Physics from "../../img/physics.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,7 +47,17 @@ export default function QuizList(props) {
 
   return (
     <Grid container direction="row" justify="center" alignItems="center">
-      <div style={{ paddingBottom: "50px", paddingTop: "30px" }}>
+      <div style={{ paddingBottom: "10px", paddingTop: "30px" }}>
+        <div
+          style={{
+            paddingBottom: "50px",
+            paddingTop: "30px",
+            color: "#616A6B",
+          }}
+        >
+          <h1>PHYSICS</h1>
+          <img src={Physics}></img>
+        </div>
         <div className={classes.root}>
           <List component="nav" aria-label="Device settings">
             <ListItem
@@ -81,8 +91,6 @@ export default function QuizList(props) {
           </Menu>
         </div>
         <div style={{ color: "#B2B2B2" }}>
-          <img src={Physics}></img>
-          <br></br>
           <h5>Select a past paper and click Next to start the exam</h5>
         </div>
       </div>

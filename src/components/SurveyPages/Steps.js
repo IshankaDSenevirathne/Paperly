@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import QuizList from "./QuizList";
 import QuizTemp from "./QuizTemp";
 import Results from "./Results";
+import Review from "./Review";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginRight: theme.spacing(1),
     marginLeft: theme.spacing(1),
+    color: "whitesmoke",
     "&:hover": {
       backgroundColor: lightBlue[400],
       color: "white",
@@ -44,7 +46,7 @@ const theme = createMuiTheme({
 });
 
 function getSteps() {
-  return ["Select", "Exam", "Results"];
+  return ["CHOOSE", "ANSWER", "EVALUATE", "REVIEW"];
 }
 
 export default function Steps(props) {
@@ -53,6 +55,8 @@ export default function Steps(props) {
   const [activePaper, setActivePaper] = useState(undefined);
   const [activeQuestions, setActiveQuestions] = useState(undefined);
   const [activeAnswers, setActiveAnswers] = useState([]);
+  const [timeSpentForEach, setTimeSpentForEach] = useState([]);
+  const [timeSpent, setTimeSpent] = useState(120 * 60);
   const steps = getSteps();
 
   const { papersList, subject } = props;
@@ -82,20 +86,28 @@ export default function Steps(props) {
   const setPaper = (index) => {
     setActivePaper(papersList[index]);
   };
-  const getAnswers = (answers) => {
+  const getAnswers = (answers, timeSpentForEach) => {
     // console.log(answers);
     setActiveAnswers(answers);
+    setTimeSpentForEach(timeSpentForEach);
+  };
+  const getTimeSpent = (timeSpent) => {
+    // console.log(answers);
+    setTimeSpent(timeSpent);
   };
   return (
     <div className={classes.root}>
       <ThemeProvider theme={theme}>
-        <Stepper activeStep={activeStep} alternativeLabel>
-          {steps.map((label) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          ))}
-        </Stepper>
+        <div className="content">
+          <Stepper activeStep={activeStep} alternativeLabel>
+            {steps.map((label) => (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+        </div>
+
         <div>
           {activeStep == 0 && (
             <QuizList papersList={papersList} setPaper={setPaper} />
@@ -106,6 +118,7 @@ export default function Steps(props) {
             <div>
               <QuizTemp
                 getAnswers={getAnswers}
+                getTimeSpent={getTimeSpent}
                 questions={activeQuestions}
                 paper={activePaper}
               />
@@ -118,6 +131,18 @@ export default function Steps(props) {
               paper={activePaper}
               questions={activeQuestions}
               answers={activeAnswers}
+              timeSpent={timeSpent}
+            />
+          )}
+        </div>
+        <div>
+          {activeStep == 3 && (
+            <Review
+              paper={activePaper}
+              questions={activeQuestions}
+              answers={activeAnswers}
+              totalTimeSpent={timeSpent}
+              timeSpentForEach={timeSpentForEach}
             />
           )}
         </div>

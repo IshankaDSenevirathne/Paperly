@@ -14,6 +14,8 @@ import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 
+import Timer from "./Timer/Timer";
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(5),
@@ -31,10 +33,14 @@ const useStyles = makeStyles((theme) => ({
 export default function QuizTemp(props) {
   const classes = useStyles();
 
-  const { paper, questions, getAnswers } = props;
+  const answersHolder = [0, 0, 0];
+  const timeHolder = ["", "", ""];
 
+  const { paper, questions, getAnswers, getTimeSpent } = props;
   const [activeQuestion, setActiveQuestion] = React.useState(0);
-  const [answers, setAnswers] = React.useState([]);
+  const [answers, setAnswers] = React.useState(answersHolder);
+  const [timeSpent, setTimeSpent] = React.useState(timeHolder);
+  const [startingTime, setStartingTime] = React.useState(new Date().getTime());
   const [value, setValue] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const [severity, setSeverityType] = React.useState("info");
@@ -43,11 +49,14 @@ export default function QuizTemp(props) {
   const handleRadioChange = (event) => {
     const answer = event.target.value;
     setValue(answer);
-    setAnswers((answers) => [...answers, answer]);
+    setAnswers((answers) => {
+      answers[activeQuestion] = answer;
+      return answers;
+    });
   };
   React.useEffect(() => {
-    getAnswers(answers);
-  }, [answers]);
+    getAnswers(answers, timeSpent);
+  }, [answers, getAnswers]);
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!value) {
@@ -58,7 +67,7 @@ export default function QuizTemp(props) {
       setOpen(true);
       setSeverityType("success");
       setAlertText("Your answer is correct!");
-    } else if (value && value != questions[activeQuestion].correctAnswer) {
+    } else if (value && value !== questions[activeQuestion].correctAnswer) {
       setOpen(true);
       setSeverityType("error");
       setAlertText("Sorry, your answer is incorrect!");
@@ -74,13 +83,32 @@ export default function QuizTemp(props) {
   };
   const handlePageChange = (event, page) => {
     const q = page - 1;
+    const endingTime = new Date().getTime();
+    setTimeSpent((timeSpent) => {
+      const timeDiffInSec = Math.round((endingTime - startingTime) / 1000) % 60;
+      timeSpent[activeQuestion] = timeSpent[activeQuestion] + timeDiffInSec;
+      return timeSpent;
+    });
+
+    if (answers[q] != "") {
+      setValue(answers[q]);
+    } else {
+      setValue(null);
+    }
     setActiveQuestion(q);
+    setStartingTime(new Date().getTime());
   };
 
   return (
     <div>
-      <div style={{ color: "#5D6D7E", textTransform: "uppercase" }}>
-        <h2>{paper}</h2>
+      <div
+        style={{
+          color: "#616A6B",
+          textTransform: "uppercase",
+          paddingTop: "60px",
+        }}
+      >
+        <h1>{paper}</h1>
       </div>
       <div style={{ textAlign: "left" }}>
         <form onSubmit={handleSubmit}>
@@ -92,6 +120,8 @@ export default function QuizTemp(props) {
               alignItems="flex-start"
             >
               <FormLabel component="legend">
+                <Timer getTimeSpent={getTimeSpent} />
+
                 <h3>
                   {activeQuestion + 1} ) {questions[activeQuestion].title}
                 </h3>
@@ -144,6 +174,7 @@ export default function QuizTemp(props) {
         </form>
       </div>
       <div>
+        <hr></hr>
         <Grid container direction="row" justify="center" alignItems="center">
           <div className={classes.root}>
             <Pagination
