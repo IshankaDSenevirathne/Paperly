@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import CameraIcon from "@material-ui/icons/PhotoCamera";
@@ -22,6 +22,10 @@ import Icon from "@material-ui/core/Icon";
 import Slide from "../Slide/Slide";
 import SlideImg from "../Slide/slidehomeimages";
 import Categories from "./subject/subjecttiles";
+import Box from "@material-ui/core/Box";
+import Paper from "@material-ui/core/Paper";
+import VisibilitySensor from "react-visibility-sensor";
+import Statsbar from "./Statsbar/statsbar";
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -45,6 +49,9 @@ function Copyright() {
 
 const gradient =
   "linear-gradient(98deg, rgba(31,162,255,0.5085609243697479) 0%, rgba(18,216,250,0.002931547619047619) 100%)";
+
+const gradientstatbar =
+  "linear-gradient(98deg, rgba(31,162,255,0.5085609243697479) 0%, rgba(18,216,250,0.2931547619047619) 100%)";
 // linear-gradient(90deg,#271066,rgba(39,16,102,0) 85%,rgba(39,16,102,0) 0,#271066)
 
 const useStyles = makeStyles((theme) => ({
@@ -96,6 +103,19 @@ const useStyles = makeStyles((theme) => ({
     //     ? theme.palette.grey[200]
     //     : theme.palette.grey[800],
   },
+  paper: {
+    height: 200,
+    width: 200,
+    textAlign: "center",
+    // position: "sticky",
+    background: "#1fa2ff",
+    color: "#ffffff",
+  },
+  statbar: {
+    padding: "3rem",
+    // backgroundImage: `${gradientstatbar}`,
+    background: "rgb(245, 245, 245)",
+  },
 }));
 
 const WhiteTextTypography = withStyles({
@@ -106,6 +126,7 @@ const WhiteTextTypography = withStyles({
 
 export default function Album() {
   const classes = useStyles();
+  const [counterVisible, setcounterVisible] = useState(false);
 
   return (
     <div className={classes.root}>
@@ -183,22 +204,30 @@ export default function Album() {
 
         {/* End hero unit */}
       </Container>
+      <VisibilitySensor
+        onChange={(e) => {
+          if (e) {
+            setcounterVisible(true);
+          }
+        }}
+      >
+        <div className="scrollvisibile"></div>
+      </VisibilitySensor>
+      <Statsbar counterVisible={counterVisible} />
       <footer className={classes.footer}>
         <div className="footerdiv">
           <div className="footerinner">
             <Copyright />
-            <Divider style={{ margin: "24px auto", width: 600 }} />
+            <Divider style={{ margin: "24px auto", width: "60%" }} />
             <Grid
               container
               justify={"center"}
               alignItems={"center"}
               spacing={0}
             >
-              <Grid item xs={12} sm={6} md={3}>
-                <a href="/">
-                  <i class=" icons fa-3x fab fa-github"></i>
-                </a>
-              </Grid>
+              <a href="/">
+                <i class=" icons fa-3x fab fa-github"></i>
+              </a>
 
               <Grid item xs={12} sm={6} md={3}>
                 <a className="linkanchor" href="/terms">
@@ -212,11 +241,10 @@ export default function Album() {
                   </WhiteTextTypography>
                 </a>
               </Grid>
-              <Grid item xs={12} sm={6} md={3}>
-                <a href="/">
-                  <i class="  icons fa-3x fab fa-facebook-f"></i>
-                </a>
-              </Grid>
+
+              <a href="/">
+                <i class="  icons fa-3x fab fa-facebook-f"></i>
+              </a>
             </Grid>{" "}
           </div>
         </div>
@@ -230,3 +258,42 @@ export default function Album() {
     </div>
   );
 }
+
+/*  Icons made by{" "}
+        <a
+          href="https://www.flaticon.com/authors/darius-dan"
+          title="Darius Dan"
+        >
+          Darius Dan
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          {" "}
+          www.flaticon.com
+        </a>
+        <div>
+          Icons made by{" "}
+          <a
+            href="https://www.flaticon.com/authors/vitaly-gorbachev"
+            title="Vitaly Gorbachev"
+          >
+            Vitaly Gorbachev
+          </a>{" "}
+          from{" "}
+          <a href="https://www.flaticon.com/" title="Flaticon">
+            www.flaticon.com
+          </a>
+          <div>
+            Icons made by{" "}
+            <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
+              Freepik
+            </a>{" "}
+            from{" "}
+            <a href="https://www.flaticon.com/" title="Flaticon">
+              www.flaticon.com
+            </a>
+          </div>
+          
+
+Icons made by <a href="https://www.flaticon.com/authors/wanicon" title="wanicon">wanicon</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+        </div> */

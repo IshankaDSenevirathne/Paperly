@@ -8,7 +8,7 @@ import Biology from "../../../img/dna.svg";
 import Chemistry from "../../../img/flask.svg";
 import iT from "../../../img/cloud.svg";
 import Mathematics from "../../../img/function.svg";
-import Marketing from "../../../img/chart.png";
+import Economics from "../../../img/economics.svg";
 
 const subjects = {
   subject1: {
@@ -62,14 +62,14 @@ const subjects = {
     link: "it",
   },
   subject6: {
-    image: `${Marketing}`,
-    title: "Marketing",
-    imageTitle: "Marketing",
+    image: `${Economics}`,
+    title: "Economics",
+    imageTitle: "Economics",
     description: `
         Lizards are a widespread group of squamate reptiles, with over
         6,000 species, ranging across all continents except Antarctica`,
     delay: "1000",
-    link: "marketing",
+    link: "Economics",
   },
 };
 export default function Categories() {
