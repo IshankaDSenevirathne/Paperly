@@ -33,11 +33,14 @@ const useStyles = makeStyles((theme) => ({
 export default function QuizTemp(props) {
   const classes = useStyles();
 
-  const answersHolder = ["", "", ""];
+  const answersHolder = [0, 0, 0];
+  const timeHolder = ["", "", ""];
 
   const { paper, questions, getAnswers, getTimeSpent } = props;
   const [activeQuestion, setActiveQuestion] = React.useState(0);
   const [answers, setAnswers] = React.useState(answersHolder);
+  const [timeSpent, setTimeSpent] = React.useState(timeHolder);
+  const [startingTime, setStartingTime] = React.useState(new Date().getTime());
   const [value, setValue] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const [severity, setSeverityType] = React.useState("info");
@@ -52,7 +55,7 @@ export default function QuizTemp(props) {
     });
   };
   React.useEffect(() => {
-    getAnswers(answers);
+    getAnswers(answers, timeSpent);
   }, [answers, getAnswers]);
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -80,13 +83,31 @@ export default function QuizTemp(props) {
   };
   const handlePageChange = (event, page) => {
     const q = page - 1;
-    setValue(null);
+    const endingTime = new Date().getTime();
+    setTimeSpent((timeSpent) => {
+      const timeDiffInSec = Math.round((endingTime - startingTime) / 1000) % 60;
+      timeSpent[activeQuestion] = timeSpent[activeQuestion] + timeDiffInSec;
+      return timeSpent;
+    });
+
+    if (answers[q] != "") {
+      setValue(answers[q]);
+    } else {
+      setValue(null);
+    }
     setActiveQuestion(q);
+    setStartingTime(new Date().getTime());
   };
 
   return (
     <div>
-      <div style={{ color: "#616A6B", textTransform: "uppercase" }}>
+      <div
+        style={{
+          color: "#616A6B",
+          textTransform: "uppercase",
+          paddingTop: "60px",
+        }}
+      >
         <h1>{paper}</h1>
       </div>
       <div style={{ textAlign: "left" }}>

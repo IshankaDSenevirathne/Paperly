@@ -14,15 +14,14 @@ import CheckCircleOutline from "@material-ui/icons/CheckCircleOutline";
 import AccessTime from "@material-ui/icons/AccessTime";
 import Divider from "@material-ui/core/Divider";
 
-import ResultTemp from "./ResultTemp";
-import Review from "../../img/review.png";
+import { teal } from "@material-ui/core/colors";
 
 const useStylesFacebook = makeStyles((theme) => ({
   root: {
     position: "relative",
   },
   bottom: {
-    color: "#EEEEEE",
+    color: theme.palette.grey[theme.palette.type === "light" ? 200 : 700],
   },
   top: {
     color: "primary",
@@ -64,7 +63,6 @@ function MyCircularProgress(props) {
         </Box>
         <CircularProgress
           variant="static"
-          disableShrink
           className={classes.top}
           classes={{
             circle: classes.circle,
@@ -91,6 +89,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Results(props) {
   const classes = useStyles();
   const { answers, questions, paper, timeSpent } = props;
+
   const evaluatedResults = (answers, questions, timeSpent) => {
     let correctAnswers = 0;
     const elapsedTime = 120 * 60 - timeSpent;
@@ -117,13 +116,12 @@ export default function Results(props) {
       }
     });
     const progress = Math.round((correctAnswers * 100) / 50);
-    console.log(progress);
     return (
       <div style={{ textAlign: "center" }}>
-        <div style={{ paddingBottom: "20px" }}>
+        <div style={{ paddingBottom: "20px", color: "#616A6B" }}>
           <h3>Evaluation</h3>
         </div>
-        <MyCircularProgress value={76} />
+        <MyCircularProgress value={progress} />
         <div
           style={{
             paddingLeft: "10%",
@@ -136,7 +134,7 @@ export default function Results(props) {
             <ListItem>
               <ListItemAvatar>
                 <Avatar style={{ backgroundColor: "#EEEEEE" }}>
-                  <CheckCircleOutline style={{ color: "#34EE9B" }} />
+                  <CheckCircleOutline style={{ color: teal["A400"] }} />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
@@ -166,7 +164,13 @@ export default function Results(props) {
 
   return (
     <div>
-      <div style={{ color: "#383838", textTransform: "uppercase" }}>
+      <div
+        style={{
+          color: "#616A6B",
+          textTransform: "uppercase",
+          paddingTop: "60px",
+        }}
+      >
         <h1>{paper}</h1>
       </div>
       <div className="evaluation">

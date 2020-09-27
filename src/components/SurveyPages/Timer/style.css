@@ -11,3 +11,16 @@
   border-radius: 10px;
   background-color: white;
 }
+.timeforquestion {
+  color: #1fa2ff;
+  display: inline-flex;
+  align-items: left;
+  justify-content: left;
+  font-size: 14px;
+  margin: 0;
+  border: 1px solid #1fa2ff;
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: white;
+}

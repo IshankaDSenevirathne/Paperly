@@ -50,21 +50,3 @@ export default function Timer(props) {
   };
   return <div>{countdown()}</div>;
 }
-
-// useEffect(() => {
-//   const interval = setInterval(() => {
-//     hours = Math.floor(time / 3600);
-//     const spentHours = hours * 60;
-//     minutes = Math.floor(time / 60 - spentHours);
-//     seconds = time % 60;
-//     setTime((time) => time--);
-//     minutes = minutes < 10 ? "0" + minutes : minutes;
-//     seconds = seconds < 10 ? "0" + seconds : seconds;
-//   }, 1000);
-//   return () => clearInterval(interval);
-// }, []);
-// return (
-//   <div className="countdown">
-//     {hours} : {minutes} : {seconds}
-//   </div>
-// );

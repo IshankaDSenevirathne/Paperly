@@ -48,7 +48,14 @@ export default function QuizList(props) {
   return (
     <Grid container direction="row" justify="center" alignItems="center">
       <div style={{ paddingBottom: "10px", paddingTop: "30px" }}>
-        <div style={{ paddingBottom: "50px", paddingTop: "30px" }}>
+        <div
+          style={{
+            paddingBottom: "50px",
+            paddingTop: "30px",
+            color: "#616A6B",
+          }}
+        >
+          <h1>PHYSICS</h1>
           <img src={Physics}></img>
         </div>
         <div className={classes.root}>
