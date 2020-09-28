@@ -19,6 +19,7 @@ import { teal } from "@material-ui/core/colors";
 const useStylesFacebook = makeStyles((theme) => ({
   root: {
     position: "relative",
+    padding: "10px 10px 10px 10px",
   },
   bottom: {
     color: theme.palette.grey[theme.palette.type === "light" ? 200 : 700],

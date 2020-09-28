@@ -21,8 +21,10 @@ import EmojiObjects from "@material-ui/icons/EmojiObjects";
 import StepConnector from "@material-ui/core/StepConnector";
 import Button from "@material-ui/core/Button";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
-import { lightBlue } from "@material-ui/core/colors";
+import { lightBlue, teal } from "@material-ui/core/colors";
 
 const useQontoStepIconStyles = makeStyles({
   root: {
@@ -167,6 +169,15 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
     marginLeft: theme.spacing(1),
   },
+  resetButton: {
+    marginRight: theme.spacing(1),
+    marginLeft: theme.spacing(1),
+    color: "whitesmoke",
+    "&:hover": {
+      backgroundColor: lightBlue[400],
+      color: "white",
+    },
+  },
   button: {
     marginRight: theme.spacing(1),
     marginLeft: theme.spacing(1),
@@ -190,26 +201,11 @@ const theme = createMuiTheme({
 
 function getSteps() {
   return [
-    "Select Pastpaper",
+    "Select a Pastpaper",
     "Answer the questions",
     "Evaluate your answers",
     "Review your results",
   ];
-}
-
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return "Select Pastpaper";
-    case 1:
-      return "Answer the questions";
-    case 2:
-      return "Evaluate your answers";
-    case 3:
-      return "Review your results";
-    default:
-      return "Unknown step";
-  }
 }
 
 export default function Steps(props) {
@@ -220,6 +216,10 @@ export default function Steps(props) {
   const [activeAnswers, setActiveAnswers] = useState([]);
   const [timeSpentForEach, setTimeSpentForEach] = useState([]);
   const [timeSpent, setTimeSpent] = useState(120 * 60);
+  const [checkLast, setCheckLast] = useState(false);
+  const [alert, setAlertText] = React.useState("Please select a exam!");
+  const [open, setOpen] = React.useState(false);
+
   const steps = getSteps();
 
   const { papersList, subject } = props;
@@ -236,27 +236,49 @@ export default function Steps(props) {
     setActiveQuestions(paper.content.pages);
   }, [activePaper, activeQuestions]);
   const handleNext = () => {
+    if (activePaper == undefined) {
+      setOpen(true);
+      setAlertText("Please select a exam!");
+      return;
+    }
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
   const handleBack = () => {
+    if (activeStep - 1 == 0) {
+      setActivePaper(undefined);
+    }
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   const handleReset = () => {
+    setActivePaper(undefined);
     setActiveStep(0);
+    setActiveAnswers([]);
+    setActiveQuestions(undefined);
+    setActiveAnswers([]);
+    setTimeSpentForEach([]);
+    setTimeSpent(120 * 60);
+    setCheckLast(false);
   };
 
   const setPaper = (index) => {
     setActivePaper(papersList[index]);
   };
-  const getAnswers = (answers, timeSpentForEach) => {
-    // console.log(answers);
+  const getAnswers = (answers, timeSpentForEach, checkLast) => {
+    setCheckLast(checkLast);
     setActiveAnswers(answers);
     setTimeSpentForEach(timeSpentForEach);
   };
   const getTimeSpent = (timeSpent) => {
-    // console.log(answers);
     setTimeSpent(timeSpent);
+  };
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      setOpen(false);
+      return;
+    }
+
+    setOpen(false);
   };
   return (
     <div className={classes.root}>
@@ -281,7 +303,11 @@ export default function Steps(props) {
 
         <div>
           {activeStep == 0 && (
-            <QuizList papersList={papersList} setPaper={setPaper} />
+            <QuizList
+              subject={subject}
+              papersList={papersList}
+              setPaper={setPaper}
+            />
           )}
         </div>
         <div>
@@ -323,13 +349,20 @@ export default function Steps(props) {
               <Typography className={classes.instructions}>
                 Past Paper Completed
               </Typography>
-              <Button onClick={handleReset}>Reset</Button>
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.resetButton}
+                onClick={handleReset}
+              >
+                Reset
+              </Button>
             </div>
           ) : (
             <div>
               <div>
                 <Button
-                  disabled={activeStep === 0}
+                  disabled={activeStep === 0 || activeStep == 2}
                   onClick={handleBack}
                   variant="outlined"
                   className={classes.backButton}
@@ -341,6 +374,7 @@ export default function Steps(props) {
                   color="primary"
                   onClick={handleNext}
                   className={classes.button}
+                  disabled={activeStep == 1 && !checkLast}
                 >
                   {activeStep === steps.length - 1 ? "Finish" : "Next"}
                 </Button>
@@ -349,14 +383,18 @@ export default function Steps(props) {
           )}
         </div>
       </ThemeProvider>
+      <div>
+        <Snackbar
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          open={open}
+          autoHideDuration={2000}
+          onClose={handleClose}
+        >
+          <MuiAlert elevation={6} variant="filled" severity="error">
+            {alert}
+          </MuiAlert>
+        </Snackbar>
+      </div>
     </div>
   );
 }
-
-// <Stepper activeStep={activeStep} alternativeLabel>
-// {steps.map((label) => (
-//   <Step key={label}>
-//     <StepLabel>{label}</StepLabel>
-//   </Step>
-// ))}
-// </Stepper>

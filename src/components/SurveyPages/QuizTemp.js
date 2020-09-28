@@ -42,6 +42,7 @@ export default function QuizTemp(props) {
   const [timeSpent, setTimeSpent] = React.useState(timeHolder);
   const [startingTime, setStartingTime] = React.useState(new Date().getTime());
   const [value, setValue] = React.useState(null);
+  const [checkLast, setCheckLast] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [severity, setSeverityType] = React.useState("info");
   const [alert, setAlertText] = React.useState("Please select an option!");
@@ -55,7 +56,7 @@ export default function QuizTemp(props) {
     });
   };
   React.useEffect(() => {
-    getAnswers(answers, timeSpent);
+    getAnswers(answers, timeSpent, checkLast);
   }, [answers, getAnswers]);
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -83,6 +84,7 @@ export default function QuizTemp(props) {
   };
   const handlePageChange = (event, page) => {
     const q = page - 1;
+
     const endingTime = new Date().getTime();
     setTimeSpent((timeSpent) => {
       const timeDiffInSec = Math.round((endingTime - startingTime) / 1000) % 60;
@@ -96,7 +98,12 @@ export default function QuizTemp(props) {
       setValue(null);
     }
     setActiveQuestion(q);
-    setStartingTime(new Date().getTime());
+    setStartingTime(endingTime);
+    if (page == 3) {
+      setCheckLast(true);
+    } else {
+      setCheckLast(false);
+    }
   };
 
   return (

@@ -9,6 +9,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 
 import Physics from "../../img/physics.png";
+import Chemistry from "../../img/chemistry.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +31,7 @@ export default function QuizList(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
-  const { papersList, setPaper } = props;
+  const { papersList, setPaper, subject } = props;
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -45,6 +46,17 @@ export default function QuizList(props) {
     setAnchorEl(null);
   };
 
+  const getImage = (subject) => {
+    switch (subject) {
+      case "physics":
+        return Physics;
+      case "chemistry":
+        return Chemistry;
+      default:
+        return;
+    }
+  };
+
   return (
     <Grid container direction="row" justify="center" alignItems="center">
       <div style={{ paddingBottom: "10px", paddingTop: "30px" }}>
@@ -53,10 +65,11 @@ export default function QuizList(props) {
             paddingBottom: "50px",
             paddingTop: "30px",
             color: "#616A6B",
+            textTransform: "uppercase",
           }}
         >
-          <h1>PHYSICS</h1>
-          <img src={Physics}></img>
+          <h1>{subject}</h1>
+          <img src={getImage(subject)}></img>
         </div>
         <div className={classes.root}>
           <List component="nav" aria-label="Device settings">
