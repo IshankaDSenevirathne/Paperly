@@ -2,7 +2,7 @@ html {
   scroll-behavior: smooth;
 }
 .landing {
-  background-image: url("./img/frontCover2.jpg");
+  /* background-image: url("./img/frontCover2.jpg"); */
   height: 600px;
   width: 100%;
 }
@@ -11,6 +11,10 @@ html {
   padding: 10 0 20 0;
   margin-left: 10%;
   margin-right: 10%;
+}
+.stepbar {
+  text-align: center;
+  padding: 10 0 20 0;
 }
 @media (max-width: 768px) {
   .content {
