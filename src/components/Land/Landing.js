@@ -26,26 +26,8 @@ import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
-
+import Footer from "./Footer/Footer";
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-function Copyright() {
-  return (
-    <WhiteTextTypography
-      style={{ fontSize: "1.2rem" }}
-      variant="body2"
-      color="textSecondary"
-      align="center"
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="/">
-        EduEra
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </WhiteTextTypography>
-  );
-}
 
 const gradient =
   "linear-gradient(98deg, rgba(31,162,255,0.5085609243697479) 0%, rgba(18,216,250,0.002931547619047619) 100%)";
@@ -216,47 +198,7 @@ export default function Album() {
         <div className="scrollvisibile"></div>
       </VisibilitySensor>
       <Statsbar counterVisible={counterVisible} />
-      <footer className={classes.footer}>
-        <div className="footerdiv">
-          <div className="footerinner">
-            <Copyright />
-            <Divider style={{ margin: "24px auto", width: "60%" }} />
-            <Grid
-              container
-              justify={"center"}
-              alignItems={"center"}
-              spacing={0}
-            >
-              <a href="/">
-                <i class=" icons fa-3x fab fa-github"></i>
-              </a>
-
-              <Grid item xs={12} sm={6} md={3}>
-                <a className="linkanchor" href="/terms">
-                  <WhiteTextTypography
-                    style={{ fontSize: "1.2rem" }}
-                    align={"center"}
-                    gutterBottom
-                    color={"textSecondary"}
-                  >
-                    Terms & Conditions{" "}
-                  </WhiteTextTypography>
-                </a>
-              </Grid>
-
-              <a href="/">
-                <i class="  icons fa-3x fab fa-facebook-f"></i>
-              </a>
-            </Grid>{" "}
-          </div>
-        </div>
-        {/* <Container maxWidth="sm">
-          <Typography variant="body1">
-            My sticky footer can be found here.
-          </Typography>
-          <Copyright />
-        </Container> */}
-      </footer>
+      <Footer />
     </div>
   );
 }
