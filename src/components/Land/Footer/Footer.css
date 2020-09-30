@@ -1,10 +1,32 @@
+.custom-shape-divider-top-1601399103 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1601399103 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 133px;
+  fill: #1fa2ff;
+}
+
+.custom-shape-divider-top-1601399103 .shape-fill {
+  /* fill: #ffffff; */
+}
+
 .site-footer {
   padding: 45px 0 20px;
-  background: linear-gradient(
+  /* background: linear-gradient(
     98deg,
     rgba(31, 162, 255, 0.9085609243697479) 0%,
     rgba(18, 216, 250, 0.8931547619047619) 100%
-  );
+  ); */
+  background: #1fa2ff;
   font-size: 15px;
   line-height: 24px;
   color: #fff;

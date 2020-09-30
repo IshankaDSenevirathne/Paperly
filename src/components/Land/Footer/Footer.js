@@ -32,118 +32,123 @@ const Footer = () => {
   const classes = useStyles();
 
   return (
-    <footer className="site-footer">
-
-<div class="custom-shape-divider-top-1601395340">
-
-</div>
-
-      <Container>
+    <div class="custom-shape-divider-top-1601399103">
+      <svg
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+        // fill="#1fa2ff"
+        transform="rotate(180)"
+      >
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+          class="shape-fill"
+        ></path>
+      </svg>
+      <footer className="site-footer">
         <Container>
-          <div className="row">
-            <Grid sm="12" md="6">
-              <h6>We try to make awesome software</h6>
-              {/* <p className="text-justify">
-                Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative
-                to help the upcoming programmers with the code. Scanfcode
-                focuses on providing the most efficient code or snippets as the
-                code wants to be simple. We will help programmers build up
+          <Container>
+            <div className="row">
+              <Grid sm="12" md="6">
+                <h6>We try to make awesome software</h6>
+                {/* <p className="text-justify">   
                 concepts in different programming languages that include C, C++,
                 Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and
                 Algorithm.
               </p> */}
-            </Grid>
-            <Grid xs="0" md="3"></Grid>
-            {/* <Grid xs="6" md="3">
+              </Grid>
+              <Grid xs="0" md="3"></Grid>
+              {/* <Grid xs="6" md="3">
               <h6>Categories</h6>
               <ul className="footer-links">
                 <li>
-                  <a  href="http://scanfcode.com/category/c-language/">C</a>
+                  <a  href="c-language/">C</a>
                 </li>
                 <li>
-                  <a href="http://scanfcode.com/category/front-end-development/">
+                  <a href="front-end-development/">
                     UI Design
                   </a>
                 </li>
                 <li>
-                  <a href="http://scanfcode.com/category/back-end-development/">
+                  <a href="back-end-development/">
                     PHP
                   </a>
                 </li>
                 <li>
-                  <a href="http://scanfcode.com/category/java-programming-language/">
+                  <a href="java-programming-language/">
                     Java
                   </a>
                 </li>
                 <li>
-                  <a href="http://scanfcode.com/category/android/">Android</a>
+                  <a href="android/">Android</a>
                 </li>
                 <li>
-                  <a href="http://scanfcode.com/category/templates/">
+                  <a href="templates/">
                     Templates
                   </a>
                 </li>
               </ul>
             </Grid> */}
 
-            <Grid xs="6" md="3">
-              <h6>Quick Links</h6>
-              <ul className="footer-links">
-                <li>
-                  <a href="http://scanfcode.com/about/">About Us</a>
-                </li>
-                <li>
-                  <a href="http://scanfcode.com/contact/">Contact Us</a>
-                </li>
-                <li>
-                  <a href="/terms">Terms of Service</a>
-                </li>
-              </ul>
-            </Grid>
-            <Divider
-              style={{
-                marginTop: "24px",
-                marginBottom: "24px",
-                width: "100%",
-                backgroundColor: "#ffffff",
-                borderTopColor: "#bbb",
-                opacity: "0.5",
-                paddingLeft: "0 !important",
-                paddingRight: "0",
-              }}
-            />
-          </div>
-        </Container>
+              <Grid xs="6" md="3">
+                <h6>Quick Links</h6>
+                <ul className="footer-links">
+                  <li>
+                    <a href="/about">About Us</a>
+                  </li>
+                  <li>
+                    <a href="/contact">Contact Us</a>
+                  </li>
+                  <li>
+                    <a href="/terms">Terms of Service</a>
+                  </li>
+                </ul>
+              </Grid>
+              <Divider
+                style={{
+                  marginTop: "24px",
+                  marginBottom: "24px",
+                  width: "100%",
+                  backgroundColor: "#ffffff",
+                  borderTopColor: "#bbb",
+                  opacity: "0.5",
+                  paddingLeft: "0 !important",
+                  paddingRight: "0",
+                }}
+              />
+            </div>
+          </Container>
 
-        <Container>
-          <div className="row">
-            <Grid container alignItems="center" md="8" sm="6" xs="12">
-              <p className="copyright-text">
-                Copyright &copy; {new Date().getFullYear()}{" "}
-                <a href="#">EduEra LLC</a>.
-              </p>
-            </Grid>
+          <Container>
+            <div className="row">
+              <Grid container alignItems="center" md="8" sm="6" xs="12">
+                <p className="copyright-text">
+                  Copyright &copy; {new Date().getFullYear()}{" "}
+                  <a href="#">EduEra LLC</a>.
+                </p>
+              </Grid>
 
-            <Grid md="4" sm="6" xs="12">
-              <ul className="social-icons">
-                <li>
-                  <a className="facebook" href="#">
-                    <i className="fa icon-footer fa-facebook"></i>
-                    {/* <i className="fab fa-facebook-f"></i> */}
-                  </a>
-                </li>
-                <li>
-                  <a className="facebook" href="#">
-                    {/* <i className="fa icon-footer fa-facebook"></i> */}
-                    <i className="fa icon-footer fa-github"></i>
-                  </a>
-                </li>
-                <li>
-                  <a className="twitter" href="#">
-                    <i className="fa icon-footer fa-twitter"></i>
-                  </a>
-                </li>
-                {/* <li>
+              <Grid md="4" sm="6" xs="12">
+                <ul className="social-icons">
+                  <li>
+                    <a className="facebook" href="#">
+                      <i className="fa icon-footer fa-facebook"></i>
+                      {/* <i className="fab fa-facebook-f"></i> */}
+                    </a>
+                  </li>
+                  <li>
+                    <a className="facebook" href="#">
+                      {/* <i className="fa icon-footer fa-facebook"></i> */}
+                      <i className="fa icon-footer fa-github"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a className="twitter" href="#">
+                      <i className="fa icon-footer fa-twitter"></i>
+                    </a>
+                  </li>
+                  {/* <li>
                   <a className="twitter" href="#">
                     <i className="fa fa-twitter"></i>
                   </a>
@@ -158,12 +163,13 @@ const Footer = () => {
                     <i className="fa fa-linkedin"></i>
                   </a>
                 </li> */}
-              </ul>
-            </Grid>
-          </div>
+                </ul>
+              </Grid>
+            </div>
+          </Container>
         </Container>
-      </Container>
-    </footer>
+      </footer>{" "}
+    </div>
   );
 };
 export default Footer;
@@ -182,12 +188,12 @@ export default Footer;
           <div class="col-xs-6 col-md-3">
             <h6>Categories</h6>
             <ul class="footer-links">
-              <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
-              <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
-              <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
-              <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
-              <li><a href="http://scanfcode.com/category/android/">Android</a></li>
-              <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
+              <li><a href="c-language/">C</a></li>
+              <li><a href="front-end-development/">UI Design</a></li>
+              <li><a href="back-end-development/">PHP</a></li>
+              <li><a href="java-programming-language/">Java</a></li>
+              <li><a href="android/">Android</a></li>
+              <li><a href="templates/">Templates</a></li>
             </ul>
           </div>
 
