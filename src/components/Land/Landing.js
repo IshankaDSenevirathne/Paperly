@@ -16,26 +16,23 @@ import SlideImg from "../Slide/slidehomeimages";
 import Categories from "./subject/subjecttiles";
 import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
+import Footer from "./Footer/Footer";
+import Navbar from "../Navbar/Navbar";
+
+import PropTypes from "prop-types";
+
+// import Toolbar from '@material-ui/core/Toolbar';
+// import Typography from '@material-ui/core/Typography';
+// import { makeStyles } from '@material-ui/core/styles';
+// import CssBaseline from '@material-ui/core/CssBaseline';
+import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+// import Box from '@material-ui/core/Box';
+// import Container from '@material-ui/core/Container';
+import Fab from "@material-ui/core/Fab";
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import Zoom from "@material-ui/core/Zoom";
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-function Copyright() {
-  return (
-    <WhiteTextTypography
-      style={{ fontSize: "1.2rem" }}
-      variant="body2"
-      color="textSecondary"
-      align="center"
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="/">
-        EduEra
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </WhiteTextTypography>
-  );
-}
 
 const gradient =
   "linear-gradient(98deg, rgba(31,162,255,0.5085609243697479) 0%, rgba(18,216,250,0.002931547619047619) 100%)";
@@ -52,6 +49,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     minHeight: "100vh",
+  },
+  rootsroll: {
+    position: "fixed",
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
   },
 
   // https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80
@@ -114,14 +116,62 @@ const WhiteTextTypography = withStyles({
   },
 })(Typography);
 
-export default function Album() {
+function ScrollTop(props) {
+  const { children, window } = props;
+  const classes = useStyles();
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+    disableHysteresis: true,
+    threshold: 100,
+  });
+
+  const handleClick = (event) => {
+    const anchor = (event.target.ownerDocument || document).querySelector(
+      "#back-to-top-anchor"
+    );
+
+    console.log("go to tp");
+    console.log(anchor);
+
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
+  return (
+    <Zoom in={trigger}>
+      <div
+        onClick={handleClick}
+        role="presentation"
+        className={classes.rootsroll}
+      >
+        {children}
+      </div>
+    </Zoom>
+  );
+}
+
+ScrollTop.propTypes = {
+  children: PropTypes.element.isRequired,
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window: PropTypes.func,
+};
+
+export default function Album(props) {
   const classes = useStyles();
   const [counterVisible, setcounterVisible] = useState(false);
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar
+      <Navbar />
+      {/* <AppBar
         style={{ backgroundColor: "#ffffff", align: "center" }}
         position="relative"
       >
@@ -136,9 +186,9 @@ export default function Album() {
             EduEra
           </Typography>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
       <div>
-        <div className={classes.heroContent}>
+        <div id="back-to-top-anchor" className={classes.heroContent}>
           <Container style={{ marginLeft: "2%" }} maxWidth="sm">
             <WhiteTextTypography
               component="h1"
@@ -206,47 +256,16 @@ export default function Album() {
         <div className="scrollvisibile"></div>
       </VisibilitySensor>
       <Statsbar counterVisible={counterVisible} />
-      <footer className={classes.footer}>
-        <div className="footerdiv">
-          <div className="footerinner">
-            <Copyright />
-            <Divider style={{ margin: "24px auto", width: "60%" }} />
-            <Grid
-              container
-              justify={"center"}
-              alignItems={"center"}
-              spacing={0}
-            >
-              <a href="/">
-                <i class=" icons fa-3x fab fa-github"></i>
-              </a>
-
-              <Grid item xs={12} sm={6} md={3}>
-                <a className="linkanchor" href="/terms">
-                  <WhiteTextTypography
-                    style={{ fontSize: "1.2rem" }}
-                    align={"center"}
-                    gutterBottom
-                    color={"textSecondary"}
-                  >
-                    Terms & Conditions{" "}
-                  </WhiteTextTypography>
-                </a>
-              </Grid>
-
-              <a href="/">
-                <i class="  icons fa-3x fab fa-facebook-f"></i>
-              </a>
-            </Grid>{" "}
-          </div>
-        </div>
-        {/* <Container maxWidth="sm">
-          <Typography variant="body1">
-            My sticky footer can be found here.
-          </Typography>
-          <Copyright />
-        </Container> */}
-      </footer>
+      <ScrollTop {...props}>
+        <Fab
+          style={{ backgroundColor: "#1fa2ff" }}
+          size="small"
+          aria-label="scroll back to top"
+        >
+          <KeyboardArrowUpIcon style={{ color: "#ffffff" }} />
+        </Fab>
+      </ScrollTop>
+      <Footer />
     </div>
   );
 }

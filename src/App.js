@@ -4,10 +4,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import Navbar from "./components/navbar/navbar";
+// import Navbar from "./components/Navbar/Navbar";
 // import Landing from "./components/Landing/Landing";
 import QuizesPage from "./components/QuizesPage/QuizesPage";
-import Footer from "./components/Footer/Footer";
+// import Footer from "./components/Footer/Footer";
 import Landing from "./components/Land/Landing";
 import Tos from "./components/tos/tos";
 
