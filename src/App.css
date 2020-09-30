@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  background-color: white;
 }
 .landing {
   /* background-image: url("./img/frontCover2.jpg"); */

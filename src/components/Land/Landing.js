@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
 import CameraIcon from "@material-ui/icons/PhotoCamera";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -16,14 +11,9 @@ import Link from "@material-ui/core/Link";
 import { withStyles } from "@material-ui/core/styles";
 import Divider from "@material-ui/core/Divider";
 import "./Landing.css";
-import github from "../../img/icons/github.png";
-import gmail from "../../img/icons/gmail.png";
-import Icon from "@material-ui/core/Icon";
 import Slide from "../Slide/Slide";
 import SlideImg from "../Slide/slidehomeimages";
 import Categories from "./subject/subjecttiles";
-import Box from "@material-ui/core/Box";
-import Paper from "@material-ui/core/Paper";
 import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
 

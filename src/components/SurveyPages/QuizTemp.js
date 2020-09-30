@@ -34,7 +34,7 @@ export default function QuizTemp(props) {
   const classes = useStyles();
 
   const answersHolder = [0, 0, 0];
-  const timeHolder = ["", "", ""];
+  const timeHolder = [0, 0, 0];
 
   const { paper, questions, getAnswers, getTimeSpent } = props;
   const [activeQuestion, setActiveQuestion] = React.useState(0);
@@ -88,7 +88,8 @@ export default function QuizTemp(props) {
     const endingTime = new Date().getTime();
     setTimeSpent((timeSpent) => {
       const timeDiffInSec = Math.round((endingTime - startingTime) / 1000) % 60;
-      timeSpent[activeQuestion] = timeSpent[activeQuestion] + timeDiffInSec;
+      timeSpent[activeQuestion] =
+        parseInt(timeSpent[activeQuestion]) + parseInt(timeDiffInSec);
       return timeSpent;
     });
 
@@ -104,6 +105,7 @@ export default function QuizTemp(props) {
     } else {
       setCheckLast(false);
     }
+    console.log(timeSpent);
   };
 
   return (

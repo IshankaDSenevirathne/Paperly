@@ -7,12 +7,14 @@ import ListItemText from "@material-ui/core/ListItemText";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 
+import Timer from "@material-ui/icons/Timer";
+
 import ResultTemp from "./ResultTemp";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    maxWidth: "400px",
+    maxWidth: "200px",
   },
   item: {
     border: "1px solid #4199FF",
@@ -43,8 +45,10 @@ export default function Review(props) {
       console.log(timeSpentForEach[i]);
       totalTime = totalTime + parseInt(timeSpentForEach[i]);
     }
-    console.log(elapsedTime - totalTime);
+    console.log(totalTime);
+    console.log(elapsedTime);
     const timeforlastquestion = elapsedTime - totalTime;
+
     if (timeforlastquestion == NaN) {
       return 0;
     } else {
@@ -102,10 +106,7 @@ export default function Review(props) {
               onClick={handleClickListItem}
               className={classes.item}
             >
-              <ListItemText
-                primary="FILTER"
-                secondary={options[selectedIndex]}
-              />
+              <ListItemText primary={options[selectedIndex]} />
             </ListItem>
           </List>
           <Menu
@@ -161,7 +162,11 @@ export default function Review(props) {
                   questionNumber={index + 1}
                 />
                 <p className="timeforquestion">
-                  {hours} : {minutes} : {seconds}
+                  <span style={{ display: "flex", alignItems: "center" }}>
+                    <Timer />
+                    &nbsp;
+                    {hours} : {minutes} : {seconds}
+                  </span>
                 </p>
               </div>
             );
@@ -180,7 +185,11 @@ export default function Review(props) {
                   questionNumber={index + 1}
                 />
                 <p className="timeforquestion">
-                  {hours} : {minutes} : {seconds}
+                  <span style={{ display: "flex", alignItems: "center" }}>
+                    <Timer />
+                    &nbsp;
+                    {hours} : {minutes} : {seconds}
+                  </span>
                 </p>
               </div>
             );
@@ -199,7 +208,10 @@ export default function Review(props) {
                   questionNumber={index + 1}
                 />
                 <p className="timeforquestion">
-                  {hours} : {minutes} : {seconds}
+                  <span style={{ display: "flex", alignItems: "center" }}>
+                    <Timer /> &nbsp;
+                    {hours} : {minutes} : {seconds}
+                  </span>
                 </p>
               </div>
             );

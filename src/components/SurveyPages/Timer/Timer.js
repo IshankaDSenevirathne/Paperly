@@ -21,14 +21,14 @@ export default function Timer(props) {
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
     if (time <= 0) {
-      hours = 0;
+      hours = "0" + 0;
       minutes = "0" + 0;
       seconds = "0" + 0;
     }
     return (
       <div>
         <p className="countdownTimer">
-          0{hours} : {minutes} : {seconds}
+          {hours} : {minutes} : {seconds}
         </p>
         {time > 0 && (
           <Alert severity="info">

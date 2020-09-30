@@ -217,7 +217,6 @@ export default function Steps(props) {
   const [timeSpentForEach, setTimeSpentForEach] = useState([]);
   const [timeSpent, setTimeSpent] = useState(120 * 60);
   const [checkLast, setCheckLast] = useState(false);
-  const [alert, setAlertText] = React.useState("Please select a exam!");
   const [open, setOpen] = React.useState(false);
 
   const steps = getSteps();
@@ -238,7 +237,6 @@ export default function Steps(props) {
   const handleNext = () => {
     if (activePaper == undefined) {
       setOpen(true);
-      setAlertText("Please select a exam!");
       return;
     }
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -391,7 +389,7 @@ export default function Steps(props) {
           onClose={handleClose}
         >
           <MuiAlert elevation={6} variant="filled" severity="error">
-            {alert}
+            Please selece an exam!
           </MuiAlert>
         </Snackbar>
       </div>

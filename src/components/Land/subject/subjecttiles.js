@@ -3,12 +3,6 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 
 import CardTile from "./CardTile";
-// import Physics from "../../../img/atom.svg";
-// import Biology from "../../../img/dna.svg";
-// import Chemistry from "../../../img/flask.svg";
-// import iT from "../../../img/cloud.svg";
-// import Mathematics from "../../../img/function.svg";
-// import Economics from "../../../img/economics.svg";
 import Physics from "../../../img/physics.png";
 import Biology from "../../../img/biology.png";
 import Chemistry from "../../../img/chemistry.png";
