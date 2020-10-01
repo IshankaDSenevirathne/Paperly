@@ -17,7 +17,7 @@ import Categories from "./subject/subjecttiles";
 import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
 import Footer from "./Footer/Footer";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../Navbar/navbar";
 
 import PropTypes from "prop-types";
 
