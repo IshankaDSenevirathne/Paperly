@@ -17,8 +17,8 @@ import Categories from "./subject/subjecttiles";
 import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
 import Footer from "./Footer/Footer";
-import Navbar from "../Navbar/Navbar";
-
+import Navbar from "../Navbar/navbar";
+import Screenshot from "./Screenshot/Screenshot";
 import PropTypes from "prop-types";
 
 // import Toolbar from '@material-ui/core/Toolbar';
@@ -246,6 +246,7 @@ export default function Album(props) {
 
         {/* End hero unit */}
       </Container>
+      <Screenshot />
       <VisibilitySensor
         onChange={(e) => {
           if (e) {
