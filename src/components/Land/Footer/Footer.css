@@ -115,10 +115,14 @@ a {
   .site-footer [class^="col-"] {
     margin-bottom: 30px;
   }
+
+  .svgwave {
+    opacity: 0;
+  }
 }
 @media (max-width: 767px) {
   .site-footer {
-    padding-bottom: 0;
+    padding-bottom: 1rem;
   }
   .site-footer .copyright-text,
   .site-footer .social-icons {
@@ -197,6 +201,12 @@ a {
   width: 100%;
   overflow: hidden;
   line-height: 0;
+}
+
+@media (max-width:600px){
+.copyright-grid{
+  justify-content: center;
+}
 }
 
 @media (max-width: 767px) {
