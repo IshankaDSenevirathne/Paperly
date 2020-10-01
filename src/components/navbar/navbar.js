@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import logo from "../../img/logo2.png";
 
 import PropTypes from "prop-types";
@@ -13,7 +13,14 @@ import SearchIcon from "@material-ui/icons/Search";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Slide from "@material-ui/core/Slide";
+import MenuItem from "@material-ui/core/MenuItem";
+import MenuList from "@material-ui/core/MenuList";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import Grow from "@material-ui/core/Grow";
+import Paper from "@material-ui/core/Paper";
+import Popper from "@material-ui/core/Popper";
 import "./navbar.css";
+const paperData = require("../../paperdata/papers.json");
 
 const gradient =
   "linear-gradient(98deg, rgba(31,162,255,0.5085609243697479) 0%, rgba(18,216,250,0.002931547619047619) 100%)";
@@ -72,6 +79,9 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  paper: {
+    marginRight: theme.spacing(2),
+  },
 }));
 
 function HideOnScroll(props) {
@@ -99,6 +109,50 @@ HideOnScroll.propTypes = {
 
 export default function Navbar(props) {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
+  const anchorRef = React.useRef(null);
+
+  // let prodata = paperData.keys().
+
+  const [data, setData] = useState(paperData);
+
+  const onSearchChange = (e) => {
+    console.log(e.target.value);
+    handleToggle(e);
+    console.log(data);
+  };
+
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
+  };
+
+  const handleClose = (event, element) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    console.log(element);
+    // props.history.push('/')
+
+    setOpen(false);
+  };
+
+  function handleListKeyDown(event) {
+    if (event.key === "Tab") {
+      event.preventDefault();
+      setOpen(false);
+    }
+  }
+
+  // return focus to the button when we transitioned from !open -> open
+  const prevOpen = React.useRef(open);
+  useEffect(() => {
+    if (prevOpen.current === true && open === false) {
+      anchorRef.current.focus();
+    }
+
+    prevOpen.current = open;
+  }, [open]);
 
   return (
     // <div className={classes.root}>
@@ -122,14 +176,59 @@ export default function Navbar(props) {
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ "aria-label": "search" }}
-              />
+
+              <div>
+                <InputBase
+                  ref={anchorRef}
+                  aria-controls={open ? "menu-list-grow" : undefined}
+                  aria-haspopup="true"
+                  placeholder="Search…"
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                  inputProps={{ "aria-label": "search" }}
+                  onChange={(e) => onSearchChange(e)}
+                />{" "}
+                <Popper
+                  className="dropdownsearch"
+                  open={open}
+                  anchorEl={anchorRef.current}
+                  role={undefined}
+                  transition
+                  disablePortal
+                >
+                  {({ TransitionProps, placement }) => (
+                    <Grow
+                      {...TransitionProps}
+                      style={{
+                        transformOrigin:
+                          placement === "bottom"
+                            ? "center top"
+                            : "center bottom",
+                      }}
+                    >
+                      <Paper>
+                        <ClickAwayListener onClickAway={handleClose}>
+                          <MenuList
+                            autoFocusItem={open}
+                            id="menu-list-grow"
+                            onKeyDown={handleListKeyDown}
+                          >
+                            {data.chemistry.map((ele) => {
+                              return (
+                                <MenuItem onClick={(e) => handleClose(e, ele)}>
+                                  {ele}
+                                </MenuItem>
+                              );
+                            })}
+                          </MenuList>
+                        </ClickAwayListener>
+                      </Paper>
+                    </Grow>
+                  )}
+                </Popper>
+              </div>
             </div>
           </Toolbar>
         </AppBar>

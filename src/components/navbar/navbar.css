@@ -32,3 +32,8 @@
   background-color: #4caf50;
   color: white;
 }
+
+.dropdownsearch {
+  width: 100%;
+  top: 5px !important;
+}
