@@ -6,6 +6,19 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import PropTypes from "prop-types";
+
+// import Toolbar from '@material-ui/core/Toolbar';
+// import Typography from '@material-ui/core/Typography';
+// import { makeStyles } from '@material-ui/core/styles';
+// import CssBaseline from '@material-ui/core/CssBaseline';
+import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+// import Box from '@material-ui/core/Box';
+// import Container from '@material-ui/core/Container';
+import Fab from "@material-ui/core/Fab";
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import Zoom from "@material-ui/core/Zoom";
 
 import Timer from "@material-ui/icons/Timer";
 
@@ -13,8 +26,22 @@ import ResultTemp from "./ResultTemp";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.background.paper,
-    maxWidth: "200px",
+    display: "flex",
+    flexDirection: "column",
+    // backgroundColor: theme.palette.background.paper,
+    // maxWidth: "200px",
+    // minHeight: "100vh",
+    // display: "flex",
+    // flexDirection: "column",
+    // minHeight: "100vh",
+    // position: "fixed",
+    // bottom: theme.spacing(2),
+    // right: theme.spacing(2),
+  },
+  rootsroll: {
+    position: "fixed",
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
   },
   item: {
     border: "1px solid #4199FF",
@@ -34,6 +61,53 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const options = ["Show All", "Show Correct", "Show Incorrect"];
+
+function ScrollTop(props) {
+  const { children, window } = props;
+  const classes = useStyles();
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+    disableHysteresis: true,
+    threshold: 100,
+  });
+
+  const handleClick = (event) => {
+    const anchor = (event.target.ownerDocument || document).querySelector(
+      "#back-to-top-anchor"
+    );
+
+    console.log("go to tp");
+    console.log(anchor);
+
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
+  return (
+    <Zoom in={trigger}>
+      <div
+        onClick={handleClick}
+        role="presentation"
+        className={classes.rootsroll}
+      >
+        {children}
+      </div>
+    </Zoom>
+  );
+}
+
+ScrollTop.propTypes = {
+  children: PropTypes.element.isRequired,
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window: PropTypes.func,
+};
 
 export default function Review(props) {
   const { answers, questions, paper, timeSpentForEach, totalTimeSpent } = props;
@@ -72,7 +146,8 @@ export default function Review(props) {
   };
 
   return (
-    <div>
+    <div className={classes.root}>
+      <CssBaseline />
       <div
         style={{
           color: "#616A6B",
@@ -217,7 +292,16 @@ export default function Review(props) {
             );
           }
         })}
-      </div>
+      </div>{" "}
+      <ScrollTop {...props}>
+        <Fab
+          style={{ backgroundColor: "#1fa2ff" }}
+          size="small"
+          aria-label="scroll back to top"
+        >
+          <KeyboardArrowUpIcon style={{ color: "#ffffff" }} />
+        </Fab>
+      </ScrollTop>
     </div>
   );
 }
