@@ -73,7 +73,7 @@ a {
   color: #fff;
 }
 .site-footer a:hover {
-  color: #051f31;
+  color: #1fa2ff;
   text-decoration: none;
 }
 .footer-links {
@@ -90,7 +90,7 @@ a {
 .footer-links a:active,
 .footer-links a:focus,
 .footer-links a:hover {
-  color: #051f31;
+  color: #1fa2ff;
   text-decoration: none;
 }
 .footer-links.inline li {
@@ -176,7 +176,7 @@ a {
   background-color: #3b5998;
 }
 .social-icons a.twitter:hover {
-  background-color: #3b5998;
+  background-color: #00aced;
 }
 .social-icons a.linkedin:hover {
   background-color: #007bb6;
