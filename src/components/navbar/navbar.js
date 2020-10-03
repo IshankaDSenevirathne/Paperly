@@ -101,7 +101,7 @@ export default function Navbar(props) {
   const classes = useStyles();
 
   return (
-    // <div className={classes.root}>
+  
     <React.Fragment>
       <CssBaseline />
       <HideOnScroll {...props}>
