@@ -20,13 +20,13 @@
 }
 
 .site-footer {
-  padding: 45px 0 20px;
+  padding: 50px 0 20px;
   /* background: linear-gradient(
     98deg,
     rgba(31, 162, 255, 0.9085609243697479) 0%,
     rgba(18, 216, 250, 0.8931547619047619) 100%
   ); */
-  background: #1fa2ff;
+  background: #2a3136;
   font-size: 15px;
   line-height: 24px;
   color: #fff;
@@ -203,10 +203,10 @@ a {
   line-height: 0;
 }
 
-@media (max-width:600px){
-.copyright-grid{
-  justify-content: center;
-}
+@media (max-width: 600px) {
+  .copyright-grid {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 767px) {

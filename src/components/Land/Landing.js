@@ -1,33 +1,24 @@
 import React, { useState } from "react";
-import AppBar from "@material-ui/core/AppBar";
-import CameraIcon from "@material-ui/icons/PhotoCamera";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Grid from "@material-ui/core/Grid";
-import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Link from "@material-ui/core/Link";
 import { withStyles } from "@material-ui/core/styles";
-import Divider from "@material-ui/core/Divider";
 import "./Landing.css";
-import Slide from "../Slide/Slide";
 import SlideImg from "../Slide/slidehomeimages";
 import Categories from "./subject/subjecttiles";
 import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
 import Footer from "./Footer/Footer";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../navbar/navbar";
 
 import PropTypes from "prop-types";
 
-// import Toolbar from '@material-ui/core/Toolbar';
-// import Typography from '@material-ui/core/Typography';
-// import { makeStyles } from '@material-ui/core/styles';
-// import CssBaseline from '@material-ui/core/CssBaseline';
+import StepGuide from "./StepGuide/StepGuide";
+import Banner from "./Banner/Banner";
+
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-// import Box from '@material-ui/core/Box';
-// import Container from '@material-ui/core/Container';
+
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
@@ -49,6 +40,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     minHeight: "100vh",
+    backgroundColor: "#2a3136",
+    color: "white",
   },
   rootsroll: {
     position: "fixed",
@@ -112,7 +105,7 @@ const useStyles = makeStyles((theme) => ({
 
 const WhiteTextTypography = withStyles({
   root: {
-    color: "#FFFFFF",
+    color: "white",
   },
 })(Typography);
 
@@ -171,6 +164,31 @@ export default function Album(props) {
     <div className={classes.root}>
       <CssBaseline />
       <Navbar />
+      <Banner />
+      <Container className={classes.cardGrid} maxWidth="lg">
+        <Container
+          style={{
+            textAlign: "center",
+            color: "#616A6B",
+            paddingBottom: "1rem",
+          }}
+        >
+          {/*<Typography style={{ textTransform: "uppercase" }} variant="h4">
+            Our Vison
+          </Typography>
+          <Typography style={{ color: "#1fa2ff" }} variant="h5" color="inherit">
+            Enhance the learing procedures of students with information
+            technolagy
+        </Typography>*/}
+        </Container>
+
+        {
+          // <SlideImg />
+        }
+        <StepGuide />
+
+        {/* End hero unit */}
+      </Container>
       {/* <AppBar
         style={{ backgroundColor: "#ffffff", align: "center" }}
         position="relative"
@@ -188,7 +206,7 @@ export default function Album(props) {
         </Toolbar>
       </AppBar> */}
       <div>
-        <div id="back-to-top-anchor" className={classes.heroContent}>
+        {/*<div id="back-to-top-anchor" className={classes.heroContent}>
           <Container style={{ marginLeft: "2%" }} maxWidth="sm">
             <WhiteTextTypography
               component="h1"
@@ -219,33 +237,15 @@ export default function Album(props) {
               gutterBottom
             >
               EduEra
-            </WhiteTextTypography> */}
+            </WhiteTextTypography> }
 
             <Slide />
           </Container>
-        </div>
+        </div>*/}
       </div>{" "}
       <div className="content">
         <Categories />
       </div>
-      <Container className={classes.cardGrid} maxWidth="md">
-        <Container style={{ textAlign: "center", paddingBottom: "1rem" }}>
-          <Typography style={{ color: "#1FA2FF" }} variant="h4" color="inherit">
-            Our Vison is to <br></br> enhance the learing procedures of students{" "}
-            <br></br> with information technolagy
-          </Typography>
-          <Typography
-            style={{ color: "#000000" }}
-            variant="h4"
-            color="inherit"
-            noWrap
-          ></Typography>
-        </Container>
-
-        <SlideImg />
-
-        {/* End hero unit */}
-      </Container>
       <VisibilitySensor
         onChange={(e) => {
           if (e) {
@@ -256,21 +256,22 @@ export default function Album(props) {
         <div className="scrollvisibile"></div>
       </VisibilitySensor>
       <Statsbar counterVisible={counterVisible} />
+      <Footer />
       <ScrollTop {...props}>
         <Fab
           style={{ backgroundColor: "#1fa2ff" }}
-          size="small"
+          size="medium"
           aria-label="scroll back to top"
         >
           <KeyboardArrowUpIcon style={{ color: "#ffffff" }} />
         </Fab>
       </ScrollTop>
-      <Footer />
     </div>
   );
 }
 
-/*  Icons made by{" "}
+{
+  /*  Icons made by{" "}
         <a
           href="https://www.flaticon.com/authors/darius-dan"
           title="Darius Dan"
@@ -307,4 +308,5 @@ export default function Album(props) {
           
 
 Icons made by <a href="https://www.flaticon.com/authors/wanicon" title="wanicon">wanicon</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-        </div> */
+</div> */
+}

@@ -1,6 +1,6 @@
 html {
   scroll-behavior: smooth;
-  background-color: white;
+  background-color: #2a3136;
 }
 .landing {
   /* background-image: url("./img/frontCover2.jpg"); */
@@ -10,6 +10,11 @@ html {
 .content {
   text-align: center;
   padding: 10 0 20 0;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.stepguide {
+  width: 100%;
   margin-left: 10%;
   margin-right: 10%;
 }

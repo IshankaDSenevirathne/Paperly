@@ -88,7 +88,7 @@ export default function Categories() {
         <h1
           style={{
             paddingBottom: "20px",
-            color: "#1FA2FF",
+            color: "#616A6B",
           }}
         >
           PAST PAPERS
