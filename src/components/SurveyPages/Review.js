@@ -155,7 +155,7 @@ export default function Review(props) {
           paddingTop: "60px",
         }}
       >
-        <h1>{paper}</h1>
+        <h1 id="back-to-top-anchor">{paper}</h1>
       </div>
       <div
         style={{
