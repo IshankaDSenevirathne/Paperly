@@ -13,7 +13,6 @@ export default function Banner() {
   return (
     <div
       style={{
-        textAlign: "center",
         backgroundColor: "#2a3136",
         color: "white",
         textTransform: "uppercase",

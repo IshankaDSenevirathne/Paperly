@@ -165,11 +165,9 @@ export default function Album(props) {
       <CssBaseline />
       <Navbar />
       <Banner />
-      <Container className={classes.cardGrid} maxWidth="lg">
+      <Container className={classes.cardGrid} maxWidth="md">
         <Container
           style={{
-            textAlign: "center",
-            color: "#616A6B",
             paddingBottom: "1rem",
           }}
         >
