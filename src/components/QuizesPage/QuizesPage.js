@@ -8,7 +8,13 @@ export default function QuizesPage(props) {
   let query = qs.parse(props.location.search, { ignoreQueryPrefix: true });
   let { subject } = query;
   let papers = require("../../paperdata/papers.json");
-  let paperList = papers[subject];
+
+  let sructpaper = papers[subject].map((ele) => ele.name);
+
+  let paperList = ["SELECT PAPER", ...sructpaper];
+
+  console.log(paperList);
+
   return (
     <div className="content">
       <div>

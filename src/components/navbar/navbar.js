@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Navbar() {
+export default function Navbar(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -172,19 +172,23 @@ export default function Navbar() {
       <AppBar className={classes.appbar} position="static">
         <Container>
           <Toolbar>
-            <Typography className={classes.title} variant="h5" >
-              <Link href="#" color="inherit">
+            <Typography className={classes.title} variant="h5">
+              <Link href="/" color="inherit">
                 Paperly
               </Link>
             </Typography>
 
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
-              <Typography variant="h6" noWrap>
-                <Link href="/gettingstarted" color="inherit">
-                  Get started
-                </Link>
-              </Typography>
+              {props.landing ? (
+                <Typography variant="h6" noWrap>
+                  <Link href="/subjectmenu" color="inherit">
+                    Get started
+                  </Link>
+                </Typography>
+              ) : (
+                ""
+              )}
               {/* <IconButton aria-label="show 4 new mails" color="inherit">
                 <Badge badgeContent={4} color="secondary">
                   <MailIcon />
