@@ -23,6 +23,9 @@ const styles = makeStyles((theme) => ({
       order: 1,
     },
   },
+  images: {
+    width: "100%",
+  },
 }));
 
 export default function StepGuide() {
@@ -34,7 +37,7 @@ export default function StepGuide() {
           <Grid item xs={12} sm container justify="center">
             <Grid item>
               <div>
-                <img src={Subjects} />
+                <img alt='hero1' className={classes.images}  src={Subjects} />
               </div>
             </Grid>
           </Grid>
@@ -79,7 +82,7 @@ export default function StepGuide() {
             sm
           >
             <div>
-              <img src={Timing} />
+              <img alt='hero2' className={classes.images} src={Timing} />
             </div>
           </Grid>
         </Grid>
@@ -90,7 +93,7 @@ export default function StepGuide() {
           <Grid item xs={12} sm container justify="center">
             <Grid item>
               <div>
-                <img src={Evaluation} />
+                <img alt='hero3' className={classes.images} src={Evaluation} />
               </div>
             </Grid>
           </Grid>
@@ -135,7 +138,7 @@ export default function StepGuide() {
             className={classes.item2}
           >
             <div>
-              <img src={Reviews} />
+              <img alt='hero4' className={classes.images} src={Reviews} />
             </div>
           </Grid>
         </Grid>

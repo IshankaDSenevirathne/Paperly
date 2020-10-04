@@ -44,12 +44,20 @@ export default function Banner() {
             <Grid container item sm={12} md justify="center">
               <div>
                 <Hidden mdUp>
-                  <img src={BannerImage1} />
+                  <img
+                    alt="banner1"
+                    style={{ width: "100%" }}
+                    src={BannerImage1}
+                  />
                 </Hidden>
               </div>
               <div>
                 <Hidden smDown>
-                  <img src={BannerImage2} />
+                  <img
+                    alt="banner1"
+                    style={{ width: "100%" }}
+                    src={BannerImage2}
+                  />
                 </Hidden>
               </div>
             </Grid>
