@@ -18,7 +18,7 @@ import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
-  appbar: { backgroundColor: "#1fa2ff" },
+  appbar: { backgroundColor: "#363f44" },
   grow: {
     flexGrow: 1,
   },
@@ -169,10 +169,10 @@ export default function Navbar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar className={classes.appbar} position="static">
+      <AppBar className={classes.appbar} position="fixed">
         <Container>
           <Toolbar>
-            <Typography className={classes.title} variant="h5" >
+            <Typography className={classes.title} variant="h5">
               <Link href="#" color="inherit">
                 Paperly
               </Link>

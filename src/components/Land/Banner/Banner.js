@@ -12,7 +12,7 @@ import { lightBlue } from "@material-ui/core/colors";
 import BannerImage1 from "../../../img/Banner-2.png";
 import BannerImage2 from "../../../img/Banner-3.png";
 import wavesBot from "../../../img/wavebottom.svg";
-import waves from "../../../img/waves-2.svg";
+import waves from "../../../img/wavestop.svg";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -36,21 +36,13 @@ export default function Banner() {
     >
       <img src={wavesBot} />
 
-      <div
-        style={{
-          marginBottom: "10px",
-          marginTop: "10px",
-        }}
-      >
+      <div style={{}}>
         <Container>
           <Grid container spacing={2} alignItems="center">
             <Grid item sm={12} md container justify="center">
               <Grid item>
                 <Typography gutterBottom variant="h4" align="center">
-                  <b>
-                    The easiest way to answer Advanced Level Examination Past
-                    papers.
-                  </b>
+                  <b>The easiest way to answer A/L Past papers.</b>
                 </Typography>
                 <div style={{ paddingTop: "20px", paddingBottom: "20px" }}>
                   <Typography gutterBottom variant="subtitle1" align="center">
