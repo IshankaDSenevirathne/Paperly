@@ -131,21 +131,31 @@ const Subjectmenu = () => {
               onChange={(e) => search(e.target.value)}
             />
           </div>
-          {paperNameList.map((ele) => {
-            console.log(ele);
+          {paperNameList.length > 0 ? (
+            paperNameList.map((ele) => {
+              console.log(ele);
 
-            return (
-              <div className={classes.root}>
-                <List component="nav" aria-label="secondary mailbox folders">
-                  <ListItemLink
-                    href={`/quizes?subject=${ele.subject}&year=${ele.year}`}
-                  >
-                    <ListItemText primary={ele.name} />
-                  </ListItemLink>
-                </List>
-              </div>
-            );
-          })}
+              return (
+                <div className={classes.root}>
+                  <List component="nav" aria-label="secondary mailbox folders">
+                    <ListItemLink
+                      href={`/quizes?subject=${ele.subject}&year=${ele.year}`}
+                    >
+                      <ListItemText primary={ele.name} />
+                    </ListItemLink>
+                  </List>
+                </div>
+              );
+            })
+          ) : (
+            <div className={classes.root}>
+              <List component="nav" aria-label="secondary mailbox folders">
+                <ListItem>
+                  <ListItemText primary="Paper Not Found" />
+                </ListItem>
+              </List>
+            </div>
+          )}
         </div>
       </Container>
     </>
