@@ -3,13 +3,29 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Hidden from "@material-ui/core/Hidden";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import { lightBlue } from "@material-ui/core/colors";
+
+//Images
 
 import BannerImage1 from "../../../img/Banner-2.png";
 import BannerImage2 from "../../../img/Banner-3.png";
 import wavesBot from "../../../img/wavebottom.svg";
-import wavesTop from "../../../img/wavestop.svg";
+import waves from "../../../img/waves-2.svg";
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    color: "whitesmoke",
+    "&:hover": {
+      backgroundColor: lightBlue[400],
+      color: "white",
+    },
+  },
+}));
 
 export default function Banner() {
+  const classes = useStyles();
   return (
     <div
       style={{
@@ -22,22 +38,34 @@ export default function Banner() {
 
       <div
         style={{
-          marginBottom: "40px",
-          marginTop: "40px",
+          marginBottom: "10px",
+          marginTop: "10px",
         }}
       >
         <Container>
           <Grid container spacing={2} alignItems="center">
             <Grid item sm={12} md container justify="center">
               <Grid item>
-                <Typography gutterBottom variant="h5" align="center">
+                <Typography gutterBottom variant="h4" align="center">
                   <b>
                     The easiest way to answer Advanced Level Examination Past
                     papers.
                   </b>
                 </Typography>
-                <Typography gutterBottom variant="h6" align="center">
-                  Everything you need, 100% free.
+                <div style={{ paddingTop: "20px", paddingBottom: "20px" }}>
+                  <Typography gutterBottom variant="subtitle1" align="center">
+                    Everything you need, 100% free.
+                  </Typography>
+                </div>
+
+                <Typography gutterBottom variant="subtitle1" align="center">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.button}
+                  >
+                    GET STARTED
+                  </Button>
                 </Typography>
               </Grid>
             </Grid>
@@ -64,7 +92,7 @@ export default function Banner() {
           </Grid>
         </Container>
       </div>
-      <img src={wavesTop} />
+      <img src={waves} />
     </div>
   );
 }

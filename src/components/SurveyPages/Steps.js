@@ -24,7 +24,7 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 
-import { lightBlue, teal } from "@material-ui/core/colors";
+import { lightBlue } from "@material-ui/core/colors";
 
 const useQontoStepIconStyles = makeStyles({
   root: {

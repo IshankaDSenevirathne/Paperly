@@ -37,7 +37,7 @@ export default function StepGuide() {
           <Grid item xs={12} sm container justify="center">
             <Grid item>
               <div>
-                <img alt='hero1' className={classes.images}  src={Subjects} />
+                <img alt="hero1" className={classes.images} src={Subjects} />
               </div>
             </Grid>
           </Grid>
@@ -82,7 +82,7 @@ export default function StepGuide() {
             sm
           >
             <div>
-              <img alt='hero2' className={classes.images} src={Timing} />
+              <img alt="hero2" className={classes.images} src={Timing} />
             </div>
           </Grid>
         </Grid>
@@ -93,7 +93,7 @@ export default function StepGuide() {
           <Grid item xs={12} sm container justify="center">
             <Grid item>
               <div>
-                <img alt='hero3' className={classes.images} src={Evaluation} />
+                <img alt="hero3" className={classes.images} src={Evaluation} />
               </div>
             </Grid>
           </Grid>
@@ -138,7 +138,7 @@ export default function StepGuide() {
             className={classes.item2}
           >
             <div>
-              <img alt='hero4' className={classes.images} src={Reviews} />
+              <img alt="hero4" className={classes.images} src={Reviews} />
             </div>
           </Grid>
         </Grid>
