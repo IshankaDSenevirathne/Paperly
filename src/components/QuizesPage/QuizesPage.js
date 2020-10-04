@@ -6,7 +6,7 @@ var qs = require("qs");
 
 export default function QuizesPage(props) {
   let query = qs.parse(props.location.search, { ignoreQueryPrefix: true });
-  let { subject } = query;
+  let { subject, year } = query;
   let papers = require("../../paperdata/papers.json");
 
   let sructpaper = papers[subject].map((ele) => ele.name);
@@ -18,7 +18,7 @@ export default function QuizesPage(props) {
   return (
     <div className="content">
       <div>
-        <CustomSurvey papersList={paperList} subject={subject} />
+        <CustomSurvey papersList={paperList} subject={subject} year={year} />
       </div>
     </div>
   );

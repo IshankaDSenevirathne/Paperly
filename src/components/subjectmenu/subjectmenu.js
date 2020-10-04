@@ -137,7 +137,9 @@ const Subjectmenu = () => {
             return (
               <div className={classes.root}>
                 <List component="nav" aria-label="secondary mailbox folders">
-                  <ListItemLink href={`/quizes?subject=${ele.subject}`}>
+                  <ListItemLink
+                    href={`/quizes?subject=${ele.subject}&year=${ele.year}`}
+                  >
                     <ListItemText primary={ele.name} />
                   </ListItemLink>
                 </List>
