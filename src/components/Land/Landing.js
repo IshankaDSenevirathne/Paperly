@@ -163,6 +163,7 @@ export default function Album(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
+      <div id="back-to-top-anchor"></div>
       <Navbar />
       <Banner />
       <Container className={classes.cardGrid} maxWidth="md">
@@ -268,8 +269,7 @@ export default function Album(props) {
   );
 }
 
-{
-  /*  Icons made by{" "}
+/*  Icons made by{" "}
         <a
           href="https://www.flaticon.com/authors/darius-dan"
           title="Darius Dan"
@@ -307,4 +307,3 @@ export default function Album(props) {
 
 Icons made by <a href="https://www.flaticon.com/authors/wanicon" title="wanicon">wanicon</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 </div> */
-}

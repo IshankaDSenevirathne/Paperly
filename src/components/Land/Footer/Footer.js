@@ -140,19 +140,22 @@ const Footer = () => {
               <Grid md="4" sm="6" xs="12">
                 <ul className="social-icons">
                   <li>
-                    <a className="facebook" href="#">
+                    <a className="facebook" href="/">
                       <i className="fa icon-footer fa-facebook"></i>
                       {/* <i className="fab fa-facebook-f"></i> */}
                     </a>
                   </li>
                   <li>
-                    <a className="facebook" href="#">
+                    <a
+                      className="facebook"
+                      href="https://github.com/IshankaDSenevirathne/EduEra"
+                    >
                       {/* <i className="fa icon-footer fa-facebook"></i> */}
                       <i className="fa icon-footer fa-github"></i>
                     </a>
                   </li>
                   <li>
-                    <a className="twitter" href="#">
+                    <a className="twitter" href="/">
                       <i className="fa icon-footer fa-twitter"></i>
                     </a>
                   </li>

@@ -16,7 +16,12 @@ const useStyles = makeStyles((theme) => ({
   statbar: {
     padding: "3rem",
     // backgroundImage: `${gradientstatbar}`,
-    background: "rgb(245, 245, 245)",
+    // background: "rgb(245, 245, 245)",
+    backgroundColor: "#2a3136",
+  },
+  statbartext: {
+    textTransform: "capitalize",
+    // text-transform: uppercase;
   },
 }));
 
@@ -32,72 +37,68 @@ const Statsbar = (props) => {
           <Grid item>
             <Paper className={classes.paper}>
               <div className="stattable">
-                <span>Currently servers</span>
+                <span className={classes.statbartext}>Currently servers</span>
                 {props.counterVisible ? (
                   <AnimatedNumber
                     value={12}
-                    delay={1000}
-                    duration={3000}
+                    duration={2000}
                     formatValue={formatValue}
                   />
                 ) : (
                   ""
                 )}{" "}
-                <span>Past papers</span>
+                <span className={classes.statbartext}>Past papers</span>
               </div>
             </Paper>
           </Grid>
           <Grid item>
             <Paper className={classes.paper}>
               <div className="stattable">
-                <span>Including</span>
+                <span className={classes.statbartext}>Including</span>
                 {props.counterVisible ? (
                   <AnimatedNumber
                     value={6}
-                    delay={1000}
-                    duration={3000}
+                    duration={2000}
                     formatValue={formatValue}
                   />
                 ) : (
                   ""
                 )}{" "}
-                <span>subjects</span>
+                <span className={classes.statbartext}>subjects</span>
               </div>
             </Paper>
           </Grid>{" "}
           <Grid item>
             <Paper className={classes.paper}>
               <div className="stattable">
-                <span>Past papers in</span>
+                <span className={classes.statbartext}>Past papers in</span>
                 {props.counterVisible ? (
                   <AnimatedNumber
                     value={20}
-                    delay={1000}
-                    duration={3000}
+                    duration={2000}
                     formatValue={formatValue}
                   />
                 ) : (
                   ""
                 )}{" "}
-                <span>Years</span>
+                <span className={classes.statbartext}>Years</span>
               </div>
             </Paper>
           </Grid>{" "}
           <Grid item>
             <Paper className={classes.paper}>
               <div className="stattable">
+                <span className={classes.statbartext}>corrected </span>
                 {props.counterVisible ? (
                   <AnimatedNumber
                     value={10000}
-                    duration={3000}
+                    duration={2000}
                     formatValue={formatValue}
                   />
                 ) : (
                   ""
                 )}
-
-                <span>questions</span>
-                <span>corrected</span>
+                <span className={classes.statbartext}>questions</span>
               </div>
             </Paper>
           </Grid>
