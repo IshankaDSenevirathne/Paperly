@@ -14,6 +14,7 @@ const useStyles = makeStyles({
   root: {
     margin: "20px 20px 20px 20px",
     padding: "20px 20px 20px 20px",
+    background: "#363f44",
   },
 });
 
@@ -21,21 +22,12 @@ export default function CardTile({ image, title, link, delay }) {
   const classes = useStyles();
   return (
     <Grid item sm={12} xs={12} md={12} lg={4}>
-      <div
-        data-aos="fade-down"
-        data-aos-delay={delay}
-        data-aos-duration={"800"}
-      >
-        <div className="tile">
-          <Link to={`/quizes?subject=${link}`} className="tile_link">
-            <Paper className={classes.root} elevation={2}>
-              <img src={image} className="tile_img"></img>
-              <Typography gutterBottom variant="h5" component="h2">
-                {title}
-              </Typography>
-            </Paper>
-          </Link>
-        </div>
+      <div>
+        <Link to={`/quizes?subject=${link}`} className="tile_link">
+          <div className="tile">
+            <div className="wave"></div>
+          </div>
+        </Link>
       </div>
     </Grid>
   );

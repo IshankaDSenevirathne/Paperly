@@ -53,7 +53,7 @@ const subjects = {
   },
   subject5: {
     image: `${iT}`,
-    title: "Information Technology",
+    title: "IT",
     imageTitle: "Information Technology",
     description: `
         Lizards are a widespread group of squamate reptiles, with over
@@ -84,14 +84,14 @@ export default function Categories() {
       }}
       id="pastpapers"
     >
-      <div data-aos="fade-down">
+      <div>
         <h1
           style={{
             paddingBottom: "20px",
-            color: "#616A6B",
+            color: "#ffffff",
           }}
         >
-          PAST PAPERS
+          SUBJECTS
         </h1>
       </div>
       <Grid container justify="center" alignContent="center">

@@ -7,9 +7,10 @@ import "aos/dist/aos.css";
 // import Navbar from "./components/Navbar/Navbar";
 // import Landing from "./components/Landing/Landing";
 import QuizesPage from "./components/QuizesPage/QuizesPage";
-// import Footer from "./components/Footer/Footer";
+import Footer from "./components/Land/Footer/Footer";
 import Landing from "./components/Land/Landing";
 import Tos from "./components/tos/tos";
+import Subjectmenu from "./components/subjectmenu/subjectmenu";
 
 AOS.init();
 
@@ -22,9 +23,11 @@ function App() {
           <Route exact path="/" component={Landing} />
           <Route path="/quizes" component={QuizesPage} />
           <Route path="/terms" component={Tos} />
+          <Route path="/subjectmenu" component={Subjectmenu} />
+
           {/* <Route path="*" component={Notfound} /> */}
         </Switch>
-        {/* <Footer position="relative" /> */}
+        <Footer />
       </BrowserRouter>
     </div>
   );

@@ -6,7 +6,6 @@ import Container from "@material-ui/core/Container";
 import { withStyles } from "@material-ui/core/styles";
 import "./Landing.css";
 import SlideImg from "../Slide/slidehomeimages";
-import Categories from "./subject/subjecttiles";
 import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
 import Footer from "./Footer/Footer";
@@ -164,7 +163,7 @@ export default function Album(props) {
     <div className={classes.root}>
       <CssBaseline />
       <div id="back-to-top-anchor"></div>
-      <Navbar />
+      <Navbar landing={true} />
       <Banner />
       <Container className={classes.cardGrid} maxWidth="md">
         <Container
@@ -242,9 +241,6 @@ export default function Album(props) {
           </Container>
         </div>*/}
       </div>{" "}
-      <div className="content">
-        <Categories />
-      </div>
       <VisibilitySensor
         onChange={(e) => {
           if (e) {
@@ -255,7 +251,6 @@ export default function Album(props) {
         <div className="scrollvisibile"></div>
       </VisibilitySensor>
       <Statsbar counterVisible={counterVisible} />
-      <Footer />
       <ScrollTop {...props}>
         <Fab
           style={{ backgroundColor: "#1fa2ff" }}

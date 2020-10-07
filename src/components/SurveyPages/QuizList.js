@@ -13,7 +13,8 @@ import Chemistry from "../../img/chemistry.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.background.paper,
+    background: "#2a3136",
+    color: "white",
   },
   item: {
     border: "1px solid #4199FF",
