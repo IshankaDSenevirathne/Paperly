@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { lightBlue } from "@material-ui/core/colors";
 
@@ -41,7 +42,7 @@ export default function Banner() {
           <Grid container spacing={2} alignItems="center">
             <Grid item sm={12} md container justify="center">
               <Grid item>
-                <Typography gutterBottom variant="h4" align="center">
+                <Typography gutterBottom variant="h5" align="center">
                   <b>The easiest way to answer A/L Past papers.</b>
                 </Typography>
                 <div style={{ paddingTop: "20px", paddingBottom: "20px" }}>
@@ -51,13 +52,20 @@ export default function Banner() {
                 </div>
 
                 <Typography gutterBottom variant="subtitle1" align="center">
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.button}
+                  <Link
+                    to="/subjectmenu"
+                    style={{
+                      textDecoration: "none",
+                    }}
                   >
-                    GET STARTED
-                  </Button>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                    >
+                      GET STARTED
+                    </Button>
+                  </Link>
                 </Typography>
               </Grid>
             </Grid>

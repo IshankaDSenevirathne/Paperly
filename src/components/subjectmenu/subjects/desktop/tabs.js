@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
@@ -9,14 +10,14 @@ import Box from "@material-ui/core/Box";
 import { lightBlue } from "@material-ui/core/colors";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
-import Paper from "@material-ui/core/Paper";
+import { Grid, Paper } from "@material-ui/core";
+import Skeleton from "@material-ui/lab/Skeleton";
 
 import Physics from "../../../../img/physics.svg";
 import Biology from "../../../../img/plant.svg";
 import Chemistry from "../../../../img/chemistry.svg";
 import iT from "../../../../img/IT.svg";
 import Marketing from "../../../../img/marketing.svg";
-import { Grid } from "@material-ui/core";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
-    height: "340px",
+    height: "380px",
     minWidth: "200px",
   },
   button: {
@@ -66,9 +67,18 @@ const useStyles = makeStyles((theme) => ({
   },
   tabContent: {
     width: "100%",
+    "& .MuiBox-root": {
+      paddingLeft: "0px",
+      paddingRight: "0px",
+      paddingTop: "10px",
+      paddingBottom: "50px",
+    },
   },
   start: {
     color: "white",
+  },
+  paper: {
+    background: "#363f44",
   },
 }));
 const subjects = [
@@ -101,8 +111,12 @@ const subjects = [
 export default function SubjectTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-
+  const [loadingState, setLoadingState] = React.useState(true);
   const handleChange = (event, newValue) => {
+    if (newValue == value) {
+      return;
+    }
+    setLoadingState(true);
     setValue(newValue);
   };
   return (
@@ -111,7 +125,6 @@ export default function SubjectTabs() {
         style={{
           textAlign: "center",
           color: "#383838",
-          borderRadius: "4px",
         }}
         id="pastpapers"
       >
@@ -125,31 +138,31 @@ export default function SubjectTabs() {
             SUBJECTS
           </h1>
         </div>
-        <div className={classes.root}>
-          <Tabs
-            orientation="vertical"
-            variant="scrollable"
-            value={value}
-            onChange={handleChange}
-            aria-label="Vertical tabs"
-            className={classes.tabs}
-            indicatorColor="primary"
-          >
-            {subjects.map((subject) => (
-              <Tab
-                label={subject.title}
-                id={subjects.indexOf(subject)}
-                aria-controls={subjects.indexOf(subject)}
-              />
-            ))}
-          </Tabs>
-          {subjects.map((subject) => (
-            <TabPanel
-              className={classes.tabContent}
+        <Paper elevation={3} className={classes.paper}>
+          <div className={classes.root}>
+            <Tabs
+              orientation="vertical"
+              variant="scrollable"
               value={value}
-              index={subjects.indexOf(subject)}
+              onChange={handleChange}
+              aria-label="Vertical tabs"
+              className={classes.tabs}
+              indicatorColor="primary"
             >
-              <div>
+              {subjects.map((subject) => (
+                <Tab
+                  label={subject.title}
+                  id={subjects.indexOf(subject)}
+                  aria-controls={subjects.indexOf(subject)}
+                />
+              ))}
+            </Tabs>
+            {subjects.map((subject) => (
+              <TabPanel
+                className={classes.tabContent}
+                value={value}
+                index={subjects.indexOf(subject)}
+              >
                 <Grid
                   container
                   direction="column"
@@ -158,8 +171,20 @@ export default function SubjectTabs() {
                 >
                   <Grid item sm={6} container justify="center">
                     <Grid item>
-                      <div style={{ marginBottom: "10px" }}>
-                        <img src={subject.image}></img>
+                      <div>
+                        {loadingState && (
+                          <div>
+                            <Skeleton
+                              variant="rect"
+                              width={183}
+                              height={210}
+                            ></Skeleton>
+                          </div>
+                        )}
+                        <img
+                          onLoad={() => setLoadingState(false)}
+                          src={subject.image}
+                        ></img>
                       </div>
                     </Grid>
                   </Grid>
@@ -171,20 +196,22 @@ export default function SubjectTabs() {
                       </b>
                     </Typography>
                     <div>
-                      <Button
-                        className={classes.start}
-                        variant="contained"
-                        color="primary"
-                      >
-                        START
-                      </Button>
+                      <Link to={`/quizes?subject=${subject.link}`}>
+                        <Button
+                          className={classes.start}
+                          variant="contained"
+                          color="primary"
+                        >
+                          START
+                        </Button>
+                      </Link>
                     </div>
                   </Grid>
                 </Grid>
-              </div>
-            </TabPanel>
-          ))}
-        </div>
+              </TabPanel>
+            ))}
+          </div>
+        </Paper>
       </div>
     </Container>
   );

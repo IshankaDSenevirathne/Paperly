@@ -8,8 +8,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 
-import Physics from "../../img/physics.png";
-import Chemistry from "../../img/chemistry.png";
+import Physics from "../../img/physics-2.svg";
+import Chemistry from "../../img/chemistry-2.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
