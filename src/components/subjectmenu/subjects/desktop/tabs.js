@@ -18,6 +18,16 @@ import Biology from "../../../../img/plant.svg";
 import Chemistry from "../../../../img/chemistry.svg";
 import iT from "../../../../img/IT.svg";
 import Marketing from "../../../../img/marketing.svg";
+import History from "../../../../img/history.svg";
+import Music from "../../../../img/music.svg";
+import Drama from "../../../../img/drama.svg";
+import Art from "../../../../img/art.svg";
+import Economics from "../../../../img/economics.svg";
+import Accounting from "../../../../img/accounting.svg";
+import BusStudies from "../../../../img/busstudies.svg";
+import Statistics from "../../../../img/statistics.svg";
+import EngTech from "../../../../img/engtech.svg";
+import SciForTech from "../../../../img/scifortech.svg";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -55,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
-    height: "380px",
+    height: "400px",
     minWidth: "200px",
   },
   button: {
@@ -106,6 +116,56 @@ const subjects = [
     image: `${Marketing}`,
     title: "Marketing",
     link: "marketing",
+  },
+  {
+    image: `${Art}`,
+    title: "Art",
+    link: "art",
+  },
+  {
+    image: `${Drama}`,
+    title: "Drama",
+    link: "drama",
+  },
+  {
+    image: `${Music}`,
+    title: "Music",
+    link: "music",
+  },
+  {
+    image: `${History}`,
+    title: "History",
+    link: "history",
+  },
+  {
+    image: `${Economics}`,
+    title: "Economics",
+    link: "economics",
+  },
+  {
+    image: `${Accounting}`,
+    title: "Accounting",
+    link: "accounting",
+  },
+  {
+    image: `${BusStudies}`,
+    title: "Business Studies",
+    link: "buisness",
+  },
+  {
+    image: `${Statistics}`,
+    title: "Statistics",
+    link: "statistics",
+  },
+  {
+    image: `${SciForTech}`,
+    title: "SCIENCE FOR TECHNOLOGY",
+    link: "sciencefortechnology",
+  },
+  {
+    image: `${EngTech}`,
+    title: "ENGINEERING TECHNOLOGY",
+    link: "engineeringtechnology",
   },
 ];
 export default function SubjectTabs() {
