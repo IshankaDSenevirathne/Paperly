@@ -1,7 +1,7 @@
 import React from "react";
 
 import CustomSurvey from "../SurveyPages/CustomSurvey";
-
+import Footer from "../Footer/Footer";
 var qs = require("qs");
 
 export default function QuizesPage(props) {
@@ -16,10 +16,13 @@ export default function QuizesPage(props) {
   console.log(paperList);
 
   return (
-    <div className="content">
-      <div>
-        <CustomSurvey papersList={paperList} subject={subject} year={year} />
+    <>
+      <div className="content">
+        <div>
+          <CustomSurvey papersList={paperList} subject={subject} year={year} />
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }

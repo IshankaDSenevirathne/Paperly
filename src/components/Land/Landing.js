@@ -260,6 +260,7 @@ export default function Album(props) {
           <KeyboardArrowUpIcon style={{ color: "#ffffff" }} />
         </Fab>
       </ScrollTop>
+      <Footer />
     </div>
   );
 }

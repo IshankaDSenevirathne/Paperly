@@ -13,7 +13,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InputBase from "@material-ui/core/InputBase";
 import { Container } from "@material-ui/core";
 import { fade } from "@material-ui/core/styles";
-
+import Footer from "../Footer/Footer";
 import SearchIcon from "@material-ui/icons/Search";
 let papers = require("../../paperdata/papers.json");
 
@@ -166,6 +166,7 @@ const Subjectmenu = () => {
           )}
         </div>
       </Container>
+      <Footer />
     </div>
   );
 };
