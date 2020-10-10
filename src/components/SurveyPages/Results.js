@@ -13,6 +13,7 @@ import Avatar from "@material-ui/core/Avatar";
 import CheckCircleOutline from "@material-ui/icons/CheckCircleOutline";
 import AccessTime from "@material-ui/icons/AccessTime";
 import Divider from "@material-ui/core/Divider";
+import Paper from "@material-ui/core/Paper"
 
 import { teal } from "@material-ui/core/colors";
 
@@ -20,9 +21,10 @@ const useStylesFacebook = makeStyles((theme) => ({
   root: {
     position: "relative",
     padding: "10px 10px 10px 10px",
+    background:"#2a3136",
   },
   bottom: {
-    color: theme.palette.grey[theme.palette.type === "light" ? 200 : 700],
+    color: "#363f44",
   },
   top: {
     color: "primary",
@@ -58,9 +60,9 @@ function MyCircularProgress(props) {
           alignItems="center"
           justifyContent="center"
         >
-          <Typography variant="caption" component="div">{`${Math.round(
+          <Typography variant="caption" component="div"><span style={{color:"whitesmoke"}}>{`${Math.round(
             props.value
-          )}%`}</Typography>
+          )}%`}</span></Typography>
         </Box>
         <CircularProgress
           variant="static"
@@ -83,8 +85,15 @@ MyCircularProgress.propTypes = {
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: "#363f44",
+    borderRadius:"4px",
+    paddingRight:"15px",
+    color:"white"
   },
+  paper:{
+    background:"#363f44",
+    borderRadius:"4px",
+  }
 }));
 
 export default function Results(props) {
@@ -119,45 +128,51 @@ export default function Results(props) {
     const progress = Math.round((correctAnswers * 100) / 50);
     return (
       <div style={{ textAlign: "center" }}>
-        <div style={{ paddingBottom: "20px", color: "#616A6B" }}>
+        <div style={{ paddingBottom: "20px", color: "white" }}>
           <h3>Evaluation</h3>
         </div>
         <MyCircularProgress value={progress} />
         <div
           style={{
-            paddingLeft: "10%",
-            paddingRight: "10%",
             paddingTop: "20px",
             paddingBottom: "20px",
+            color:"white",
+            backgroundColor:"#2a3136",
+            borderRadius:"4px"
           }}
         >
+        
+        <Paper elevation={3} className={classes.paper}>
+
           <List className={classes.root}>
             <ListItem>
               <ListItemAvatar>
-                <Avatar style={{ backgroundColor: "#EEEEEE" }}>
+                <Avatar style={{ backgroundColor: "#2a3136" }}>
                   <CheckCircleOutline style={{ color: teal["A400"] }} />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
                 primary="Correct Answers"
                 secondary={correctAnswers + "/50"}
+                secondaryTypographyProps={{color:"whitesmoke"}}
               />
             </ListItem>
             <Divider variant="inset" component="li" />
 
             <ListItem>
               <ListItemAvatar>
-                <Avatar style={{ backgroundColor: "#EEEEEE" }}>
+                <Avatar style={{ backgroundColor: "#2a3136" }}>
                   <AccessTime color="primary" />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
                 primary="Time elapsed"
                 secondary={"0" + hours + ":" + minutes + ":" + seconds}
+                secondaryTypographyProps={{color:"whitesmoke"}}
               />
             </ListItem>
-            <Divider variant="inset" component="li" />
           </List>
+          </Paper>
         </div>
       </div>
     );
@@ -167,7 +182,7 @@ export default function Results(props) {
     <div>
       <div
         style={{
-          color: "#616A6B",
+          color: "#1fa2ff",
           textTransform: "uppercase",
           paddingTop: "60px",
         }}

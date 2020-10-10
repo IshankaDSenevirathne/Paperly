@@ -8,6 +8,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import PropTypes from "prop-types";
+import Paper from "@material-ui/core/Paper"
 
 // import Toolbar from '@material-ui/core/Toolbar';
 // import Typography from '@material-ui/core/Typography';
@@ -28,15 +29,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    // backgroundColor: theme.palette.background.paper,
-    // maxWidth: "200px",
-    // minHeight: "100vh",
-    // display: "flex",
-    // flexDirection: "column",
-    // minHeight: "100vh",
-    // position: "fixed",
-    // bottom: theme.spacing(2),
-    // right: theme.spacing(2),
+    color:"white"
   },
   rootsroll: {
     position: "fixed",
@@ -49,15 +42,17 @@ const useStyles = makeStyles((theme) => ({
     color: "#4199FF",
     transition: "0.5s",
     "&:hover": {
-      backgroundColor: "#EDF5FF",
+      backgroundColor: "#363f44",
       border: "1px solid #1fa2ff",
     },
   },
-  pagination: {
-    "& > *": {
-      marginTop: theme.spacing(2),
-    },
-  },
+  paper:{
+    background:"#363f44",
+    borderRadius:"4px",
+    padding:"20px 25px 20px 25px",
+    marginBottom:"20px",
+    color:"white",
+  }
 }));
 
 const options = ["Show All", "Show Correct", "Show Incorrect"];
@@ -150,7 +145,7 @@ export default function Review(props) {
       <CssBaseline />
       <div
         style={{
-          color: "#616A6B",
+          color: "#1fa2ff",
           textTransform: "uppercase",
           paddingTop: "60px",
         }}
@@ -165,7 +160,7 @@ export default function Review(props) {
       >
         <div
           style={{
-            color: "#616A6B",
+            color: "white",
             textAlign: "left",
           }}
         >
@@ -190,6 +185,10 @@ export default function Review(props) {
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}
+            PaperProps={{style:{
+              background:"#363f44",
+              color:"white"
+            }}}
           >
             {options.map((option, index) => (
               <MenuItem
@@ -224,26 +223,27 @@ export default function Review(props) {
           seconds = seconds < 10 ? "0" + seconds : seconds;
           if (selectedIndex == 0) {
             return (
-              <div
-                id={index}
-                key={index}
-                style={{ borderBottom: "1px solid #D0D3D4" }}
-              >
-                <ResultTemp
-                  result={result}
-                  question={question}
-                  userAnswer={userAnswer}
-                  correctAnswer={correctAnswer}
-                  questionNumber={index + 1}
-                />
-                <p className="timeforquestion">
-                  <span style={{ display: "flex", alignItems: "center" }}>
-                    <Timer />
-                    &nbsp;
-                    {hours} : {minutes} : {seconds}
-                  </span>
-                </p>
-              </div>
+              <Paper elevation={3} className={classes.paper}>
+                <div
+                  id={index}
+                  key={index}
+                >
+                  <ResultTemp
+                    result={result}
+                    question={question}
+                    userAnswer={userAnswer}
+                    correctAnswer={correctAnswer}
+                    questionNumber={index + 1}
+                  />
+                  <p className="timeforquestion">
+                    <span style={{ display: "flex", alignItems: "center" }}>
+                      <Timer />
+                      &nbsp;
+                      {hours} : {minutes} : {seconds}
+                    </span>
+                  </p>
+                </div>
+              </Paper>
             );
           } else if (selectedIndex == 1 && result == true) {
             return (

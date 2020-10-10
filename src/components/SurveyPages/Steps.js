@@ -28,7 +28,7 @@ import { lightBlue } from "@material-ui/core/colors";
 
 const useQontoStepIconStyles = makeStyles({
   root: {
-    color: "#eaeaf0",
+    color: "white",
     display: "flex",
     height: 22,
     alignItems: "center",
@@ -114,12 +114,13 @@ const useColorlibStepIconStyles = makeStyles({
     alignItems: "center",
   },
   active: {
-    backgroundColor: "#1fa2ff",
+    backgroundColor: "#1B68D6",
     color: "white",
     boxShadow: "0 4px 10px 0 rgba(0,0,0,.25)",
   },
   completed: {
-    backgroundColor: "#8DE0FF",
+    backgroundColor: "#1fa2ff",
+    color:"whitesmoke"
   },
 });
 
@@ -165,9 +166,19 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     paddingBottom: "100px",
   },
+  stepper:{
+    color:"white",
+    background:"#363f44",
+    borderRadius:"3px",
+  },
   backButton: {
     marginRight: theme.spacing(1),
     marginLeft: theme.spacing(1),
+    color: "whitesmoke",
+    borderColor:"whitesmoke",
+    "&:hover": {
+      color: "white",
+    },
   },
   resetButton: {
     marginRight: theme.spacing(1),
@@ -190,6 +201,7 @@ const useStyles = makeStyles((theme) => ({
   instructions: {
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
+    color:"white"
   },
 }));
 
@@ -284,14 +296,16 @@ export default function Steps(props) {
         <Hidden xsDown>
           <div className="stepbar">
             <Stepper
+              className={classes.stepper}
               alternativeLabel
               activeStep={activeStep}
               connector={<ColorlibConnector />}
             >
               {steps.map((label) => (
                 <Step key={label}>
-                  <StepLabel StepIconComponent={ColorlibStepIcon}>
-                    {label}
+                  <StepLabel StepIconComponent={ColorlibStepIcon} >
+                    {activeStep==steps.indexOf(label) && <span style={{color:"#1fa2ff"}}>{label}</span>}
+                    {activeStep!=steps.indexOf(label) && <span style={{color:"whitesmoke"}}>{label}</span>}
                   </StepLabel>
                 </Step>
               ))}
@@ -389,7 +403,7 @@ export default function Steps(props) {
           onClose={handleClose}
         >
           <MuiAlert elevation={6} variant="filled" severity="error">
-            Please selece an exam!
+            Please select an exam!
           </MuiAlert>
         </Snackbar>
       </div>

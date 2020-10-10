@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import { Alert, AlertTitle } from "@material-ui/lab";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(()=>({
+  alertBox:{
+    background:"#2a3136",
+    color:"whitesmoke"
+  }
+})) 
 
 export default function Timer(props) {
   const { getTimeSpent } = props;
   const [time, setTime] = useState(120 * 60);
-
+  const classes=useStyles();
   useEffect(() => {
     const interval = setInterval(() => {
       setTime((time) => time - 1);
@@ -39,7 +47,7 @@ export default function Timer(props) {
           </Alert>
         )}
         {time <= 0 && (
-          <Alert severity="warning">
+          <Alert severity="warning" classes={{root:classes.alertBox}} variant="outlined">
             <AlertTitle>Your time is up!</AlertTitle>
             You can keep answering the paper —{" "}
             <strong>Click Next after you finished answering.</strong>
