@@ -10,7 +10,7 @@ import { lightBlue } from "@material-ui/core/colors";
 
 //Images
 
-import BannerImage1 from "../../../img/Banner-2.png";
+import BannerImage1 from "../../../img/Banner-2.svg";
 import BannerImage2 from "../../../img/Banner-3.png";
 import wavesBot from "../../../img/wavebottom.svg";
 import waves from "../../../img/wavestop.svg";
@@ -71,7 +71,7 @@ export default function Banner() {
             </Grid>
             <Grid container item sm={12} md justify="center">
               <div>
-                <Hidden mdUp>
+                <Hidden smDown>
                   <img
                     alt="banner1"
                     style={{ width: "100%" }}
@@ -80,7 +80,7 @@ export default function Banner() {
                 </Hidden>
               </div>
               <div>
-                <Hidden smDown>
+                <Hidden smUp>
                   <img
                     alt="banner1"
                     style={{ width: "100%" }}

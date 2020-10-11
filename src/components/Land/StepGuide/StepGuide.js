@@ -5,10 +5,10 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 //Image Files
 
-import Evaluation from "../../../img/Evaluation-2.png";
-import Reviews from "../../../img/Reviews-2.png";
-import Timing from "../../../img/Timing-2.png";
-import Subjects from "../../../img/Subjects-2.png";
+import Evaluation from "../../../img/Evaluation-2.svg";
+import Reviews from "../../../img/Reviews-2.svg";
+import Timing from "../../../img/Timing-2.svg";
+import Subjects from "../../../img/Subjects-2.svg";
 
 const styles = makeStyles((theme) => ({
   item1: {
