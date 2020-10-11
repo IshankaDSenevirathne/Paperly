@@ -2,7 +2,6 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
@@ -11,7 +10,6 @@ import { lightBlue } from "@material-ui/core/colors";
 //Images
 
 import BannerImage1 from "../../../img/Banner-2.svg";
-import BannerImage2 from "../../../img/Banner-3.png";
 import wavesBot from "../../../img/wavebottom.svg";
 import waves from "../../../img/wavestop.svg";
 
@@ -33,14 +31,26 @@ export default function Banner() {
         backgroundColor: "#2a3136",
         color: "white",
         textTransform: "uppercase",
+        paddingTop:"60px"
       }}
     >
-      <img src={wavesBot} />
 
-      <div style={{}}>
+      <div >
         <Container>
           <Grid container spacing={2} alignItems="center">
-            <Grid item sm={12} md container justify="center">
+          <Grid container item sm={12} md={7} justify="center">
+              <div>
+                
+                  <img
+                    alt="banner1"
+                    style={{ width: "100%" }}
+                    src={BannerImage1}
+                  />
+                
+              </div>
+            </Grid>
+            <Grid item sm={12} md={5} container justify="center">
+            
               <Grid item>
                 <Typography gutterBottom variant="h5" align="center">
                   <b>The easiest way to answer A/L Past papers.</b>
@@ -69,26 +79,7 @@ export default function Banner() {
                 </Typography>
               </Grid>
             </Grid>
-            <Grid container item sm={12} md justify="center">
-              <div>
-                <Hidden smDown>
-                  <img
-                    alt="banner1"
-                    style={{ width: "100%" }}
-                    src={BannerImage1}
-                  />
-                </Hidden>
-              </div>
-              <div>
-                <Hidden smUp>
-                  <img
-                    alt="banner1"
-                    style={{ width: "100%" }}
-                    src={BannerImage2}
-                  />
-                </Hidden>
-              </div>
-            </Grid>
+            
           </Grid>
         </Container>
       </div>

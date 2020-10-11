@@ -163,7 +163,8 @@ export default function Album(props) {
     <div className={classes.root}>
       <CssBaseline />
       <div id="back-to-top-anchor"></div>
-      <Navbar landing={true} />
+      {//<Navbar landing={true} />
+    }
       <Banner />
       <Container className={classes.cardGrid} maxWidth="md">
         <Container
