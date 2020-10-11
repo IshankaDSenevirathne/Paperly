@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
@@ -13,7 +13,7 @@ import Avatar from "@material-ui/core/Avatar";
 import CheckCircleOutline from "@material-ui/icons/CheckCircleOutline";
 import AccessTime from "@material-ui/icons/AccessTime";
 import Divider from "@material-ui/core/Divider";
-import Paper from "@material-ui/core/Paper"
+import Paper from "@material-ui/core/Paper";
 
 import { teal } from "@material-ui/core/colors";
 
@@ -21,7 +21,7 @@ const useStylesFacebook = makeStyles((theme) => ({
   root: {
     position: "relative",
     padding: "10px 10px 10px 10px",
-    background:"#2a3136",
+    background: "#2a3136",
   },
   bottom: {
     color: "#363f44",
@@ -60,9 +60,11 @@ function MyCircularProgress(props) {
           alignItems="center"
           justifyContent="center"
         >
-          <Typography variant="caption" component="div"><span style={{color:"whitesmoke"}}>{`${Math.round(
-            props.value
-          )}%`}</span></Typography>
+          <Typography variant="caption" component="div">
+            <span style={{ color: "whitesmoke" }}>{`${Math.round(
+              props.value
+            )}%`}</span>
+          </Typography>
         </Box>
         <CircularProgress
           variant="static"
@@ -86,19 +88,47 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     backgroundColor: "#363f44",
-    borderRadius:"4px",
-    paddingRight:"15px",
-    color:"white"
+    borderRadius: "4px",
+    paddingRight: "15px",
+    color: "white",
   },
-  paper:{
-    background:"#363f44",
-    borderRadius:"4px",
-  }
+  paper: {
+    background: "#363f44",
+    borderRadius: "4px",
+  },
 }));
 
 export default function Results(props) {
   const classes = useStyles();
   const { answers, questions, paper, timeSpent } = props;
+
+  useEffect(() => {
+    console.log(answers);
+    console.log(questions);
+    console.log(120 * 60 - timeSpent);
+
+    let correctAnswers = 0;
+
+    questions.map((question) => {
+      const index = questions.indexOf(question);
+      const userAnswer = answers[index];
+      const correctAnswer = question.correctAnswer;
+      const result = correctAnswer == userAnswer;
+      if (result) {
+        correctAnswers++;
+      }
+    });
+    const progress = Math.round((correctAnswers * 100) / 50);
+    console.log(progress);
+    fetch(
+      `https://paperly-114b9e.us1.kinto.io/landingstats/papersubmission/${progress}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const evaluatedResults = (answers, questions, timeSpent) => {
     let correctAnswers = 0;
@@ -126,6 +156,7 @@ export default function Results(props) {
       }
     });
     const progress = Math.round((correctAnswers * 100) / 50);
+
     return (
       <div style={{ textAlign: "center" }}>
         <div style={{ paddingBottom: "20px", color: "white" }}>
@@ -136,42 +167,40 @@ export default function Results(props) {
           style={{
             paddingTop: "20px",
             paddingBottom: "20px",
-            color:"white",
-            backgroundColor:"#2a3136",
-            borderRadius:"4px"
+            color: "white",
+            backgroundColor: "#2a3136",
+            borderRadius: "4px",
           }}
         >
-        
-        <Paper elevation={3} className={classes.paper}>
+          <Paper elevation={3} className={classes.paper}>
+            <List className={classes.root}>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar style={{ backgroundColor: "#2a3136" }}>
+                    <CheckCircleOutline style={{ color: teal["A400"] }} />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Correct Answers"
+                  secondary={correctAnswers + "/50"}
+                  secondaryTypographyProps={{ color: "whitesmoke" }}
+                />
+              </ListItem>
+              <Divider variant="inset" component="li" />
 
-          <List className={classes.root}>
-            <ListItem>
-              <ListItemAvatar>
-                <Avatar style={{ backgroundColor: "#2a3136" }}>
-                  <CheckCircleOutline style={{ color: teal["A400"] }} />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary="Correct Answers"
-                secondary={correctAnswers + "/50"}
-                secondaryTypographyProps={{color:"whitesmoke"}}
-              />
-            </ListItem>
-            <Divider variant="inset" component="li" />
-
-            <ListItem>
-              <ListItemAvatar>
-                <Avatar style={{ backgroundColor: "#2a3136" }}>
-                  <AccessTime color="primary" />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary="Time elapsed"
-                secondary={"0" + hours + ":" + minutes + ":" + seconds}
-                secondaryTypographyProps={{color:"whitesmoke"}}
-              />
-            </ListItem>
-          </List>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar style={{ backgroundColor: "#2a3136" }}>
+                    <AccessTime color="primary" />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Time elapsed"
+                  secondary={"0" + hours + ":" + minutes + ":" + seconds}
+                  secondaryTypographyProps={{ color: "whitesmoke" }}
+                />
+              </ListItem>
+            </List>
           </Paper>
         </div>
       </div>
