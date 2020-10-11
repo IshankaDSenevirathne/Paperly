@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AnimatedNumber from "animated-number-react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -29,6 +29,20 @@ const formatValue = (value) => value.toFixed(0);
 
 const Statsbar = (props) => {
   const classes = useStyles();
+  const [submissions, setsubmissions] = useState(0);
+
+  useEffect(() => {
+    fetch("https://paperly-114b9e.us1.kinto.io/landingstats/getstats")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+
+        if (data.status === "success") {
+          setsubmissions(data.submissions);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <Grid className={classes.statbar} spacing={2}>
@@ -91,7 +105,7 @@ const Statsbar = (props) => {
                 <span className={classes.statbartext}>corrected </span>
                 {props.counterVisible ? (
                   <AnimatedNumber
-                    value={10000}
+                    value={submissions}
                     duration={2000}
                     formatValue={formatValue}
                   />
