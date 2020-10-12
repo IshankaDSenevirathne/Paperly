@@ -1,26 +1,28 @@
 import React, { useState, useEffect } from "react";
 import AnimatedNumber from "animated-number-react";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+
+
+import wave from "../../../img/wavestop.svg"
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    height: 200,
-    width: 200,
-    textAlign: "center",
-    // position: "sticky",
-    background: "#1fa2ff",
-    color: "#ffffff",
-  },
+
   statbar: {
     padding: "3rem",
     // backgroundImage: `${gradientstatbar}`,
     // background: "rgb(245, 245, 245)",
-    backgroundColor: "#2a3136",
+    backgroundColor: "#ffffff",
+    color:"black",
+    minHeight:"300px",
+    backgroundImage:`url(${wave})`,
+    backgroundSize:"cover",
+    backgroundRepeat:"no-repeat"
   },
   statbartext: {
-    textTransform: "capitalize",
+    textTransform: "uppercase",
+    color:"#515A5A"
     // text-transform: uppercase;
   },
 }));
@@ -45,80 +47,78 @@ const Statsbar = (props) => {
   }, []);
 
   return (
-    <Grid className={classes.statbar} spacing={2}>
-      <Grid item xs={12}>
-        <Grid container justify="space-around" spacing="6">
-          <Grid item>
-            <Paper className={classes.paper}>
+    <Grid container direction="row" className={classes.statbar}>
+          <Grid item xs={12} sm={3}>
               <div className="stattable">
-                <span className={classes.statbartext}>Currently servers</span>
                 {props.counterVisible ? (
-                  <AnimatedNumber
-                    value={12}
-                    duration={2000}
-                    formatValue={formatValue}
-                  />
+                  <Typography variant="h2" gutterBottom align="center">
+                    <AnimatedNumber
+                      value={12}
+                      duration={1000}
+                      formatValue={formatValue}
+                    />
+                  </Typography>
                 ) : (
                   ""
                 )}{" "}
                 <span className={classes.statbartext}>Past papers</span>
               </div>
-            </Paper>
           </Grid>
-          <Grid item>
-            <Paper className={classes.paper}>
+          <Grid item xs={12} sm={3}>
               <div className="stattable">
-                <span className={classes.statbartext}>Including</span>
                 {props.counterVisible ? (
+                  <Typography variant="h2" gutterBottom align="center">
+
                   <AnimatedNumber
                     value={6}
-                    duration={2000}
+                    duration={1000}
                     formatValue={formatValue}
                   />
+                  </Typography>
+
                 ) : (
                   ""
                 )}{" "}
                 <span className={classes.statbartext}>subjects</span>
               </div>
-            </Paper>
           </Grid>{" "}
-          <Grid item>
-            <Paper className={classes.paper}>
+          <Grid item xs={12} sm={3}>
               <div className="stattable">
-                <span className={classes.statbartext}>Past papers in</span>
                 {props.counterVisible ? (
+                  <Typography variant="h2" gutterBottom align="center">
+
                   <AnimatedNumber
                     value={20}
-                    duration={2000}
+                    duration={1000}
                     formatValue={formatValue}
                   />
+                  </Typography>
+
                 ) : (
                   ""
                 )}{" "}
-                <span className={classes.statbartext}>Years</span>
+                <span className={classes.statbartext}>Years of exams</span>
               </div>
-            </Paper>
           </Grid>{" "}
-          <Grid item>
-            <Paper className={classes.paper}>
+          <Grid item xs={12} sm={3}>
               <div className="stattable">
-                <span className={classes.statbartext}>corrected </span>
                 {props.counterVisible ? (
+                  <Typography variant="h2" gutterBottom align="center">
                   <AnimatedNumber
                     value={submissions}
-                    duration={2000}
+                    duration={1000}
                     formatValue={formatValue}
                   />
+                  </Typography>
+
                 ) : (
                   ""
                 )}
-                <span className={classes.statbartext}>questions</span>
+                <span className={classes.statbartext}>Submissions</span>
               </div>
-            </Paper>
-          </Grid>
         </Grid>
-      </Grid>
     </Grid>
+
   );
 };
 export default Statsbar;

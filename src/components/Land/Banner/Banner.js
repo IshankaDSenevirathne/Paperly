@@ -10,8 +10,6 @@ import { lightBlue } from "@material-ui/core/colors";
 //Images
 
 import BannerImage1 from "../../../img/Banner-2.svg";
-import wavesBot from "../../../img/wavebottom.svg";
-import waves from "../../../img/wavestop.svg";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -31,7 +29,9 @@ export default function Banner() {
         backgroundColor: "#2a3136",
         color: "white",
         textTransform: "uppercase",
-        paddingTop:"60px"
+        paddingTop:"60px",
+        width:"100%",
+        minHeight:"100%"
       }}
     >
 
@@ -83,7 +83,6 @@ export default function Banner() {
           </Grid>
         </Container>
       </div>
-      <img src={waves} />
     </div>
   );
 }

@@ -1,9 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+
+
 import "./Landing.css";
 import SlideImg from "../Slide/slidehomeimages";
 import VisibilitySensor from "react-visibility-sensor";
@@ -47,7 +52,9 @@ const useStyles = makeStyles((theme) => ({
     bottom: theme.spacing(2),
     right: theme.spacing(2),
   },
-
+  botBanner:{
+    minHeight:"300px"
+  },
   // https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80
 
   heroContent: {
@@ -102,12 +109,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WhiteTextTypography = withStyles({
-  root: {
-    color: "white",
-  },
-})(Typography);
-
 function ScrollTop(props) {
   const { children, window } = props;
   const classes = useStyles();
@@ -148,10 +149,7 @@ function ScrollTop(props) {
 
 ScrollTop.propTypes = {
   children: PropTypes.element.isRequired,
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
+  
   window: PropTypes.func,
 };
 
@@ -172,75 +170,12 @@ export default function Album(props) {
             paddingBottom: "1rem",
           }}
         >
-          {/*<Typography style={{ textTransform: "uppercase" }} variant="h4">
-            Our Vison
-          </Typography>
-          <Typography style={{ color: "#1fa2ff" }} variant="h5" color="inherit">
-            Enhance the learing procedures of students with information
-            technolagy
-        </Typography>*/}
         </Container>
-
-        {
-          // <SlideImg />
-        }
         <StepGuide />
 
-        {/* End hero unit */}
       </Container>
-      {/* <AppBar
-        style={{ backgroundColor: "#ffffff", align: "center" }}
-        position="relative"
-      >
-        <Toolbar style={{ backgroundColor: "#ffffff", alignItems: "center" }}>
-          <CameraIcon className={classes.icon} />
-          <Typography
-            style={{ color: "#1FA2FF" }}
-            variant="h4"
-            color="inherit"
-            noWrap
-          >
-            EduEra
-          </Typography>
-        </Toolbar>
-      </AppBar> */}
+     
       <div>
-        {/*<div id="back-to-top-anchor" className={classes.heroContent}>
-          <Container style={{ marginLeft: "2%" }} maxWidth="sm">
-            <WhiteTextTypography
-              component="h1"
-              variant="h2"
-              align="left"
-              color="#ffffff"
-              gutterBottom
-            >
-              EduEra
-            </WhiteTextTypography>
-            <WhiteTextTypography
-              variant="h5"
-              // align="center"
-              color="textSecondary"
-              paragraph
-              align="left"
-            >
-              An interactive online platform <br></br>
-              for taking multiple choice questions <br></br>
-              and correcting awnsers.
-            </WhiteTextTypography>
-            {/* <WhiteTextTypography
-              className="slider"
-              component="h3"
-              variant="h3"
-              align="left"
-              color="#ffffff"
-              gutterBottom
-            >
-              EduEra
-            </WhiteTextTypography> }
-
-            <Slide />
-          </Container>
-        </div>*/}
       </div>{" "}
       <VisibilitySensor
         onChange={(e) => {
@@ -252,6 +187,33 @@ export default function Album(props) {
         <div className="scrollvisibile"></div>
       </VisibilitySensor>
       <Statsbar counterVisible={counterVisible} />
+      <Grid container direction="row" alignItems="center" justify="center" className={classes.botBanner}>
+        <Grid item>
+              <Typography variant="h4" align="center">
+                READY TO JUMP IN ?
+              </Typography>
+              <div style={{paddingTop:"20px"}}>
+              <Typography gutterBottom variant="subtitle1" align="center">
+                <Link
+                  to="/subjectmenu"
+                  style={{
+                    textDecoration: "none",
+                  }}
+                >
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                  >
+                    GET STARTED
+                  </Button>
+                </Link>
+              </Typography>
+              </div>
+
+        </Grid>
+      </Grid>
+      <Footer />
       <ScrollTop {...props}>
         <Fab
           style={{ backgroundColor: "#1fa2ff" }}
@@ -261,46 +223,7 @@ export default function Album(props) {
           <KeyboardArrowUpIcon style={{ color: "#ffffff" }} />
         </Fab>
       </ScrollTop>
-      <Footer />
     </div>
   );
 }
 
-/*  Icons made by{" "}
-        <a
-          href="https://www.flaticon.com/authors/darius-dan"
-          title="Darius Dan"
-        >
-          Darius Dan
-        </a>{" "}
-        from{" "}
-        <a href="https://www.flaticon.com/" title="Flaticon">
-          {" "}
-          www.flaticon.com
-        </a>
-        <div>
-          Icons made by{" "}
-          <a
-            href="https://www.flaticon.com/authors/vitaly-gorbachev"
-            title="Vitaly Gorbachev"
-          >
-            Vitaly Gorbachev
-          </a>{" "}
-          from{" "}
-          <a href="https://www.flaticon.com/" title="Flaticon">
-            www.flaticon.com
-          </a>
-          <div>
-            Icons made by{" "}
-            <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
-              Freepik
-            </a>{" "}
-            from{" "}
-            <a href="https://www.flaticon.com/" title="Flaticon">
-              www.flaticon.com
-            </a>
-          </div>
-          
-
-Icons made by <a href="https://www.flaticon.com/authors/wanicon" title="wanicon">wanicon</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-</div> */
