@@ -36,13 +36,13 @@ export default function StepGuide() {
         <Grid container spacing={2} alignItems="center">
           <Grid item xs={12} sm container justify="center">
             <Grid item>
-              <div data-aos="fade-left">
+              <div>
                 <img alt="hero1" className={classes.images} src={Subjects} />
               </div>
             </Grid>
           </Grid>
           <Grid container item xs={12} sm justify="center">
-            <div data-aos="fade-right">
+            <div>
               <Typography gutterBottom variant="h6" align="center">
                 <b>CURRENTLY SUPPORTS SIX SUBJECTS </b>
               </Typography>
@@ -65,7 +65,7 @@ export default function StepGuide() {
             className={classes.item1}
           >
             <Grid item>
-              <div data-aos="fade-left">
+              <div>
                 <Typography gutterBottom variant="h6" align="center">
                   <b>WE WILL TIME YOUR ATTEMP</b>
                 </Typography>
@@ -85,7 +85,7 @@ export default function StepGuide() {
             className={classes.item2}
             sm
           >
-            <div data-aos="fade-right">
+            <div>
               <img alt="hero2" className={classes.images} src={Timing} />
             </div>
           </Grid>
@@ -96,13 +96,13 @@ export default function StepGuide() {
         <Grid container spacing={2} alignItems="center">
           <Grid item xs={12} sm container justify="center">
             <Grid item>
-              <div data-aos="fade-left">
+              <div>
                 <img alt="hero3" className={classes.images} src={Evaluation} />
               </div>
             </Grid>
           </Grid>
           <Grid container item xs={12} sm justify="center">
-            <div data-aos="fade-left">
+            <div >
               <Typography gutterBottom variant="h6" align="center">
                 <b>YOUR ANSWER SCRIPTS WILL BE VERIFIED IN REAL TIME</b>
               </Typography>
@@ -126,7 +126,7 @@ export default function StepGuide() {
             className={classes.item1}
           >
             <Grid item>
-            <div data-aos="fade-right">
+            <div>
               <Typography gutterBottom variant="h6" align="center">
                 <b>REVIEW ANSWERS RIGHT AFTER ANSWERING</b>
               </Typography>
@@ -145,7 +145,7 @@ export default function StepGuide() {
             sm
             className={classes.item2}
           >
-            <div data-aos="fade-left">
+            <div>
               <img alt="hero4" className={classes.images} src={Reviews} />
             </div>
           </Grid>

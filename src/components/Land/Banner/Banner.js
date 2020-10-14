@@ -65,12 +65,12 @@ export default function Banner() {
             <Grid item sm={12} md={6} container justify="center">
             
               <Grid item>
-                <div data-aos="fade-up">
+                <div data-aos="fade-up" data-aos-duration="1000" >
                   <Typography gutterBottom variant="h6" align="center">
                     <b>The easiest way to answer A/L Past papers.</b>
                   </Typography>
-                  <div style={{ paddingTop: "20px", paddingBottom: "20px" }}>
-                    <Typography gutterBottom variant="subtitle1" align="center">
+                  <div style={{ paddingTop: "5px", paddingBottom: "20px" }}>
+                    <Typography gutterBottom variant="subtitle2" align="center">
                       Everything you need, 100% free.
                     </Typography>
                   </div>
