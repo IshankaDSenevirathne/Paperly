@@ -11,7 +11,6 @@ import { lightBlue } from "@material-ui/core/colors";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 import { Grid, Paper } from "@material-ui/core";
-import Skeleton from "@material-ui/lab/Skeleton";
 
 import Physics from "../../../../img/physics.svg";
 import Biology from "../../../../img/plant.svg";
@@ -65,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
-    height: "400px",
+    height: "500px",
     minWidth: "200px",
   },
   button: {
@@ -171,12 +170,10 @@ const subjects = [
 export default function SubjectTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  const [loadingState, setLoadingState] = React.useState(true);
   const handleChange = (event, newValue) => {
     if (newValue == value) {
       return;
     }
-    setLoadingState(true);
     setValue(newValue);
   };
   return (
@@ -226,45 +223,38 @@ export default function SubjectTabs() {
                 <Grid
                   container
                   direction="column"
-                  justify="flex-start"
+                  justify="center"
                   alignItems="center"
                 >
-                  <Grid item sm={6} container justify="center">
+                  <Grid item sm={6} container alignItems="center" justify="center">
                     <Grid item>
-                      <div>
-                        {loadingState && (
-                          <div>
-                            <Skeleton
-                              variant="rect"
-                              width={183}
-                              height={210}
-                            ></Skeleton>
-                          </div>
-                        )}
-                        <img
-                          onLoad={() => setLoadingState(false)}
-                          src={subject.image}
-                        ></img>
+                      <div style={{paddingTop:"50px"}}>
+                        <Typography gutterBottom variant="subtitle1" align="center">
+                          <b>
+                            Evolution is the fundamental idea in all of life science
+                            - in all of biology.{" "}
+                          </b>
+                        </Typography>
                       </div>
+                      
+                    <div>
+                    <Link to={`/quizes?subject=${subject.link}`}>
+                      <Button
+                        className={classes.start}
+                        variant="contained"
+                        color="primary"
+                      >
+                        START
+                      </Button>
+                    </Link>
+                  </div>
                     </Grid>
                   </Grid>
                   <Grid container item sm={6} justify="center">
-                    <Typography gutterBottom variant="subtitle1" align="center">
-                      <b>
-                        Evolution is the fundamental idea in all of life science
-                        - in all of biology.{" "}
-                      </b>
-                    </Typography>
                     <div>
-                      <Link to={`/quizes?subject=${subject.link}`}>
-                        <Button
-                          className={classes.start}
-                          variant="contained"
-                          color="primary"
-                        >
-                          START
-                        </Button>
-                      </Link>
+                        <img
+                          src={subject.image}
+                        ></img>
                     </div>
                   </Grid>
                 </Grid>

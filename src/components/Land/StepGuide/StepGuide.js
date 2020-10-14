@@ -36,19 +36,21 @@ export default function StepGuide() {
         <Grid container spacing={2} alignItems="center">
           <Grid item xs={12} sm container justify="center">
             <Grid item>
-              <div>
+              <div data-aos="fade-left">
                 <img alt="hero1" className={classes.images} src={Subjects} />
               </div>
             </Grid>
           </Grid>
           <Grid container item xs={12} sm justify="center">
-            <Typography gutterBottom variant="h6" align="center">
-              <b>CURRENTLY SUPPORTS SIX SUBJECTS </b>
-            </Typography>
+            <div data-aos="fade-right">
+              <Typography gutterBottom variant="h6" align="center">
+                <b>CURRENTLY SUPPORTS SIX SUBJECTS </b>
+              </Typography>
 
-            <Typography gutterBottom variant="subtitle1" align="center">
-              You have access to all the past papers under thes subjects
-            </Typography>
+              <Typography gutterBottom variant="subtitle1" align="center">
+                You have access to all the past papers under thes subjects
+              </Typography>
+            </div>
           </Grid>
         </Grid>
       </div>
@@ -63,14 +65,16 @@ export default function StepGuide() {
             className={classes.item1}
           >
             <Grid item>
-              <Typography gutterBottom variant="h6" align="center">
-                <b>WE WILL TIME YOUR ATTEMP</b>
-              </Typography>
+              <div data-aos="fade-left">
+                <Typography gutterBottom variant="h6" align="center">
+                  <b>WE WILL TIME YOUR ATTEMP</b>
+                </Typography>
 
-              <Typography gutterBottom variant="subtitle1" align="center">
-                Your attempt will be timed and the individual time taken for
-                each question will be also displayed under Reviews
-              </Typography>
+                <Typography gutterBottom variant="subtitle1" align="center">
+                  Your attempt will be timed and the individual time taken for
+                  each question will be also displayed under Reviews
+                </Typography>
+              </div>
             </Grid>
           </Grid>
           <Grid
@@ -81,7 +85,7 @@ export default function StepGuide() {
             className={classes.item2}
             sm
           >
-            <div>
+            <div data-aos="fade-right">
               <img alt="hero2" className={classes.images} src={Timing} />
             </div>
           </Grid>
@@ -92,20 +96,22 @@ export default function StepGuide() {
         <Grid container spacing={2} alignItems="center">
           <Grid item xs={12} sm container justify="center">
             <Grid item>
-              <div>
+              <div data-aos="fade-left">
                 <img alt="hero3" className={classes.images} src={Evaluation} />
               </div>
             </Grid>
           </Grid>
           <Grid container item xs={12} sm justify="center">
-            <Typography gutterBottom variant="h6" align="center">
-              <b>YOUR ANSWER SCRIPTS WILL BE VERIFIED IN REAL TIME</b>
-            </Typography>
+            <div data-aos="fade-left">
+              <Typography gutterBottom variant="h6" align="center">
+                <b>YOUR ANSWER SCRIPTS WILL BE VERIFIED IN REAL TIME</b>
+              </Typography>
 
-            <Typography gutterBottom variant="subtitle1" align="center">
-              You will be able to get results and an analysis of your answers
-              instantly after finishing the quiz.
-            </Typography>
+              <Typography gutterBottom variant="subtitle1" align="center">
+                You will be able to get results and an analysis of your answers
+                instantly after finishing the quiz.
+              </Typography>
+            </div>
           </Grid>
         </Grid>
       </div>
@@ -120,6 +126,7 @@ export default function StepGuide() {
             className={classes.item1}
           >
             <Grid item>
+            <div data-aos="fade-right">
               <Typography gutterBottom variant="h6" align="center">
                 <b>REVIEW ANSWERS RIGHT AFTER ANSWERING</b>
               </Typography>
@@ -127,6 +134,7 @@ export default function StepGuide() {
               <Typography gutterBottom variant="subtitle1" align="center">
                 A review for each question will be provided at the end.
               </Typography>
+            </div>
             </Grid>
           </Grid>
           <Grid
@@ -137,7 +145,7 @@ export default function StepGuide() {
             sm
             className={classes.item2}
           >
-            <div>
+            <div data-aos="fade-left">
               <img alt="hero4" className={classes.images} src={Reviews} />
             </div>
           </Grid>

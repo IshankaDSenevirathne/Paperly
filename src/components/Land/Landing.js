@@ -189,7 +189,7 @@ export default function Album(props) {
       <Statsbar counterVisible={counterVisible} />
       <Grid container direction="row" alignItems="center" justify="center" className={classes.botBanner}>
         <Grid item>
-              <Typography variant="h4" align="center">
+              <Typography variant="h5" align="center">
                 READY TO JUMP IN ?
               </Typography>
               <div style={{paddingTop:"20px"}}>
