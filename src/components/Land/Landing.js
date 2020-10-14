@@ -10,6 +10,7 @@ import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
 import Footer from "./Footer/Footer";
 import Navbar from "../navbar/navbar";
+import Quote from "../Quote/Quote";
 
 import PropTypes from "prop-types";
 
@@ -250,6 +251,7 @@ export default function Album(props) {
       >
         <div className="scrollvisibile"></div>
       </VisibilitySensor>
+      <Quote/>
       <Statsbar counterVisible={counterVisible} />
       <ScrollTop {...props}>
         <Fab
@@ -298,7 +300,7 @@ export default function Album(props) {
               www.flaticon.com
             </a>
           </div>
-          
+
 
 Icons made by <a href="https://www.flaticon.com/authors/wanicon" title="wanicon">wanicon</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 </div> */
