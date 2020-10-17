@@ -15,6 +15,7 @@ import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
 import Footer from "./Footer/Footer";
 import Navbar from "../navbar/navbar";
+import Quote from "../Quote/Quote";
 
 import PropTypes from "prop-types";
 
@@ -149,7 +150,7 @@ function ScrollTop(props) {
 
 ScrollTop.propTypes = {
   children: PropTypes.element.isRequired,
-  
+
   window: PropTypes.func,
 };
 
@@ -173,7 +174,7 @@ export default function Album(props) {
         <StepGuide />
 
       </Container>
-     
+
       <div>
       </div>{" "}
       <VisibilitySensor
@@ -185,6 +186,7 @@ export default function Album(props) {
       >
         <div className="scrollvisibile"></div>
       </VisibilitySensor>
+      <Quote/>
       <Statsbar counterVisible={counterVisible} />
       <Grid container direction="row" alignItems="center" justify="center" className={classes.botBanner}>
         <Grid item>
