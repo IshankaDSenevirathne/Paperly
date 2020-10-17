@@ -120,7 +120,7 @@ const useColorlibStepIconStyles = makeStyles({
   },
   completed: {
     backgroundColor: "#1fa2ff",
-    color:"whitesmoke"
+    color: "whitesmoke",
   },
 });
 
@@ -166,16 +166,16 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     paddingBottom: "100px",
   },
-  stepper:{
-    color:"white",
-    background:"#363f44",
-    borderRadius:"3px",
+  stepper: {
+    color: "white",
+    background: "#363f44",
+    borderRadius: "3px",
   },
   backButton: {
     marginRight: theme.spacing(1),
     marginLeft: theme.spacing(1),
     color: "whitesmoke",
-    borderColor:"whitesmoke",
+    borderColor: "whitesmoke",
     "&:hover": {
       color: "white",
     },
@@ -201,7 +201,7 @@ const useStyles = makeStyles((theme) => ({
   instructions: {
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
-    color:"white"
+    color: "white",
   },
 }));
 
@@ -230,6 +230,7 @@ export default function Steps(props) {
   const [timeSpent, setTimeSpent] = useState(120 * 60);
   const [checkLast, setCheckLast] = useState(false);
   const [open, setOpen] = React.useState(false);
+  const [paperYear, setpaperYear] = useState(0);
 
   const steps = getSteps();
 
@@ -243,6 +244,7 @@ export default function Steps(props) {
     const regex = /\d+/;
     let year = activePaper.match(regex)[0];
     console.log(year);
+    setpaperYear(year);
     let paper = require(`../../paperdata/${subject}/${year}/paper.json`);
     setActiveQuestions(paper.content.pages);
   }, [activePaper, activeQuestions]);
@@ -303,9 +305,13 @@ export default function Steps(props) {
             >
               {steps.map((label) => (
                 <Step key={label}>
-                  <StepLabel StepIconComponent={ColorlibStepIcon} >
-                    {activeStep==steps.indexOf(label) && <span style={{color:"#1fa2ff"}}>{label}</span>}
-                    {activeStep!=steps.indexOf(label) && <span style={{color:"whitesmoke"}}>{label}</span>}
+                  <StepLabel StepIconComponent={ColorlibStepIcon}>
+                    {activeStep == steps.indexOf(label) && (
+                      <span style={{ color: "#1fa2ff" }}>{label}</span>
+                    )}
+                    {activeStep != steps.indexOf(label) && (
+                      <span style={{ color: "whitesmoke" }}>{label}</span>
+                    )}
                   </StepLabel>
                 </Step>
               ))}
@@ -341,6 +347,8 @@ export default function Steps(props) {
               questions={activeQuestions}
               answers={activeAnswers}
               timeSpent={timeSpent}
+              paperName={subject}
+              paperYear={paperYear}
             />
           )}
         </div>
