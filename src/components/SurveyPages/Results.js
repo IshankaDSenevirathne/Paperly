@@ -128,8 +128,8 @@ export default function Results(props) {
     console.log(progress);
     setmarks(progress);
     fetch(
-      // `https://paperly-114b9e.us1.kinto.io/landingstats/papersubmission/${progress}`
-      `http://localhost:5000/landingstats/papersubmission?submissions=${progress}&paper=${props.paperName}&paperyear=${props.paperYear}`
+      `https://paperly-114b9e.us1.kinto.io/landingstats/papersubmission?submissions=${progress}&paper=${props.paperName}&paperyear=${props.paperYear}`
+      // `http://localhost:5000/landingstats/papersubmission?submissions=${progress}&paper=${props.paperName}&paperyear=${props.paperYear}`
     )
       .then((res) => res.json())
       .then((data) => {
