@@ -16,7 +16,7 @@ import Divider from "@material-ui/core/Divider";
 import Paper from "@material-ui/core/Paper";
 
 import { teal } from "@material-ui/core/colors";
-import MarksPercentile from "./Graph/graph";
+import { MarksPercentile } from "./Graph/graph";
 
 const useStylesFacebook = makeStyles((theme) => ({
   root: {

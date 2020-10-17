@@ -65,7 +65,7 @@ const data = [
   },
 ];
 
-const MarksPercentile = (props) => (
+export const MarksPercentile = (props) => (
   <Container className="graphwrapper">
     {console.log(props)}
     <ResponsiveLine
@@ -170,7 +170,7 @@ const MarksPercentile = (props) => (
   </Container>
 );
 
-export default MarksPercentile;
+// export default MarksPercentile;
 
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
