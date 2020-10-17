@@ -38,7 +38,7 @@ export default function Banner() {
         backgroundColor: "#ffffff",
         color: "#2a3136",
         textTransform: "uppercase",
-        paddingBottom:"60px",
+        paddingBottom:"100px",
         width:"100%",
         minHeight:"100%",
       }}
@@ -51,7 +51,7 @@ export default function Banner() {
             <Grid item sm={12} md={6} container justify="center">
               <div>
                 <Typography gutterBottom align="center">
-                  <div>
+                  <div >
                     <svg xmlns="http://www.w3.org/2000/svg" width="278.069px" height="370.692px" viewBox="0 0 175.75 266.93">
                         <title>Paperly (3)</title>
                         <path style={{fill:"#373f44"}} className="left a animate fadeLeft" d="M45.27,5.06c-1.65-1.9-3-1.4-3,1.11v258.5c0,2.52,1.33,3,2.95,1.08L78,226.91a14.57,14.57,0,0,0,3-8.06V50.75a14.23,14.23,0,0,0-3-8Z"/>
