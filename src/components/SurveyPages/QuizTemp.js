@@ -44,10 +44,10 @@ const useStyles = makeStyles((theme) => ({
 export default function QuizTemp(props) {
   const classes = useStyles();
 
-  const answersHolder = [0, 0, 0];
-  const timeHolder = [0, 0, 0];
-  // const answersHolder = Array.from({ length: 50 }, (_, i) => 0); // [0, 0, 0];
-  // const timeHolder = Array.from({ length: 50 }, (_, i) => 0); //[0, 0, 0];
+  // const answersHolder = [0, 0, 0];
+  // const timeHolder = [0, 0, 0];
+  const answersHolder = Array.from({ length: 50 }, (_, i) => 0); // [0, 0, 0];
+  const timeHolder = Array.from({ length: 50 }, (_, i) => 0); //[0, 0, 0];
 
   // Array.from();
   // Array.from({ length: 10 }, (_, i) => 0);

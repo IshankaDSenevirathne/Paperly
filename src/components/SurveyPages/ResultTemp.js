@@ -62,6 +62,7 @@ export default function ResultTemp(props) {
                     <img
                       style={{ width: question.imgwidth }}
                       src={question.img}
+                      alt={question.title}
                     />
                   )}
                 </h3>
@@ -98,6 +99,7 @@ export default function ResultTemp(props) {
                             width={ele.imgwidth}
                             height="auto"
                             style={{ marginRight: "5px" }}
+                            alt={ele.id}
                           />
                           <br />
                         </>
@@ -231,6 +233,7 @@ export default function ResultTemp(props) {
                             width={ele.imgwidth}
                             height="auto"
                             style={{ marginRight: "5px" }}
+                            alt={ele.id}
                           />
                           <br />
                         </>
