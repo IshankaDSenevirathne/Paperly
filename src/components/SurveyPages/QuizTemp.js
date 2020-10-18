@@ -46,6 +46,12 @@ export default function QuizTemp(props) {
 
   const answersHolder = [0, 0, 0];
   const timeHolder = [0, 0, 0];
+  // const answersHolder = Array.from({ length: 50 }, (_, i) => 0); // [0, 0, 0];
+  // const timeHolder = Array.from({ length: 50 }, (_, i) => 0); //[0, 0, 0];
+
+  // Array.from();
+  // Array.from({ length: 10 }, (_, i) => 0);
+  //=> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   const { paper, questions, getAnswers, getTimeSpent } = props;
   const [activeQuestion, setActiveQuestion] = React.useState(0);
@@ -61,12 +67,17 @@ export default function QuizTemp(props) {
   const handleRadioChange = (event) => {
     const answer = event.target.value;
     setValue(answer);
+
+    console.log(answer);
+    console.log(parseInt(answer));
+    console.log(answers[activeQuestion]);
+
     setAnswers((answers) => {
       answers[activeQuestion] = answer;
       return answers;
     });
   };
-  
+
   React.useEffect(() => {
     getAnswers(answers, timeSpent, checkLast);
   }, [answers, getAnswers]);
@@ -159,12 +170,12 @@ export default function QuizTemp(props) {
             <RadioGroup
               aria-label="quiz"
               name="quiz"
-              value={value}
+              value={parseInt(value)}
               onChange={handleRadioChange}
             >
-              <FormControlLabel
-                value={questions[activeQuestion].choices[0]}
-                // value={1}
+              {/* <FormControlLabel
+                // value={questions[activeQuestion].choices[0]}
+                value={1}
                 control={<Radio color="primary" className={classes.radio} />}
                 label={questions[activeQuestion].choices[0]}
               />
@@ -184,8 +195,8 @@ export default function QuizTemp(props) {
                 // value={questions[activeQuestion].choices[3]}
                 value={4}
                 control={<Radio color="primary" className={classes.radio} />}
-                label={questions[activeQuestion].choices[3]}
-              />
+                label={questions[activeQuestion].choices[3]} */}
+              {/* /> */}
               {/* {questions[activeQuestion].choices[4].text && (
                 <FormControlLabel
                   value={questions[activeQuestion].choices[4].id}
@@ -194,7 +205,7 @@ export default function QuizTemp(props) {
                 />
               )} */}
               {/* {questions[activeQuestion].choices[4].img && ( */}
-              <FormControlLabel
+              {/* <FormControlLabel
                 value={questions[activeQuestion].choices[4].id}
                 control={<Radio color="primary" className={classes.radio} />}
                 // label={questions[activeQuestion].choices[4].text}
@@ -217,7 +228,40 @@ export default function QuizTemp(props) {
                     {questions[activeQuestion].choices[4].text}
                   </>
                 }
-              />
+              /> */}
+
+              {questions[activeQuestion].choices.map((ele, index) => {
+                return (
+                  <FormControlLabel
+                    key={index}
+                    value={ele.id}
+                    control={
+                      <Radio color="primary" className={classes.radio} />
+                    }
+                    // label={questions[activeQuestion].choices[4].text}
+                    label={
+                      <>
+                        {ele.img && (
+                          <>
+                            <img
+                              src={ele.img}
+                              key={ele.id}
+                              className="profile-img"
+                              width={ele.imgwidth}
+                              height="auto"
+                              style={{ marginRight: "5px" }}
+                            />
+                            <br />
+                          </>
+                        )}
+
+                        {ele.text}
+                      </>
+                    }
+                  />
+                );
+              })}
+
               {/* )} */}
             </RadioGroup>
             <br></br>

@@ -119,7 +119,7 @@ export default function Results(props) {
       const index = questions.indexOf(question);
       const userAnswer = answers[index];
       const correctAnswer = question.correctAnswer;
-      const result = correctAnswer == userAnswer;
+      const result = parseInt(correctAnswer) === parseInt(userAnswer);
       if (result) {
         correctAnswers++;
       }
@@ -166,7 +166,7 @@ export default function Results(props) {
     questions.map((question) => {
       const index = questions.indexOf(question);
       const userAnswer = answers[index];
-      const correctAnswer = question.correctAnswer;
+      const correctAnswer = parseInt(question.correctAnswer);
       const result = correctAnswer == userAnswer;
       if (result) {
         correctAnswers++;

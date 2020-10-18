@@ -8,29 +8,111 @@
         "img": "https://www.studyacs.com/database/files/Garden/Nitrogen%20Cycle%20www.acs.edu.au%20.jpg",
         "imgwidth": "80%",
         "choices": [
-          "1750-1800",
-          "1800-1850",
-          "1850-1900",
-          "1900-1950",
+          {
+            "id": 1,
+            "text": "1750-1800",
+
+            "imgwidth": "60%"
+          },
+          {
+            "id": 2,
+            "text": "1800-1850",
+
+            "imgwidth": "60%"
+          },
+          {
+            "id": 3,
+            "text": "1850-1900",
+
+            "imgwidth": "60%"
+          },
+          {
+            "id": 4,
+            "text": "1900-1950",
+
+            "imgwidth": "60%"
+          },
           {
             "id": 5,
-            "text": "asdf",
-            "img": "https://www.studyacs.com/database/files/Garden/Nitrogen%20Cycle%20www.acs.edu.au%20.jpg",
+            "text": "2077",
+
             "imgwidth": "60%"
           }
         ],
-        "correctAnswer": "3"
+        "correctAnswer": 3
       },
 
       {
         "title": "ගුරුත්වාකර්ෂණ නියතය GB මාන දෙනු ලබන්නේ, ",
-        "choices": ["L’M-'T-", "LM-2", "LPM-zT-I", "L’M'T-2", "LM-1"],
-        "correctAnswer": "L’M-'T-"
+        "choices": [
+          {
+            "id": 1,
+            "text": "L’M-'T-",
+
+            "imgwidth": "60%"
+          },
+          {
+            "id": 2,
+            "text": "LM-2",
+
+            "imgwidth": "60%"
+          },
+          {
+            "id": 3,
+            "text": "LPM-zT-I",
+
+            "imgwidth": "60%"
+          },
+          {
+            "id": 4,
+            "text": "L’M'T-2",
+
+            "imgwidth": "60%"
+          },
+          {
+            "id": 5,
+            "text": "LM-1",
+
+            "imgwidth": "60%"
+          }
+        ],
+        "correctAnswer": 1
       },
       {
         "title": "පහත සඳහන් ඒකක අතුරෙන් මූලික ඒකකයක් නොවන්නේ කුමක් ද?",
-        "choices": ["m", "j", "cd", "k", "mol"],
-        "correctAnswer": "m"
+        "choices": [
+          {
+            "id": 1,
+            "text": "m",
+
+            "imgwidth": "60%"
+          },
+          {
+            "id": 2,
+            "text": "j",
+
+            "imgwidth": "60%"
+          },
+          {
+            "id": 3,
+            "text": "cd",
+
+            "imgwidth": "60%"
+          },
+          {
+            "id": 4,
+            "text": "k",
+
+            "imgwidth": "60%"
+          },
+          {
+            "id": 5,
+            "text": "mol",
+
+            "imgwidth": "60%"
+          }
+        ],
+        "correctAnswer": 1
       }
     ]
   }
