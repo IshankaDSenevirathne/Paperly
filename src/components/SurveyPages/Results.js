@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
@@ -16,6 +16,7 @@ import Divider from "@material-ui/core/Divider";
 import Paper from "@material-ui/core/Paper";
 
 import { teal } from "@material-ui/core/colors";
+import { MarksPercentile } from "./Graph/graph";
 
 const useStylesFacebook = makeStyles((theme) => ({
   root: {
@@ -101,11 +102,16 @@ const useStyles = makeStyles((theme) => ({
 export default function Results(props) {
   const classes = useStyles();
   const { answers, questions, paper, timeSpent } = props;
+  const [graphData, setgraphData] = useState([]);
+  const [marks, setmarks] = useState(0);
 
   useEffect(() => {
     console.log(answers);
     console.log(questions);
     console.log(120 * 60 - timeSpent);
+
+    console.log(paper);
+    console.log(props);
 
     let correctAnswers = 0;
 
@@ -120,12 +126,23 @@ export default function Results(props) {
     });
     const progress = Math.round((correctAnswers * 100) / 50);
     console.log(progress);
+    setmarks(progress);
     fetch(
-      `https://paperly-114b9e.us1.kinto.io/landingstats/papersubmission/${progress}`
+      `https://paperly-114b9e.us1.kinto.io/landingstats/papersubmission?submissions=${progress}&paper=${props.paperName}&paperyear=${props.paperYear}`
+      // `http://localhost:5000/landingstats/papersubmission?submissions=${progress}&paper=${props.paperName}&paperyear=${props.paperYear}`
     )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.status === "success") {
+          let graphdata = {
+            id: `${props.paperName} ${props.paperYear} Marks`,
+            color: "hsl(205°, 100%, 56%)",
+            data: data.submissionGraphData,
+          };
+
+          setgraphData([graphdata]);
+        }
       })
       .catch((err) => console.log(err));
   }, []);
@@ -201,7 +218,13 @@ export default function Results(props) {
                 />
               </ListItem>
             </List>
-          </Paper>
+          </Paper>{" "}
+          <MarksPercentile
+            data={graphData}
+            paperName={props.paperName}
+            paperYear={props.paperYear}
+            mark={marks}
+          />
         </div>
       </div>
     );
