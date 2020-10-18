@@ -15,16 +15,14 @@ import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 
-
 import Timer from "./Timer/Timer";
-
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(5),
   },
   button: {
-    width:"200px",
+    width: "200px",
     margin: theme.spacing(1, 1, 0, 0),
   },
   root: {
@@ -32,18 +30,16 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   },
-  radio:{
-    color:"white"
+  radio: {
+    color: "white",
   },
- 
+
   pagination: {
-      "& .MuiPaginationItem-root": {
-      color:"white",
+    "& .MuiPaginationItem-root": {
+      color: "white",
     },
   },
-}
-));
-
+}));
 
 export default function QuizTemp(props) {
   const classes = useStyles();
@@ -70,6 +66,7 @@ export default function QuizTemp(props) {
       return answers;
     });
   };
+  
   React.useEffect(() => {
     getAnswers(answers, timeSpent, checkLast);
   }, [answers, getAnswers]);
@@ -124,7 +121,7 @@ export default function QuizTemp(props) {
   };
 
   return (
-    <div style={{color:"white"}}>
+    <div style={{ color: "white" }}>
       <div
         style={{
           color: "#1fa2ff",
@@ -134,7 +131,7 @@ export default function QuizTemp(props) {
       >
         <h1>{paper}</h1>
       </div>
-      <div style={{ textAlign: "left"}}>
+      <div style={{ textAlign: "left" }}>
         <form onSubmit={handleSubmit}>
           <FormControl component="fieldset" className={classes.formControl}>
             <Grid
@@ -146,9 +143,16 @@ export default function QuizTemp(props) {
               <FormLabel component="legend">
                 <Timer getTimeSpent={getTimeSpent} />
 
-                <h3 style={{color:"white"}}>
+                <h3 style={{ color: "white" }}>
                   {activeQuestion + 1} ) {questions[activeQuestion].title}
                 </h3>
+
+                {questions[activeQuestion].img && (
+                  <img
+                    style={{ width: questions[activeQuestion].imgwidth }}
+                    src={questions[activeQuestion].img}
+                  />
+                )}
               </FormLabel>
             </Grid>
 
@@ -160,32 +164,66 @@ export default function QuizTemp(props) {
             >
               <FormControlLabel
                 value={questions[activeQuestion].choices[0]}
+                // value={1}
                 control={<Radio color="primary" className={classes.radio} />}
                 label={questions[activeQuestion].choices[0]}
               />
               <FormControlLabel
-                value={questions[activeQuestion].choices[1]}
+                // value={questions[activeQuestion].choices[1]}
+                value={2}
                 control={<Radio color="primary" className={classes.radio} />}
                 label={questions[activeQuestion].choices[1]}
               />
               <FormControlLabel
-                value={questions[activeQuestion].choices[2]}
+                // value={questions[activeQuestion].choices[2]}
+                value={3}
                 control={<Radio color="primary" className={classes.radio} />}
                 label={questions[activeQuestion].choices[2]}
               />
               <FormControlLabel
-                value={questions[activeQuestion].choices[3]}
+                // value={questions[activeQuestion].choices[3]}
+                value={4}
                 control={<Radio color="primary" className={classes.radio} />}
                 label={questions[activeQuestion].choices[3]}
               />
+              {/* {questions[activeQuestion].choices[4].text && (
+                <FormControlLabel
+                  value={questions[activeQuestion].choices[4].id}
+                  control={<Radio color="primary" className={classes.radio} />}
+                  label={questions[activeQuestion].choices[4].text}
+                />
+              )} */}
+              {/* {questions[activeQuestion].choices[4].img && ( */}
               <FormControlLabel
-                value={questions[activeQuestion].choices[4]}
+                value={questions[activeQuestion].choices[4].id}
                 control={<Radio color="primary" className={classes.radio} />}
-                label={questions[activeQuestion].choices[4]}
+                // label={questions[activeQuestion].choices[4].text}
+                label={
+                  <>
+                    {questions[activeQuestion].choices[4].img && (
+                      <>
+                        <img
+                          src={questions[activeQuestion].choices[4].img}
+                          key={questions[activeQuestion].choices[4].id}
+                          className="profile-img"
+                          width={questions[activeQuestion].choices[4].imgwidth}
+                          height="auto"
+                          style={{ marginRight: "5px" }}
+                        />
+                        <br />
+                      </>
+                    )}
+
+                    {questions[activeQuestion].choices[4].text}
+                  </>
+                }
               />
+              {/* )} */}
             </RadioGroup>
             <br></br>
-            <FormHelperText><span style={{color:"white"}}>Review your answer now</span></FormHelperText>
+            <FormHelperText>
+              <span style={{ color: "white" }}>Review your answer now</span>
+            </FormHelperText>
             <Button
               type="submit"
               variant="outlined"
@@ -220,7 +258,7 @@ export default function QuizTemp(props) {
         autoHideDuration={2000}
         onClose={handleClose}
       >
-        <MuiAlert  elevation={6} variant="filled" severity={severity}>
+        <MuiAlert elevation={6} variant="filled" severity={severity}>
           {alert}
         </MuiAlert>
       </Snackbar>
