@@ -10,7 +10,7 @@ import Grid from "@material-ui/core/Grid";
 
 
 import "./Landing.css";
-import SlideImg from "../Slide/slidehomeimages";
+// import SlideImg from "../Slide/slidehomeimages";
 import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
 import Footer from "./Footer/Footer";

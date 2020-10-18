@@ -269,7 +269,9 @@ export default function SubjectTabs() {
                             </Typography>
                           </span>
                           <span data-aos="fade-in" data-aos-delay="200">
-                            <img src={subject.image}></img>
+                            <img src={subject.image} onLoad={()=>{
+                              
+                            }}></img>
                           </span>
                           <span data-aos="fade-right" data-aos-delay="300">
                             <Typography align="right" variant="h4">
