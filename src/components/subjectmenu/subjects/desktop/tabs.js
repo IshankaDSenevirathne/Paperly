@@ -7,11 +7,13 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import { lightBlue } from "@material-ui/core/colors";
 import Container from "@material-ui/core/Container";
-import Button from "@material-ui/core/Button";
-import { Grid, Paper } from "@material-ui/core";
-import Skeleton from "@material-ui/lab/Skeleton";
+import { Paper } from "@material-ui/core";
+import Button from '@material-ui/core/Button';
+import Grid from "@material-ui/core/Grid";
+
+import "./tab.css";
+
 
 import Physics from "../../../../img/physics.svg";
 import Biology from "../../../../img/plant.svg";
@@ -28,6 +30,8 @@ import BusStudies from "../../../../img/busstudies.svg";
 import Statistics from "../../../../img/statistics.svg";
 import EngTech from "../../../../img/engtech.svg";
 import SciForTech from "../../../../img/scifortech.svg";
+import cardBackground from "../../../../img/cardBackground.svg";
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -61,34 +65,50 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     background: "#363f44",
     display: "flex",
-    borderRadius: "4px",
+    borderRadius: "10px",
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
+    paddingLeft:"1px",
     height: "400px",
     minWidth: "200px",
   },
   button: {
-    color: "whitesmoke",
+    color: "#ffffff",
+    borderTopLeftRadius:"10px",
+    borderBottomLeftRadius:"10px",
+    borderTopRightRadius:"10px",
+    borderBottomRightRadius:"10px",
+    transition:"0.5s ease-in-out",
     "&:hover": {
-      backgroundColor: lightBlue[400],
-      color: "white",
+      color: "#ffffff",
+      backgroundColor:"#1B7ABE",
     },
   },
   tabContent: {
     width: "100%",
+    backgroundImage: `url(${cardBackground})`,
+    backgroundRepeat:"no-repeat",
+    backgroundSize:"cover",
+    backgroundPosition:"center center",
+    backgroundColor:"#363f44",
+    borderTopRightRadius:"10px",
+    borderBottomRightRadius:"10px",
     "& .MuiBox-root": {
       paddingLeft: "0px",
       paddingRight: "0px",
-      paddingTop: "10px",
-      paddingBottom: "50px",
+      paddingTop: "0px",
+      paddingBottom: "0px",
     },
   },
-  start: {
-    color: "white",
+  selected:{
+    background:"#1fa2ff",
+    color:"white",
+    
   },
   paper: {
     background: "#363f44",
+    borderRadius:"10px"
   },
 }));
 const subjects = [
@@ -171,12 +191,10 @@ const subjects = [
 export default function SubjectTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  const [loadingState, setLoadingState] = React.useState(true);
   const handleChange = (event, newValue) => {
     if (newValue == value) {
       return;
     }
-    setLoadingState(true);
     setValue(newValue);
   };
   return (
@@ -198,7 +216,7 @@ export default function SubjectTabs() {
             SUBJECTS
           </h1>
         </div>
-        <Paper elevation={3} className={classes.paper}>
+        <Paper elevation={10} className={classes.paper}>
           <div className={classes.root}>
             <Tabs
               orientation="vertical"
@@ -211,6 +229,7 @@ export default function SubjectTabs() {
             >
               {subjects.map((subject) => (
                 <Tab
+                  className={value==subjects.indexOf(subject)?classes.selected:""}
                   label={subject.title}
                   id={subjects.indexOf(subject)}
                   aria-controls={subjects.indexOf(subject)}
@@ -222,51 +241,26 @@ export default function SubjectTabs() {
                 className={classes.tabContent}
                 value={value}
                 index={subjects.indexOf(subject)}
-              >
-                <Grid
-                  container
-                  direction="column"
-                  justify="flex-start"
-                  alignItems="center"
-                >
-                  <Grid item sm={6} container justify="center">
+              >   
+                <Grid container alignItems="center" justify="center" style={{height:"400px"}}>
                     <Grid item>
-                      <div>
-                        {loadingState && (
-                          <div>
-                            <Skeleton
-                              variant="rect"
-                              width={183}
-                              height={210}
-                            ></Skeleton>
-                          </div>
-                        )}
-                        <img
-                          onLoad={() => setLoadingState(false)}
-                          src={subject.image}
-                        ></img>
-                      </div>
-                    </Grid>
-                  </Grid>
-                  <Grid container item sm={6} justify="center">
-                    <Typography gutterBottom variant="subtitle1" align="center">
-                      <b>
-                        Evolution is the fundamental idea in all of life science
-                        - in all of biology.{" "}
-                      </b>
-                    </Typography>
-                    <div>
                       <Link to={`/quizes?subject=${subject.link}`}>
-                        <Button
-                          className={classes.start}
-                          variant="contained"
-                          color="primary"
-                        >
-                          START
+                        <Button className={classes.button}>
+                          <div style={{display:"flex",flexDirection:"column"}}>
+                            <span data-aos="fade-in" data-aos-delay="200">
+                              <img src={subject.image} onLoad={()=>{
+                                
+                              }}></img>
+                            </span>
+                            <span data-aos="fade-right" data-aos-delay="300">
+                              <Typography align="center" variant="h6">
+                                  <b>Start</b>
+                              </Typography>
+                            </span>
+                          </div>
                         </Button>
                       </Link>
-                    </div>
-                  </Grid>
+                    </Grid>
                 </Grid>
               </TabPanel>
             ))}
@@ -276,3 +270,9 @@ export default function SubjectTabs() {
     </Container>
   );
 }
+
+{/*
+                          <Typography gutterBottom variant="subtitle1" align="center">
+                            START
+                          </Typography> 
+                        </Link>*/}

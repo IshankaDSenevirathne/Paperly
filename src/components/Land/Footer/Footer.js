@@ -159,21 +159,6 @@ const Footer = () => {
                       <i className="fa icon-footer fa-twitter"></i>
                     </a>
                   </li>
-                  {/* <li>
-                  <a className="twitter" href="#">
-                    <i className="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a className="dribbble" href="#">
-                    <i class=" fa-3x fab fa-github"></i>
-                  </a>
-                </li>
-                <li>
-                  <a className="linkedin" href="#">
-                    <i className="fa fa-linkedin"></i>
-                  </a>
-                </li> */}
                 </ul>
               </Grid>
             </div>

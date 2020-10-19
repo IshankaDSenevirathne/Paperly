@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#4199FF",
     transition: "0.5s",
     "&:hover": {
-      backgroundColor: "#EDF5FF",
+      backgroundColor: "#363f44",
       border: "1px solid #1fa2ff",
     },
   },
@@ -65,7 +65,7 @@ export default function QuizList(props) {
           style={{
             paddingBottom: "50px",
             paddingTop: "30px",
-            color: "#616A6B",
+            color: "#1fa2ff",
             textTransform: "uppercase",
           }}
         >
@@ -91,6 +91,10 @@ export default function QuizList(props) {
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}
+            PaperProps={{style:{
+              background:"#363f44",
+              color:"white"
+            }}}
           >
             {papersList.map((option, index) => (
               <MenuItem

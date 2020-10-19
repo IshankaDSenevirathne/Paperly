@@ -2,97 +2,66 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import Hidden from "@material-ui/core/Hidden";
-import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import { lightBlue } from "@material-ui/core/colors";
+
 
 //Images
+import BannerImg from "../../../img/BannerHome.svg";
+import Wave from "../../../img/wavebottom.svg";
 
-import BannerImage1 from "../../../img/Banner-2.png";
-import BannerImage2 from "../../../img/Banner-3.png";
-import wavesBot from "../../../img/wavebottom.svg";
-import waves from "../../../img/wavestop.svg";
-
-const useStyles = makeStyles((theme) => ({
-  button: {
-    color: "whitesmoke",
-    "&:hover": {
-      backgroundColor: lightBlue[400],
-      color: "white",
-    },
+const useStyles=makeStyles((theme)=>({
+  item1:{
+    order:1,
+    [theme.breakpoints.down("sm")]:{
+      order:2,
+    }
   },
-}));
+  item2:{
+    order:2,
+    [theme.breakpoints.down("sm")]:{
+      order:1  
+      }
+    },
+  image:{
+    width:"100%",
+  }
+}))
 
 export default function Banner() {
-  const classes = useStyles();
+  const classes=useStyles();
   return (
     <div
       style={{
-        backgroundColor: "#2a3136",
-        color: "white",
+        backgroundColor: "#ffffff",
+        color: "#2a3136",
         textTransform: "uppercase",
+        width:"100%",
       }}
     >
-      <img src={wavesBot} />
 
-      <div style={{}}>
+      <div style={{backgroundImage:`url(${Wave})`,backgroundSize:"cover",backgroundRepeat:"no-repeat",paddingTop:"20px",paddingBottom:"10px"}}>
         <Container>
           <Grid container spacing={2} alignItems="center">
-            <Grid item sm={12} md container justify="center">
-              <Grid item>
-                <Typography gutterBottom variant="h5" align="center">
-                  <b>The easiest way to answer A/L Past papers.</b>
-                </Typography>
-                <div style={{ paddingTop: "20px", paddingBottom: "20px" }}>
-                  <Typography gutterBottom variant="subtitle1" align="center">
-                    Everything you need, 100% free.
+            <Grid item sm={12} md={6} container justify="center" className={classes.item1}>
+                <div >
+                  <Typography gutterBottom variant="h6" align="center">
+                    <b>The easiest way to answer A/L Past papers.</b>
                   </Typography>
+                  <div style={{ paddingTop: "5px", paddingBottom: "20px" }}>
+                    <Typography gutterBottom variant="subtitle2" align="center">
+                      Everything you need, 100% free.
+                    </Typography>
+                  </div>
                 </div>
-
-                <Typography gutterBottom variant="subtitle1" align="center">
-                  <Link
-                    to="/subjectmenu"
-                    style={{
-                      textDecoration: "none",
-                    }}
-                  >
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      className={classes.button}
-                    >
-                      GET STARTED
-                    </Button>
-                  </Link>
-                </Typography>
-              </Grid>
             </Grid>
-            <Grid container item sm={12} md justify="center">
+            <Grid item sm={12} md={6} container justify="center" className={classes.item2}>
               <div>
-                <Hidden mdUp>
-                  <img
-                    alt="banner1"
-                    style={{ width: "100%" }}
-                    src={BannerImage1}
-                  />
-                </Hidden>
-              </div>
-              <div>
-                <Hidden smDown>
-                  <img
-                    alt="banner1"
-                    style={{ width: "100%" }}
-                    src={BannerImage2}
-                  />
-                </Hidden>
+                <img src={BannerImg} className={classes.image} />
               </div>
             </Grid>
           </Grid>
         </Container>
       </div>
-      <img src={waves} />
     </div>
   );
 }

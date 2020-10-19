@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
@@ -13,16 +13,19 @@ import Avatar from "@material-ui/core/Avatar";
 import CheckCircleOutline from "@material-ui/icons/CheckCircleOutline";
 import AccessTime from "@material-ui/icons/AccessTime";
 import Divider from "@material-ui/core/Divider";
+import Paper from "@material-ui/core/Paper";
 
 import { teal } from "@material-ui/core/colors";
+import { MarksPercentile } from "./Graph/graph";
 
 const useStylesFacebook = makeStyles((theme) => ({
   root: {
     position: "relative",
     padding: "10px 10px 10px 10px",
+    background: "#2a3136",
   },
   bottom: {
-    color: theme.palette.grey[theme.palette.type === "light" ? 200 : 700],
+    color: "#363f44",
   },
   top: {
     color: "primary",
@@ -58,9 +61,11 @@ function MyCircularProgress(props) {
           alignItems="center"
           justifyContent="center"
         >
-          <Typography variant="caption" component="div">{`${Math.round(
-            props.value
-          )}%`}</Typography>
+          <Typography variant="caption" component="div">
+            <span style={{ color: "whitesmoke" }}>{`${Math.round(
+              props.value
+            )}%`}</span>
+          </Typography>
         </Box>
         <CircularProgress
           variant="static"
@@ -83,13 +88,64 @@ MyCircularProgress.propTypes = {
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: "#363f44",
+    borderRadius: "4px",
+    paddingRight: "15px",
+    color: "white",
+  },
+  paper: {
+    background: "#363f44",
+    borderRadius: "4px",
   },
 }));
 
 export default function Results(props) {
   const classes = useStyles();
   const { answers, questions, paper, timeSpent } = props;
+  const [graphData, setgraphData] = useState([]);
+  const [marks, setmarks] = useState(0);
+
+  useEffect(() => {
+    console.log(answers);
+    console.log(questions);
+    console.log(120 * 60 - timeSpent);
+
+    console.log(paper);
+    console.log(props);
+
+    let correctAnswers = 0;
+
+    questions.map((question) => {
+      const index = questions.indexOf(question);
+      const userAnswer = answers[index];
+      const correctAnswer = question.correctAnswer;
+      const result = correctAnswer == userAnswer;
+      if (result) {
+        correctAnswers++;
+      }
+    });
+    const progress = Math.round((correctAnswers * 100) / 50);
+    console.log(progress);
+    setmarks(progress);
+    fetch(
+      `https://paperly-114b9e.us1.kinto.io/landingstats/papersubmission?submissions=${progress}&paper=${props.paperName}&paperyear=${props.paperYear}`
+      // `http://localhost:5000/landingstats/papersubmission?submissions=${progress}&paper=${props.paperName}&paperyear=${props.paperYear}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.status === "success") {
+          let graphdata = {
+            id: `${props.paperName} ${props.paperYear} Marks`,
+            color: "hsl(205°, 100%, 56%)",
+            data: data.submissionGraphData,
+          };
+
+          setgraphData([graphdata]);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const evaluatedResults = (answers, questions, timeSpent) => {
     let correctAnswers = 0;
@@ -117,47 +173,58 @@ export default function Results(props) {
       }
     });
     const progress = Math.round((correctAnswers * 100) / 50);
+
     return (
       <div style={{ textAlign: "center" }}>
-        <div style={{ paddingBottom: "20px", color: "#616A6B" }}>
+        <div style={{ paddingBottom: "20px", color: "white" }}>
           <h3>Evaluation</h3>
         </div>
         <MyCircularProgress value={progress} />
         <div
           style={{
-            paddingLeft: "10%",
-            paddingRight: "10%",
             paddingTop: "20px",
             paddingBottom: "20px",
+            color: "white",
+            backgroundColor: "#2a3136",
+            borderRadius: "4px",
           }}
         >
-          <List className={classes.root}>
-            <ListItem>
-              <ListItemAvatar>
-                <Avatar style={{ backgroundColor: "#EEEEEE" }}>
-                  <CheckCircleOutline style={{ color: teal["A400"] }} />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary="Correct Answers"
-                secondary={correctAnswers + "/50"}
-              />
-            </ListItem>
-            <Divider variant="inset" component="li" />
+          <Paper elevation={3} className={classes.paper}>
+            <List className={classes.root}>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar style={{ backgroundColor: "#2a3136" }}>
+                    <CheckCircleOutline style={{ color: teal["A400"] }} />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Correct Answers"
+                  secondary={correctAnswers + "/50"}
+                  secondaryTypographyProps={{ color: "whitesmoke" }}
+                />
+              </ListItem>
+              <Divider variant="inset" component="li" />
 
-            <ListItem>
-              <ListItemAvatar>
-                <Avatar style={{ backgroundColor: "#EEEEEE" }}>
-                  <AccessTime color="primary" />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary="Time elapsed"
-                secondary={"0" + hours + ":" + minutes + ":" + seconds}
-              />
-            </ListItem>
-            <Divider variant="inset" component="li" />
-          </List>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar style={{ backgroundColor: "#2a3136" }}>
+                    <AccessTime color="primary" />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Time elapsed"
+                  secondary={"0" + hours + ":" + minutes + ":" + seconds}
+                  secondaryTypographyProps={{ color: "whitesmoke" }}
+                />
+              </ListItem>
+            </List>
+          </Paper>{" "}
+          <MarksPercentile
+            data={graphData}
+            paperName={props.paperName}
+            paperYear={props.paperYear}
+            mark={marks}
+          />
         </div>
       </div>
     );
@@ -167,7 +234,7 @@ export default function Results(props) {
     <div>
       <div
         style={{
-          color: "#616A6B",
+          color: "#1fa2ff",
           textTransform: "uppercase",
           paddingTop: "60px",
         }}

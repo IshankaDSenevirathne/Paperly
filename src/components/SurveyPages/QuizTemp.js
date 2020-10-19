@@ -2,6 +2,7 @@ import React from "react";
 
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+
 import Pagination from "@material-ui/lab/Pagination";
 
 import Radio from "@material-ui/core/Radio";
@@ -14,13 +15,16 @@ import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 
+
 import Timer from "./Timer/Timer";
+
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(5),
   },
   button: {
+    width:"200px",
     margin: theme.spacing(1, 1, 0, 0),
   },
   root: {
@@ -28,7 +32,18 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   },
-}));
+  radio:{
+    color:"white"
+  },
+ 
+  pagination: {
+      "& .MuiPaginationItem-root": {
+      color:"white",
+    },
+  },
+}
+));
+
 
 export default function QuizTemp(props) {
   const classes = useStyles();
@@ -109,17 +124,17 @@ export default function QuizTemp(props) {
   };
 
   return (
-    <div>
+    <div style={{color:"white"}}>
       <div
         style={{
-          color: "#616A6B",
+          color: "#1fa2ff",
           textTransform: "uppercase",
           paddingTop: "60px",
         }}
       >
         <h1>{paper}</h1>
       </div>
-      <div style={{ textAlign: "left" }}>
+      <div style={{ textAlign: "left"}}>
         <form onSubmit={handleSubmit}>
           <FormControl component="fieldset" className={classes.formControl}>
             <Grid
@@ -131,7 +146,7 @@ export default function QuizTemp(props) {
               <FormLabel component="legend">
                 <Timer getTimeSpent={getTimeSpent} />
 
-                <h3>
+                <h3 style={{color:"white"}}>
                   {activeQuestion + 1} ) {questions[activeQuestion].title}
                 </h3>
               </FormLabel>
@@ -145,32 +160,32 @@ export default function QuizTemp(props) {
             >
               <FormControlLabel
                 value={questions[activeQuestion].choices[0]}
-                control={<Radio color="primary" />}
+                control={<Radio color="primary" className={classes.radio} />}
                 label={questions[activeQuestion].choices[0]}
               />
               <FormControlLabel
                 value={questions[activeQuestion].choices[1]}
-                control={<Radio color="primary" />}
+                control={<Radio color="primary" className={classes.radio} />}
                 label={questions[activeQuestion].choices[1]}
               />
               <FormControlLabel
                 value={questions[activeQuestion].choices[2]}
-                control={<Radio color="primary" />}
+                control={<Radio color="primary" className={classes.radio} />}
                 label={questions[activeQuestion].choices[2]}
               />
               <FormControlLabel
                 value={questions[activeQuestion].choices[3]}
-                control={<Radio color="primary" />}
+                control={<Radio color="primary" className={classes.radio} />}
                 label={questions[activeQuestion].choices[3]}
               />
               <FormControlLabel
                 value={questions[activeQuestion].choices[4]}
-                control={<Radio color="primary" />}
+                control={<Radio color="primary" className={classes.radio} />}
                 label={questions[activeQuestion].choices[4]}
               />
             </RadioGroup>
             <br></br>
-            <FormHelperText>Review your answer now</FormHelperText>
+            <FormHelperText><span style={{color:"white"}}>Review your answer now</span></FormHelperText>
             <Button
               type="submit"
               variant="outlined"
@@ -190,9 +205,9 @@ export default function QuizTemp(props) {
               count={50}
               showFirstButton
               showLastButton
-              siblingCount={2}
-              variant="outlined"
               color="primary"
+              className={classes.pagination}
+              siblingCount={2}
               onChange={handlePageChange}
               defaultPage={1}
             />
@@ -205,7 +220,7 @@ export default function QuizTemp(props) {
         autoHideDuration={2000}
         onClose={handleClose}
       >
-        <MuiAlert elevation={6} variant="filled" severity={severity}>
+        <MuiAlert  elevation={6} variant="filled" severity={severity}>
           {alert}
         </MuiAlert>
       </Snackbar>

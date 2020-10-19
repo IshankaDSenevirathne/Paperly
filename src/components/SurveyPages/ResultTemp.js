@@ -11,6 +11,8 @@ import CancelOutlined from "@material-ui/icons/CancelOutlined";
 import { teal } from "@material-ui/core/colors";
 import { withStyles } from "@material-ui/core/styles";
 
+
+
 const GreenRadio = withStyles({
   root: {
     "&$checked": {
@@ -19,6 +21,20 @@ const GreenRadio = withStyles({
   },
   checked: {},
 })((props) => <Radio color="default" {...props} />);
+
+const WhiteRadio = withStyles({
+  root: {
+    "&$disabled": {
+      color: "#D0D3D4",
+    },
+    "&$checked": {
+      color: "#1fa2ff",
+    },
+  },
+  disabled: {},
+  checked: {},
+})((props) => <Radio color="default" {...props} />);
+
 
 export default function ResultTemp(props) {
   const { result, question, userAnswer, correctAnswer, questionNumber } = props;
@@ -57,32 +73,32 @@ export default function ResultTemp(props) {
             <FormControlLabel
               value={0}
               disabled
-              control={<Radio />}
-              label={question.choices[0]}
+              control={<WhiteRadio />}
+              label={<span style={{color:"#D0D3D4"}}>{question.choices[0]}</span>}
             />
             <FormControlLabel
               value={1}
               disabled
-              control={<Radio />}
-              label={question.choices[1]}
+              control={<WhiteRadio/>}
+              label={<span style={{color:"#D0D3D4"}}>{question.choices[1]}</span>}
             />
             <FormControlLabel
               value={2}
               disabled
-              control={<Radio />}
-              label={question.choices[2]}
+              control={<WhiteRadio/>}
+              label={<span style={{color:"#D0D3D4"}}>{question.choices[2]}</span>}
             />
             <FormControlLabel
               value={3}
               disabled
-              control={<Radio />}
-              label={question.choices[3]}
+              control={<WhiteRadio/>}
+              label={<span style={{color:"#D0D3D4"}}>{question.choices[3]}</span>}
             />
             <FormControlLabel
               value={4}
               disabled
-              control={<Radio />}
-              label={question.choices[4]}
+              control={<WhiteRadio/>}
+              label={<span style={{color:"#D0D3D4"}}>{question.choices[4]}</span>}
             />
           </RadioGroup>
         </FormControl>
@@ -131,10 +147,10 @@ export default function ResultTemp(props) {
                 correctAnswer == question.choices[0] ? (
                   <GreenRadio disableRipple />
                 ) : (
-                  <Radio />
+                  <WhiteRadio />
                 )
               }
-              label={question.choices[0]}
+              label={<span style={{color:"#D0D3D4"}}>{question.choices[0]}</span>}
             />
             <FormControlLabel
               value={1}
@@ -147,10 +163,10 @@ export default function ResultTemp(props) {
                 correctAnswer == question.choices[1] ? (
                   <GreenRadio disableRipple />
                 ) : (
-                  <Radio />
+                  <WhiteRadio />
                 )
               }
-              label={question.choices[1]}
+              label={<span style={{color:"#D0D3D4"}}>{question.choices[1]}</span>}
             />
             <FormControlLabel
               value={2}
@@ -163,10 +179,10 @@ export default function ResultTemp(props) {
                 correctAnswer == question.choices[2] ? (
                   <GreenRadio disableRipple />
                 ) : (
-                  <Radio />
+                  <WhiteRadio />
                 )
               }
-              label={question.choices[2]}
+              label={<span style={{color:"#D0D3D4"}}>{question.choices[2]}</span>}
             />
             <FormControlLabel
               value={3}
@@ -179,10 +195,10 @@ export default function ResultTemp(props) {
                 correctAnswer == question.choices[3] ? (
                   <GreenRadio disableRipple />
                 ) : (
-                  <Radio />
+                  <WhiteRadio />
                 )
               }
-              label={question.choices[3]}
+              label={<span style={{color:"#D0D3D4"}}>{question.choices[3]}</span>}
             />
             <FormControlLabel
               value={4}
@@ -195,10 +211,10 @@ export default function ResultTemp(props) {
                 correctAnswer == question.choices[4] ? (
                   <GreenRadio disableRipple />
                 ) : (
-                  <Radio />
+                  <WhiteRadio />
                 )
               }
-              label={question.choices[4]}
+              label={<span style={{color:"#D0D3D4"}}>{question.choices[4]}</span>}
             />
           </RadioGroup>
         </FormControl>

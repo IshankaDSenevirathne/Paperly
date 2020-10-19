@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import Container from "@material-ui/core/Container";
 import "./Slide.css";
 
-const svg3 = require("../../img/undraw_certification_aif8.svg");
-const svg2 = require("../../img/undraw_Graduation_ktn0.svg");
-const svg1 = require("../../img/undraw_Notebook_tlkl.svg");
 
 const list = [svg1, svg2, svg3];
 
