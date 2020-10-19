@@ -2,6 +2,8 @@ import React from "react";
 
 import CustomSurvey from "../SurveyPages/CustomSurvey";
 import Footer from "../Footer/Footer";
+import Navbar from "../navbar/navbar";
+
 var qs = require("qs");
 
 export default function QuizesPage(props) {
@@ -17,6 +19,7 @@ export default function QuizesPage(props) {
 
   return (
     <>
+      <Navbar />
       <div className="content">
         <div>
           <CustomSurvey papersList={paperList} subject={subject} year={year} />

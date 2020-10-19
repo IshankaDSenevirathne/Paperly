@@ -16,6 +16,7 @@ import Statsbar from "./Statsbar/statsbar";
 import Footer from "./Footer/Footer";
 import Navbar from "../navbar/navbar";
 import Quote from "../Quote/Quote";
+import BannerHome from "./BannerHome/BannerHome";
 
 import PropTypes from "prop-types";
 
@@ -27,6 +28,7 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
+
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -42,9 +44,6 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   root: {
-    display: "flex",
-    flexDirection: "column",
-    minHeight: "100vh",
     backgroundColor: "#2a3136",
     color: "white",
   },
@@ -162,7 +161,7 @@ export default function Album(props) {
     <div className={classes.root}>
       <CssBaseline />
       <div id="back-to-top-anchor"></div>
-    
+      <BannerHome />
       <Banner />
       <Container className={classes.cardGrid} maxWidth="md">
         <Container
@@ -186,7 +185,7 @@ export default function Album(props) {
       >
         <div className="scrollvisibile"></div>
       </VisibilitySensor>
-      <Quote/>
+      
       <Statsbar counterVisible={counterVisible} />
       <Grid container direction="row" alignItems="center" justify="center" className={classes.botBanner}>
         <Grid item>

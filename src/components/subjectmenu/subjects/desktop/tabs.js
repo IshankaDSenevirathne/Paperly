@@ -7,14 +7,11 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import { lightBlue } from "@material-ui/core/colors";
 import Container from "@material-ui/core/Container";
 import { Paper } from "@material-ui/core";
-import Avatar from "@material-ui/core/Avatar";
 import ArrowRight from "@material-ui/icons/ArrowRight";
-import Card from '@material-ui/core/Card';
-import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
+import Grid from "@material-ui/core/Grid";
 
 import "./tab.css";
 
@@ -34,7 +31,7 @@ import BusStudies from "../../../../img/busstudies.svg";
 import Statistics from "../../../../img/statistics.svg";
 import EngTech from "../../../../img/engtech.svg";
 import SciForTech from "../../../../img/scifortech.svg";
-import bgChemistry from "../../../../img/wavestop.svg";
+import cardBackground from "../../../../img/cardBackground.svg";
 
 
 function TabPanel(props) {
@@ -79,17 +76,10 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     color: "#ffffff",
-    backgroundColor:"#363f44",
-    backgroundImage: `url(${bgChemistry})`,
-    backgroundRepeat:"no-repeat",
-    backgroundSize:"contain",
-    backgroundPosition:"bottom center",
-    borderTopLeftRadius:"0px",
-    borderBottomLeftRadius:"0px",
+    borderTopLeftRadius:"10px",
+    borderBottomLeftRadius:"10px",
     borderTopRightRadius:"10px",
     borderBottomRightRadius:"10px",
-    width:"100%",
-    height:"400px",
     transition:"0.5s ease-in-out",
     "&:hover": {
       color: "#ffffff",
@@ -98,6 +88,10 @@ const useStyles = makeStyles((theme) => ({
   },
   tabContent: {
     width: "100%",
+    backgroundImage: `url(${cardBackground})`,
+    backgroundRepeat:"no-repeat",
+    backgroundSize:"cover",
+    backgroundPosition:"center center",
     backgroundColor:"#363f44",
     borderTopRightRadius:"10px",
     borderBottomRightRadius:"10px",
@@ -116,16 +110,6 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     background: "#363f44",
     borderRadius:"10px"
-  },
-  card: {
-    display: 'flex',
-    height:"100%",
-    width:"100%",
-    background:"#218DDA",
-    borderTopRightRadius:"10px",
-    borderBottomRightRadius:"10px",
-    borderTopLeftRadius:"0px",
-    borderBottomLeftRadius:"0px",
   },
 }));
 const subjects = [
@@ -259,32 +243,29 @@ export default function SubjectTabs() {
                 value={value}
                 index={subjects.indexOf(subject)}
               >   
-                  <Card className={classes.card}>
-                    <Link to={`/quizes?subject=${subject.link}`}>
-                      <Button className={classes.button}>
-                        <div style={{display:"flex",flexDirection:"column"}}>
-                          <span data-aos="fade-in" data-aos-delay="100">
-                            <Typography variant="subtitle1" align="center">
-                              <b>A fact acquires its true and full value only through the idea which is developed from it.</b>
-                            </Typography>
-                          </span>
-                          <span data-aos="fade-in" data-aos-delay="200">
-                            <img src={subject.image} onLoad={()=>{
-                              
-                            }}></img>
-                          </span>
-                          <span data-aos="fade-right" data-aos-delay="300">
-                            <Typography align="right" variant="h4">
-                              <span style={{display:"inline-block",padding:"0px 20px 0px 0px"}}>
-                                <ArrowRight />
-                                <b>Start</b>
-                              </span>
-                            </Typography>
-                          </span>
-                        </div>
-                      </Button>
-                    </Link>
-                  </Card>
+                <Grid container alignItems="center" justify="center" style={{height:"400px"}}>
+                    <Grid item>
+                      <Link to={`/quizes?subject=${subject.link}`}>
+                        <Button className={classes.button}>
+                          <div style={{display:"flex",flexDirection:"column"}}>
+                            <span data-aos="fade-in" data-aos-delay="200">
+                              <img src={subject.image} onLoad={()=>{
+                                
+                              }}></img>
+                            </span>
+                            <span data-aos="fade-right" data-aos-delay="300">
+                              <Typography align="center" variant="h4">
+                                <span style={{display:"inline-block",padding:"0px 20px 0px 0px"}}>
+                                  <ArrowRight />
+                                  <b>Start</b>
+                                </span>
+                              </Typography>
+                            </span>
+                          </div>
+                        </Button>
+                      </Link>
+                    </Grid>
+                </Grid>
               </TabPanel>
             ))}
           </div>
