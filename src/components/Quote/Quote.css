@@ -4,26 +4,26 @@
   text-align: center;
 }
 
-.quote-container h3 {
+.quote-container h4 {
   display: inline-block;
   position: relative;
   text-align: center;
 }
 
-.quote-container h3::before {
+.quote-container h4::before {
   content: "\“";
   position: absolute;
   top: -26px;
-  left: -26px;
-  font-size: 2em;
+  left: -15px;
+  font-size: 1.3em;
   opacity: 0.4;
 }
-.quote-container h3::after {
+.quote-container h4::after {
   content: "\”";
   position: absolute;
   top: 26px;
-  right: -26px;
-  font-size: 2em;
+  right: -15px;
+  font-size: 1.3em;
   opacity: 0.4;
 }
 

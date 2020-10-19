@@ -9,7 +9,6 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import { Paper } from "@material-ui/core";
-import ArrowRight from "@material-ui/icons/ArrowRight";
 import Button from '@material-ui/core/Button';
 import Grid from "@material-ui/core/Grid";
 
@@ -254,11 +253,8 @@ export default function SubjectTabs() {
                               }}></img>
                             </span>
                             <span data-aos="fade-right" data-aos-delay="300">
-                              <Typography align="center" variant="h4">
-                                <span style={{display:"inline-block",padding:"0px 20px 0px 0px"}}>
-                                  <ArrowRight />
+                              <Typography align="center" variant="h6">
                                   <b>Start</b>
-                                </span>
                               </Typography>
                             </span>
                           </div>

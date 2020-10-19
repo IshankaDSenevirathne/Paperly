@@ -13,8 +13,8 @@ const Quote = () => {
 
     return (
         <div className="quote-container">
-            <Container>
-                <Typography variant="h3">{currentQuote.quote}</Typography>
+            <Container> 
+                <Typography variant="h4">{currentQuote.quote}</Typography>
                 <Typography variant="p">{currentQuote.by}</Typography>
             </Container>
         </div>

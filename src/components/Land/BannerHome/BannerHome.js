@@ -60,12 +60,15 @@ export default function BannerHome() {
                 </Grid>
                 <Grid container justify="center">
                     <div>
-                        <Typography gutterBottom align="center" variant="h6">
+                        <Typography gutterBottom align="center" variant="h4">
                             <b>PAPERLY</b>
                         </Typography>
+                        <br></br>
+                        <br></br>
                         <Typography gutterBottom align="center" variant="subtitle1">
                             An investment in knowledge pays the best interest.
                         </Typography>
+                        <br></br>
                         <div>
                             <Typography gutterBottom variant="subtitle1" align="center">
                                 <Link

@@ -185,7 +185,7 @@ export default function Album(props) {
       >
         <div className="scrollvisibile"></div>
       </VisibilitySensor>
-      
+      <Quote/>
       <Statsbar counterVisible={counterVisible} />
       <Grid container direction="row" alignItems="center" justify="center" className={classes.botBanner}>
         <Grid item>
