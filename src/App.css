@@ -42,45 +42,10 @@ html {
     margin-right: 1%;
   }
 }
-
-.sv-btn {
-  padding: 0.1em 1.786em 0.6em !important;
-}
-
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.footerpadding {
-  min-height: 73vh;
-  padding-bottom: 8rem;
-}
-
-.mainconteainer {
-  position: relative;
-  min-height: 100vh;
-}
-
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
-}
-@media (min-width: 1500px) {
-  .container {
-    width: 1470px;
+@media (max-width: 500px) {
+  .evaluation {
+    margin-left: 0%;
+    margin-right: 0%;
+    padding: 20px 10px 20px 10px;
   }
 }

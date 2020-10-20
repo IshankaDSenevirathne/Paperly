@@ -8,7 +8,6 @@ import Review from "./Review";
 import PropTypes from "prop-types";
 import Hidden from "@material-ui/core/Hidden";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import clsx from "clsx";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
@@ -23,8 +22,9 @@ import Button from "@material-ui/core/Button";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
-
 import { lightBlue } from "@material-ui/core/colors";
+
+import CompletedSurvey from "./CompletedSurvey";
 
 const useQontoStepIconStyles = makeStyles({
   root: {
@@ -198,11 +198,6 @@ const useStyles = makeStyles((theme) => ({
       color: "white",
     },
   },
-  instructions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-    color: "white",
-  },
 }));
 
 const theme = createMuiTheme({
@@ -366,9 +361,7 @@ export default function Steps(props) {
         <div style={{ paddingTop: "30px" }}>
           {activeStep === steps.length ? (
             <div>
-              <Typography className={classes.instructions}>
-                Past Paper Completed
-              </Typography>
+              <CompletedSurvey />
               <Button
                 variant="contained"
                 color="primary"

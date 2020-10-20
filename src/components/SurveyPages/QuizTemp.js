@@ -21,7 +21,7 @@ import Timer from "./Timer/Timer";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(5),
+    margin: theme.spacing(2),
   },
   button: {
     width:"200px",

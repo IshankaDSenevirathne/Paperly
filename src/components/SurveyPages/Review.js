@@ -227,7 +227,6 @@ export default function Review(props) {
                 <div
                   id={index}
                   key={index}
-                  style={{ borderBottom: "1px solid #D0D3D4" }}
                 >
                   <ResultTemp
                     result={result}
@@ -252,7 +251,6 @@ export default function Review(props) {
                 <div
                   id={index}
                   key={index}
-                  style={{ borderBottom: "1px solid #D0D3D4" }}
                 >
                   <ResultTemp
                     result={result}
@@ -277,7 +275,6 @@ export default function Review(props) {
                 <div
                   id={index}
                   key={index}
-                  style={{ borderBottom: "1px solid #D0D3D4" }}
                 >
                   <ResultTemp
                     result={result}
