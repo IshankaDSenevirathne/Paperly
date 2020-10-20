@@ -59,7 +59,7 @@ export default function BannerHome() {
                     </div>
                 </Grid>
                 <Grid container justify="center">
-                    <div>
+                    <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
                         <Typography gutterBottom align="center" variant="h4">
                             <b>PAPERLY</b>
                         </Typography>

@@ -1,6 +1,6 @@
 .graphwrapper {
-  height: 60vh;
-  background-color: white;
-  /* color: white !important; */
-  /* width: 80vw; */
+  height: 50vh;
+  border-radius: 4px;
+  width: 100%;
+  background-color: #363f44;
 }

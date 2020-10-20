@@ -227,6 +227,7 @@ export default function Review(props) {
                 <div
                   id={index}
                   key={index}
+                  style={{ borderBottom: "1px solid #D0D3D4" }}
                 >
                   <ResultTemp
                     result={result}
@@ -247,48 +248,52 @@ export default function Review(props) {
             );
           } else if (selectedIndex == 1 && result == true) {
             return (
-              <div
-                id={index}
-                key={index}
-                style={{ borderBottom: "1px solid #D0D3D4" }}
-              >
-                <ResultTemp
-                  result={result}
-                  question={question}
-                  userAnswer={userAnswer}
-                  correctAnswer={correctAnswer}
-                  questionNumber={index + 1}
-                />
-                <p className="timeforquestion">
-                  <span style={{ display: "flex", alignItems: "center" }}>
-                    <Timer />
-                    &nbsp;
-                    {hours} : {minutes} : {seconds}
-                  </span>
-                </p>
-              </div>
+              <Paper elevation={3} className={classes.paper}>
+                <div
+                  id={index}
+                  key={index}
+                  style={{ borderBottom: "1px solid #D0D3D4" }}
+                >
+                  <ResultTemp
+                    result={result}
+                    question={question}
+                    userAnswer={userAnswer}
+                    correctAnswer={correctAnswer}
+                    questionNumber={index + 1}
+                  />
+                  <p className="timeforquestion">
+                    <span style={{ display: "flex", alignItems: "center" }}>
+                      <Timer />
+                      &nbsp;
+                      {hours} : {minutes} : {seconds}
+                    </span>
+                  </p>
+                </div>
+              </Paper>
             );
           } else if (selectedIndex == 2 && result == false) {
             return (
-              <div
-                id={index}
-                key={index}
-                style={{ borderBottom: "1px solid #D0D3D4" }}
-              >
-                <ResultTemp
-                  result={result}
-                  question={question}
-                  userAnswer={userAnswer}
-                  correctAnswer={correctAnswer}
-                  questionNumber={index + 1}
-                />
-                <p className="timeforquestion">
-                  <span style={{ display: "flex", alignItems: "center" }}>
-                    <Timer /> &nbsp;
-                    {hours} : {minutes} : {seconds}
-                  </span>
-                </p>
-              </div>
+              <Paper elevation={3} className={classes.paper}>
+                <div
+                  id={index}
+                  key={index}
+                  style={{ borderBottom: "1px solid #D0D3D4" }}
+                >
+                  <ResultTemp
+                    result={result}
+                    question={question}
+                    userAnswer={userAnswer}
+                    correctAnswer={correctAnswer}
+                    questionNumber={index + 1}
+                  />
+                  <p className="timeforquestion">
+                    <span style={{ display: "flex", alignItems: "center" }}>
+                      <Timer /> &nbsp;
+                      {hours} : {minutes} : {seconds}
+                    </span>
+                  </p>
+                </div>
+              </Paper>
             );
           }
         })}

@@ -12,7 +12,6 @@ import { Paper } from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 import Grid from "@material-ui/core/Grid";
 
-import "./tab.css";
 
 
 import Physics from "../../../../img/physics.svg";
