@@ -11,7 +11,6 @@ import Container from "@material-ui/core/Container";
 import { Paper } from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 import Grid from "@material-ui/core/Grid";
-import Skeleton from '@material-ui/lab/Skeleton';
 
 
 
@@ -197,6 +196,7 @@ export default function SubjectTabs() {
     if (newValue == value) {
       return;
     }
+    loadImage(false);
     setValue(newValue);
   };
   return (
@@ -249,7 +249,6 @@ export default function SubjectTabs() {
                       <Link to={`/quizes?subject=${subject.link}`}>
                         <Button className={classes.button}>
                           <div style={{display:"flex",flexDirection:"column"}}>
-                            {!image && <Skeleton variant="rect" animation="wave" width="200px" height="215px" />}
                               <span data-aos="fade-in" data-aos-delay="200">
                                 <img src={subject.image} onLoad={()=>{
                                   loadImage(true);

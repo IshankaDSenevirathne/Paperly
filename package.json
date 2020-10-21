@@ -6,13 +6,13 @@
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
-    "@nivo/bar": "^0.62.0",
     "@nivo/line": "^0.62.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "animated-number-react": "^0.1.1",
     "aos": "^3.0.0-beta.6",
+    "gsap": "^3.5.1",
     "qs": "^6.9.4",
     "react": "^16.13.1",
     "react-animated-number": "^0.4.4",
@@ -20,8 +20,7 @@
     "react-moment": "^0.9.7",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-visibility-sensor": "^5.1.1",
-    "survey-react": "^1.7.28"
+    "react-visibility-sensor": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

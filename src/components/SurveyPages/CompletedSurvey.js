@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 
 
-import Tadaa from "../../img/tadaa.svg";
+import Tadaa from "../Animations/Tadaa";
 
 const useStyles=makeStyles(()=>({
     root:{
@@ -23,14 +23,15 @@ export default function CompletedSurvey() {
     return (
         <div className="content">
             <div className={classes.root}>
-                <div style={{paddingTop:"20px",paddingBottom:"50px"}}>
+                
+                <div style={{paddingTop:"10px",paddingBottom:"20px",textAlign:"center"}}>
+                    <Tadaa />
+                </div>
+                <div style={{paddingTop:"20px",paddingBottom:"20px"}}>
                     <Typography variant="h4" align="center">
                         <b>Congratulations !</b>
                     </Typography>
                     
-                </div>
-                <div style={{paddingBottom:"50px"}}>
-                    <img src={Tadaa} width="200px" height="200px"></img>
                 </div>
                 <div style={{paddingTop:"20px",paddingBottom:"50px"}}>
                     <div style={{paddingBottom:"50px"}}>
