@@ -11,6 +11,7 @@ import Container from "@material-ui/core/Container";
 import { Paper } from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 import Grid from "@material-ui/core/Grid";
+import Skeleton from '@material-ui/lab/Skeleton';
 
 
 
@@ -190,6 +191,8 @@ const subjects = [
 export default function SubjectTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const [image,loadImage]=React.useState(false);
+
   const handleChange = (event, newValue) => {
     if (newValue == value) {
       return;
@@ -246,16 +249,19 @@ export default function SubjectTabs() {
                       <Link to={`/quizes?subject=${subject.link}`}>
                         <Button className={classes.button}>
                           <div style={{display:"flex",flexDirection:"column"}}>
-                            <span data-aos="fade-in" data-aos-delay="200">
-                              <img src={subject.image} onLoad={()=>{
-                                
-                              }}></img>
-                            </span>
-                            <span data-aos="fade-right" data-aos-delay="300">
-                              <Typography align="center" variant="h6">
-                                  <b>Start</b>
-                              </Typography>
-                            </span>
+                            {!image && <Skeleton variant="rect" animation="wave" width="200px" height="215px" />}
+                              <span data-aos="fade-in" data-aos-delay="200">
+                                <img src={subject.image} onLoad={()=>{
+                                  loadImage(true);
+                                }}></img>
+                              </span>
+                              {image && 
+                              <span data-aos="fade-right" data-aos-delay="300">
+                                <Typography align="center" variant="h6">
+                                    <b>Start</b>
+                                </Typography>
+                              </span>
+                              }
                           </div>
                         </Button>
                       </Link>

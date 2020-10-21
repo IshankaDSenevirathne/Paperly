@@ -7,6 +7,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import Skeleton from '@material-ui/lab/Skeleton';
 
 import Physics from "../../img/physics-2.svg";
 import Chemistry from "../../img/chemistry-2.svg";
@@ -32,6 +33,7 @@ export default function QuizList(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [image,loadImage]=React.useState(false);
   const { papersList, setPaper, subject } = props;
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
@@ -70,7 +72,8 @@ export default function QuizList(props) {
           }}
         >
           <h1>{subject}</h1>
-          <img src={getImage(subject)}></img>
+          {!image && <Skeleton variant="rect" animation="wave" width="200px" height="315px" />}
+           <img src={getImage(subject)} onLoad={()=>{loadImage(true)}}></img>
         </div>
         <div className={classes.root}>
           <List component="nav" aria-label="Device settings">
