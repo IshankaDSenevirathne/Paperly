@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import {TimelineMax,Power1} from "gsap";
+import {TimelineMax,Power1} from "gsap/dist/gsap";
 
 export default function Coffee() {
 
