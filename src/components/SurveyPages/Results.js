@@ -200,6 +200,12 @@ export default function Results(props) {
               <b>YOUR GRADE</b>
             </Typography>
             <Grid container direction="row" alignItems="center" justify="center">
+            
+              <Grid item xs={12} sm={4}>
+                <div>
+                  <Grade marks={marks} />
+                </div>
+              </Grid>
               <Grid item c xs={12} sm={8}> 
                 <List className={classes.root}>
                   <ListItem>
@@ -230,16 +236,16 @@ export default function Results(props) {
                   </ListItem>
                 </List>
               </Grid>
-              <Grid item xs={12} sm={4}>
-                  <div>
-                    <Grade marks={marks} />
-                  </div>
-              </Grid>
             </Grid>
           </Paper>{" "}
         </div>
         <div style={{paddingTop:"10px",width:"100%"}} >
           <Paper elevation={3} className={classes.paper}>
+            <div>
+              <Typography gutterBottom align="center" variant="h5" style={{paddingTop:"20px"}}>
+                <b>MARKS DISTRIBUTION</b>
+              </Typography>
+            </div>
             <div className={classes.root}>
               <MarksPercentile
                 data={graphData}

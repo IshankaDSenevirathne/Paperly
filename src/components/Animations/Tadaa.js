@@ -3,19 +3,18 @@ import {TimelineMax,Bounce,Power1 } from 'gsap';
 
 export default function Tadaa() {
 
-    useEffect(()=>{
-        var tl=new TimelineMax();
-        tl.from("#confetti",1,{y:"-350",opacity:0,rotation:20,transformOrigin:"50% 50%",ease:Bounce.easeOut});
-        tl.to("#star3",1,{x:"-150",opacity:1,rotation:640,transformOrigin:"50% 50%",ease:Power1.easeOut});
-        tl.to("#star2",1,{x:"-40",y:"-20",opacity:1,rotation:640,transformOrigin:"50% 50%",ease:Power1.easeOut},'-=.9');
-        tl.to("#star1",1,{x:"-120",y:"-170",opacity:1,rotation:640,transformOrigin:"50% 50%",ease:Power1.easeOut},'-=.9');
-        tl.to("#fireball1",1,{x:"-90",y:"-100",opacity:1,ease:Power1.easeOut},'-=.9');
-        tl.to("#fireball2",1,{x:"-40",y:"-100",opacity:1,ease:Power1.easeOut},'-=.9');
-        tl.to("#fireball3",1,{x:"-140",y:"-70",opacity:1,ease:Power1.easeOut},'-=.9');
-    },[])
-
-    return (
-        <div style={{maxWidth:"100%",textAlign:"center"}}>
+}
+{/*useEffect(()=>{
+    var tl=new TimelineMax();
+    tl.from("#confetti",1,{y:"-350",opacity:0,rotation:20,transformOrigin:"50% 50%",ease:Bounce.easeOut});
+    tl.to("#star3",1,{x:"-150",opacity:1,rotation:640,transformOrigin:"50% 50%",ease:Power1.easeOut});
+    tl.to("#star2",1,{x:"-40",y:"-20",opacity:1,rotation:640,transformOrigin:"50% 50%",ease:Power1.easeOut},'-=.9');
+    tl.to("#star1",1,{x:"-120",y:"-170",opacity:1,rotation:640,transformOrigin:"50% 50%",ease:Power1.easeOut},'-=.9');
+    tl.to("#fireball1",1,{x:"-90",y:"-100",opacity:1,ease:Power1.easeOut},'-=.9');
+    tl.to("#fireball2",1,{x:"-40",y:"-100",opacity:1,ease:Power1.easeOut},'-=.9');
+    tl.to("#fireball3",1,{x:"-140",y:"-70",opacity:1,ease:Power1.easeOut},'-=.9');
+},[])*/}
+{/*<div style={{maxWidth:"100%",textAlign:"center"}}>
             <svg width="100%" height="413" viewBox="0 0 350 413">
                 <title>Layer 1</title>
                 <g id="Layer_2" data-name="Layer 2">
@@ -41,6 +40,5 @@ export default function Tadaa() {
                     </g>
                 </g>
             </svg>
-        </div>
-    )
-}
+    </div>*/}
+    

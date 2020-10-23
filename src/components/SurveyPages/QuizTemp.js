@@ -147,7 +147,7 @@ export default function QuizTemp(props) {
                 <Timer getTimeSpent={getTimeSpent} />
 
                 <h3 style={{color:"white"}}>
-                  {activeQuestion + 1} ) {questions[activeQuestion].title}
+                  {activeQuestion + 1} {")"} {questions[activeQuestion].title}
                 </h3>
               </FormLabel>
             </Grid>

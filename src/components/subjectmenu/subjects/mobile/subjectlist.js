@@ -78,7 +78,6 @@ const commerce = [
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    maxWidth: 360,
     background: "#363f44",
     color: "white",
     borderRadius: "4px",
@@ -110,143 +109,145 @@ export default function NestedList() {
   };
 
   return (
-    <Grid container spacing={2} alignItems="center">
-      <Grid item sm={12} md container justify="center">
-        <Paper elevation={3} className={classes.paper}>
-          <List
-            component="nav"
-            aria-labelledby="nested-list-subheader"
-            className={classes.root}
-          >
-            <ListItem button onClick={() => handleClick("science")}>
-              <ListItemIcon>
-                <ChevronRight style={{ color: lightBlue[400] }} />
-              </ListItemIcon>
-              <ListItemText primary="SCIENCE" />
-              {openScience ? <ExpandLess /> : <ExpandMore />}
-            </ListItem>
-            <Collapse in={openScience} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                {science.map((subject) => {
-                  return (
-                    <ListItem button className={classes.nested}>
-                      <Link
-                        to={`/quizes?subject=${subject.link}`}
-                        style={{
-                          textDecoration: "none",
-                          color: "white",
-                          display: "flex",
-                          alignItems: "center",
-                        }}
-                      >
-                        <ListItemIcon>
-                          <ChevronRight style={{ color: "white" }} />
-                        </ListItemIcon>
-                        <ListItemText primary={subject.title} />
-                      </Link>
-                    </ListItem>
-                  );
-                })}
-              </List>
-            </Collapse>
-            <ListItem button onClick={() => handleClick("art")}>
-              <ListItemIcon>
-                <ChevronRight style={{ color: lightBlue[400] }} />
-              </ListItemIcon>
-              <ListItemText primary="ART" />
-              {openArt ? <ExpandLess /> : <ExpandMore />}
-            </ListItem>
-            <Collapse in={openArt} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                {art.map((subject) => {
-                  return (
-                    <ListItem button className={classes.nested}>
-                      <Link
-                        to={`/quizes?subject=${subject.link}`}
-                        style={{
-                          textDecoration: "none",
-                          color: "white",
-                          display: "flex",
-                          alignItems: "center",
-                        }}
-                      >
-                        <ListItemIcon>
-                          <ChevronRight style={{ color: "white" }} />
-                        </ListItemIcon>
-                        <ListItemText primary={subject.title} />
-                      </Link>
-                    </ListItem>
-                  );
-                })}
-              </List>
-            </Collapse>
-            <ListItem button onClick={() => handleClick("commerce")}>
-              <ListItemIcon>
-                <ChevronRight style={{ color: lightBlue[400] }} />
-              </ListItemIcon>
-              <ListItemText primary="COMMERCE" />
-              {openCommerce ? <ExpandLess /> : <ExpandMore />}
-            </ListItem>
+    <div className='evaluation'>
+      <Grid spacing={0} justify="center" alignItems="center">
+        <Grid item sm={12} md justify="center">
+          <Paper elevation={3} className={classes.paper}>
+            <List
+              component="nav"
+              aria-labelledby="nested-list-subheader"
+              className={classes.root}
+            >
+              <ListItem button onClick={() => handleClick("science")}>
+                <ListItemIcon>
+                  <ChevronRight style={{ color: lightBlue[400] }} />
+                </ListItemIcon>
+                <ListItemText primary="SCIENCE" />
+                {openScience ? <ExpandLess /> : <ExpandMore />}
+              </ListItem>
+              <Collapse in={openScience} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  {science.map((subject) => {
+                    return (
+                      <ListItem button className={classes.nested}>
+                        <Link
+                          to={`/quizes?subject=${subject.link}`}
+                          style={{
+                            textDecoration: "none",
+                            color: "white",
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <ListItemIcon>
+                            <ChevronRight style={{ color: "white" }} />
+                          </ListItemIcon>
+                          <ListItemText primary={subject.title} />
+                        </Link>
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              </Collapse>
+              <ListItem button onClick={() => handleClick("art")}>
+                <ListItemIcon>
+                  <ChevronRight style={{ color: lightBlue[400] }} />
+                </ListItemIcon>
+                <ListItemText primary="ART" />
+                {openArt ? <ExpandLess /> : <ExpandMore />}
+              </ListItem>
+              <Collapse in={openArt} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  {art.map((subject) => {
+                    return (
+                      <ListItem button className={classes.nested}>
+                        <Link
+                          to={`/quizes?subject=${subject.link}`}
+                          style={{
+                            textDecoration: "none",
+                            color: "white",
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <ListItemIcon>
+                            <ChevronRight style={{ color: "white" }} />
+                          </ListItemIcon>
+                          <ListItemText primary={subject.title} />
+                        </Link>
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              </Collapse>
+              <ListItem button onClick={() => handleClick("commerce")}>
+                <ListItemIcon>
+                  <ChevronRight style={{ color: lightBlue[400] }} />
+                </ListItemIcon>
+                <ListItemText primary="COMMERCE" />
+                {openCommerce ? <ExpandLess /> : <ExpandMore />}
+              </ListItem>
 
-            <Collapse in={openCommerce} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                {commerce.map((subject) => {
-                  return (
-                    <ListItem button className={classes.nested}>
-                      <Link
-                        to={`/quizes?subject=${subject.link}`}
-                        style={{
-                          textDecoration: "none",
-                          color: "white",
-                          display: "flex",
-                          alignItems: "center",
-                        }}
-                      >
-                        <ListItemIcon>
-                          <ChevronRight style={{ color: "white" }} />
-                        </ListItemIcon>
-                        <ListItemText primary={subject.title} />
-                      </Link>
-                    </ListItem>
-                  );
-                })}
-              </List>
-            </Collapse>
-            <ListItem button>
-              <Link
-                to={`/quizes?subject=engineeringtechnology`}
-                style={{
-                  textDecoration: "none",
-                  color: "white",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <ListItemIcon>
-                  <ChevronRight style={{ color: lightBlue[400] }} />
-                </ListItemIcon>
-                <ListItemText primary="ENGINEERING TECHNOLOGY" />
-              </Link>
-            </ListItem>
-            <ListItem button>
-              <Link
-                to={`/quizes?subject=sciencefortechnology`}
-                style={{
-                  textDecoration: "none",
-                  color: "white",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <ListItemIcon>
-                  <ChevronRight style={{ color: lightBlue[400] }} />
-                </ListItemIcon>
-                <ListItemText primary="SCIENCE FOR TECHNOLOGY" />
-              </Link>
-            </ListItem>
-          </List>
-        </Paper>
+              <Collapse in={openCommerce} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  {commerce.map((subject) => {
+                    return (
+                      <ListItem button className={classes.nested}>
+                        <Link
+                          to={`/quizes?subject=${subject.link}`}
+                          style={{
+                            textDecoration: "none",
+                            color: "white",
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <ListItemIcon>
+                            <ChevronRight style={{ color: "white" }} />
+                          </ListItemIcon>
+                          <ListItemText primary={subject.title} />
+                        </Link>
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              </Collapse>
+              <ListItem button>
+                <Link
+                  to={`/quizes?subject=engineeringtechnology`}
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <ListItemIcon>
+                    <ChevronRight style={{ color: lightBlue[400] }} />
+                  </ListItemIcon>
+                  <ListItemText primary="ENGINEERING TECHNOLOGY" />
+                </Link>
+              </ListItem>
+              <ListItem button>
+                <Link
+                  to={`/quizes?subject=sciencefortechnology`}
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <ListItemIcon>
+                    <ChevronRight style={{ color: lightBlue[400] }} />
+                  </ListItemIcon>
+                  <ListItemText primary="SCIENCE FOR TECHNOLOGY" />
+                </Link>
+              </ListItem>
+            </List>
+          </Paper>
+        </Grid>
       </Grid>
-    </Grid>
+    </div>
   );
 }

@@ -11,7 +11,6 @@ import "./graph.css";
 
 export const MarksPercentile = (props) => (
   <Container className="graphwrapper">
-    {console.log(props)}
     <ResponsiveLine
       data={props.data}
       markers={[
@@ -20,14 +19,14 @@ export const MarksPercentile = (props) => (
           value: props.mark,
           lineStyle: { stroke: "#0BF7D3", strokeWidth: 2 },
           legend: "You are here",
-          textStyle: {
+          textStyle: {  
             fill: "white",
             fontSize: "0.5rem",
           },
         },
       ]}
       curve="basis"
-      margin={{ top: 50, right: 50, bottom: 50, left: 60 }}
+      margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
       xScale={{ type: "point"}}
       yScale={{
         type: "linear",
@@ -70,7 +69,7 @@ export const MarksPercentile = (props) => (
           },
           legend:{
             text:{
-              fill:"white"
+              fill:"#1fa2ff"
             }
           },
         },
@@ -78,12 +77,10 @@ export const MarksPercentile = (props) => (
           line: {
             stroke: "gray",
             opacity:0.5
-            // strokeWidth: 2,
-            // strokeDasharray: "4 4",
           },
         },
       }}
-      pointSize={10}
+      pointSize={5}
       pointColor={{ theme: "background" }}
       pointBorderWidth={2}
       pointBorderColor={{ from: "serieColor" }}
@@ -100,7 +97,7 @@ export const MarksPercentile = (props) => (
           translateX: 5,
           itemsSpacing: 0,
           itemDirection: "left-to-right",
-          itemTextColor: "#ffffff",
+          itemTextColor: "#1fa2ff",
           itemWidth: 140,
           itemHeight: 20,
           itemOpacity: 1,
@@ -113,10 +110,3 @@ export const MarksPercentile = (props) => (
   </Container>
 );
 
-// export default MarksPercentile;
-
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
