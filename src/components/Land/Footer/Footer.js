@@ -21,38 +21,38 @@ const Footer = () => {
           <Container>
             <div style={{borderBottom:"1px solid grey"}}>
               <Grid container alignItems="flex-start" justify="space-between">
-                <Grid md={8} item justify="flex-start">
-                  <div style={{paddingBottom:"20px"}}>
+                <Grid sm={6} md={8} item justify="flex-start">
+                  <div>
                     <Typography variant="h6" align="left">
                       WE TRY TO MAKE AWSOME SOFTWARE.
                     </Typography>
                   </div>
                   <div style={{paddingBottom:"10px"}}>
                     <Coffee />
-                    <Typography variant="subtitle1" align="left">
-                      MADE WITH LOVE AND COFFEE
+                    <Typography variant="body2" align="left">
+                      <span style={{color:"#1fa2ff"}}>MADE WITH LOVE AND COFFEE</span>
                     </Typography>
                   </div>
                 </Grid>
-                <Grid md={4} item  justify="flex-end">
+                <Grid sm={4} md={4} item  justify="flex-end">
                   <div style={{paddingBottom:"10px"}}>
-                    <Typography variant="subtitle1" align="left">
+                    <Typography variant="subtitle2" align="left">
                       ABOUT US
                     </Typography>
-                    <Typography variant="subtitle2" align="left">
-                      We are just a small group of individuals trying to take the great minds of Sri Lanka where it belongs. 
+                    <Typography variant="body2" align="left">
+                      <span style={{color:"#CCCDCD"}}>We are just a small group of individuals trying to take the great minds of Sri Lanka where it belongs.</span> 
                     </Typography>
                   </div>
                   <div style={{paddingBottom:"10px"}}>
-                    <Typography variant="subtitle1" align="left">
+                    <Typography variant="subtitle2" align="left">
                       CONTACT US
                     </Typography>
-                    <Typography variant="subtitle2" align="left">
-                      Paperlytech@gmail.com 
+                    <Typography variant="body2" align="left">
+                      <span style={{color:"#CCCDCD"}}>Paperlytech@gmail.com</span> 
                     </Typography>
                   </div>
                   <div style={{paddingBottom:"10px"}}>
-                    <Typography variant="subtitle1" align="left">
+                    <Typography variant="subtitle2" align="left">
                       TERMS OF SERVICE
                     </Typography>
                   </div>
@@ -88,6 +88,46 @@ const Footer = () => {
         </Hidden>
         <Hidden smUp>
           <Container>
+            <div style={{borderBottom:"1px solid grey"}}>
+              <Grid container justify="flex-start">
+                <Grid sm={6} md={8} item justify="flex-start">
+                  <div>
+                    <Typography variant="h6" align="left">
+                      WE TRY TO MAKE AWSOME SOFTWARE.
+                    </Typography>
+                  </div>
+                  <div style={{paddingBottom:"10px"}}>
+                    <Coffee />
+                    <Typography variant="body2" align="left">
+                      <span style={{color:"#1fa2ff"}}>MADE WITH LOVE AND COFFEE</span>
+                    </Typography>
+                  </div>
+                </Grid>
+                <Grid sm={4} md={4} item  justify="flex-end">
+                  <div style={{paddingBottom:"10px"}}>
+                    <Typography variant="subtitle2" align="left">
+                      ABOUT US
+                    </Typography>
+                    <Typography variant="body2" align="left">
+                      <span style={{color:"#CCCDCD"}}>We are just a small group of individuals trying to take the great minds of Sri Lanka where it belongs.</span> 
+                    </Typography>
+                  </div>
+                  <div style={{paddingBottom:"10px"}}>
+                    <Typography variant="subtitle2" align="left">
+                      CONTACT US
+                    </Typography>
+                    <Typography variant="body2" align="left">
+                      <span style={{color:"#CCCDCD"}}>Paperlytech@gmail.com</span> 
+                    </Typography>
+                  </div>
+                  <div style={{paddingBottom:"10px"}}>
+                    <Typography variant="subtitle2" align="left">
+                      TERMS OF SERVICE
+                    </Typography>
+                  </div>
+                </Grid>
+              </Grid>
+            </div>
             <div style={{textAlign:'center'}}>
               <div>
                 <p>

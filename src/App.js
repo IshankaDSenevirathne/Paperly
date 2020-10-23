@@ -6,10 +6,12 @@ import "aos/dist/aos.css";
 
 // import Navbar from "./components/Navbar/Navbar";
 // import Landing from "./components/Landing/Landing";
+
 import QuizesPage from "./components/QuizesPage/QuizesPage";
 import Landing from "./components/Land/Landing";
 import Tos from "./components/tos/tos";
 import Subjectmenu from "./components/subjectmenu/subjectmenu";
+
 
 AOS.init();
 
