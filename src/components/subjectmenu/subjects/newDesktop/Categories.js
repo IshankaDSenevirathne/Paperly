@@ -23,6 +23,9 @@ import BusinessStudies from "../../../../img/BusinessStudies.png";
 import Statistics from "../../../../img/Statistics.png";
 import Accounting from "../../../../img/Accounting.png";
 
+import Sci4Tech from "../../../../img/Sci4Tech.png";
+import EngTech from "../../../../img/EngTech.png";
+
 import "./Categories.css";
 
 const useStyles=makeStyles((theme)=>({
@@ -126,7 +129,20 @@ const science = [
 
     },
   ];
+const other = [
+    {
+        title: "Science for Technology",
+        link: "sci4tech",
+        image:Sci4Tech
 
+    },
+    {
+        title: "Engineering Technology",
+        link: "engtech",
+        image:EngTech
+
+    },
+]
 export default function Categories() {
     const classes=useStyles();
     return (
@@ -199,6 +215,33 @@ export default function Categories() {
                     </div>
                     <Grid alignItems="center" justify="left" spacing={1} container>
                         {commerce.map((subject)=>(
+                            <Grid item xs={6} sm={3} md={2}>
+                                <div>
+                                    <Paper elevation={2} className={classes.paper}>
+                                        <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
+                                            <Button className={classes.button}>
+                                                <div>
+                                                    <img src={subject.image}></img>
+                                                    <Typography align="center" variant="subtitle1">
+                                                        {subject.title}
+                                                    </Typography>
+                                                </div>
+                                            </Button>
+                                        </Link>
+                                    </Paper> 
+                                </div>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </div>    
+                <div id ='other'  style={{paddingBottom:"50px"}}>
+                    <div style={{paddingBottom:"30px"}}>
+                        <Typography variant="h5" align="left">
+                            OTHER
+                        </Typography>
+                    </div>
+                    <Grid alignItems="center" justify="left" spacing={1} container>
+                        {other.map((subject)=>(
                             <Grid item xs={6} sm={3} md={2}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
