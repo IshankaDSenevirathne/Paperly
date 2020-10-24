@@ -3,7 +3,7 @@ import Navbar from "../navbar/navbar";
 import { makeStyles } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";
 
-import SubjectTabs from "./subjects/desktop/tabs";
+import Categories from "./subjects/newDesktop/Categories";
 import SubjectList from "./subjects/mobile/subjectlist";
 
 import List from "@material-ui/core/List";
@@ -116,7 +116,7 @@ const Subjectmenu = () => {
 
       <div style={{ marginTop: "120px", marginBottom: "120px" }}>
         <Hidden xsDown>
-          <SubjectTabs />
+          <Categories />
         </Hidden>
         <Hidden smUp>
           <SubjectList />

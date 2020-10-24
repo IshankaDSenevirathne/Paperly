@@ -86,7 +86,6 @@ const useStyles = makeStyles((theme) => ({
   },
   tabContent: {
     width: "100%",
-    backgroundImage: `url(${cardBackground})`,
     backgroundRepeat:"no-repeat",
     backgroundSize:"cover",
     backgroundPosition:"center center",
