@@ -34,9 +34,9 @@ const useStyles=makeStyles((theme)=>({
         borderBottomRightRadius:"0px",
         transition:"0.5s ease-in-out",
         width:"100%",
-        minHeight:"300px",
+        minHeight:"200px",
         "&:hover": {
-          background:"#1fa2ff",
+          background:"#3f51b5",
           color: "#ffffff",
         },
     },
@@ -143,9 +143,9 @@ export default function Categories() {
                             SCIENCE
                         </Typography>
                     </div>
-                    <Grid alignItems="center" justify="center" spacing={0} container>
+                    <Grid alignItems="center" justify="left" spacing={1} container>
                         {science.map((subject)=>(
-                            <Grid item sm={6} md={3}>
+                            <Grid item xs={6} sm={3} md={2}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
                                         <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
@@ -170,9 +170,9 @@ export default function Categories() {
                             ART
                         </Typography>
                     </div>
-                    <Grid alignItems="center" justify="center" spacing={0} container>
+                    <Grid alignItems="center" justify="left" spacing={1} container>
                         {art.map((subject)=>(
-                            <Grid item sm={6} md={3}>
+                            <Grid item xs={6} sm={3} md={2}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
                                         <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
@@ -197,9 +197,9 @@ export default function Categories() {
                             COMMERCE
                         </Typography>
                     </div>
-                    <Grid alignItems="center" justify="left" spacing={0} container>
+                    <Grid alignItems="center" justify="left" spacing={1} container>
                         {commerce.map((subject)=>(
-                            <Grid item sm={6} md={3}>
+                            <Grid item xs={6} sm={3} md={2}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
                                         <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>

@@ -115,12 +115,7 @@ const Subjectmenu = () => {
       <Navbar />
 
       <div style={{ marginTop: "120px", marginBottom: "120px" }}>
-        <Hidden xsDown>
           <Categories />
-        </Hidden>
-        <Hidden smUp>
-          <SubjectList />
-        </Hidden>
       </div>
       <Container>
         <div className={classes.paperlist}>
