@@ -6,5 +6,6 @@
   "chemistry": [
     { "year": "2019", "name": "2019 Advanced Level Chemistry" },
     { "year": "2018", "name": "2018 Advanced Level Chemistry" }
-  ]
+  ],
+  "biology": [{ "year": "2019", "name": "2019 Advanced Level Biology" }]
 }
