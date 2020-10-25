@@ -206,7 +206,7 @@ export default function Results(props) {
                   <Grade marks={marks} />
                 </div>
               </Grid>
-              <Grid item c xs={12} sm={8}> 
+              <Grid item  xs={12} sm={8}> 
                 <List className={classes.root}>
                   <ListItem>
                     <ListItemAvatar>

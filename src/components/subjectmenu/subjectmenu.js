@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../navbar/navbar";
 import { makeStyles } from "@material-ui/core/styles";
-import Hidden from "@material-ui/core/Hidden";
 
-import Categories from "./subjects/newDesktop/Categories";
-import SubjectList from "./subjects/mobile/subjectlist";
+import Categories from "./Categories/Categories";
 
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -117,50 +115,48 @@ const Subjectmenu = () => {
       <div style={{ marginTop: "120px", marginBottom: "120px" }}>
           <Categories />
       </div>
-      <Container>
-        <div className={classes.paperlist}>
-          {" "}
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ "aria-label": "search" }}
-              onChange={(e) => search(e.target.value)}
-            />
+      <div className={classes.paperlist}>
+        {" "}
+        <div className={classes.search}>
+          <div className={classes.searchIcon}>
+            <SearchIcon />
           </div>
-          {paperNameList.length > 0 ? (
-            paperNameList.map((ele) => {
-              console.log(ele);
-
-              return (
-                <div className={classes.root}>
-                  <List component="nav" aria-label="secondary mailbox folders">
-                    <ListItemLink
-                      href={`/quizes?subject=${ele.subject}&year=${ele.year}`}
-                    >
-                      <ListItemText primary={ele.name} />
-                    </ListItemLink>
-                  </List>
-                </div>
-              );
-            })
-          ) : (
-            <div className={classes.root}>
-              <List component="nav" aria-label="secondary mailbox folders">
-                <ListItem>
-                  <ListItemText primary="Paper Not Found" />
-                </ListItem>
-              </List>
-            </div>
-          )}
+          <InputBase
+            placeholder="Search…"
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput,
+            }}
+            inputProps={{ "aria-label": "search" }}
+            onChange={(e) => search(e.target.value)}
+          />
         </div>
-      </Container>
+        {/*{paperNameList.length > 0 ? (
+          paperNameList.map((ele) => {
+            console.log(ele);
+
+            return (
+              <div className={classes.root}>
+                <List component="nav" aria-label="secondary mailbox folders">
+                  <ListItemLink
+                    href={`/quizes?subject=${ele.subject}&year=${ele.year}`}
+                  >
+                    <ListItemText primary={ele.name} />
+                  </ListItemLink>
+                </List>
+              </div>
+            );
+          })
+        ) : (
+          <div className={classes.root}>
+            <List component="nav" aria-label="secondary mailbox folders">
+              <ListItem>
+                <ListItemText primary="Paper Not Found" />
+              </ListItem>
+            </List>
+          </div>
+        )}*/}
+      </div>
       <Footer />
     </div>
   );

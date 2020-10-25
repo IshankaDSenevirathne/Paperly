@@ -16,6 +16,7 @@
     "qs": "^6.9.4",
     "react": "^16.13.1",
     "react-animated-number": "^0.4.4",
+    "react-confetti": "^6.0.0",
     "react-dom": "^16.13.1",
     "react-moment": "^0.9.7",
     "react-router-dom": "^5.2.0",

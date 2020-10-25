@@ -12,7 +12,8 @@ import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 import Rating from '@material-ui/lab/Rating';
 
-// import Tadaa from "../Animations/Tadaa";
+import Tadaa from "../Animations/Tadaa";
+
 const customIcons = {
     1: {
       icon: <SentimentVeryDissatisfiedIcon />,
@@ -61,9 +62,8 @@ export default function CompletedSurvey() {
     
     return (
         <div id="my-canvas" className="content">
+            <Tadaa />
             <div className={classes.root}>
-                
-                
                 <div style={{paddingTop:"20px",paddingBottom:"20px"}}>
                     <Typography variant="h4" align="center">
                         <b>Congratulations !</b>

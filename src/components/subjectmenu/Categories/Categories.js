@@ -7,26 +7,27 @@ import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from "@material-ui/core/styles";
 
-import Chemistry from "../../../../img/chemistry.png";
-import Physics from "../../../../img/physics.png";
-import Biology from "../../../../img/biology.png";
-import iT from "../../../../img/IT.png";
+import Info from "@material-ui/icons/Info";
 
-import Art from "../../../../img/Art.png";
-import Music from "../../../../img/Music.png";
-import History from "../../../../img/History.png";
-import Drama from "../../../../img/Drama.png";
+import Chemistry from "../../../img/chemistry.png";
+import Physics from "../../../img/physics.png";
+import Biology from "../../../img/biology.png";
+import iT from "../../../img/IT.png";
 
-import Marketing from "../../../../img/Marketing.png";
-import Economics from "../../../../img/Economics.png";
-import BusinessStudies from "../../../../img/BusinessStudies.png";
-import Statistics from "../../../../img/Statistics.png";
-import Accounting from "../../../../img/Accounting.png";
+import Art from "../../../img/Art.png";
+import Music from "../../../img/Music.png";
+import History from "../../../img/History.png";
+import Drama from "../../../img/Drama.png";
 
-import Sci4Tech from "../../../../img/Sci4Tech.png";
-import EngTech from "../../../../img/EngTech.png";
+import Marketing from "../../../img/Marketing.png";
+import Economics from "../../../img/Economics.png";
+import BusinessStudies from "../../../img/BusinessStudies.png";
+import Statistics from "../../../img/Statistics.png";
+import Accounting from "../../../img/Accounting.png";
 
-import "./Categories.css";
+import Sci4Tech from "../../../img/Sci4Tech.png";
+import EngTech from "../../../img/EngTech.png";
+
 
 const useStyles=makeStyles((theme)=>({
     button: {
@@ -150,10 +151,20 @@ export default function Categories() {
             <Container>
                 <div style={{paddingBottom:"150px",textAlign:"center"}}>
                     <Typography variant="h4" justify="center">
-                        SELECT YOUR SUBJECT
+                        CATEGORIES
                     </Typography>
                 </div>
-                <div id ='science'  style={{paddingBottom:"50px"}}>
+                <div style={{padding:"10px 10px 10px 10px",border:'1px solid #1fa2ff',borderRadius:"4px",margin:"0px, 10px 20px 10px",width:"fit-content",background:"#363f44"}}>
+                    <Typography variant="body1" align="left">
+                        <span style={{alignItems:"center",justifyItems:"center",display:"flex"}}>
+                            <Info style={{color:"#1fa2ff"}} fontSize="large"/>
+                            &nbsp;&nbsp;&nbsp;
+                            Select the subject of your preferance.
+                        </span>
+                    </Typography>
+                </div>
+                
+                <div id ='science'  style={{marginTop:"30px",paddingBottom:"50px"}}>
                     <div style={{paddingBottom:"30px"}}>
                         <Typography variant="h5" align="left">
                             SCIENCE

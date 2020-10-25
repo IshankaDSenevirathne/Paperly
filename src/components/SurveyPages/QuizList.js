@@ -75,7 +75,7 @@ export default function QuizList(props) {
           <h1>{subject}</h1>
           <img src={getImage(subject)}></img>
         </div>
-        <div style={{padding:"10px 10px 10px 0px",borderRadius:"4px",marginBottom:"20px",background:"#E8F3FB"}}>
+        <div style={{padding:"10px 10px 10px 0px",borderRadius:"4px",margin:"0px, 10px 20px 10px",background:"#E8F3FB"}}>
           <Typography variant="body1" align="center">
             <Info style={{color:"#1fa2ff"}} fontSize="large"/>
           </Typography>
