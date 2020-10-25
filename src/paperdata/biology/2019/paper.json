@@ -1,0 +1,564 @@
+{
+  "paperId": "1",
+  "content": {
+    "title": "Advanced Level 2018 Chemistry",
+    "pages": [
+      {
+        "title": "Basic structural and functional unit of life is?",
+        "choices": ["macromolecule", "organelle", "cell", "tissue", "organ"],
+        "correctAnswer": "organ"
+      },
+
+      {
+        "title": "Some nucleotides",
+        "choices": [
+          "contain hexose sugars",
+          "act as organic cofactors",
+          "serve as enzymes",
+          "act as oxygen carriers.",
+          "serve as food reserves."
+        ],
+        "correctAnswer": "serve as food reserves."
+      },
+      {
+        "title": "Which of the following statements regarding microscopes is correct?",
+        "choices": [
+          "In a light microscope, visible light is passed through the objective lens and then through the specimen.",
+          "Projection of a light beam through a vacuum is the principle of an electron microscope.",
+          "Scanning electron microscope is used to study the internal structure of cells.",
+          "Transmission electron microscope is used for detail studies of living specimens.",
+          "Magnification and resolution power are important properties of all microscopes."
+        ],
+        "correctAnswer": "Magnification and resolution power are important properties of all microscopes."
+      },
+      {
+        "title": "In the cytoskeleton,",
+        "choices": [
+          "microtubules are formed by actin.",
+          "keratin is not present.",
+          "microtubules are involved in the movement of organelles.",
+          "microfilaments are involved in the movement of chromosomes during cell division.",
+          "intermediate filaments provide channels to secrete materials from the cell."
+        ],
+        "correctAnswer": "intermediate filaments provide channels to secrete materials from the cell."
+      },
+      {
+        "title": "In the cell cycle,",
+        "choices": [
+          "DNA synthesis takes place during G1 phase.",
+          "protein synthesis occurs during G2 phase.",
+          "formation of spindle begins during metaphase.",
+          "condensation of chromatin fibres takes place during S phase.",
+          " division of the cytoplasm occurs during anaphase."
+        ],
+        "correctAnswer": " division of the cytoplasm occurs during anaphase."
+      },
+      {
+        "title": "Which of the following statements regarding chlorophyll is correct?",
+        "choices": [
+          "Chlorophyll absorbs violet, blue and red light.",
+          "Chlorophyll-b is the main light capturing pigment in plants.",
+          "Chlorophyll-a is most efficient for capturing green light.",
+          "Chlorophyll-a is involved in absorption and dissipation of excessive light energy.",
+          "In photosystem-I, chlorophyll-a absorbs light at 680 nm wavelength."
+        ],
+        "correctAnswer": "In photosystem-I, chlorophyll-a absorbs light at 680 nm wavelength."
+      },
+      {
+        "title": "A compound formed during ethyl alcohol fermentation, lactic acid fermentation and aerobic respiration is",
+        "choices": [
+          "oxaloacetate",
+          "citrate",
+          "acetaldehyde",
+          "acetyl CoA.",
+          "pyruvate"
+        ],
+        "correctAnswer": "pyruvate"
+      },
+      {
+        "title": "During the evolution of organisms, coelom was first developed in",
+        "choices": [
+          "Annelida",
+          "Arthropoda",
+          "Mollusca",
+          "Echinodermata",
+          "Chordata"
+        ],
+        "correctAnswer": "Chordata"
+      },
+      {
+        "title": "Which of the following structures can be seen in annelids as well as in arthropods?",
+        "choices": [
+          "Clitellum",
+          "Parapodia",
+          "Ventral nerve cord",
+          "Capillaries",
+          "Chitinous exoskeleton"
+        ],
+        "correctAnswer": "Chitinous exoskeleton"
+      },
+      {
+        "title": "Which of the following plants is evolutionarily closest to Marchantial",
+        "choices": [
+          "Anthoceros",
+          "Selaginella",
+          "Gnetum",
+          "Pogonatum",
+          "Nephrolepis"
+        ],
+        "correctAnswer": "Nephrolepis"
+      },
+      {
+        "title": "In dicotyledonous plants",
+        "choices": [
+          "stamens produce megaspores that develop into pollen grains.",
+          "pollen grain has two openings.",
+          "seeds are present within carpels.",
+          "perianth may be present.",
+          "vascular bundles in the stem are scattered."
+        ],
+        "correctAnswer": "vascular bundles in the stem are scattered."
+      },
+      {
+        "title": "Which of the following statements regarding the epidermis of plants is correct?",
+        "choices": [
+          "It usually consists of several layers of cells.",
+          "It is a permanent tissue.",
+          "Root hairs are multicellular projections of epidermal cells.",
+          "Trichomes are specialized epidermal cells.",
+          "Deposition of suberin in epidermal cells prevents water loss."
+        ],
+        "correctAnswer": "Deposition of suberin in epidermal cells prevents water loss."
+      },
+      {
+        "title": "Select the correct statement regarding the adaptations of plants for efficient photosynthesis.",
+        "choices": [
+          "Plants are branched in a pattern that is suitable to absorb the maximum amount of carbon dioxide from atmosphere.",
+          "Large leaves are present in plants growing in dry environments to maximize light capture.",
+          "Leaves of some plants are arranged almost vertically to get the maximum amount of light.",
+          "Leaves of some plants are arranged horizontally to avoid damage by over intense light.",
+          "Plants grow tall to avoid shading by neighbouring plants."
+        ],
+        "correctAnswer": "Plants grow tall to avoid shading by neighbouring plants."
+      },
+      {
+        "title": "During the opening of stomata",
+        "choices": [
+          "sodium ions are actively transported into guard cells.",
+          "turgor pressure of guard cells reduces.",
+          "carbon dioxide content in the substomatal cavity increases.",
+          "water potential in guard cells decreases.",
+          "potassium ions are passively transported into guard cells."
+        ],
+        "correctAnswer": "potassium ions are passively transported into guard cells."
+      },
+      {
+        "title": "Select the correct statement regarding nutritional requirements of plants.",
+        "choices": [
+          "Iron is a macronutrient required by plants.",
+          "Deficiency of sulphur can be identified by chlorosis of older leaves.",
+          "Magnesium is a component of carotenoids.",
+          "Deficiency of nitrogen causes chlorosis mainly in young leaves.",
+          "Molybdenum is required for nitrogen metabolism."
+        ],
+        "correctAnswer": "Molybdenum is required for nitrogen metabolism."
+      },
+      {
+        "title": "A feature seen in the sexual reproduction of all land plants is",
+        "choices": [
+          "non-requirement of external water for fertilization.",
+          "internal fertilization.",
+          "reduced gametophyte.",
+          "production of two types of spores.",
+          "having two types of sporophytes."
+        ],
+        "correctAnswer": "having two types of sporophytes."
+      },
+      {
+        "title": "Which of the following statements regarding the responses of plants to light is correct?",
+        "choices": [
+          "There are two major classes of photoreceptors in plants.",
+          "Blue light photoreceptors regulate seed germination.",
+          "Exposure to direct sunlight stimulates vertical growth.",
+          "Green and red are the most important colours of light for regulating photomorphogenesis.",
+          "Positive phototropism occurs due to faster elongation of cells in the brighter side of the shoot."
+        ],
+        "correctAnswer": "Positive phototropism occurs due to faster elongation of cells in the brighter side of the shoot."
+      },
+      {
+        "title": "The connective tissue that does not contain fibres under normal conditions is",
+        "choices": [
+          "areolar tissue.",
+          "adipose tissue.",
+          "blood",
+          "cartilage",
+          "bone"
+        ],
+        "correctAnswer": "bone"
+      },
+      {
+        "title": "**Select the response with the correct example for different types of feeders seen among animals , \n Type of feeders Example",
+        "choices": [
+          "Substrate feeders Oysters",
+          "Fluid feeders Maggots",
+          "Filter feeders Clams",
+          "Substrate feeders Aphids",
+          "Bulk feeders Humming birds"
+        ],
+        "correctAnswer": "Bulk feeders Humming birds"
+      },
+      {
+        "title": "Which of the following statements regarding the digestion of nucleic acids in food in man is correct?",
+        "choices": [
+          "It starts in the stomach.",
+          "DNA is broken down to nucleotides by nucleotidase.",
+          "Nucleosidase is involved in the digestion of nitrogenous bases.",
+          "RNA is broken down to nucleotides by pancreatic nuclease.",
+          "Intestinal nucleotidase acts on nitrogenous bases."
+        ],
+        "correctAnswer": "Intestinal nucleotidase acts on nitrogenous bases."
+      },
+      {
+        "title": "Which of the following may be a consequence of hypotension?",
+        "choices": [
+          "Unconsciousness",
+          "Kidney damage",
+          "Internal haemorrhage",
+          "Increase in heart beat",
+          "Stroke"
+        ],
+        "correctAnswer": "Stroke"
+      },
+      {
+        "title": "The cells that mediate internal defences in innate immunity in man are",
+        "choices": [
+          "T cells and B cells.",
+          "T cells and phagocytes.",
+          "B cells and phagocytes.",
+          "natural killer cells and T cells.",
+          "natural killer cells and phagocytes."
+        ],
+        "correctAnswer": "natural killer cells and phagocytes."
+      },
+      {
+        "title": "**Which of the following responses correctly indicates the main nitrogenous excretory product of the given animal group?        Animal group",
+        "choices": [
+          "macromoleculeaasasaasalslsaslaslsalsalslalsalslas",
+          "organelle",
+          "cell",
+          "tissue",
+          "organ"
+        ],
+        "correctAnswer": "organ"
+      },
+      {
+        "title": " In humans, voluntary muscular movements are coordinated by",
+        "choices": [
+          "thalamus",
+          "medulla oblongata.",
+          "pons Varolii.",
+          "cerebellum",
+          "mid-brain."
+        ],
+        "correctAnswer": "mid-brain."
+      },
+      {
+        "title": "Which of the following is the correct pathway of light and nerve impulses for the vision of humans?",
+        "choices": [
+          "cornea -> aqueous humour ->lens -> vitreous humour -> photoreceptors -> ganglion cells —> bipolar cells -> optic nerve -> occipital lobe of cerebrum",
+          "cornea —» aqueous humour —* lens —* vitreous humour —»> photoreceptors —» ganglion cells —» bipolar cells —* optic nerve temporal lobe of cerebrum",
+          "cornea -» aqueous humour -»lens -» vitreous humour —» photoreceptors -» bipolar cells -* ganglion cells -* optic nerve —* occipital lobe of cerebrum",
+          "cornea -» vitreous humour -> lens -» aqueous humour photoreceptors —» bipolar cells -* ganglion cells-Coptic nerve-» occipital lobe of cerebrum",
+          "cornea -*• vitreous humour -*lens aqueous humour -> photoreceptors -» bipolar cells -» ganglion cells—» optic nerve —* temporal lobe of cerebrum"
+        ],
+        "correctAnswer": "cornea -*• vitreous humour -*lens aqueous humour -> photoreceptors -» bipolar cells -» ganglion cells—» optic nerve —* temporal lobe of cerebrum"
+      },
+      {
+        "title": "In which of the following responses, the hormone and its main function are correctly matched?",
+        "choices": [
+          "Melatonin - Regulating biological rhythms",
+          "Thymosin - Regulating innate immunity",
+          "Adrenalin - Decreasing the metabolic rate",
+          "Oxytocin - Stimulating milk production",
+          "Parathyroid hormone - Lowering blood calcium level"
+        ],
+        "correctAnswer": "Parathyroid hormone - Lowering blood calcium level"
+      },
+      {
+        "title": "In spermatogenesis of man, reduction of chromosome number from diploid to haploid occurs during the production of",
+        "choices": [
+          "sperms from spermatids.",
+          "spermatids from secondary spermatocytes.",
+          "secondary spermatocytes from primary spermatocytes.",
+          "spermatogonia from primordial germ cells.",
+          "primary spermatocytes from spermatogonia."
+        ],
+        "correctAnswer": "primary spermatocytes from spermatogonia."
+      },
+      {
+        "title": "**This question is based on the following figure which shows the levels of hormones secreted by the anterior pituitary and ovary in blood during the normal reproductive cycle of mature human females. The hormones indicated as A, B, C and D are respectively",
+        "choices": [
+          "FSH, LH, estradiol and progesterone.",
+          "LH, progesterone, estradiol and FSH.",
+          "estradiol, LH, FSH and progesterone.",
+          "LH, estradiol, progesterone and FSH.",
+          "FSH, LH, progesterone and estradiol."
+        ],
+        "correctAnswer": "FSH, LH, progesterone and estradiol."
+      },
+      {
+        "title": "Select the correct statement regarding human skeletal system.",
+        "choices": [
+          "Elbow joint formed by humerus, radius and ulna permits only flexion and extension of the fore arm.",
+          "Hinge joint formed by femur, fibula and patella permits standing upright for a long time.",
+          "Arches of the foot are important in distributing body weight only while standing.",
+          "Secondary curvatures in the thoracic and sacral regions of the vertebral column help to maintain erect posture.",
+          "A non-inflammatory degenerative disease called osteoporosis causes pain and restricted movement in the affected joints."
+        ],
+        "correctAnswer": "A non-inflammatory degenerative disease called osteoporosis causes pain and restricted movement in the affected joints."
+      },
+      {
+        "title": "In man, sickle cell anaemia is an example for",
+        "choices": [
+          "heterozygous dominance.",
+          "polygenic inheritance.",
+          "epistasis",
+          "pleiotropy",
+          "epigenetics"
+        ],
+        "correctAnswer": "epigenetics"
+      },
+      {
+        "title": "Which of the following statements regarding the cross Rr x Rr is correct?",
+        "choices": [
+          "The probability of having the allele r in both the egg and sperm at fertilization is 1/2",
+          "This is a dihybrid cross because two alleles are involved.",
+          "According to Mendelian inheritance, the probability of having dominant phenotype in F2 generation by interbreeding of F1, is 9/16",
+          "If 1:2:1 ratio of phenotypes was obtained in F2 generation by interbreeding of F1, generation, it may be due to codominance.",
+          "R and r are linked."
+        ],
+        "correctAnswer": "R and r are linked."
+      },
+      {
+        "title": "During the gametogenesis of a particular person, a gamete with 24 chromosomes was produced. This gamete was fertilized with a normal gamete and a child was born. Which of the following best explains this process and its result?",
+        "choices": [
+          "Aneuploidy, trisomy, Down syndrome",
+          "Polyploidy, trisomy, Klinefelter syndrome",
+          "Aneuploidy, monosomy, Down syndrome",
+          "Aneuploidy, monosomy, Klinefelter syndrome",
+          "Polyploidy, trisomy, Down syndrome"
+        ],
+        "correctAnswer": "Polyploidy, trisomy, Down syndrome"
+      },
+      {
+        "title": "During replication of DNA, a cytosine molecule had been added instead of a thymine molecule in a gene. This mutated gene produced a peptide with the same amino acid sequence as the gene before mutation. This is an example for",
+        "choices": [
+          "insertion and nonsense mutation.",
+          "substitution and silent mutation.",
+          "insertion and silent mutation.",
+          "substitution and missense mutation.",
+          "insertion and missense mutation."
+        ],
+        "correctAnswer": "insertion and missense mutation."
+      },
+      {
+        "title": "DNA polymerase obtained from thermophilic bacteria is used for PCR because",
+        "choices": [
+          "they contain more DNA polymerase than other organisms.",
+          "that DNA polymerase does not have proofreading ability.",
+          "that DNA polymerase is stable at high temperatures required for separation of DNA strands in the laboratory.",
+          "it is the only DNA polymerase which can copy DNA in the laboratory.",
+          "that DNA polymerase does not need a primer to initiate DNA synthesis."
+        ],
+        "correctAnswer": "that DNA polymerase does not need a primer to initiate DNA synthesis."
+      },
+      {
+        "title": "A DNA fragment can be inserted in to a plasmid vector if that fragment has",
+        "choices": [
+          "a nucleotide sequence identical to that of the vector.",
+          "been cut by the same restriction enzyme which had been used to cut the vector.",
+          "originated from the same cell type as of the vector.",
+          "the same length as that of the vector.",
+          "at least one origin of replication (Ori)."
+        ],
+        "correctAnswer": "at least one origin of replication (Ori)."
+      },
+      {
+        "title": "Dry patana grasslands in Sri Lanka are found in",
+        "choices": [
+          "intermediate and wet zones.",
+          "dry and intermediate zones",
+          "dry and arid zones.",
+          "dry, intermediate and wet zones.",
+          "arid, dry and intermediate zones."
+        ],
+        "correctAnswer": "arid, dry and intermediate zones."
+      },
+      {
+        "title": "Which of the following is not an environmental service value of biodiversity?",
+        "choices": [
+          "Regulating climate",
+          "Recharging ground water",
+          "Water purification",
+          "Helping disaster management",
+          "Prevention of soil erosion"
+        ],
+        "correctAnswer": "organ"
+      },
+      {
+        "title": "Which of the following does not contribute to global warming?",
+        "choices": [
+          "Depletion of ozone layer",
+          "Cattle farming",
+          "Ozone in the lower atmosphere",
+          "Growth of phytoplankton",
+          "Water vapour in the atmosphere"
+        ],
+        "correctAnswer": "Water vapour in the atmosphere"
+      },
+      {
+        "title": "Which of the following statements is correct regarding the culture media used to grow microbes in the laboratory?",
+        "choices": [
+          "Agar in culture media provides the suitable pH range for the growth of microorganisms.",
+          "Glucose is generally used to prepare culture media to grow fungi.",
+          "Culture media for bacteria are prepared using potatoes.",
+          "Any microorganism can be cultured in a culture medium.",
+          "Sodium chloride is usually added to all culture media."
+        ],
+        "correctAnswer": "Sodium chloride is usually added to all culture media."
+      },
+      {
+        "title": "Coliform bacteria were detected in a water sample obtained from a river. Drinking untreated water from this river may not likely to cause",
+        "choices": [
+          "typhoid",
+          "cholera",
+          "dysentery",
+          "paratyphoid",
+          "tetanus"
+        ],
+        "correctAnswer": "tetanus"
+      },
+      {
+        "title": "For each of the questions 41 to 50 one or more of the responses is/are correct. Decide which response/responses is/are correct and then select the correct number \n If only A, B and D are correct 1 \n If only A, C and D are correct 2 \n If only A and B are correct 3 \n If only C and D are correct 4 \n If any other response or combination of responses is correct 5 \n Directions summarised 1 2 3 4 5 \n A,B,Dcorrect.A,C,Dcorrect.A,Bcorrect.C,Dcorrect.Any other response or combination of responses correct.\nWhich of the following statements regarding energy relations in organisms is/are correct?",
+        "choices": [
+          "(A) In cellular respiration, photophosphorylation and oxidative phosphorylation occur.",
+          "(B) During metabolic reactions, ATP oxidises to ADP.",
+          "(C) Energy stored in ATP can be converted to electrical energy.",
+          "(D) Substrate phosphorylation occurs in Krebs cycle.",
+          "(E) All metabolic reactions release energy."
+        ],
+        "correctAnswer": "(E) All metabolic reactions release energy."
+      },
+      {
+        "title": "Which of the following classes includes/include animals having internal fertilization as well as those having external fertilization?",
+        "choices": [
+          "Osteichthyes",
+          "Amphibia",
+          "Reptilia",
+          "Chondrichthyes",
+          "Aves"
+        ],
+        "correctAnswer": "Aves"
+      },
+      {
+        "title": "Select the correct statement/statements regarding the respiratory pigments of animals.",
+        "choices": [
+          "Myoglobin is present in bony fishes.",
+          "Haemoglobin is present in mollusks.",
+          "Chlorocruorin is present in annelids.",
+          "Haemerythrin is present in annelids.",
+          "Haemocyanin is present in reptiles."
+        ],
+        "correctAnswer": "Haemocyanin is present in reptiles."
+      },
+      {
+        "title": "Smoking",
+        "choices": [
+          "stimulates the secretion of mucus by goblet cells in the respiratory tract.",
+          "causes tuberculosis.",
+          "decreases the oxygen transport in blood.",
+          "inhibits the action of cilia in the respiratory tract.",
+          "reduces heart beat."
+        ],
+        "correctAnswer": "reduces heart beat."
+      },
+      {
+        "title": "Which of the following contributes/contribute for the maintenance of resting potential of a neuron?",
+        "choices": [
+          "Unequal distribution of Na+, K+, Cl- and large anions inside and outside the neuron",
+          "Active transport of Na+ out of the neuron and K+ in to the neuron in 3:2 ratio",
+          "Opening of more K+ channels than Na+ channels in the neuron membrane",
+          "Transport of more Na+ in to the intracellular fluid of the neuron than K+",
+          "Transport of Cl” from the neuron to the extracellular fluid"
+        ],
+        "correctAnswer": "Transport of Cl” from the neuron to the extracellular fluid"
+      },
+      {
+        "title": "Parthenogenesis",
+        "choices": [
+          "produces a complete individual from an unfertilized egg.",
+          "produces female honey bees.",
+          "can be observed in some lizards.",
+          "forms only diploid progeny.",
+          "can be seen in all invertebrates."
+        ],
+        "correctAnswer": "can be seen in all invertebrates."
+      },
+      {
+        "title": "Which of the following combinations is/are correct regarding the skeletons of animals? Skeleton Example",
+        "choices": [
+          "Coelom Annelids",
+          "Pseudocoelom Cnidarians",
+          "Calcium carbonate plates Echinoderms",
+          "Bony plates Reptiles",
+          "Gastrovascular cavity Nematodes"
+        ],
+        "correctAnswer": "Gastrovascular cavity Nematodes"
+      },
+      {
+        "title": "In which of the following responses, the biomes that are encountered when traveling from the north pole towards equator are given in correct sequence?",
+        "choices": [
+          "Tundra, coniferous forests, temperate grasslands, deserts, tropical forests",
+          "Tundra, coniferous forests, temperate broad-leaf forests, chaparral, deserts",
+          "Tundra, temperate grasslands, coniferous forests, deserts, tropical forests",
+          "Tundra, temperate broad-leaf forests, coniferous forests, tropical forests, deserts",
+          "Tundra, coniferous forests, chaparral, temperate grasslands, savanna"
+        ],
+        "correctAnswer": "Tundra, coniferous forests, chaparral, temperate grasslands, savanna"
+      },
+      {
+        "title": "asdf",
+        "choices": [
+          "macromoleculeaasasaasalslsaslaslsalsalslalsalslas",
+          "organelle",
+          "cell",
+          "tissue",
+          "organ"
+        ],
+        "correctAnswer": "organ"
+      },
+      {
+        "title": "Select the correct combination/combinations with respect to the use of microbes in industries. Product Microorganism used in the production",
+        "choices": [
+          "Yoghurt Lactobacillus bulgaricus",
+          "Vinegar Gluconobacter sp.",
+          "Citric acid Spirulina sp.",
+          "Lipase Rhizopus sp.",
+          "Vitamin C Aspergillus oryzae"
+        ],
+        "correctAnswer": "Vitamin C Aspergillus oryzae"
+      },
+      {
+        "title": "Which of the following statements is/are correct regarding spoilage of food?",
+        "choices": [
+          "Saccharolytic microorganisms are responsible for rancidity of food.",
+          "Putrefaction occurs mainly due to breakdown of proteins.",
+          "Lipolytic microorganisms are responsible for fermentation of food.",
+          "Acids are formed during fermentation.",
+          "Rancidity occurs due to generation of amines"
+        ],
+        "correctAnswer": "Rancidity occurs due to generation of amines"
+      }
+    ]
+  }
+}
