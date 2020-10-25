@@ -149,7 +149,7 @@ export default function Categories() {
     return (
         <div>
             <Container>
-                <div style={{paddingBottom:"150px",textAlign:"center"}}>
+                <div style={{paddingBottom:"70px",textAlign:"left"}}>
                     <Typography variant="h4" justify="center">
                         CATEGORIES
                     </Typography>
