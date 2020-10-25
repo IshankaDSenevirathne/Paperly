@@ -44,8 +44,8 @@ const useStyles = makeStyles((theme) => ({
 export default function QuizTemp(props) {
   const classes = useStyles();
 
-  const answersHolder = [0, 0, 0];
-  const timeHolder = [0, 0, 0];
+  const answersHolder = Array.from({ length: 50 }, (_, i) => 0); // [0, 0, 0];
+  const timeHolder = Array.from({ length: 50 }, (_, i) => 0); // [0, 0, 0];
 
   const { paper, questions, getAnswers, getTimeSpent } = props;
   const [activeQuestion, setActiveQuestion] = React.useState(0);
@@ -291,6 +291,7 @@ export default function QuizTemp(props) {
               siblingCount={2}
               onChange={handlePageChange}
               defaultPage={1}
+              page={activeQuestion+1}
             />
           </div>
         </Grid>
