@@ -15,16 +15,14 @@ import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 
-
 import Timer from "./Timer/Timer";
-
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(2),
   },
   button: {
-    width:"200px",
+    width: "200px",
     margin: theme.spacing(1, 1, 0, 0),
   },
   root: {
@@ -32,18 +30,16 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   },
-  radio:{
-    color:"white"
+  radio: {
+    color: "white",
   },
- 
+
   pagination: {
-      "& .MuiPaginationItem-root": {
-      color:"white",
+    "& .MuiPaginationItem-root": {
+      color: "white",
     },
   },
-}
-));
-
+}));
 
 export default function QuizTemp(props) {
   const classes = useStyles();
@@ -123,8 +119,69 @@ export default function QuizTemp(props) {
     console.log(timeSpent);
   };
 
+  const nextQuestion = (e) => {
+    console.log("next questuion");
+
+    const q = activeQuestion + 1;
+
+    console.log(q);
+
+    if (q > 50) {
+      return;
+    }
+    const endingTime = new Date().getTime();
+    setTimeSpent((timeSpent) => {
+      const timeDiffInSec = Math.round((endingTime - startingTime) / 1000) % 60;
+      timeSpent[activeQuestion] =
+        parseInt(timeSpent[activeQuestion]) + parseInt(timeDiffInSec);
+      return timeSpent;
+    });
+
+    if (answers[q] != "") {
+      setValue(answers[q]);
+    } else {
+      setValue(null);
+    }
+    setActiveQuestion(q);
+    setStartingTime(endingTime);
+    if (q == 3) {
+      setCheckLast(true);
+    } else {
+      setCheckLast(false);
+    }
+    console.log(timeSpent);
+  };
+  const previousQuestion = (e) => {
+    console.log("previous questuion");
+    const q = activeQuestion - 1;
+    if (q < 0) {
+      return;
+    }
+    const endingTime = new Date().getTime();
+    setTimeSpent((timeSpent) => {
+      const timeDiffInSec = Math.round((endingTime - startingTime) / 1000) % 60;
+      timeSpent[activeQuestion] =
+        parseInt(timeSpent[activeQuestion]) + parseInt(timeDiffInSec);
+      return timeSpent;
+    });
+
+    if (answers[q] != "") {
+      setValue(answers[q]);
+    } else {
+      setValue(null);
+    }
+    setActiveQuestion(q);
+    setStartingTime(endingTime);
+    if (q == 3) {
+      setCheckLast(true);
+    } else {
+      setCheckLast(false);
+    }
+    console.log(timeSpent);
+  };
+
   return (
-    <div style={{color:"white"}}>
+    <div style={{ color: "white" }}>
       <div
         style={{
           color: "#1fa2ff",
@@ -134,7 +191,7 @@ export default function QuizTemp(props) {
       >
         <h1>{paper}</h1>
       </div>
-      <div style={{ textAlign: "left"}}>
+      <div style={{ textAlign: "left" }}>
         <form onSubmit={handleSubmit}>
           <FormControl component="fieldset" className={classes.formControl}>
             <Grid
@@ -146,7 +203,7 @@ export default function QuizTemp(props) {
               <FormLabel component="legend">
                 <Timer getTimeSpent={getTimeSpent} />
 
-                <h3 style={{color:"white"}}>
+                <h3 style={{ color: "white" }}>
                   {activeQuestion + 1} {")"} {questions[activeQuestion].title}
                 </h3>
               </FormLabel>
@@ -185,7 +242,9 @@ export default function QuizTemp(props) {
               />
             </RadioGroup>
             <br></br>
-            <FormHelperText><span style={{color:"white"}}>Review your answer now</span></FormHelperText>
+            <FormHelperText>
+              <span style={{ color: "white" }}>Review your answer now</span>
+            </FormHelperText>
             <Button
               type="submit"
               variant="outlined"
@@ -197,6 +256,28 @@ export default function QuizTemp(props) {
           </FormControl>
         </form>
       </div>
+      <Button
+        type="submit"
+        variant="outlined"
+        color="primary"
+        className={classes.button}
+        onClick={(e) => {
+          previousQuestion(e);
+        }}
+      >
+        Previous question
+      </Button>{" "}
+      <Button
+        type="submit"
+        variant="outlined"
+        color="primary"
+        className={classes.button}
+        onClick={(e) => {
+          nextQuestion(e);
+        }}
+      >
+        Next question
+      </Button>
       <div>
         <hr></hr>
         <Grid container direction="row" justify="center" alignItems="center">
@@ -220,7 +301,7 @@ export default function QuizTemp(props) {
         autoHideDuration={2000}
         onClose={handleClose}
       >
-        <MuiAlert  elevation={6} variant="filled" severity={severity}>
+        <MuiAlert elevation={6} variant="filled" severity={severity}>
           {alert}
         </MuiAlert>
       </Snackbar>
