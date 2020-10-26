@@ -9,24 +9,24 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Info from "@material-ui/icons/Info";
 
-import Chemistry from "../../../img/chemistry.png";
-import Physics from "../../../img/physics.png";
-import Biology from "../../../img/biology.png";
-import iT from "../../../img/IT.png";
+import Chemistry from "../../../img/chemistry.svg";
+import Physics from "../../../img/physics.svg";
+import Biology from "../../../img/biology.svg";
+import iT from "../../../img/IT.svg";
 
-import Art from "../../../img/Art.png";
-import Music from "../../../img/Music.png";
-import History from "../../../img/History.png";
-import Drama from "../../../img/Drama.png";
+import Art from "../../../img/art.svg";
+import Music from "../../../img/music.svg";
+import History from "../../../img/history.svg";
+import Drama from "../../../img/drama.svg";
 
-import Marketing from "../../../img/Marketing.png";
-import Economics from "../../../img/Economics.png";
-import BusinessStudies from "../../../img/BusinessStudies.png";
-import Statistics from "../../../img/Statistics.png";
-import Accounting from "../../../img/Accounting.png";
+import Marketing from "../../../img/marketing.svg";
+import Economics from "../../../img/economics.svg";
+import BusinessStudies from "../../../img/busstudies.svg";
+import Statistics from "../../../img/statistics.svg";
+import Accounting from "../../../img/accounting.svg";
 
-import Sci4Tech from "../../../img/Sci4Tech.png";
-import EngTech from "../../../img/EngTech.png";
+import Sci4Tech from "../../../img/scifortech.svg";
+import EngTech from "../../../img/engtech.svg";
 
 
 const useStyles=makeStyles((theme)=>({
@@ -172,7 +172,7 @@ export default function Categories() {
                     </div>
                     <Grid alignItems="center" justify="left" spacing={1} container>
                         {science.map((subject)=>(
-                            <Grid item xs={6} sm={3} md={2}>
+                            <Grid item xs={6} sm={3} md={3}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
                                         <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
@@ -199,7 +199,7 @@ export default function Categories() {
                     </div>
                     <Grid alignItems="center" justify="left" spacing={1} container>
                         {art.map((subject)=>(
-                            <Grid item xs={6} sm={3} md={2}>
+                            <Grid item xs={6} sm={3} md={3}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
                                         <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
@@ -226,7 +226,7 @@ export default function Categories() {
                     </div>
                     <Grid alignItems="center" justify="left" spacing={1} container>
                         {commerce.map((subject)=>(
-                            <Grid item xs={6} sm={3} md={2}>
+                            <Grid item xs={6} sm={3} md={3}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
                                         <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
@@ -253,7 +253,7 @@ export default function Categories() {
                     </div>
                     <Grid alignItems="center" justify="left" spacing={1} container>
                         {other.map((subject)=>(
-                            <Grid item xs={6} sm={3} md={2}>
+                            <Grid item xs={6} sm={3} md={3}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
                                         <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>

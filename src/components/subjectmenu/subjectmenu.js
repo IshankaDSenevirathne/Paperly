@@ -68,9 +68,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
 
 const Subjectmenu = () => {
   const [paperNameList, setpaperNameList] = useState([]);
