@@ -11,8 +11,6 @@ import CancelOutlined from "@material-ui/icons/CancelOutlined";
 import { teal } from "@material-ui/core/colors";
 import { withStyles } from "@material-ui/core/styles";
 
-
-
 const GreenRadio = withStyles({
   root: {
     "&$checked": {
@@ -35,10 +33,10 @@ const WhiteRadio = withStyles({
   checked: {},
 })((props) => <Radio color="default" {...props} />);
 
-
 export default function ResultTemp(props) {
   const { result, question, userAnswer, correctAnswer, questionNumber } = props;
-  const value = question.choices.indexOf(userAnswer);
+
+  const value = userAnswer;
   const successResult = () => (
     <Grid
       container
@@ -60,6 +58,16 @@ export default function ResultTemp(props) {
                   {questionNumber}
                   {")"}
                   {question.title}
+                  <br></br>
+                  {question.img && (
+                    <div style={{textAlign:"center"}}>
+                      <img
+                        style={{ width: question.imgwidth }}
+                        src={question.img}
+                        alt={question.title}
+                      />
+                    </div>
+                  )}
                 </h3>
               </div>
             </Grid>
@@ -69,37 +77,38 @@ export default function ResultTemp(props) {
               </div>
             </Grid>
           </Grid>
-          <RadioGroup aria-label="question" value={value}>
-            <FormControlLabel
-              value={0}
-              disabled
-              control={<WhiteRadio />}
-              label={<span style={{color:"#D0D3D4"}}>{question.choices[0]}</span>}
-            />
-            <FormControlLabel
-              value={1}
-              disabled
-              control={<WhiteRadio/>}
-              label={<span style={{color:"#D0D3D4"}}>{question.choices[1]}</span>}
-            />
-            <FormControlLabel
-              value={2}
-              disabled
-              control={<WhiteRadio/>}
-              label={<span style={{color:"#D0D3D4"}}>{question.choices[2]}</span>}
-            />
-            <FormControlLabel
-              value={3}
-              disabled
-              control={<WhiteRadio/>}
-              label={<span style={{color:"#D0D3D4"}}>{question.choices[3]}</span>}
-            />
-            <FormControlLabel
-              value={4}
-              disabled
-              control={<WhiteRadio/>}
-              label={<span style={{color:"#D0D3D4"}}>{question.choices[4]}</span>}
-            />
+          <RadioGroup aria-label="question" value={parseInt(value)}>
+            {question.choices.map((ele, index) => {
+              return (
+                <FormControlLabel
+                  key={index}
+                  value={ele.id}
+                  disabled
+                  control={<WhiteRadio />}
+                  
+                  // label={questions[activeQuestion].choices[4].text}
+                  label={
+                    <>
+                      {ele.img && (
+                        <>
+                          <img
+                            src={ele.img}
+                            key={ele.id}
+                            className="profile-img"
+                            width={ele.imgwidth}
+                            height="auto"
+                            style={{ marginRight: "5px" }}
+                            alt={ele.id}
+                          />
+                          <br />
+                        </>
+                      )}
+                      <span style={{ color: "#D0D3D4" }}> {ele.text}</span>
+                    </>
+                  }
+                />
+              );
+            })}
           </RadioGroup>
         </FormControl>
       </div>
@@ -136,86 +145,45 @@ export default function ResultTemp(props) {
             </Grid>
           </Grid>
           <RadioGroup aria-label="question">
-            <FormControlLabel
-              value={0}
-              checked={
-                correctAnswer == question.choices[0] ||
-                userAnswer == question.choices[0]
-              }
-              disabled={correctAnswer != question.choices[0]}
-              control={
-                correctAnswer == question.choices[0] ? (
-                  <GreenRadio disableRipple />
-                ) : (
-                  <WhiteRadio />
-                )
-              }
-              label={<span style={{color:"#D0D3D4"}}>{question.choices[0]}</span>}
-            />
-            <FormControlLabel
-              value={1}
-              checked={
-                correctAnswer == question.choices[1] ||
-                userAnswer == question.choices[1]
-              }
-              disabled={correctAnswer != question.choices[1]}
-              control={
-                correctAnswer == question.choices[1] ? (
-                  <GreenRadio disableRipple />
-                ) : (
-                  <WhiteRadio />
-                )
-              }
-              label={<span style={{color:"#D0D3D4"}}>{question.choices[1]}</span>}
-            />
-            <FormControlLabel
-              value={2}
-              checked={
-                correctAnswer == question.choices[2] ||
-                userAnswer == question.choices[2]
-              }
-              disabled={correctAnswer != question.choices[2]}
-              control={
-                correctAnswer == question.choices[2] ? (
-                  <GreenRadio disableRipple />
-                ) : (
-                  <WhiteRadio />
-                )
-              }
-              label={<span style={{color:"#D0D3D4"}}>{question.choices[2]}</span>}
-            />
-            <FormControlLabel
-              value={3}
-              checked={
-                correctAnswer == question.choices[3] ||
-                userAnswer == question.choices[3]
-              }
-              disabled={correctAnswer != question.choices[3]}
-              control={
-                correctAnswer == question.choices[3] ? (
-                  <GreenRadio disableRipple />
-                ) : (
-                  <WhiteRadio />
-                )
-              }
-              label={<span style={{color:"#D0D3D4"}}>{question.choices[3]}</span>}
-            />
-            <FormControlLabel
-              value={4}
-              checked={
-                correctAnswer == question.choices[4] ||
-                userAnswer == question.choices[4]
-              }
-              disabled={correctAnswer != question.choices[4]}
-              control={
-                correctAnswer == question.choices[4] ? (
-                  <GreenRadio disableRipple />
-                ) : (
-                  <WhiteRadio />
-                )
-              }
-              label={<span style={{color:"#D0D3D4"}}>{question.choices[4]}</span>}
-            />
+            {question.choices.map((ele, index) => {
+              return (
+                <FormControlLabel
+                  key={index}
+                  value={ele.id}
+                  checked={
+                    parseInt(correctAnswer) === parseInt(ele.id) ||
+                    parseInt(userAnswer) === parseInt(ele.id)
+                  }
+                  disabled={parseInt(correctAnswer) !== parseInt(ele.id)}
+                  control={
+                    parseInt(correctAnswer) === parseInt(ele.id) ? (
+                      <GreenRadio disableRipple />
+                    ) : (
+                      <WhiteRadio />
+                    )
+                  }
+                  label={
+                    <>
+                      {ele.img && (
+                        <>
+                          <img
+                            src={ele.img}
+                            key={ele.id}
+                            className="profile-img"
+                            width={ele.imgwidth}
+                            height="auto"
+                            style={{ marginRight: "5px" }}
+                            alt={ele.id}
+                          />
+                          <br />
+                        </>
+                      )}{" "}
+                      <span style={{ color: "#D0D3D4" }}> {ele.text}</span>
+                    </>
+                  }
+                />
+              );
+            })}
           </RadioGroup>
         </FormControl>
       </div>

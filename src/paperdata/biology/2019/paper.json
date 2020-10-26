@@ -4,9 +4,40 @@
     "title": "Advanced Level 2018 Chemistry",
     "pages": [
       {
-        "title": "Basic structural and functional unit of life is?",
-        "choices": ["macromolecule", "organelle", "cell", "tissue", "organ"],
-        "correctAnswer": "organ"
+        "title": "ගුරුත්වාකර්ෂණ නියතය GB මාන දෙනු ලබන්නේ, ",
+        "choices": [
+          {
+            "id": 1,
+            "text": "L’M-'T-",
+
+            "imgwidth": "60%"
+          },
+          {
+            "id": 2,
+            "text": "LM-2",
+
+            "imgwidth": "60%"
+          },
+          {
+            "id": 3,
+            "text": "LPM-zT-I",
+
+            "imgwidth": "60%"
+          },
+          {
+            "id": 4,
+            "text": "L’M'T-2",
+
+            "imgwidth": "60%"
+          },
+          {
+            "id": 5,
+            "text": "LM-1",
+
+            "imgwidth": "60%"
+          }
+        ],
+        "correctAnswer": 1
       },
 
       {
@@ -525,17 +556,6 @@
           "Tundra, coniferous forests, chaparral, temperate grasslands, savanna"
         ],
         "correctAnswer": "Tundra, coniferous forests, chaparral, temperate grasslands, savanna"
-      },
-      {
-        "title": "asdf",
-        "choices": [
-          "macromoleculeaasasaasalslsaslaslsalsalslalsalslas",
-          "organelle",
-          "cell",
-          "tissue",
-          "organ"
-        ],
-        "correctAnswer": "organ"
       },
       {
         "title": "Select the correct combination/combinations with respect to the use of microbes in industries. Product Microorganism used in the production",

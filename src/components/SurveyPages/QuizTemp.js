@@ -19,7 +19,7 @@ import Timer from "./Timer/Timer";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(5),
+    margin: theme.spacing(2),
   },
   button: {
     width: "200px",
@@ -152,7 +152,7 @@ export default function QuizTemp(props) {
                 <h3 style={{ color: "white" }}>
                   {activeQuestion + 1} ) {questions[activeQuestion].title}
                 </h3>
-
+                <br></br>
                 {questions[activeQuestion].img && (
                   <div style={{textAlign:"center"}}>
                     <img
