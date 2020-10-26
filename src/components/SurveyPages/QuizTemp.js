@@ -19,7 +19,7 @@ import Timer from "./Timer/Timer";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(2),
+    margin: theme.spacing(5),
   },
   button: {
     width: "200px",
@@ -45,7 +45,8 @@ export default function QuizTemp(props) {
   const classes = useStyles();
 
   const answersHolder = Array.from({ length: 50 }, (_, i) => 0); // [0, 0, 0];
-  const timeHolder = Array.from({ length: 50 }, (_, i) => 0); // [0, 0, 0];
+  const timeHolder = Array.from({ length: 50 }, (_, i) => 0); //[0, 0, 0];
+
 
   const { paper, questions, getAnswers, getTimeSpent } = props;
   const [activeQuestion, setActiveQuestion] = React.useState(0);
@@ -61,11 +62,17 @@ export default function QuizTemp(props) {
   const handleRadioChange = (event) => {
     const answer = event.target.value;
     setValue(answer);
+
+    console.log(answer);
+    console.log(parseInt(answer));
+    console.log(answers[activeQuestion]);
+
     setAnswers((answers) => {
       answers[activeQuestion] = answer;
       return answers;
     });
   };
+
   React.useEffect(() => {
     getAnswers(answers, timeSpent, checkLast);
   }, [answers, getAnswers]);
@@ -119,67 +126,6 @@ export default function QuizTemp(props) {
     console.log(timeSpent);
   };
 
-  const nextQuestion = (e) => {
-    console.log("next questuion");
-
-    const q = activeQuestion + 1;
-
-    console.log(q);
-
-    if (q > 50) {
-      return;
-    }
-    const endingTime = new Date().getTime();
-    setTimeSpent((timeSpent) => {
-      const timeDiffInSec = Math.round((endingTime - startingTime) / 1000) % 60;
-      timeSpent[activeQuestion] =
-        parseInt(timeSpent[activeQuestion]) + parseInt(timeDiffInSec);
-      return timeSpent;
-    });
-
-    if (answers[q] != "") {
-      setValue(answers[q]);
-    } else {
-      setValue(null);
-    }
-    setActiveQuestion(q);
-    setStartingTime(endingTime);
-    if (q == 3) {
-      setCheckLast(true);
-    } else {
-      setCheckLast(false);
-    }
-    console.log(timeSpent);
-  };
-  const previousQuestion = (e) => {
-    console.log("previous questuion");
-    const q = activeQuestion - 1;
-    if (q < 0) {
-      return;
-    }
-    const endingTime = new Date().getTime();
-    setTimeSpent((timeSpent) => {
-      const timeDiffInSec = Math.round((endingTime - startingTime) / 1000) % 60;
-      timeSpent[activeQuestion] =
-        parseInt(timeSpent[activeQuestion]) + parseInt(timeDiffInSec);
-      return timeSpent;
-    });
-
-    if (answers[q] != "") {
-      setValue(answers[q]);
-    } else {
-      setValue(null);
-    }
-    setActiveQuestion(q);
-    setStartingTime(endingTime);
-    if (q == 3) {
-      setCheckLast(true);
-    } else {
-      setCheckLast(false);
-    }
-    console.log(timeSpent);
-  };
-
   return (
     <div style={{ color: "white" }}>
       <div
@@ -191,7 +137,7 @@ export default function QuizTemp(props) {
       >
         <h1>{paper}</h1>
       </div>
-      <div style={{ textAlign: "left" }}>
+      <div style={{ textAlign: "left"}}>
         <form onSubmit={handleSubmit}>
           <FormControl component="fieldset" className={classes.formControl}>
             <Grid
@@ -204,42 +150,58 @@ export default function QuizTemp(props) {
                 <Timer getTimeSpent={getTimeSpent} />
 
                 <h3 style={{ color: "white" }}>
-                  {activeQuestion + 1} {")"} {questions[activeQuestion].title}
+                  {activeQuestion + 1} ) {questions[activeQuestion].title}
                 </h3>
+
+                {questions[activeQuestion].img && (
+                  <div style={{textAlign:"center"}}>
+                    <img
+                      style={{ width: questions[activeQuestion].imgwidth }}
+                      src={questions[activeQuestion].img}
+                    />
+                  </div>
+                )}
               </FormLabel>
             </Grid>
 
             <RadioGroup
               aria-label="quiz"
               name="quiz"
-              value={value}
+              value={parseInt(value)}
               onChange={handleRadioChange}
             >
-              <FormControlLabel
-                value={questions[activeQuestion].choices[0]}
-                control={<Radio color="primary" className={classes.radio} />}
-                label={questions[activeQuestion].choices[0]}
-              />
-              <FormControlLabel
-                value={questions[activeQuestion].choices[1]}
-                control={<Radio color="primary" className={classes.radio} />}
-                label={questions[activeQuestion].choices[1]}
-              />
-              <FormControlLabel
-                value={questions[activeQuestion].choices[2]}
-                control={<Radio color="primary" className={classes.radio} />}
-                label={questions[activeQuestion].choices[2]}
-              />
-              <FormControlLabel
-                value={questions[activeQuestion].choices[3]}
-                control={<Radio color="primary" className={classes.radio} />}
-                label={questions[activeQuestion].choices[3]}
-              />
-              <FormControlLabel
-                value={questions[activeQuestion].choices[4]}
-                control={<Radio color="primary" className={classes.radio} />}
-                label={questions[activeQuestion].choices[4]}
-              />
+              {questions[activeQuestion].choices.map((ele, index) => {
+                return (
+                  <FormControlLabel
+                    key={index}
+                    value={ele.id}
+                    control={
+                      <Radio color="primary" className={classes.radio} />
+                    }
+                    label={
+                      <>
+                        {ele.img && (
+                          <>
+                            <img
+                              src={ele.img}
+                              key={ele.id}
+                              className="profile-img"
+                              width={ele.imgwidth}
+                              height="auto"
+                              style={{ marginRight: "5px" }}
+                            />
+                            <br />
+                          </>
+                        )}
+
+                        {ele.text}
+                      </>
+                    }
+                  />
+                );
+              })}
+
+              {/* )} */}
             </RadioGroup>
             <br></br>
             <FormHelperText>
@@ -256,28 +218,6 @@ export default function QuizTemp(props) {
           </FormControl>
         </form>
       </div>
-      <Button
-        type="submit"
-        variant="outlined"
-        color="primary"
-        className={classes.button}
-        onClick={(e) => {
-          previousQuestion(e);
-        }}
-      >
-        Previous question
-      </Button>{" "}
-      <Button
-        type="submit"
-        variant="outlined"
-        color="primary"
-        className={classes.button}
-        onClick={(e) => {
-          nextQuestion(e);
-        }}
-      >
-        Next question
-      </Button>
       <div>
         <hr></hr>
         <Grid container direction="row" justify="center" alignItems="center">
@@ -291,7 +231,6 @@ export default function QuizTemp(props) {
               siblingCount={2}
               onChange={handlePageChange}
               defaultPage={1}
-              page={activeQuestion+1}
             />
           </div>
         </Grid>
