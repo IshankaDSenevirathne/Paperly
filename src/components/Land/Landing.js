@@ -8,7 +8,6 @@ import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
-
 import "./Landing.css";
 // import SlideImg from "../Slide/slidehomeimages";
 import VisibilitySensor from "react-visibility-sensor";
@@ -29,7 +28,6 @@ import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 
-
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const gradient =
@@ -49,11 +47,11 @@ const useStyles = makeStyles((theme) => ({
   },
   rootsroll: {
     position: "fixed",
-    bottom: theme.spacing(2),
-    right: theme.spacing(2),
+    bottom: theme.spacing(10),
+    right: "21px",
   },
-  botBanner:{
-    minHeight:"300px"
+  botBanner: {
+    minHeight: "300px",
   },
   // https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80
 
@@ -168,14 +166,10 @@ export default function Album(props) {
           style={{
             paddingBottom: "1rem",
           }}
-        >
-        </Container>
+        ></Container>
         <StepGuide />
-
       </Container>
-
-      <div>
-      </div>{" "}
+      <div></div>{" "}
       <VisibilitySensor
         onChange={(e) => {
           if (e) {
@@ -185,32 +179,33 @@ export default function Album(props) {
       >
         <div className="scrollvisibile"></div>
       </VisibilitySensor>
-      <Quote/>
+      <Quote />
       <Statsbar counterVisible={counterVisible} />
-      <Grid container direction="row" alignItems="center" justify="center" className={classes.botBanner}>
+      <Grid
+        container
+        direction="row"
+        alignItems="center"
+        justify="center"
+        className={classes.botBanner}
+      >
         <Grid item>
-              <Typography variant="h5" align="center">
-                READY TO JUMP IN ?
-              </Typography>
-              <div style={{paddingTop:"20px"}}>
-              <Typography gutterBottom variant="subtitle1" align="center">
-                <Link
-                  to="/subjectmenu"
-                  style={{
-                    textDecoration: "none",
-                  }}
-                >
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                  >
-                    GET STARTED
-                  </Button>
-                </Link>
-              </Typography>
-              </div>
-
+          <Typography variant="h5" align="center">
+            READY TO JUMP IN ?
+          </Typography>
+          <div style={{ paddingTop: "20px" }}>
+            <Typography gutterBottom variant="subtitle1" align="center">
+              <Link
+                to="/subjectmenu"
+                style={{
+                  textDecoration: "none",
+                }}
+              >
+                <Button variant="contained" color="primary" size="large">
+                  GET STARTED
+                </Button>
+              </Link>
+            </Typography>
+          </div>
         </Grid>
       </Grid>
       <Footer />
@@ -226,4 +221,3 @@ export default function Album(props) {
     </div>
   );
 }
-
