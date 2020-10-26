@@ -142,7 +142,7 @@ export default function QuizTemp(props) {
       >
         <h1>{paper}</h1>
       </div>
-      <div style={{ textAlign: "left" }}>
+      <div style={{ textAlign: "left"}}>
         <form onSubmit={handleSubmit}>
           <FormControl component="fieldset" className={classes.formControl}>
             <Grid
@@ -159,10 +159,12 @@ export default function QuizTemp(props) {
                 </h3>
 
                 {questions[activeQuestion].img && (
-                  <img
-                    style={{ width: questions[activeQuestion].imgwidth }}
-                    src={questions[activeQuestion].img}
-                  />
+                  <div style={{textAlign:"center"}}>
+                    <img
+                      style={{ width: questions[activeQuestion].imgwidth }}
+                      src={questions[activeQuestion].img}
+                    />
+                  </div>
                 )}
               </FormLabel>
             </Grid>

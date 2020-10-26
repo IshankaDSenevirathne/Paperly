@@ -59,11 +59,13 @@ export default function ResultTemp(props) {
                   {")"}
                   {question.title}
                   {question.img && (
-                    <img
-                      style={{ width: question.imgwidth }}
-                      src={question.img}
-                      alt={question.title}
-                    />
+                    <div style={{textAlign:"center"}}>
+                      <img
+                        style={{ width: question.imgwidth }}
+                        src={question.img}
+                        alt={question.title}
+                      />
+                    </div>
                   )}
                 </h3>
               </div>
@@ -81,12 +83,8 @@ export default function ResultTemp(props) {
                   key={index}
                   value={ele.id}
                   disabled
-                  control={
-                    <Radio
-                      color="primary"
-                      //  className={classes.radio}
-                    />
-                  }
+                  control={<WhiteRadio />}
+                  
                   // label={questions[activeQuestion].choices[4].text}
                   label={
                     <>
