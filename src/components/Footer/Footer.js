@@ -4,9 +4,9 @@ import Link from "@material-ui/core/Link";
 import Hidden from "@material-ui/core/Hidden";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
-import FaceBook from "../../img/icons/fb.png";
-import GitHub from "../../img/icons/github.png";
-import Twitter from "../../img/icons/twitter.png";
+import FaceBook from "../../img/icons/facebook.svg";
+import GitHub from "../../img/icons/github.svg";
+import Twitter from "../../img/icons/twitter.svg";
 
 import Coffee from  "../Animations/Coffee";
 
@@ -74,9 +74,13 @@ const Footer = () => {
                     <Link  href="/">
                       <img className="socialicons" src={FaceBook}></img>
                     </Link>
+                    &nbsp;
+                    &nbsp;
                     <Link href="/">
                       <img className="socialicons" src={Twitter}></img>
                     </Link>
+                    &nbsp;
+                    &nbsp;
                     <Link href="/">
                       <img className="socialicons" src={GitHub}></img>
                     </Link>
@@ -136,15 +140,19 @@ const Footer = () => {
               </div>
               <div>
                 <Link  href="/">
-                  <img  src={FaceBook}></img>
+                  <img src={FaceBook}></img>
                 </Link>
+                &nbsp;
+                &nbsp;
                 <Link href="/">
                   <img src={Twitter}></img>
                 </Link>
+                &nbsp;
+                &nbsp;
                 <Link href="/">
                   <img src={GitHub}></img>
                 </Link>
-              </div>
+                </div>
             </div>
           </Container>
         </Hidden>

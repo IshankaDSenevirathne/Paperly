@@ -11,8 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Info from "@material-ui/icons/Info";
 
-import Physics from "../../img/physics-2.svg";
-import Chemistry from "../../img/chemistry-2.svg";
+import Physics from "../../img/physics.svg";
+import Chemistry from "../../img/chemistry.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
