@@ -17,6 +17,11 @@ import MuiAlert from "@material-ui/lab/Alert";
 
 import Timer from "./Timer/Timer";
 
+import marked from "marked";
+import DOMPurify from "dompurify";
+
+marked.setOptions({ gfm: true });
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(2),
@@ -47,7 +52,7 @@ export default function QuizTemp(props) {
   const answersHolder = Array.from({ length: 50 }, (_, i) => 0); // [0, 0, 0];
   const timeHolder = Array.from({ length: 50 }, (_, i) => 0); //[0, 0, 0];
 
-
+  
   const { paper, questions, getAnswers, getTimeSpent } = props;
   const [activeQuestion, setActiveQuestion] = React.useState(0);
   const [answers, setAnswers] = React.useState(answersHolder);
@@ -137,7 +142,7 @@ export default function QuizTemp(props) {
       >
         <h1>{paper}</h1>
       </div>
-      <div style={{ textAlign: "left"}}>
+      <div style={{ textAlign: "left" }}>
         <form onSubmit={handleSubmit}>
           <FormControl component="fieldset" className={classes.formControl}>
             <Grid
@@ -148,19 +153,29 @@ export default function QuizTemp(props) {
             >
               <FormLabel component="legend">
                 <Timer getTimeSpent={getTimeSpent} />
+                <div style={{ color: "white" }}>
+                  {/* {activeQuestion + 1} ) */}
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(
+                        marked(questions[activeQuestion].title)
+                      ),
+                    }}
+                  />
+                </div>
 
-                <h3 style={{ color: "white" }}>
+                {/* <h3 style={{ color: "white" }}>
                   {activeQuestion + 1} ) {questions[activeQuestion].title}
                 </h3>
                 <br></br>
                 {questions[activeQuestion].img && (
-                  <div style={{textAlign:"center"}}>
+                  <div style={{ textAlign: "center" }}>
                     <img
                       style={{ width: questions[activeQuestion].imgwidth }}
                       src={questions[activeQuestion].img}
                     />
                   </div>
-                )}
+                )} */}
               </FormLabel>
             </Grid>
 
@@ -180,7 +195,15 @@ export default function QuizTemp(props) {
                     }
                     label={
                       <>
-                        {ele.img && (
+                        <div style={{ color: "white" }}>
+                          {/* {activeQuestion + 1} ) */}
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: DOMPurify.sanitize(marked(ele.text)),
+                            }}
+                          />
+                        </div>
+                        {/* {ele.img && (
                           <>
                             <img
                               src={ele.img}
@@ -194,7 +217,8 @@ export default function QuizTemp(props) {
                           </>
                         )}
 
-                        {ele.text}
+                        {ele.text} */}
+                        {/* <ReactMarkdown>{ele.text}</ReactMarkdown> */}
                       </>
                     }
                   />
