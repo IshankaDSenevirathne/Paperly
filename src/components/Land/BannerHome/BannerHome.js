@@ -58,7 +58,7 @@ export default function BannerHome() {
                         </Typography>   
                     </div>
                 </Grid>
-                <Grid container justify="center">
+                <Grid container justify="center" style={{paddingBottom:"20px"}}>
                     <div data-aos="zoom-in" data-aos-duration="1000" >
                         <Typography gutterBottom align="center" variant="h4">
                             <b>PAPERLY</b>

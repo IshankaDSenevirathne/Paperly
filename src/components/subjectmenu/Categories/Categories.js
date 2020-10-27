@@ -28,8 +28,10 @@ import Accounting from "../../../img/accounting.svg";
 import Sci4Tech from "../../../img/scifortech.svg";
 import EngTech from "../../../img/engtech.svg";
 
+import Directions from "../../../img/directionals.svg";
 
-const useStyles=makeStyles((theme)=>({
+
+const useStyles=makeStyles(()=>({
     button: {
         color: "#EDEDED",
         borderTopLeftRadius:"0px",
@@ -149,9 +151,16 @@ export default function Categories() {
     return (
         <div>
             <Container>
-                <div style={{paddingBottom:"10px",textAlign:"left"}}>
+                <div style={{paddingBottom:"50px",textAlign:"center"}}>
                     <Typography variant="h4" justify="center">
-                        CATEGORIES
+                        <Grid container direction="column" justify="center" alignItems="center">
+                            <Grid item>
+                                CATEGORIES
+                            </Grid>
+                            <Grid item>
+                                <img src={Directions}></img>
+                            </Grid>
+                        </Grid>
                     </Typography>
                 </div>
                 <div style={{padding:"10px 10px 10px 10px",border:'1px solid #1fa2ff',borderRadius:"4px",margin:"0px, 10px 20px 10px",width:"fit-content",background:"#363f44"}}>
