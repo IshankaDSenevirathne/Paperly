@@ -63,10 +63,6 @@ export default function QuizTemp(props) {
     const answer = event.target.value;
     setValue(answer);
 
-    console.log(answer);
-    console.log(parseInt(answer));
-    console.log(answers[activeQuestion]);
-
     setAnswers((answers) => {
       answers[activeQuestion] = answer;
       return answers;
@@ -78,15 +74,16 @@ export default function QuizTemp(props) {
   }, [answers, getAnswers]);
   const handleSubmit = (event) => {
     event.preventDefault();
+    const userAnswer = parseInt(value)
     if (!value) {
       setOpen(true);
       setSeverityType("info");
       setAlertText("Please select an option!");
-    } else if (value === questions[activeQuestion].correctAnswer) {
+    } else if (userAnswer === (questions[activeQuestion].correctAnswer)) {
       setOpen(true);
       setSeverityType("success");
       setAlertText("Your answer is correct!");
-    } else if (value && value !== questions[activeQuestion].correctAnswer) {
+    } else if (value && userAnswer !== (questions[activeQuestion].correctAnswer)) {
       setOpen(true);
       setSeverityType("error");
       setAlertText("Sorry, your answer is incorrect!");
