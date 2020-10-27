@@ -13,28 +13,46 @@ const useStyles=makeStyles(()=>({
 
     buttons:{
         "& .MuiFab-sizeMedium":{
-            borderRadius:"0px",
             boxShadow:"none",
+            backgroundColor:"#3f51b5",
             "&:hover":{
                 backgroundColor:lightBlue[400],
             }
         }
     },
+    buttonTop:{
+        borderTopRightRadius:"10px",
+        borderTopLeftRadius:"0px",
+        borderBottomRightRadius:"0px",
+        borderBottomLeftRadius:"0px",
+    },
+    buttonMiddle:{
+        borderTopRightRadius:"0px",
+        borderTopLeftRadius:"0px",
+        borderBottomRightRadius:"0px",
+        borderBottomLeftRadius:"0px",
+    },
+    buttonBottom:{
+        borderTopRightRadius:"0px",
+        borderTopLeftRadius:"0px",
+        borderBottomRightRadius:"10px",
+        borderBottomLeftRadius:"0px",
+    }
 }))
 
 export default function SocialIcons() {
     const classes = useStyles();
     return (
-        <Hidden xsDown>
-            <div style={{position:"fixed",top:"40%"}} data-aos="fade-right" data-aos-duration="1000">
+        <Hidden mdDown> 
+            <div style={{position:"fixed",top:"40%",zIndex:"2"}} data-aos="fade-right" data-aos-duration="1000">
                 <Grid direction="column" container className={classes.buttons} >
-                    <Fab color="primary"   size="medium" aria-label="add">
+                    <Fab className={classes.buttonTop} size="medium" aria-label="add">
                         <img src={FaceBook} />
                     </Fab>
-                    <Fab color="primary"  size="medium" aria-label="add">
+                    <Fab className={classes.buttonMiddle}  size="medium" aria-label="add">
                         <img src={Twitter} />
                     </Fab>
-                    <Fab color="primary"  size="medium" aria-label="add">
+                    <Fab className={classes.buttonBottom} size="medium" aria-label="add">
                         <img src={GitHub} />
                     </Fab>
                 </Grid>
