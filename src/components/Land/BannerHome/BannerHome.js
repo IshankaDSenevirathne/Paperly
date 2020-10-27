@@ -33,14 +33,14 @@ const useStyles = makeStyles((theme) => ({
 export default function BannerHome() {
     const classes  = useStyles();
     return (
-        <div style={{textAlign:"center",paddingBottom:"50px"}}>
+        <div style={{textAlign:"center",paddingBottom:"20px"}}>
             <Grid container  direction="column" justify="space-evenly" alignItems="center" style={{ minHeight: '100vh' }}>
                 <Grid item  justify="center">
                     <div>
                         <Typography gutterBottom align="center">
 
                             <Hidden smDown>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="378.069px" height="470.692px" viewBox="0 0 175.75 266.93">
+                                <svg  width="378.069px" height="470.692px" viewBox="0 0 175.75 266.93">
                                     <title>Paperly (3)</title>
                                     <path style={{fill:"#ffffff"}} className="left a animate fadeLeft" d="M45.27,5.06c-1.65-1.9-3-1.4-3,1.11v258.5c0,2.52,1.33,3,2.95,1.08L78,226.91a14.57,14.57,0,0,0,3-8.06V50.75a14.23,14.23,0,0,0-3-8Z"/>
                                     <path style={{fill:"#ffffff"}} className="top a animate fadeDown" d="M170.43,65.06a6.7,6.7,0,0,0-3.54-6.49L44.72.51C42.44-.56,41.93.11,43.58,2l53.3,61.68A26.16,26.16,0,0,0,104,69.11l57.87,27.5a39.51,39.51,0,0,0,4.19,1.84c0-.07.33-2.16.65-4.65Z"/>
@@ -48,7 +48,7 @@ export default function BannerHome() {
                                 </svg>
                             </Hidden>
                             <Hidden mdUp>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="278.069px" height="370.692px" viewBox="0 0 175.75 266.93">
+                                <svg  width="278.069px" height="370.692px" viewBox="0 0 175.75 266.93">
                                     <title>Paperly (3)</title>
                                     <path style={{fill:"#ffffff"}} className="left a animate fadeLeft" d="M45.27,5.06c-1.65-1.9-3-1.4-3,1.11v258.5c0,2.52,1.33,3,2.95,1.08L78,226.91a14.57,14.57,0,0,0,3-8.06V50.75a14.23,14.23,0,0,0-3-8Z"/>
                                     <path style={{fill:"#ffffff"}} className="top a animate fadeDown" d="M170.43,65.06a6.7,6.7,0,0,0-3.54-6.49L44.72.51C42.44-.56,41.93.11,43.58,2l53.3,61.68A26.16,26.16,0,0,0,104,69.11l57.87,27.5a39.51,39.51,0,0,0,4.19,1.84c0-.07.33-2.16.65-4.65Z"/>
@@ -59,11 +59,10 @@ export default function BannerHome() {
                     </div>
                 </Grid>
                 <Grid container justify="center">
-                    <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
+                    <div data-aos="zoom-in" data-aos-duration="1000" >
                         <Typography gutterBottom align="center" variant="h4">
                             <b>PAPERLY</b>
                         </Typography>
-                        <br></br>
                         <br></br>
                         <Typography gutterBottom align="center" variant="subtitle1">
                             An investment in knowledge pays the best interest.
@@ -81,6 +80,7 @@ export default function BannerHome() {
                                     variant="contained"
                                     color="primary"
                                     className={classes.button}
+                                    size="large"
                                     >
                                     GET STARTED
                                     </Button>
@@ -97,6 +97,7 @@ export default function BannerHome() {
                                     variant="outlined"
                                     color="primary"
                                     className={classes.button2}
+                                    size="large"
                                     >
                                     LEARN MORE
                                     </Button>

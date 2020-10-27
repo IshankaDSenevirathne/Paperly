@@ -13,6 +13,7 @@ import Info from "@material-ui/icons/Info";
 
 import Physics from "../../img/physics.svg";
 import Chemistry from "../../img/chemistry.svg";
+import Biology from "../../img/biology.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,6 +57,8 @@ export default function QuizList(props) {
         return Physics;
       case "chemistry":
         return Chemistry;
+      case "biology":
+        return Biology;
       default:
         return;
     }

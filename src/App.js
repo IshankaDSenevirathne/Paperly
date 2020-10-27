@@ -11,6 +11,7 @@ import QuizesPage from "./components/QuizesPage/QuizesPage";
 import Landing from "./components/Land/Landing";
 import Tos from "./components/tos/tos";
 import Subjectmenu from "./components/subjectmenu/subjectmenu";
+import SocialIcons from "./components/SocialIcons/SocialIcons";
 
 
 AOS.init();
@@ -19,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <Navbar /> */}
+          <SocialIcons />
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/quizes" component={QuizesPage} />

@@ -4,12 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Categories from "./Categories/Categories";
 
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 
-import ListItemText from "@material-ui/core/ListItemText";
 import InputBase from "@material-ui/core/InputBase";
-import { Container } from "@material-ui/core";
 import { fade } from "@material-ui/core/styles";
 import Footer from "../Footer/Footer";
 import SearchIcon from "@material-ui/icons/Search";

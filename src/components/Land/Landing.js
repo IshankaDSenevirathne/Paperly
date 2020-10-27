@@ -13,7 +13,6 @@ import "./Landing.css";
 import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
 import Footer from "./Footer/Footer";
-import Navbar from "../navbar/navbar";
 import Quote from "../Quote/Quote";
 import BannerHome from "./BannerHome/BannerHome";
 
