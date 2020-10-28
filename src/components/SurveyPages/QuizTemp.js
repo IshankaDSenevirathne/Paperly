@@ -151,7 +151,6 @@ export default function QuizTemp(props) {
               <FormLabel component="legend">
                 <Timer getTimeSpent={getTimeSpent} />
                 <div style={{ color: "white" }}>
-                  {/* {activeQuestion + 1} ) */}
                   <div
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(
@@ -160,19 +159,6 @@ export default function QuizTemp(props) {
                     }}
                   />
                 </div>
-
-                {/* <h3 style={{ color: "white" }}>
-                  {activeQuestion + 1} ) {questions[activeQuestion].title}
-                </h3>
-                <br></br>
-                {questions[activeQuestion].img && (
-                  <div style={{ textAlign: "center" }}>
-                    <img
-                      style={{ width: questions[activeQuestion].imgwidth }}
-                      src={questions[activeQuestion].img}
-                    />
-                  </div>
-                )} */}
               </FormLabel>
             </Grid>
 
@@ -200,22 +186,6 @@ export default function QuizTemp(props) {
                             }}
                           />
                         </div>
-                        {/* {ele.img && (
-                          <>
-                            <img
-                              src={ele.img}
-                              key={ele.id}
-                              className="profile-img"
-                              width={ele.imgwidth}
-                              height="auto"
-                              style={{ marginRight: "5px" }}
-                            />
-                            <br />
-                          </>
-                        )}
-
-                        {ele.text} */}
-                        {/* <ReactMarkdown>{ele.text}</ReactMarkdown> */}
                       </>
                     }
                   />
