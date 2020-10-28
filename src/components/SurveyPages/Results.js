@@ -20,6 +20,11 @@ import { teal } from "@material-ui/core/colors";
 import { MarksPercentile } from "./Graph/graph";
 import Grade from "./Grading/Grade";
 
+const API =
+  process.NODE_ENV === "production"
+    ? `https://paperly-114b9e.us1.kinto.io`
+    : "http://localhost:5000";
+
 const useStylesFacebook = makeStyles((theme) => ({
   root: {
     position: "relative",
@@ -97,12 +102,12 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     background: "#363f44",
     borderRadius: "4px",
-    color:"white",
-    height:"fit-content"
+    color: "white",
+    height: "fit-content",
   },
-  divider:{
-    background:"grey",
-    width:"60%"
+  divider: {
+    background: "grey",
+    width: "60%",
   },
 }));
 
@@ -135,7 +140,7 @@ export default function Results(props) {
     console.log(progress);
     setmarks(progress);
     fetch(
-      `https://paperly-114b9e.us1.kinto.io/landingstats/papersubmission?submissions=${progress}&paper=${props.paperName}&paperyear=${props.paperYear}`
+      `${API}/landingstats/papersubmission?submissions=${progress}&paper=${props.paperName}&paperyear=${props.paperYear}`
       // `http://localhost:5000/landingstats/papersubmission?submissions=${progress}&paper=${props.paperName}&paperyear=${props.paperYear}`
     )
       .then((res) => res.json())
@@ -194,19 +199,28 @@ export default function Results(props) {
             backgroundColor: "#2a3136",
             borderRadius: "4px",
           }}
-        > 
+        >
           <Paper elevation={3} className={classes.paper}>
-            <Typography gutterBottom align="center" variant="h5" style={{paddingTop:"20px"}}>
+            <Typography
+              gutterBottom
+              align="center"
+              variant="h5"
+              style={{ paddingTop: "20px" }}
+            >
               <b>YOUR GRADE</b>
             </Typography>
-            <Grid container direction="row" alignItems="center" justify="center">
-            
+            <Grid
+              container
+              direction="row"
+              alignItems="center"
+              justify="center"
+            >
               <Grid item xs={12} sm={4}>
                 <div>
                   <Grade marks={marks} />
                 </div>
               </Grid>
-              <Grid item  xs={12} sm={8}> 
+              <Grid item xs={12} sm={8}>
                 <List className={classes.root}>
                   <ListItem>
                     <ListItemAvatar>
@@ -220,7 +234,11 @@ export default function Results(props) {
                       secondaryTypographyProps={{ color: "whitesmoke" }}
                     />
                   </ListItem>
-                  <Divider className={classes.divider} variant="inset" component="li" />
+                  <Divider
+                    className={classes.divider}
+                    variant="inset"
+                    component="li"
+                  />
 
                   <ListItem>
                     <ListItemAvatar>
@@ -239,10 +257,15 @@ export default function Results(props) {
             </Grid>
           </Paper>{" "}
         </div>
-        <div style={{paddingTop:"10px",width:"100%"}} >
+        <div style={{ paddingTop: "10px", width: "100%" }}>
           <Paper elevation={3} className={classes.paper}>
             <div>
-              <Typography gutterBottom align="center" variant="h5" style={{paddingTop:"20px"}}>
+              <Typography
+                gutterBottom
+                align="center"
+                variant="h5"
+                style={{ paddingTop: "20px" }}
+              >
                 <b>MARKS DISTRIBUTION</b>
               </Typography>
             </div>
