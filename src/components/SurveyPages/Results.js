@@ -20,10 +20,12 @@ import { teal } from "@material-ui/core/colors";
 import { MarksPercentile } from "./Graph/graph";
 import Grade from "./Grading/Grade";
 
-const API =
-  process.env.NODE_ENV === "production"
-    ? `https://paperly-114b9e.us1.kinto.io`
-    : "http://localhost:5000";
+// const API =
+//   process.env.NODE_ENV === "production"
+//     ? `https://paperly-114b9e.us1.kinto.io`
+//     : "http://localhost:5000";
+
+const API = `https://paperly-114b9e.us1.kinto.io`;
 
 console.log(process.env.NODE_ENV);
 
