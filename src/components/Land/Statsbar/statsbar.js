@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import wave from "../../../img/wavestop.svg";
 
 const API =
-  process.NODE_ENV === "production"
+  process.env.NODE_ENV === "production"
     ? `https://paperly-114b9e.us1.kinto.io`
     : "http://localhost:5000";
 

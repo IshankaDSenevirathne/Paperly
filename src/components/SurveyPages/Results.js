@@ -21,9 +21,11 @@ import { MarksPercentile } from "./Graph/graph";
 import Grade from "./Grading/Grade";
 
 const API =
-  process.NODE_ENV === "production"
+  process.env.NODE_ENV === "production"
     ? `https://paperly-114b9e.us1.kinto.io`
     : "http://localhost:5000";
+
+console.log(process.env.NODE_ENV);
 
 const useStylesFacebook = makeStyles((theme) => ({
   root: {
