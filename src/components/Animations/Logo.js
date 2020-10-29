@@ -1,6 +1,5 @@
 import React,{useEffect} from 'react'
 import {TimelineMax,Circ, Power1} from "gsap/dist/gsap";
-
 import "./Logo.css"
 
 export default function Logo() {
