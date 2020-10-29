@@ -4,15 +4,15 @@
     "title": "Advanced Level 2018 Physics",
     "pages": [
       {
-        "title": "## When the temperature of a metal rod is increased by 100 °C, its fractional change in length is 2.4 x 10 <sup>-5</sup> . The linear expansivity of the material of the rod is",
+        "title": "## When the temperature of a metal rod is increased by 100 °C, its fractional change in length is 2.4 x 10 <sup>-5</sup> . The linear expansivity of the material of the rod is \n <img src='https://paperly-114b9e.us1.kinto.io/mathjax/getmathimage?equation=\\frac{a++b}{1-a^2}'/>         ",
         "choices": [
           {
             "id": 1,
-            "text": "2.4 x 10 <sup>-3</sup> °C <sup>-1</sup>"
+            "text": "2.4 x 10 <sup>-3</sup> °C <sup>-1</sup> <img src='https://paperly-114b9e.us1.kinto.io/mathjax/getmathimage?equation=\\frac{a-b}{1-a^2}'/>  "
           },
           {
             "id": 2,
-            "text": "2.4 x 10 <sup>-4</sup> °C <sup>-1</sup>"
+            "text": "2.4 x 10 <sup>-4</sup> °C <sup>-1</sup> <img src='https://paperly-114b9e.us1.kinto.io/mathjax/getmathimage?equation=\\sum_{i=0}^n i^2 = \\frac{(n^2%2Bn)(2n%2B1)}{6}'/>   "
           },
           {
             "id": 3,
