@@ -3,7 +3,7 @@ import Navbar from "../navbar/navbar";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Categories from "./Categories/Categories";
-
+import Rocket from "../Animations/Rocket";
 
 import InputBase from "@material-ui/core/InputBase";
 import { fade } from "@material-ui/core/styles";
@@ -104,7 +104,6 @@ const Subjectmenu = () => {
   return (
     <div style={{ color: "white" }}>
       <Navbar />
-
       <div style={{ marginTop: "120px", marginBottom: "120px" }}>
           <Categories />
       </div>
@@ -124,31 +123,6 @@ const Subjectmenu = () => {
             onChange={(e) => search(e.target.value)}
           />
         </div>
-        {/*{paperNameList.length > 0 ? (
-          paperNameList.map((ele) => {
-            console.log(ele);
-
-            return (
-              <div className={classes.root}>
-                <List component="nav" aria-label="secondary mailbox folders">
-                  <ListItemLink
-                    href={`/quizes?subject=${ele.subject}&year=${ele.year}`}
-                  >
-                    <ListItemText primary={ele.name} />
-                  </ListItemLink>
-                </List>
-              </div>
-            );
-          })
-        ) : (
-          <div className={classes.root}>
-            <List component="nav" aria-label="secondary mailbox folders">
-              <ListItem>
-                <ListItemText primary="Paper Not Found" />
-              </ListItem>
-            </List>
-          </div>
-        )}*/}
       </div>
       <Footer />
     </div>

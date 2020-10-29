@@ -1,0 +1,24 @@
+.rocketShip {
+  width: 64px;
+  height: 144px;
+}
+.rocketFire {
+  width: 654px;
+  height: 105px;
+}
+.starCont {
+  width: 58px;
+  height: 48px;
+}
+.rocketCont {
+  width: 64px;
+  height: 299px;
+}
+
+.st0 {
+  fill: #ffffff;
+}
+#starField {
+  height: 300px;
+  overflow: hidden;
+}

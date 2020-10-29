@@ -17,6 +17,11 @@ import MuiAlert from "@material-ui/lab/Alert";
 
 import Timer from "./Timer/Timer";
 
+import marked from "marked";
+import DOMPurify from "dompurify";
+
+marked.setOptions({ gfm: true });
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(2),
@@ -47,7 +52,7 @@ export default function QuizTemp(props) {
   const answersHolder = Array.from({ length: 50 }, (_, i) => 0); // [0, 0, 0];
   const timeHolder = Array.from({ length: 50 }, (_, i) => 0); //[0, 0, 0];
 
-
+  
   const { paper, questions, getAnswers, getTimeSpent } = props;
   const [activeQuestion, setActiveQuestion] = React.useState(0);
   const [answers, setAnswers] = React.useState(answersHolder);
@@ -63,10 +68,6 @@ export default function QuizTemp(props) {
     const answer = event.target.value;
     setValue(answer);
 
-    console.log(answer);
-    console.log(parseInt(answer));
-    console.log(answers[activeQuestion]);
-
     setAnswers((answers) => {
       answers[activeQuestion] = answer;
       return answers;
@@ -78,15 +79,16 @@ export default function QuizTemp(props) {
   }, [answers, getAnswers]);
   const handleSubmit = (event) => {
     event.preventDefault();
+    const userAnswer = parseInt(value)
     if (!value) {
       setOpen(true);
       setSeverityType("info");
       setAlertText("Please select an option!");
-    } else if (value === questions[activeQuestion].correctAnswer) {
+    } else if (userAnswer === (questions[activeQuestion].correctAnswer)) {
       setOpen(true);
       setSeverityType("success");
       setAlertText("Your answer is correct!");
-    } else if (value && value !== questions[activeQuestion].correctAnswer) {
+    } else if (value && userAnswer !== (questions[activeQuestion].correctAnswer)) {
       setOpen(true);
       setSeverityType("error");
       setAlertText("Sorry, your answer is incorrect!");
@@ -137,7 +139,7 @@ export default function QuizTemp(props) {
       >
         <h1>{paper}</h1>
       </div>
-      <div style={{ textAlign: "left"}}>
+      <div style={{ textAlign: "left" }}>
         <form onSubmit={handleSubmit}>
           <FormControl component="fieldset" className={classes.formControl}>
             <Grid
@@ -148,19 +150,15 @@ export default function QuizTemp(props) {
             >
               <FormLabel component="legend">
                 <Timer getTimeSpent={getTimeSpent} />
-
-                <h3 style={{ color: "white" }}>
-                  {activeQuestion + 1} ) {questions[activeQuestion].title}
-                </h3>
-                <br></br>
-                {questions[activeQuestion].img && (
-                  <div style={{textAlign:"center"}}>
-                    <img
-                      style={{ width: questions[activeQuestion].imgwidth }}
-                      src={questions[activeQuestion].img}
-                    />
-                  </div>
-                )}
+                <div style={{ color: "white" }}>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(
+                        marked(questions[activeQuestion].title)
+                      ),
+                    }}
+                  />
+                </div>
               </FormLabel>
             </Grid>
 
@@ -180,21 +178,14 @@ export default function QuizTemp(props) {
                     }
                     label={
                       <>
-                        {ele.img && (
-                          <>
-                            <img
-                              src={ele.img}
-                              key={ele.id}
-                              className="profile-img"
-                              width={ele.imgwidth}
-                              height="auto"
-                              style={{ marginRight: "5px" }}
-                            />
-                            <br />
-                          </>
-                        )}
-
-                        {ele.text}
+                        <div style={{ color: "white" }}>
+                          {/* {activeQuestion + 1} ) */}
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: DOMPurify.sanitize(marked(ele.text)),
+                            }}
+                          />
+                        </div>
                       </>
                     }
                   />
