@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/IshankaDSenevirathne/Paperly/master/public/Logo.png" width="40">
+<img src="https://raw.githubusercontent.com/IshankaDSenevirathne/Paperly/dev/public/PublicLogo.png" width="40">
 
 # Paperly
 ![npm](https://img.shields.io/npm/v/npm?style=plastic) ![GitHub issues](https://img.shields.io/github/issues/IshankaDSenevirathne/Paperly)
