@@ -240,8 +240,14 @@ export default function Steps(props) {
     let year = activePaper.match(regex)[0];
     console.log(year);
     setpaperYear(year);
-    let paper = require(`../../paperdata/${subject}/${year}/paper.json`);
-    setActiveQuestions(paper.content.pages);
+    // let paper = require(`../../paperdata/${subject}/${year}/paper.json`);
+
+    let papar = require(`../../paperdata/${subject}/${year}/paper`);
+
+    console.log(papar.default.content);
+    // console.log(paper);
+
+    setActiveQuestions(papar.default.content.pages);
   }, [activePaper, activeQuestions]);
   const handleNext = () => {
     if (activePaper == undefined) {
