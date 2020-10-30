@@ -11,19 +11,19 @@ let data = {
     title: "Advanced Level 2018 Physics",
     pages: [
       {
-        title: `## When the temperature of a metal rod is increased by 100 °C, its fractional change in length is 2.4 x 10 <sup>-5</sup> . The linear expansivity of the material of the rod is \n <img src='${API}/mathjax/getmathimage?equation=${encodeURI(
-          "\\frac{a+b}{1-a^2}"
-        )}'/>         `,
+        title: `## When the temperature of a metal rod is increased by 100 °C, its fractional change in length is 2.4 x 10 <sup>-5</sup> . The linear expansivity of the material of the rod is \n <img  src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
+          `\\frac{a+b}{1-a^2}`
+        )}' style="width:10%;" />         `,
         choices: [
           {
             id: 1,
-            text: `2.4 x 10 <sup>-3</sup> °C <sup>-1</sup> <img src='${API}/mathjax/getmathimage?equation=${encodeURI(
+            text: `2.4 x 10 <sup>-3</sup> °C <sup>-1</sup> <img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
               "\\frac{a-b}{1-a^2}"
             )}'/>  `,
           },
           {
             id: 2,
-            text: `2.4 x 10 <sup>-4</sup> °C <sup>-1</sup> <img src='${API}/mathjax/getmathimage?equation=${encodeURI(
+            text: `2.4 x 10 <sup>-4</sup> °C <sup>-1</sup> <img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
               "\\sum_{i=0}^n i^2=\\frac{(n^2+n)(2n+1)}{6}"
             )}'/>   `,
           },
