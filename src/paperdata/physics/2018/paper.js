@@ -95,7 +95,7 @@ let data = {
         correctAnswer: 3,
       },
       {
-        title: `## 3.	Which of the following statements is *not* true?`,
+        title: `## 3.	Which of the following statements is **not** true?`,
         choices: [
           {
             id: 1,
