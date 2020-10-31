@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../navbar/navbar";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Categories from "./Categories/Categories";
-import Rocket from "../Animations/Rocket";
 
 import InputBase from "@material-ui/core/InputBase";
 import { fade } from "@material-ui/core/styles";
@@ -51,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create("width"),
     width: "100%",
@@ -65,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Subjectmenu = () => {
+const SubjectMenu = () => {
   const [paperNameList, setpaperNameList] = useState([]);
   const [paperNameListDefault, setpaperNameListDefault] = useState([]);
 
@@ -103,8 +100,7 @@ const Subjectmenu = () => {
 
   return (
     <div style={{ color: "white" }}>
-      <Navbar />
-      <div style={{ marginTop: "120px", marginBottom: "120px" }}>
+      <div style={{ marginTop: "50px", marginBottom: "120px" }}>
           <Categories />
       </div>
       <div className={classes.paperlist}>
@@ -128,4 +124,4 @@ const Subjectmenu = () => {
     </div>
   );
 };
-export default Subjectmenu;
+export default SubjectMenu;

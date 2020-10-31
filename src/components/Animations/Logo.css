@@ -15,11 +15,3 @@
     width: 500px;
   }
 }
-.cir {
-  position: absolute;
-  overflow: hidden;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  border: 1px solid #1fa2ff;
-}

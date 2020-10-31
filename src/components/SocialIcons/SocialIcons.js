@@ -14,27 +14,30 @@ const useStyles=makeStyles(()=>({
     buttons:{
         "& .MuiFab-sizeMedium":{
             boxShadow:"none",
-            backgroundColor:"#3f51b5",
             "&:hover":{
-                backgroundColor:lightBlue[400],
+                backgroundColor:"#1fa2ff",
             }
         }
     },
     buttonTop:{
         borderTopRightRadius:"10px",
+        backgroundColor:"#3f51b5",
         borderTopLeftRadius:"0px",
         borderBottomRightRadius:"0px",
         borderBottomLeftRadius:"0px",
+        
     },
     buttonMiddle:{
         borderTopRightRadius:"0px",
         borderTopLeftRadius:"0px",
+        backgroundColor:"#3f51b5",
         borderBottomRightRadius:"0px",
         borderBottomLeftRadius:"0px",
     },
     buttonBottom:{
         borderTopRightRadius:"0px",
         borderTopLeftRadius:"0px",
+        backgroundColor:"#3f51b5",
         borderBottomRightRadius:"10px",
         borderBottomLeftRadius:"0px",
     }

@@ -7,7 +7,6 @@ import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from "@material-ui/core/styles";
 
-import Info from "@material-ui/icons/Info";
 
 import Chemistry from "../../../img/chemistry.svg";
 import Physics from "../../../img/physics.svg";
@@ -28,7 +27,9 @@ import Accounting from "../../../img/accounting.svg";
 import Sci4Tech from "../../../img/scifortech.svg";
 import EngTech from "../../../img/engtech.svg";
 
-import Directions from "../../../img/directionals.svg";
+import Rocket from "../../Animations/Rocket";
+import RocketWave from "../../../img/rocketWave.svg";
+
 
 
 const useStyles=makeStyles(()=>({
@@ -150,29 +151,11 @@ export default function Categories() {
     const classes=useStyles();
     return (
         <div>
+            <div style={{background:"#1fa2ff",backgroundImage:`url(${RocketWave})`,backgroundSize:"cover",backgroundRepeat:"no-repeat",paddingBottom:"150px",textAlign:"left"}}>
+                <Rocket />
+            </div>
+
             <Container>
-                <div style={{paddingBottom:"50px",textAlign:"center"}}>
-                    <Typography variant="h4" justify="center">
-                        <Grid container direction="column" justify="center" alignItems="center">
-                            <Grid item>
-                                CATEGORIES
-                            </Grid>
-                            <Grid item>
-                                <img src={Directions}></img>
-                            </Grid>
-                        </Grid>
-                    </Typography>
-                </div>
-                <div style={{padding:"10px 10px 10px 10px",border:'1px solid #1fa2ff',borderRadius:"4px",margin:"0px, 10px 20px 10px",width:"fit-content",background:"#363f44"}}>
-                    <Typography variant="body1" align="left">
-                        <span style={{alignItems:"center",justifyItems:"center",display:"flex"}}>
-                            <Info style={{color:"#1fa2ff"}} fontSize="large"/>
-                            &nbsp;&nbsp;&nbsp;
-                            Select the subject of your preferance.
-                        </span>
-                    </Typography>
-                </div>
-                
                 <div id ='science'  style={{marginTop:"50px",paddingBottom:"50px"}}>
                     <div style={{paddingBottom:"30px"}}>
                         <Typography variant="h5" align="left">
