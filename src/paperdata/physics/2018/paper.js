@@ -21,6 +21,10 @@ const img12a5 = require("./q12/5.PNG");
 
 const img13q = require("./q13/q13.PNG");
 
+const img15q = require("./q15/q15.PNG");
+
+const img16q = require("./q16/q16.PNG");
+
 let data = {
   paperId: "1",
   content: {
@@ -399,89 +403,81 @@ let data = {
         correctAnswer: 1,
       },
       {
-        title: `## 14.	A small object of mass m placed on the horizontal surface of a frozen pond is given a kick imparting an initial speed \n <img style='width:100%;' src="<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
+        title: `## 14.	A small object of mass m placed on the horizontal surface of a frozen pond is given a kick imparting an initial speed <img style='width:2%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
           "\\nu_0 "
-        )}'/>"></img> along the horizontal direction. The object moves on the surface in a horizontal straight line without rotation. The coefficient of kinetic friction between the object and the surface is ju. if the air resistance can be neglected, the distance that file object moves before coming to rest is`,
+        )}'/> along the horizontal direction. The object moves on the surface in a horizontal straight line without rotation. The coefficient of kinetic friction between the object and the surface is <img style='width:2%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
+          "\\mu_0 "
+        )}'/>. if the air resistance can be neglected, the distance that file object moves before coming to rest is`,
         choices: [
           {
             id: 1,
             text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = \\sqrt{2}R_B"
+              "\\frac{\\nu_0^2}{2\\mu g}"
             )}'/>`,
           },
           {
             id: 2,
             text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = 2R_B"
+              "\\frac{\\nu_0^2}{mu g}"
             )}'/>`,
           },
           {
             id: 3,
             text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = \\frac{R_B}{\\sqrt{2}}"
+              "\\frac{2\\nu_0^2}{mu g}"
             )}'/>`,
           },
           {
             id: 4,
             text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = \\frac{R_B}{2}"
+              "\\frac{\\nu_0^2}{2g}"
             )}'/>`,
           },
           {
             id: 5,
             text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = R_B"
+              "\\frac{2\\nu_0^2}{g}"
             )}'/>`,
           },
         ],
         correctAnswer: 1,
       },
       {
-        title:
-          "## 11. The accelerations due to gravity on the surfaces of a uniform spherical planet A of radius R<sub>A</sub> and a uniform spherical planet B of radius R<sub>B</sub> are equal. If the mass of A is twice the mass of B, ",
+        title: `## 15. A coplanar structure is made by connecting eleven identical spheres each of mass m using ten identical light rods as shown in the figure. The centre of gravity of the structure is most likely to be at the point \n <img style='width:40%;' src='${img15q}' />`,
         choices: [
           {
             id: 1,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = \\sqrt{2}R_B"
-            )}'/>`,
+            text: `O`,
           },
           {
             id: 2,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = 2R_B"
-            )}'/>`,
+            text: `A`,
           },
           {
             id: 3,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = \\frac{R_B}{\\sqrt{2}}"
-            )}'/>`,
+            text: `B`,
           },
           {
             id: 4,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = \\frac{R_B}{2}"
-            )}'/>`,
+            text: `C`,
           },
           {
             id: 5,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = R_B"
-            )}'/>`,
+            text: `D`,
           },
         ],
         correctAnswer: 1,
       },
       {
-        title:
-          "## 11. The accelerations due to gravity on the surfaces of a uniform spherical planet A of radius R<sub>A</sub> and a uniform spherical planet B of radius R<sub>B</sub> are equal. If the mass of A is twice the mass of B, ",
+        title: `## 16. A block of mass 2 kg is pushed along a horizontal surface. The variation of the displacement x, of the block with time t, is shown in the figure. The values of the resultant force F acting on the block along the direction of motion during each of the time intervals 0 < t < 2 , 2 < t < 4 and 4 < t < 5 do not change. Which of the following correctly represents the magnitude of F in each of the time intervals? \n <img style='width:40%;' src='${img16q}' /> `,
         choices: [
           {
             id: 1,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = \\sqrt{2}R_B"
-            )}'/>`,
+            text: `
+            Markdown | Less | Pretty
+            --- | --- | ---
+            *Still* | renders | **nicely**
+            1 | 2 | 3`,
           },
           {
             id: 2,

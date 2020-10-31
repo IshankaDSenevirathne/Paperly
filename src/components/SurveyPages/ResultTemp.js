@@ -11,6 +11,11 @@ import CancelOutlined from "@material-ui/icons/CancelOutlined";
 import { teal } from "@material-ui/core/colors";
 import { withStyles } from "@material-ui/core/styles";
 
+import marked from "marked";
+import DOMPurify from "dompurify";
+
+marked.setOptions({ gfm: true });
+
 const GreenRadio = withStyles({
   root: {
     "&$checked": {
@@ -54,7 +59,7 @@ export default function ResultTemp(props) {
           >
             <Grid item>
               <div style={{ textAlign: "left" }}>
-                <h3>
+                {/* <h3>
                   {questionNumber}
                   {")"}
                   {question.title}
@@ -68,7 +73,14 @@ export default function ResultTemp(props) {
                       />
                     </div>
                   )}
-                </h3>
+                </h3> */}
+                <div style={{ color: "white" }}>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(marked(question.title)),
+                    }}
+                  />
+                </div>
               </div>
             </Grid>
             <Grid item>
@@ -85,11 +97,10 @@ export default function ResultTemp(props) {
                   value={ele.id}
                   disabled
                   control={<WhiteRadio />}
-                  
                   // label={questions[activeQuestion].choices[4].text}
                   label={
                     <>
-                      {ele.img && (
+                      {/* {ele.img && (
                         <>
                           <img
                             src={ele.img}
@@ -103,7 +114,14 @@ export default function ResultTemp(props) {
                           <br />
                         </>
                       )}
-                      <span style={{ color: "#D0D3D4" }}> {ele.text}</span>
+                      <span style={{ color: "#D0D3D4" }}> {ele.text}</span> */}
+                      <div style={{ color: "#D0D3D4" }}>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: DOMPurify.sanitize(marked(ele.text)),
+                          }}
+                        />
+                      </div>
                     </>
                   }
                 />
@@ -131,11 +149,18 @@ export default function ResultTemp(props) {
           >
             <Grid item>
               <div style={{ textAlign: "left" }}>
-                <h3>
+                {/* <h3>
                   {questionNumber}
                   {")"}
                   {question.title}
-                </h3>
+                </h3> */}
+                <div style={{ color: "white" }}>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(marked(question.title)),
+                    }}
+                  />
+                </div>
               </div>
             </Grid>
             <Grid item>
@@ -164,7 +189,7 @@ export default function ResultTemp(props) {
                   }
                   label={
                     <>
-                      {ele.img && (
+                      {/* {ele.img && (
                         <>
                           <img
                             src={ele.img}
@@ -178,7 +203,14 @@ export default function ResultTemp(props) {
                           <br />
                         </>
                       )}{" "}
-                      <span style={{ color: "#D0D3D4" }}> {ele.text}</span>
+                      <span style={{ color: "#D0D3D4" }}> {ele.text}</span> */}
+                      <div style={{ color: "#D0D3D4" }}>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: DOMPurify.sanitize(marked(ele.text)),
+                          }}
+                        />
+                      </div>
                     </>
                   }
                 />

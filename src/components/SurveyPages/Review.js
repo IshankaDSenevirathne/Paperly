@@ -8,7 +8,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import PropTypes from "prop-types";
-import Paper from "@material-ui/core/Paper"
+import Paper from "@material-ui/core/Paper";
 
 // import Toolbar from '@material-ui/core/Toolbar';
 // import Typography from '@material-ui/core/Typography';
@@ -29,12 +29,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    color:"white"
+    color: "white",
   },
   rootsroll: {
     position: "fixed",
     bottom: theme.spacing(2),
-    right: theme.spacing(2),
+    right: "21px",
   },
   item: {
     border: "1px solid #4199FF",
@@ -46,13 +46,13 @@ const useStyles = makeStyles((theme) => ({
       border: "1px solid #1fa2ff",
     },
   },
-  paper:{
-    background:"#363f44",
-    borderRadius:"4px",
-    padding:"20px 25px 20px 25px",
-    marginBottom:"20px",
-    color:"white",
-  }
+  paper: {
+    background: "#363f44",
+    borderRadius: "4px",
+    padding: "20px 25px 20px 25px",
+    marginBottom: "20px",
+    color: "white",
+  },
 }));
 
 const options = ["Show All", "Show Correct", "Show Incorrect"];
@@ -185,10 +185,12 @@ export default function Review(props) {
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}
-            PaperProps={{style:{
-              background:"#363f44",
-              color:"white"
-            }}}
+            PaperProps={{
+              style: {
+                background: "#363f44",
+                color: "white",
+              },
+            }}
           >
             {options.map((option, index) => (
               <MenuItem
@@ -224,10 +226,7 @@ export default function Review(props) {
           if (selectedIndex == 0) {
             return (
               <Paper elevation={3} className={classes.paper}>
-                <div
-                  id={index}
-                  key={index}
-                >
+                <div id={index} key={index}>
                   <ResultTemp
                     result={result}
                     question={question}
@@ -248,10 +247,7 @@ export default function Review(props) {
           } else if (selectedIndex == 1 && result == true) {
             return (
               <Paper elevation={3} className={classes.paper}>
-                <div
-                  id={index}
-                  key={index}
-                >
+                <div id={index} key={index}>
                   <ResultTemp
                     result={result}
                     question={question}
@@ -272,10 +268,7 @@ export default function Review(props) {
           } else if (selectedIndex == 2 && result == false) {
             return (
               <Paper elevation={3} className={classes.paper}>
-                <div
-                  id={index}
-                  key={index}
-                >
+                <div id={index} key={index}>
                   <ResultTemp
                     result={result}
                     question={question}

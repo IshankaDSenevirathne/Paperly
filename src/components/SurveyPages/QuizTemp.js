@@ -52,7 +52,6 @@ export default function QuizTemp(props) {
   const answersHolder = Array.from({ length: 50 }, (_, i) => 0); // [0, 0, 0];
   const timeHolder = Array.from({ length: 50 }, (_, i) => 0); //[0, 0, 0];
 
-  
   const { paper, questions, getAnswers, getTimeSpent } = props;
   const [activeQuestion, setActiveQuestion] = React.useState(0);
   const [answers, setAnswers] = React.useState(answersHolder);
@@ -79,16 +78,19 @@ export default function QuizTemp(props) {
   }, [answers, getAnswers]);
   const handleSubmit = (event) => {
     event.preventDefault();
-    const userAnswer = parseInt(value)
+    const userAnswer = parseInt(value);
     if (!value) {
       setOpen(true);
       setSeverityType("info");
       setAlertText("Please select an option!");
-    } else if (userAnswer === (questions[activeQuestion].correctAnswer)) {
+    } else if (userAnswer === questions[activeQuestion].correctAnswer) {
       setOpen(true);
       setSeverityType("success");
       setAlertText("Your answer is correct!");
-    } else if (value && userAnswer !== (questions[activeQuestion].correctAnswer)) {
+    } else if (
+      value &&
+      userAnswer !== questions[activeQuestion].correctAnswer
+    ) {
       setOpen(true);
       setSeverityType("error");
       setAlertText("Sorry, your answer is incorrect!");
@@ -128,6 +130,10 @@ export default function QuizTemp(props) {
     console.log(timeSpent);
   };
 
+  const hn = (p) => {
+    setActiveQuestion(p - 1);
+  };
+
   return (
     <div style={{ color: "white" }}>
       <div
@@ -141,6 +147,8 @@ export default function QuizTemp(props) {
       </div>
       <div style={{ textAlign: "left" }}>
         <form onSubmit={handleSubmit}>
+          <button onClick={() => hn(16)}>16</button>
+
           <FormControl component="fieldset" className={classes.formControl}>
             <Grid
               container
