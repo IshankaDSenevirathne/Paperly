@@ -100,7 +100,7 @@ const SubjectMenu = () => {
 
   return (
     <div style={{ color: "white" }}>
-      <div style={{ marginTop: "50px", marginBottom: "120px" }}>
+      <div style={{ marginBottom: "120px" }}>
           <Categories />
       </div>
       <div className={classes.paperlist}>

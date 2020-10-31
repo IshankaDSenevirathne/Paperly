@@ -63,7 +63,7 @@ export default function Rocket() {
     },[])
 
     return (
-            <div>
+            <div style={{minHeight:"100vh"}}>
                 <Grid container direction="row" justify="flex-end" alignItems="center">
                     <Grid item sm={12} md={7}>
                     <svg width="100%" height="540" viewBox="0 0 350 626.97">
@@ -149,9 +149,11 @@ export default function Rocket() {
                                 </Typography>
                             </Hidden>
                             <Hidden mdUp>
-                                <Typography variant="h4" align="center">
-                                    <b>SKYROCKET YOUR PERFORMANCE WITH <span style={{color:"#1fa2ff"}}>PAPERLY</span></b>
-                                </Typography>
+                                <div style={{   paddingLeft:'15px',paddingRight:"15px"}}>
+                                    <Typography variant="h5" align="center">
+                                        <b>SKYROCKET YOUR PERFORMANCE WITH <span style={{color:"#1fa2ff"}}>PAPERLY</span></b>
+                                    </Typography>
+                                </div>
                             </Hidden>
                         </div>
                     </Grid>

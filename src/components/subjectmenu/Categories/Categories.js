@@ -30,6 +30,7 @@ import EngTech from "../../../img/engtech.svg";
 import Rocket from "../../Animations/Rocket";
 import RocketWave from "../../../img/rocketWave.svg";
 
+import directionals from "../../../img/directionals.svg";
 
 
 const useStyles=makeStyles(()=>({
@@ -151,11 +152,16 @@ export default function Categories() {
     const classes=useStyles();
     return (
         <div>
-            <div style={{background:"#1fa2ff",backgroundImage:`url(${RocketWave})`,backgroundSize:"cover",backgroundRepeat:"no-repeat",paddingBottom:"150px",textAlign:"left"}}>
+            <div style={{background:"#2a3136",backgroundImage:`url(${RocketWave})`,backgroundSize:"cover",backgroundRepeat:"no-repeat",marginBottom:"20px",textAlign:"left"}}>
                 <Rocket />
             </div>
-
             <Container>
+                <div style={{textAlign:"center"}}>
+                        <Typography variant="h4">
+                            CATEGORES
+                        </Typography>
+                    <img src={directionals} />
+                </div>
                 <div id ='science'  style={{marginTop:"50px",paddingBottom:"50px"}}>
                     <div style={{paddingBottom:"30px"}}>
                         <Typography variant="h5" align="left">
