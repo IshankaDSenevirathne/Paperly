@@ -7,9 +7,13 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import Info from "@material-ui/icons/Info";
 
-import Physics from "../../img/physics-2.svg";
-import Chemistry from "../../img/chemistry-2.svg";
+import Physics from "../../img/physics.svg";
+import Chemistry from "../../img/chemistry.svg";
+import Biology from "../../img/biology.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,6 +57,8 @@ export default function QuizList(props) {
         return Physics;
       case "chemistry":
         return Chemistry;
+      case "biology":
+        return Biology;
       default:
         return;
     }
@@ -72,19 +78,41 @@ export default function QuizList(props) {
           <h1>{subject}</h1>
           <img src={getImage(subject)}></img>
         </div>
+        <div style={{padding:"10px 10px 10px 0px",borderRadius:"4px",marginLeft:"10px",marginRight:"10px",marginBottom:"20px",background:"#E8F3FB"}}>
+          <Typography variant="body1" align="center">
+            <Info style={{color:"#1fa2ff"}} fontSize="large"/>
+          </Typography>
+          <Typography align="left" variant="body2">
+            <ul>
+              <li>
+                The exam will begin as you proceed to the next step.
+              </li>
+              <li>
+                You have a total of 2 hours to complete this exam.
+              </li>
+              <li>
+                Time taken for every individual question will be recorded.
+              </li>
+              <li>
+                Try to answer all questions and proceed to the next step.
+              </li>
+            </ul>
+          </Typography>
+        </div>
         <div className={classes.root}>
-          <List component="nav" aria-label="Device settings">
-            <ListItem
-              button
-              aria-haspopup="true"
-              aria-controls="lock-menu"
-              aria-label="when device is locked"
-              onClick={handleClickListItem}
-              className={classes.item}
-            >
-              <ListItemText primary={papersList[selectedIndex]} />
-            </ListItem>
-          </List>
+          <Container maxWidth="sm">
+            <List component="nav" aria-label="Device settings">
+              <ListItem
+                button
+                aria-haspopup="true"
+                aria-controls="lock-menu"
+                aria-label="when device is locked"
+                onClick={handleClickListItem}
+                className={classes.item}
+              >
+                <ListItemText primary={papersList[selectedIndex]} />
+              </ListItem>
+            </List>
           <Menu
             id="lock-menu"
             anchorEl={anchorEl}
@@ -107,6 +135,7 @@ export default function QuizList(props) {
               </MenuItem>
             ))}
           </Menu>
+          </Container>
         </div>
         <div style={{ color: "#B2B2B2" }}>
           <h5>Select a past paper and click Next to start the exam</h5>

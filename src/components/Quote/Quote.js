@@ -3,6 +3,7 @@ import { Container, Typography } from "@material-ui/core";
 
 import './Quote.css';
 import quotes from '../../paperdata/quotes.json';
+import Goal from "../../img/goal.svg";
 
 const Quote = () => {
     const currentQuote = useMemo(() => {
@@ -14,6 +15,9 @@ const Quote = () => {
     return (
         <div className="quote-container">
             <Container> 
+                <div>
+                    <img src={Goal}></img>
+                </div>
                 <Typography variant="h4">{currentQuote.quote}</Typography>
                 <Typography variant="p">{currentQuote.by}</Typography>
             </Container>
