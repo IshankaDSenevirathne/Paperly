@@ -469,39 +469,47 @@ let data = {
         correctAnswer: 1,
       },
       {
-        title: `## 16. A block of mass 2 kg is pushed along a horizontal surface. The variation of the displacement x, of the block with time t, is shown in the figure. The values of the resultant force F acting on the block along the direction of motion during each of the time intervals 0 < t < 2 , 2 < t < 4 and 4 < t < 5 do not change. Which of the following correctly represents the magnitude of F in each of the time intervals? \n <img style='width:40%;' src='${img16q}' /> `,
+        title: `## 16. A block of mass 2 kg is pushed along a horizontal surface. The variation of the displacement x, of the block with time t, is shown in the figure. The values of the resultant force F acting on the block along the direction of motion during each of the time intervals 0 < t < 2 , 2 < t < 4 and 4 < t < 5 do not change. Which of the following correctly represents the magnitude of F in each of the time intervals? \n <img style='width:40%;margin-bottom: 25px;' src='${img16q}' /> `,
         choices: [
           {
             id: 1,
             text: `
-            Markdown | Less | Pretty
-            --- | --- | ---
-            *Still* | renders | **nicely**
-            1 | 2 | 3`,
+| F(N) 0 < t < 2 &nbsp; | &nbsp; F(N)    2 < t < 4     &nbsp;   | &nbsp; F(N)  4 < t < 5   &nbsp;  |
+|:-------------:|:-------------:|:-----:|
+| 0      | 0 | 0 |
+`,
           },
           {
             id: 2,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = 2R_B"
-            )}'/>`,
+            text: `
+| F(N) 0 < t < 2 &nbsp; | &nbsp; F(N)    2 < t < 4     &nbsp;   | &nbsp; F(N)  4 < t < 5   &nbsp;  |
+|:-------------:|:-------------:|:-----:|
+| 0      | 1.5 | 0 |
+            `,
           },
           {
             id: 3,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = \\frac{R_B}{\\sqrt{2}}"
-            )}'/>`,
+            text: `
+| F(N) 0 < t < 2 &nbsp; | &nbsp; F(N)    2 < t < 4     &nbsp;   | &nbsp; F(N)  4 < t < 5   &nbsp;  |
+|:-------------:|:-------------:|:-----:|
+| 0      | 2 | 0 |
+            `,
           },
           {
             id: 4,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = \\frac{R_B}{2}"
-            )}'/>`,
+            text: `
+| F(N) 0 < t < 2 &nbsp; | &nbsp; F(N)    2 < t < 4     &nbsp;   | &nbsp; F(N)  4 < t < 5   &nbsp;  |
+|:-------------:|:-------------:|:-----:|
+| 1      | 0 | 0 |
+            `,
           },
           {
             id: 5,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = R_B"
-            )}'/>`,
+            text: `
+| F(N) 0 < t < 2 &nbsp; | &nbsp; F(N)    2 < t < 4     &nbsp;   | &nbsp; F(N)  4 < t < 5   &nbsp;  |
+|:-------------:|:-------------:|:-----:|
+| 2      | 1.5 | 1 |
+            `,
           },
         ],
         correctAnswer: 1,
