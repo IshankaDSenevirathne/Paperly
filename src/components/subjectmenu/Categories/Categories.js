@@ -168,9 +168,9 @@ export default function Categories() {
                             SCIENCE
                         </Typography>
                     </div>
-                    <Grid alignItems="center" justify="left" spacing={1} container>
+                    <Grid alignItems="center" justify="flex-start" spacing={1} container>
                         {science.map((subject)=>(
-                            <Grid item xs={6} sm={3} md={3}>
+                            <Grid key={subject.title} item xs={6} sm={3} md={3}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
                                         <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
@@ -195,9 +195,9 @@ export default function Categories() {
                             ART
                         </Typography>
                     </div>
-                    <Grid alignItems="center" justify="left" spacing={1} container>
+                    <Grid alignItems="center" justify="flex-start" spacing={1} container>
                         {art.map((subject)=>(
-                            <Grid item xs={6} sm={3} md={3}>
+                            <Grid key={subject.title} item xs={6} sm={3} md={3}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
                                         <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
@@ -222,9 +222,9 @@ export default function Categories() {
                             COMMERCE
                         </Typography>
                     </div>
-                    <Grid alignItems="center" justify="left" spacing={1} container>
+                    <Grid alignItems="center" justify="flex-start" spacing={1} container>
                         {commerce.map((subject)=>(
-                            <Grid item xs={6} sm={3} md={3}>
+                            <Grid key={subject.title} item xs={6} sm={3} md={3}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
                                         <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
@@ -249,9 +249,9 @@ export default function Categories() {
                             OTHER
                         </Typography>
                     </div>
-                    <Grid alignItems="center" justify="left" spacing={1} container>
+                    <Grid alignItems="center" justify="flex-start" spacing={1} container>
                         {other.map((subject)=>(
-                            <Grid item xs={6} sm={3} md={3}>
+                            <Grid key={subject.title} item xs={6} sm={3} md={3}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
                                         <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>

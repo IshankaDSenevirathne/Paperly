@@ -27,18 +27,28 @@ export default function Logo() {
                 </Grid>
                 <Grid item>
                     <div id="title">
-                        <Hidden smDown>
-                            <Typography variant="h4" align="center">
+                        <Hidden mdDown>
+                            <Typography variant="h2" align="center">
                                 <div style={{fontFamily:"titleFont",textTransform:"uppercase"}}>
-                                    <b><span style={{color:"#1fa2ff"}}>Paperly</span>, Your Next Generation PastPaper Companion</b>
+                                    <b><span style={{color:"#1fa2ff"}}>Paperly</span></b>
+                                </div>
+                            </Typography>
+                            <Typography variant="h5" align="center">
+                                <div style={{fontFamily:"titleFont",textTransform:"uppercase"}}>
+                                    <b>Your Next Generation PastPaper Companion</b>
                                 </div>
                             </Typography>
                         </Hidden>
-                        <Hidden mdUp>
-                            <div style={{   paddingLeft:'15px',paddingRight:"15px"}}>
-                                <Typography variant="h6" align="center">
+                        <Hidden lgUp>
+                            <div style={{ paddingLeft:'15px',paddingRight:"15px"}}>
+                                <Typography variant="h4" align="center">
                                     <div style={{fontFamily:"titleFont",textTransform:"uppercase"}}>
-                                        <b><span style={{color:"#1fa2ff"}}>Paperly</span>, Your Next Generation PastPaper Companion</b>
+                                        <b><span style={{color:"#1fa2ff"}}>Paperly</span></b>
+                                    </div>
+                                </Typography>
+                                <Typography variant="subtitle1" align="center">
+                                    <div style={{fontFamily:"titleFont",textTransform:"uppercase"}}>
+                                        <b>Your Next Generation PastPaper Companion</b>
                                     </div>
                                 </Typography>
                             </div>
