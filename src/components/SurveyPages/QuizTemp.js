@@ -147,7 +147,7 @@ export default function QuizTemp(props) {
       </div>
       <div style={{ textAlign: "left" }}>
         <form onSubmit={handleSubmit}>
-          <button onClick={() => hn(16)}>16</button>
+          {/* <button onClick={() => hn(16)}>16</button> */}
 
           <FormControl component="fieldset" className={classes.formControl}>
             <Grid
