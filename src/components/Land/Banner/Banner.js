@@ -15,7 +15,6 @@ const useStyles=makeStyles((theme)=>({
   button: {
     color: "whitesmoke",
     "&:hover": {
-      backgroundColor: lightBlue[400],
       color: "white",
     },
   },

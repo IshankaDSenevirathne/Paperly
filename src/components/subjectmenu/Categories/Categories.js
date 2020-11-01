@@ -152,13 +152,13 @@ export default function Categories() {
     const classes=useStyles();
     return (
         <div>
-            <div style={{background:"#2a3136",backgroundImage:`url(${RocketWave})`,backgroundSize:"cover",backgroundRepeat:"no-repeat",marginBottom:"20px",textAlign:"left"}}>
+            <div style={{background:"#2a3136",backgroundImage:`url(${RocketWave})`,backgroundSize:"cover",backgroundRepeat:"no-repeat",marginBottom:"50px",textAlign:"left"}}>
                 <Rocket />
             </div>
             <Container>
                 <div style={{textAlign:"center"}}>
                         <Typography variant="h4">
-                            CATEGORES
+                            CATEGORIES
                         </Typography>
                     <img src={directionals} />
                 </div>

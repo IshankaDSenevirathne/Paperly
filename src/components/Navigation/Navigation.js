@@ -33,11 +33,12 @@ const useStyles = makeStyles((theme) => ({
     title: {
       flexGrow: 1,
     },
-    button:{
+    link:{
         color:"whitesmoke",
         transition:"0.2s ease-out",
         border:"1px solid transparent",
         borderRadius:"0px",
+        padding:"0px 10px 0px 10px",    
         "&:hover":{
             color:"white",
             borderBottom:"1px solid #1fa2ff"
@@ -52,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     drawer:{
         background:"#363f44"
     },
-    button2: {
+    button: {
         color: "white",
         transition:"0.4s ease-out",
         border:"1px solid white",
@@ -85,32 +86,24 @@ export default function Navigation() {
                                 </div>
                             </Link>
                             <Link href="/subjectmenu" style={{textDecoration:"none"}}>
-                                <Button className={classes.button}>
-                                <Typography variant="subtitle1" align="center">
+                                <Typography variant="subtitle1" align="center" className={classes.link}>
                                         CATEGORIES
                                 </Typography>
-                                </Button>
                             </Link>
                             <Link href="/" style={{textDecoration:"none"}}>
-                                <Button className={classes.button}>
-                                <Typography variant="subtitle1" align="center">
+                                <Typography variant="subtitle1" align="center" className={classes.link}>
                                         FEATURES
                                 </Typography>
-                                </Button>
                             </Link>
                             <Link href="/" style={{textDecoration:"none"}}>
-                                <Button className={classes.button}>
-                                <Typography variant="subtitle1" align="center">
+                                <Typography variant="subtitle1" align="center" className={classes.link}>
                                         STATISTICS
                                 </Typography>
-                                </Button>
                             </Link>
                             <Link href="/" style={{textDecoration:"none"}}>
-                                <Button className={classes.button}>
-                                <Typography variant="subtitle1" align="center">
+                                <Typography variant="subtitle1" align="center" className={classes.link}>
                                         ABOUT US
                                 </Typography>
-                                </Button>
                             </Link>
                         </div>
                     </Grid>
@@ -125,7 +118,7 @@ export default function Navigation() {
                                 >
                                     <Button
                                     variant="outlined"
-                                    className={classes.button2}
+                                    className={classes.button}
                                     size="large"
                                     >
                                     GET STARTED
