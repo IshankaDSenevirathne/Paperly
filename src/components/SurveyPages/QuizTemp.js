@@ -222,7 +222,7 @@ export default function QuizTemp(props) {
         <Grid container direction="row" justify="center" alignItems="center">
           <div className={classes.root}>
             <Pagination
-              count={50}
+              count={questions.length}
               showFirstButton
               showLastButton
               color="primary"

@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
   rootsroll: {
     position: "fixed",
-    bottom: theme.spacing(2),
+    bottom: theme.spacing(10),
     right: "21px",
   },
   item: {
