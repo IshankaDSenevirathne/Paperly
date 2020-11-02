@@ -62,34 +62,36 @@ let data = {
         choices: [
           {
             id: 1,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
+            text: `<img src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&env=${process.env.NODE_ENV}&equation=${encodeURIComponent(
               "AX"
             )}'/>`,
           },
           {
             id: 2,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "AX - CZ"
-            )}'/>`,
+            text: `<img src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("AX - CZ")}'/>`,
           },
           {
             id: 3,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "\\frac{(AX) (CZ)}{BY}"
-            )}'/>`,
+            text: `<img src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\frac{(AX) (CZ)}{BY}")}'/>`,
           },
           {
             id: 4,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "\\frac{(BY)^2}{P}"
-            )}'/>`,
+            text: `<img src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\frac{(BY)^2}{P}")}'/>`,
           },
           {
             id: 5,
 
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "(BY)(CZ)"
-            )}'/>`,
+            text: `<img src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("(BY)(CZ)")}'/>`,
           },
         ],
         correctAnswer: 3,
@@ -319,33 +321,35 @@ let data = {
         choices: [
           {
             id: 1,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = \\sqrt{2}R_B"
-            )}'/>`,
+            text: `<img src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("R_A = \\sqrt{2}R_B")}'/>`,
           },
           {
             id: 2,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = 2R_B"
-            )}'/>`,
+            text: `<img src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("R_A = 2R_B")}'/>`,
           },
           {
             id: 3,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
+            text: `<img src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent(
               "R_A = \\frac{R_B}{\\sqrt{2}}"
             )}'/>`,
           },
           {
             id: 4,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = \\frac{R_B}{2}"
-            )}'/>`,
+            text: `<img src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("R_A = \\frac{R_B}{2}")}'/>`,
           },
           {
             id: 5,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "R_A = R_B"
-            )}'/>`,
+            text: `<img src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("R_A = R_B")}'/>`,
           },
         ],
         correctAnswer: 1,
@@ -403,41 +407,45 @@ let data = {
         correctAnswer: 1,
       },
       {
-        title: `## 14.	A small object of mass m placed on the horizontal surface of a frozen pond is given a kick imparting an initial speed <img style='width:2%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
+        title: `## 14.	A small object of mass m placed on the horizontal surface of a frozen pond is given a kick imparting an initial speed <img style='width:2%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+          process.env.NODE_ENV
+        }&equation=${encodeURIComponent(
           "\\nu_0 "
-        )}'/> along the horizontal direction. The object moves on the surface in a horizontal straight line without rotation. The coefficient of kinetic friction between the object and the surface is <img style='width:2%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
+        )}'/> along the horizontal direction. The object moves on the surface in a horizontal straight line without rotation. The coefficient of kinetic friction between the object and the surface is <img style='width:2%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+          process.env.NODE_ENV
+        }&equation=${encodeURIComponent(
           "\\mu_0 "
         )}'/>. if the air resistance can be neglected, the distance that file object moves before coming to rest is`,
         choices: [
           {
             id: 1,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "\\frac{\\nu_0^2}{2\\mu g}"
-            )}'/>`,
+            text: `<img src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\frac{\\nu_0^2}{2\\mu g}")}'/>`,
           },
           {
             id: 2,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "\\frac{\\nu_0^2}{mu g}"
-            )}'/>`,
+            text: `<img src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\frac{\\nu_0^2}{mu g}")}'/>`,
           },
           {
             id: 3,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "\\frac{2\\nu_0^2}{mu g}"
-            )}'/>`,
+            text: `<img src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\frac{2\\nu_0^2}{mu g}")}'/>`,
           },
           {
             id: 4,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "\\frac{\\nu_0^2}{2g}"
-            )}'/>`,
+            text: `<img src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\frac{\\nu_0^2}{2g}")}'/>`,
           },
           {
             id: 5,
-            text: `<img src='${API}/mathjax/getmathimage?equation=${encodeURIComponent(
-              "\\frac{2\\nu_0^2}{g}"
-            )}'/>`,
+            text: `<img src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\frac{2\\nu_0^2}{g}")}'/>`,
           },
         ],
         correctAnswer: 1,
