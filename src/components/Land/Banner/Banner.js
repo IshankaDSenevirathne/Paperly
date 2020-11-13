@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import Link  from "@material-ui/core/Link";
 import { lightBlue } from "@material-ui/core/colors";
 
 //Images
@@ -72,7 +72,7 @@ export default function Banner() {
                 <div>
                     <Typography gutterBottom variant="subtitle1" align="center">
                         <Link
-                            to="/subjectmenu"
+                            href="/subjectmenu"
                             style={{
                             textDecoration: "none",
                             }}
@@ -89,7 +89,7 @@ export default function Banner() {
                         &nbsp;
                         &nbsp;
                         <Link
-                        to="/subjectmenu"
+                        href="#features"
                         style={{
                         textDecoration: "none",
                         }}

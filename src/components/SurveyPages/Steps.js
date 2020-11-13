@@ -1,10 +1,4 @@
 import React, { useState, useEffect } from "react";
-
-import QuizList from "./QuizList";
-import QuizTemp from "./QuizTemp";
-import Results from "./Results";
-import Review from "./Review";
-
 import PropTypes from "prop-types";
 import Hidden from "@material-ui/core/Hidden";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
@@ -24,7 +18,14 @@ import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 import { lightBlue } from "@material-ui/core/colors";
 
+import QuizList from "./QuizList";
+import QuizTemp from "./QuizTemp";
+import Results from "./Results";
+import Review from "./Review";
 import CompletedSurvey from "./CompletedSurvey";
+import VerificationAlert from "./VerificationAlert";
+
+
 
 const useQontoStepIconStyles = makeStyles({
   root: {
@@ -221,11 +222,13 @@ export default function Steps(props) {
   const [activePaper, setActivePaper] = useState(undefined);
   const [activeQuestions, setActiveQuestions] = useState(undefined);
   const [activeAnswers, setActiveAnswers] = useState([]);
+  const [activeUnanswered, setActiveUnanswered] = useState(undefined);
   const [timeSpentForEach, setTimeSpentForEach] = useState([]);
   const [timeSpent, setTimeSpent] = useState(120 * 60);
   const [checkLast, setCheckLast] = useState(false);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [paperYear, setpaperYear] = useState(0);
+  const [verificationAlertStatus,setVerificationAlertStatus]=useState(false);
 
   const steps = getSteps();
 
@@ -240,18 +243,20 @@ export default function Steps(props) {
     let year = activePaper.match(regex)[0];
     console.log(year);
     setpaperYear(year);
-    // let paper = require(`../../paperdata/${subject}/${year}/paper.json`);
 
-    let papar = require(`../../paperdata/${subject}/${year}/paper`);
+    let paper = require(`../../paperdata/${subject}/${year}/paper`);
 
-    console.log(papar.default.content);
-    // console.log(paper);
+    console.log(paper.default.content);
 
-    setActiveQuestions(papar.default.content.pages);
+    setActiveQuestions(paper.default.content.pages);
   }, [activePaper, activeQuestions]);
   const handleNext = () => {
     if (activePaper == undefined) {
       setOpen(true);
+      return;
+    }
+    if(activeStep==1){
+      setVerificationAlertStatus(true);
       return;
     }
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -269,35 +274,43 @@ export default function Steps(props) {
     setActiveAnswers([]);
     setActiveQuestions(undefined);
     setActiveAnswers([]);
+    setActiveUnanswered([]);
     setTimeSpentForEach([]);
     setTimeSpent(120 * 60);
     setCheckLast(false);
+    setVerificationAlertStatus(false);
   };
 
   const setPaper = (index) => {
     setActivePaper(papersList[index]);
   };
-  const getAnswers = (answers, timeSpentForEach, checkLast) => {
+  const getAnswers = (answers, timeSpentForEach, checkLast,unanswered) => {
     setCheckLast(checkLast);
     setActiveAnswers(answers);
     setTimeSpentForEach(timeSpentForEach);
+    setActiveUnanswered(unanswered);
   };
   const getTimeSpent = (timeSpent) => {
     setTimeSpent(timeSpent);
   };
+  const getVerification=(status)=>{
+    if(status){
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
+    setVerificationAlertStatus(false);
+  }
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       setOpen(false);
       return;
     }
-
     setOpen(false);
   };
   return (
     <div className={classes.root}>
       <ThemeProvider theme={theme}>
         <Hidden xsDown>
-          <div className="stepbar">
+          <div style={{paddingTop:"80px"}}>
             <Stepper
               className={classes.stepper}
               alternativeLabel
@@ -332,6 +345,7 @@ export default function Steps(props) {
         <div>
           {activeQuestions && activeStep == 1 && (
             <div>
+              {verificationAlertStatus && <VerificationAlert state={true} unanswered={activeUnanswered} getVerification={getVerification}/>}
               <QuizTemp
                 getAnswers={getAnswers}
                 getTimeSpent={getTimeSpent}

@@ -2,9 +2,8 @@ import React from "react";
 
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-
 import Pagination from "@material-ui/lab/Pagination";
-
+import Typography from "@material-ui/core/Typography";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -14,6 +13,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
+
 
 import Timer from "./Timer/Timer";
 
@@ -49,12 +49,13 @@ const useStyles = makeStyles((theme) => ({
 export default function QuizTemp(props) {
   const classes = useStyles();
 
-  const answersHolder = Array.from({ length: 50 }, (_, i) => 0); // [0, 0, 0];
-  const timeHolder = Array.from({ length: 50 }, (_, i) => 0); //[0, 0, 0];
-
   const { paper, questions, getAnswers, getTimeSpent } = props;
+  
+  const answersHolder = Array.from({ length: questions.length }, (_, i) => 0); 
+  const timeHolder = Array.from({ length: questions.length }, (_, i) => 0); 
   const [activeQuestion, setActiveQuestion] = React.useState(0);
   const [answers, setAnswers] = React.useState(answersHolder);
+  const [unanswered, setUnanswered] = React.useState([]);
   const [timeSpent, setTimeSpent] = React.useState(timeHolder);
   const [startingTime, setStartingTime] = React.useState(new Date().getTime());
   const [value, setValue] = React.useState(null);
@@ -74,8 +75,8 @@ export default function QuizTemp(props) {
   };
 
   React.useEffect(() => {
-    getAnswers(answers, timeSpent, checkLast);
-  }, [answers, getAnswers]);
+    getAnswers(answers, timeSpent, checkLast,unanswered);
+  }, [answers,timeSpent, checkLast]);
   const handleSubmit = (event) => {
     event.preventDefault();
     const userAnswer = parseInt(value);
@@ -106,7 +107,7 @@ export default function QuizTemp(props) {
   };
   const handlePageChange = (event, page) => {
     const q = page - 1;
-
+    let unansweredQ = [];
     const endingTime = new Date().getTime();
     setTimeSpent((timeSpent) => {
       const timeDiffInSec = Math.round((endingTime - startingTime) / 1000) % 60;
@@ -114,26 +115,26 @@ export default function QuizTemp(props) {
         parseInt(timeSpent[activeQuestion]) + parseInt(timeDiffInSec);
       return timeSpent;
     });
-
+    
     if (answers[q] != "") {
       setValue(answers[q]);
     } else {
       setValue(null);
     }
+    answers.forEach((answer,index)=>{
+      if(answer===0){
+        unansweredQ.push(index+1);
+      }
+    });
+    setUnanswered(unansweredQ);
     setActiveQuestion(q);
     setStartingTime(endingTime);
-    if (page == 3) {
+    if (page == questions.length) {
       setCheckLast(true);
     } else {
       setCheckLast(false);
     }
-    console.log(timeSpent);
   };
-
-  const hn = (p) => {
-    setActiveQuestion(p - 1);
-  };
-
   return (
     <div style={{ color: "white" }}>
       <div
@@ -141,14 +142,13 @@ export default function QuizTemp(props) {
           color: "#1fa2ff",
           textTransform: "uppercase",
           paddingTop: "60px",
+          paddingBottom: "20px",
         }}
       >
-        <h1>{paper}</h1>
+        <Typography align="center" variant="h5">{paper}</Typography>
       </div>
       <div style={{ textAlign: "left" }}>
         <form onSubmit={handleSubmit}>
-          {/* <button onClick={() => hn(16)}>16</button> */}
-
           <FormControl component="fieldset" className={classes.formControl}>
             <Grid
               container
@@ -187,7 +187,6 @@ export default function QuizTemp(props) {
                     label={
                       <>
                         <div style={{ color: "white" }}>
-                          {/* {activeQuestion + 1} ) */}
                           <div
                             dangerouslySetInnerHTML={{
                               __html: DOMPurify.sanitize(marked(ele.text)),
@@ -199,8 +198,6 @@ export default function QuizTemp(props) {
                   />
                 );
               })}
-
-              {/* )} */}
             </RadioGroup>
             <br></br>
             <FormHelperText>
@@ -219,6 +216,14 @@ export default function QuizTemp(props) {
       </div>
       <div>
         <hr></hr>
+        <Grid container direction="row" justify="center" alignItems="center">
+            <Button color="primary">
+              Prev
+            </Button>
+            <Button color="primary">
+              Next
+            </Button>
+        </Grid>
         <Grid container direction="row" justify="center" alignItems="center">
           <div className={classes.root}>
             <Pagination

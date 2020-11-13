@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
@@ -156,7 +156,7 @@ export default function Categories() {
                 <Rocket />
             </div>
             <Container>
-                <div style={{textAlign:"center"}}>
+                <div style={{textAlign:"center"}} id="subjects">
                         <Typography variant="h4">
                             CATEGORIES
                         </Typography>
@@ -173,7 +173,7 @@ export default function Categories() {
                             <Grid key={subject.title} item xs={6} sm={3} md={3}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
-                                        <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
+                                        <Link href={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
                                             <Button className={classes.button}>
                                                 <div>
                                                     <img src={subject.image}></img>

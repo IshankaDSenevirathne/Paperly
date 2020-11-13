@@ -296,7 +296,7 @@ export default function Results(props) {
           paddingTop: "60px",
         }}
       >
-        <h1>{paper}</h1>
+        <Typography align="center" variant="h5">{paper}</Typography>
       </div>
       <div className="evaluation">
         {evaluatedResults(answers, questions, timeSpent)}

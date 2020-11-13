@@ -9,14 +9,8 @@ import Menu from "@material-ui/core/Menu";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import PropTypes from "prop-types";
 import Paper from "@material-ui/core/Paper";
-
-// import Toolbar from '@material-ui/core/Toolbar';
-// import Typography from '@material-ui/core/Typography';
-// import { makeStyles } from '@material-ui/core/styles';
-// import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-// import Box from '@material-ui/core/Box';
-// import Container from '@material-ui/core/Container';
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
@@ -149,8 +143,9 @@ export default function Review(props) {
           textTransform: "uppercase",
           paddingTop: "60px",
         }}
+        id="back-to-top-anchor"
       >
-        <h1 id="back-to-top-anchor">{paper}</h1>
+        <Typography align="center" variant="h5">{paper}</Typography>
       </div>
       <div
         style={{
@@ -291,7 +286,7 @@ export default function Review(props) {
       <ScrollTop {...props}>
         <Fab
           style={{ backgroundColor: "#1fa2ff" }}
-          size="small"
+          size="medium"
           aria-label="scroll back to top"
         >
           <KeyboardArrowUpIcon style={{ color: "#ffffff" }} />

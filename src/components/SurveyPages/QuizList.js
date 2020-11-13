@@ -79,10 +79,10 @@ export default function QuizList(props) {
           <img src={getImage(subject)}></img>
         </div>
         <div style={{padding:"10px 10px 10px 0px",borderRadius:"4px",marginLeft:"10px",marginRight:"10px",marginBottom:"20px",background:"#E8F3FB"}}>
-          <Typography variant="body1" align="center">
-            <Info style={{color:"#1fa2ff"}} fontSize="large"/>
+          <Typography variant="body1">
+            <Info style={{color:"#1fa2ff",textAlign:"center"}} fontSize="large"/>
           </Typography>
-          <Typography align="left" variant="body2">
+          <div style={{textAlign:"left",fontSize:"13px",lineHeight:"20px"}}> 
             <ul>
               <li>
                 The exam will begin as you proceed to the next step.
@@ -97,7 +97,7 @@ export default function QuizList(props) {
                 Try to answer all questions and proceed to the next step.
               </li>
             </ul>
-          </Typography>
+          </div>
         </div>
         <div className={classes.root}>
           <Container maxWidth="sm">

@@ -7,14 +7,16 @@ export default function Logo() {
     useEffect(()=>{
         const tl = new TimelineMax();
         tl
-        .set("#title",{opacity:0})
+        .set(".title",{opacity:0})
+        .set(".subtitle",{opacity:0})
         .set("#part1",{x:200,opacity:0})
         .set("#part2",{x:-200,opacity:0})
         .set("#part3",{y:-200,opacity:0})
         .to("#part1",{ x:0,duration:1.5,opacity:1,ease:Circ.easeOut})
         .to("#part2",{ x:0,duration:1.5,opacity:1,ease:Circ.easeOut},'-=1.3')
         .to("#part3",{ y:0,duration:1.5,opacity:1,ease:Circ.easeOut},'-=1.4')
-        .to("#title",{duration:2,opacity:1,ease:Power1.easeInOut},'-=0.6')
+        .to(".title",{duration:2,opacity:1,ease:Power1.easeInOut},'-=0.6')
+        .to(".subtitle",{duration:2,opacity:1,ease:Power1.easeInOut},'-=1');
 
     },[])
     return (
@@ -26,33 +28,45 @@ export default function Logo() {
                     </div>
                 </Grid>
                 <Grid item>
-                    <div id="title">
-                        <Hidden mdDown>
-                            <Typography variant="h2" align="center">
-                                <div style={{fontFamily:"titleFont",textTransform:"uppercase"}}>
-                                    <b><span style={{color:"#1fa2ff"}}>Paperly</span></b>
-                                </div>
-                            </Typography>
-                            <Typography variant="h5" align="center">
-                                <div style={{fontFamily:"titleFont",textTransform:"uppercase"}}>
-                                    <b>Your Next Generation PastPaper Companion</b>
-                                </div>
-                            </Typography>
-                        </Hidden>
-                        <Hidden lgUp>
-                            <div style={{ paddingLeft:'15px',paddingRight:"15px"}}>
-                                <Typography variant="h4" align="center">
+                    <div>
+                        <div className="title">
+                            <Hidden mdDown>
+                                <Typography variant="h2" align="center">
                                     <div style={{fontFamily:"titleFont",textTransform:"uppercase"}}>
                                         <b><span style={{color:"#1fa2ff"}}>Paperly</span></b>
                                     </div>
                                 </Typography>
-                                <Typography variant="subtitle1" align="center">
+                            </Hidden>
+                        </div>
+                        <div className="subtitle">
+                            <Hidden mdDown>
+                                <Typography variant="h5" align="center">
                                     <div style={{fontFamily:"titleFont",textTransform:"uppercase"}}>
                                         <b>Your Next Generation PastPaper Companion</b>
                                     </div>
                                 </Typography>
-                            </div>
-                        </Hidden>
+                            </Hidden>
+                        </div>
+                        <div className="title">
+                            <Hidden lgUp>
+                                <div style={{ paddingLeft:'15px',paddingRight:"15px"}}>
+                                    <Typography variant="h4" align="center">
+                                        <div style={{fontFamily:"titleFont",textTransform:"uppercase"}}>
+                                            <b><span style={{color:"#1fa2ff"}}>Paperly</span></b>
+                                        </div>
+                                    </Typography>
+                                </div>
+                            </Hidden>
+                        </div>
+                        <div className="subtitle">
+                            <Hidden lgUp>
+                                    <Typography variant="subtitle1" align="center">
+                                        <div style={{fontFamily:"titleFont",textTransform:"uppercase"}}>
+                                            <b>Your Next Generation PastPaper Companion</b>
+                                        </div>
+                                    </Typography>
+                            </Hidden>
+                        </div>
                     </div>
                 </Grid>
             </Grid>
