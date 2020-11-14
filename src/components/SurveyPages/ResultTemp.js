@@ -149,11 +149,6 @@ export default function ResultTemp(props) {
           >
             <Grid item>
               <div style={{ textAlign: "left" }}>
-                {/* <h3>
-                  {questionNumber}
-                  {")"}
-                  {question.title}
-                </h3> */}
                 <div style={{ color: "white" }}>
                   <div
                     dangerouslySetInnerHTML={{
@@ -189,21 +184,6 @@ export default function ResultTemp(props) {
                   }
                   label={
                     <>
-                      {/* {ele.img && (
-                        <>
-                          <img
-                            src={ele.img}
-                            key={ele.id}
-                            className="profile-img"
-                            width={ele.imgwidth}
-                            height="auto"
-                            style={{ marginRight: "5px" }}
-                            alt={ele.id}
-                          />
-                          <br />
-                        </>
-                      )}{" "}
-                      <span style={{ color: "#D0D3D4" }}> {ele.text}</span> */}
                       <div style={{ color: "#D0D3D4" }}>
                         <div
                           dangerouslySetInnerHTML={{

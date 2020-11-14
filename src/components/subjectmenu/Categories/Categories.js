@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
@@ -152,13 +152,13 @@ export default function Categories() {
     const classes=useStyles();
     return (
         <div>
-            <div style={{background:"#2a3136",backgroundImage:`url(${RocketWave})`,backgroundSize:"cover",backgroundRepeat:"no-repeat",marginBottom:"20px",textAlign:"left"}}>
+            <div style={{background:"#2a3136",backgroundImage:`url(${RocketWave})`,backgroundSize:"cover",backgroundRepeat:"no-repeat",marginBottom:"50px",textAlign:"left"}}>
                 <Rocket />
             </div>
             <Container>
-                <div style={{textAlign:"center"}}>
+                <div style={{textAlign:"center"}} id="subjects">
                         <Typography variant="h4">
-                            CATEGORES
+                            CATEGORIES
                         </Typography>
                     <img src={directionals} />
                 </div>
@@ -168,12 +168,12 @@ export default function Categories() {
                             SCIENCE
                         </Typography>
                     </div>
-                    <Grid alignItems="center" justify="left" spacing={1} container>
+                    <Grid alignItems="center" justify="flex-start" spacing={1} container>
                         {science.map((subject)=>(
-                            <Grid item xs={6} sm={3} md={3}>
+                            <Grid key={subject.title} item xs={6} sm={3} md={3}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
-                                        <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
+                                        <Link href={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
                                             <Button className={classes.button}>
                                                 <div>
                                                     <img src={subject.image}></img>
@@ -195,9 +195,9 @@ export default function Categories() {
                             ART
                         </Typography>
                     </div>
-                    <Grid alignItems="center" justify="left" spacing={1} container>
+                    <Grid alignItems="center" justify="flex-start" spacing={1} container>
                         {art.map((subject)=>(
-                            <Grid item xs={6} sm={3} md={3}>
+                            <Grid key={subject.title} item xs={6} sm={3} md={3}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
                                         <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
@@ -222,9 +222,9 @@ export default function Categories() {
                             COMMERCE
                         </Typography>
                     </div>
-                    <Grid alignItems="center" justify="left" spacing={1} container>
+                    <Grid alignItems="center" justify="flex-start" spacing={1} container>
                         {commerce.map((subject)=>(
-                            <Grid item xs={6} sm={3} md={3}>
+                            <Grid key={subject.title} item xs={6} sm={3} md={3}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
                                         <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
@@ -249,9 +249,9 @@ export default function Categories() {
                             OTHER
                         </Typography>
                     </div>
-                    <Grid alignItems="center" justify="left" spacing={1} container>
+                    <Grid alignItems="center" justify="flex-start" spacing={1} container>
                         {other.map((subject)=>(
-                            <Grid item xs={6} sm={3} md={3}>
+                            <Grid key={subject.title} item xs={6} sm={3} md={3}>
                                 <div>
                                     <Paper elevation={2} className={classes.paper}>
                                         <Link to={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>

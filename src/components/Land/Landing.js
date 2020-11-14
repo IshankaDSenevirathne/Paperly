@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import  Link  from "@material-ui/core/Link";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
@@ -194,7 +194,7 @@ export default function Album(props) {
           <div style={{ paddingTop: "20px" }}>
             <Typography gutterBottom variant="subtitle1" align="center">
               <Link
-                to="/subjectmenu"
+                href="/subjectmenu"
                 style={{
                   textDecoration: "none",
                 }}

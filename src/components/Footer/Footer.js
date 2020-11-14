@@ -20,7 +20,7 @@ const Footer = () => {
           <Container>
             <div style={{borderBottom:"1px solid grey"}}>
               <Grid container alignItems="flex-start" justify="space-between">
-                <Grid sm={6} md={8} item justify="flex-start">
+                <Grid sm={6} md={8} item >
                   <div>
                     <Typography variant="h6" align="left">
                       WE TRY TO MAKE AWSOME SOFTWARE.
@@ -33,7 +33,7 @@ const Footer = () => {
                     </Typography>
                   </div>
                 </Grid>
-                <Grid sm={4} md={4} item  justify="flex-end">
+                <Grid sm={4} md={4} item >
                   <div style={{paddingBottom:"10px"}}>
                     <Typography variant="subtitle2" align="left">
                       ABOUT US
@@ -64,13 +64,13 @@ const Footer = () => {
                 alignItems="center"
                 justify="space-between"
               >
-              <Grid item justify="flex-start">
+              <Grid item>
                 <p>
                   Copyright &copy; {new Date().getFullYear()}{" "}
                   <Link className="paperly_footer_link" href="/">Paperly LLC .</Link>
                 </p>
               </Grid>
-              <Grid item justify="flex-end">
+              <Grid item>
                     <Link  href="/">
                       <img className="socialicons" src={FaceBook}></img>
                     </Link>
@@ -93,7 +93,7 @@ const Footer = () => {
           <Container>
             <div style={{borderBottom:"1px solid grey"}}>
               <Grid container justify="flex-start">
-                <Grid sm={6} md={8} item justify="flex-start">
+                <Grid sm={6} md={8} item >
                   <div>
                     <Typography variant="h6" align="left">
                       WE TRY TO MAKE AWSOME SOFTWARE.
@@ -106,7 +106,7 @@ const Footer = () => {
                     </Typography>
                   </div>
                 </Grid>
-                <Grid sm={4} md={4} item  justify="flex-end">
+                <Grid sm={4} md={4} item  >
                   <div style={{paddingBottom:"10px"}}>
                     <Typography variant="subtitle2" align="left">
                       ABOUT US

@@ -31,7 +31,7 @@ const styles = makeStyles((theme) => ({
 export default function StepGuide() {
   const classes = styles();
   return (
-    <div>
+    <div id="features">
       <div style={{ paddingBottom: "100px" }}>
         <Grid container spacing={2} alignItems="center">
           <Grid item xs={12} sm container justify="center">

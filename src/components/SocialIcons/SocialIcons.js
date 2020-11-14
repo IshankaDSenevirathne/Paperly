@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import Grid from '@material-ui/core/Grid';
 import Hidden from "@material-ui/core/Hidden";
-import { lightBlue } from "@material-ui/core/colors";
 
 import FaceBook from "../../img/icons/facebook-2.svg";
 import GitHub from "../../img/icons/github-2.svg";

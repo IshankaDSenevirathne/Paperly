@@ -54,7 +54,7 @@ const Statsbar = (props) => {
   return (
     <Grid container direction="row" className={classes.statbar}>
       <Grid item xs={12} sm={3}>
-        <div className="stattable">
+        <div id="statistics" className="stattable">
           {props.counterVisible ? (
             <Typography variant="h2" gutterBottom align="center">
               <AnimatedNumber
