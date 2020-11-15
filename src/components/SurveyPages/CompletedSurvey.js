@@ -14,6 +14,15 @@ import Rating from '@material-ui/lab/Rating';
 import Button from "@material-ui/core/Button";
 import Tadaa from "../Animations/Tadaa";
 
+
+const API =
+  process.env.NODE_ENV === "production"
+    ? `https://paperly-114b9e.us1.kinto.io`
+    : "http://localhost:5000";
+
+// const API = `https://paperly-114b9e.us1.kinto.io`;
+
+
 const customIcons = {
     1: {
       icon: <SentimentVeryDissatisfiedIcon />,
@@ -63,7 +72,7 @@ const useStyles=makeStyles(()=>({
     },
 }))
 
-export default function CompletedSurvey() {
+export default function CompletedSurvey(props) {
     const classes=useStyles();
 const [name, setname] = useState('')
 const [feedback, setfeedback] = useState('')
@@ -73,7 +82,29 @@ const [feedback, setfeedback] = useState('')
         e.preventDefault()
         console.log(name)
         console.log(feedback)
+        console.log(props.year)
+        console.log(props.subject)
 
+        let payload = {
+            name,
+            feedback,
+            year: props.year,
+            subject: props.subject,
+          };
+
+
+          fetch(`${API}/landingstats/addfeedback`, {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          })
+            .then((res) => res.json())
+            .then((res) => {
+              console.log(res);
+            });
 
 
 }
