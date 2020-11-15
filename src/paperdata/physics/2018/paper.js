@@ -35,6 +35,8 @@ const img22a3 = require("./q22/3.PNG");
 const img22a4 = require("./q22/4.PNG");
 const img22a5 = require("./q22/5.PNG");
 
+const img23q = require("./q23/q23.PNG");
+
 let data = {
   paperId: "1",
   content: {
@@ -735,28 +737,55 @@ let data = {
           },
         ],
         correctAnswer: 1,
-      },{
-        title: `## 22. Figures show five clusters of soap bubbles in air, as drawn by a student. If centres of the bubbles in each cluster are coplanar, which of the following shows the cluster with physically possible`,
+      },
+      {
+        title: `## 23. A Gaussian surface S is drawn enclosing a charge distribution of net positive charge as shown in the figure. If the electric flux through the portion of the surface marked as A is <img style='width:1.5%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+          process.env.NODE_ENV
+        }&equation=${encodeURIComponent(
+          "\\psi "
+        )}'/> is - <img style='width:1.5%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+          process.env.NODE_ENV
+        }&equation=${encodeURIComponent(
+          "\\psi "
+        )}'/> (<img style='width:1.5%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+          process.env.NODE_ENV
+        }&equation=${encodeURIComponent(
+          "\\psi "
+        )}'/> > 0), which of the following is true regarding the electric flux <img style='width:2.5%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+          process.env.NODE_ENV
+        }&equation=${encodeURIComponent(
+          "\\psi_R "
+        )}'/> through the rest of the Gaussian surface? \n <img style='width:40%;' src='${img23q}' /> `,
         choices: [
           {
             id: 1,
-            text: `<img style='width:106%;' src='${img22a1}' />`,
+            text: `<img style='width:200%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\psi_R = - \\psi ")}'/>`,
           },
           {
             id: 2,
-            text: `<img style='width:100%;' src='${img22a2}' />`,
+            text: `<img style='width:200%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\psi_R = + \\psi ")}'/>`,
           },
           {
             id: 3,
-            text: `<img style='width:118%;' src='${img22a3}' />`,
+            text: `<img style='width:200%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\psi_R < - \\psi ")}'/>`,
           },
           {
             id: 4,
-            text: `<img style='width:122%;' src='${img22a4}' />`,
+            text: `<img style='width:200%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\psi_R < + \\psi ")}'/>`,
           },
           {
             id: 5,
-            text: `<img style='width:100%;' src='${img22a5}' />`,
+            text: `<img style='width:200%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\psi_R > + \\psi ")}'/>`,
           },
         ],
         correctAnswer: 1,
