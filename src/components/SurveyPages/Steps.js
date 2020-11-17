@@ -381,7 +381,7 @@ export default function Steps(props) {
         <div style={{ paddingTop: "30px" }}>
           {activeStep === steps.length ? (
             <div>
-              <CompletedSurvey />
+              <CompletedSurvey year={paperYear} subject={subject} />
               <Button
                 variant="contained"
                 color="primary"
