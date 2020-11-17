@@ -11,7 +11,7 @@ export default function BannerHome() {
     return (
         <div style={{textAlign:"center",paddingBottom:"20px"}}>
             <Grid container  direction="column" justify="space-around" alignItems="center" style={{ minHeight: '100vh' }}>
-                <Grid item  justify="center">
+                <Grid item>
                     <Logo />                           
                 </Grid>
             </Grid>

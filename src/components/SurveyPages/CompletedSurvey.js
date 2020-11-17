@@ -8,6 +8,8 @@ import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied'
 import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAltOutlined';
 import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
+import { lightBlue } from "@material-ui/core/colors";
+
 import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 import Rating from '@material-ui/lab/Rating';
@@ -61,28 +63,32 @@ const useStyles=makeStyles(()=>({
         color:"white",
         paddingBottom:"1%"
     },
+    submit:{
+        color: "whitesmoke",
+        "&:hover": {
+            backgroundColor: lightBlue[400],
+            color: "white",
+        }
+    }
 }))
 
 export default function CompletedSurvey() {
     const classes=useStyles();
-const [name, setname] = useState('')
-const [feedback, setfeedback] = useState('')
+    const [name, setname] = useState('')
+    const [feedback, setfeedback] = useState('')
 
 
    const formSubmit=(e)=>{
         e.preventDefault()
         console.log(name)
         console.log(feedback)
-
-
-
 }
     
     return (
         <div id="my-canvas" className="content">
             <Tadaa />
             <div className={classes.root}>
-                <div style={{paddingTop:"20px",paddingBottom:"20px"}}>
+                <div style={{color:"#5AF38B",paddingTop:"20px",paddingBottom:"20px"}}>
                     <Typography variant="h4" align="center">
                         <b>Congratulations !</b>
                     </Typography>
@@ -110,18 +116,14 @@ const [feedback, setfeedback] = useState('')
                           
                             <form className={classes.forminner} autoComplete="off" onSubmit={(e)=>formSubmit(e)}>
                 
-                                <TextField required  placeholder="Your awesome name " variant="filled" inputProps={{className:classes.feedback}} onChange={e=>setname(e.target.value)} />
+                                <TextField required  placeholder="Your awesome name " variant="filled" fullWidth={true} inputProps={{className:classes.feedback}} onChange={e=>setname(e.target.value)} />
                                 <div className={classes.feedbacknamedivider} ></div>
                                 <TextField required  placeholder="Tell us what you think... " variant="filled" fullWidth={true} inputProps={{className:classes.feedback}} multiline rows={6} rowsMax={6} id="feedback" onChange={e=>setfeedback(e.target.value)} />
-                    
                                 <div className={classes.feedbacknamedivider} ></div>
-
-                                <Button type="submit" variant="contained" color="primary">
+                                <Button type="submit" variant="contained" color="primary" className={classes.submit}>
                                     Submit
                                 </Button>
                             </form>
-                            
-                         
                         </div>
                     </Grid>
                 </div>
