@@ -13,7 +13,6 @@ import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
 import Quote from "./Quote/Quote";
 import BannerHome from "./BannerHome/BannerHome";
-import Announcements from "./Announcements/Announcements";
 import Feedback from "./Feedback/Feedback";
 
 import PropTypes from "prop-types";
@@ -160,7 +159,6 @@ export default function Album(props) {
       <div id="back-to-top-anchor"></div>
       <BannerHome />
       <Banner />
-      <Announcements />
       <Container className={classes.cardGrid} maxWidth="md">
         <Container
           style={{

@@ -73,27 +73,27 @@ const Footer = () => {
                 </p>
               </Grid>
               <Grid item>
-                    <Link  href="https://www.facebook.com/Paperly-110864100824156">
+                    <Link target="_blank"  href="https://www.facebook.com/Paperly-110864100824156">
                       <img className="socialicons" src={FaceBook}></img>
                     </Link>
                     &nbsp;
                     &nbsp;
-                    <Link href="https://twitter.com/paperlytech">
+                    <Link target="_blank" href="https://twitter.com/paperlytech">
                       <img className="socialicons" src={Twitter}></img>
                     </Link>
                     &nbsp;
                     &nbsp;
-                    <Link href="https://www.instagram.com/paperly.tech/">
+                    <Link target="_blank" href="https://www.instagram.com/paperly.tech/">
                       <img className="socialicons" src={Instagram}></img>
                     </Link>
                     &nbsp;
                     &nbsp;
-                    <Link href="https://www.reddit.com/user/paperlytech">
+                    <Link target="_blank" href="https://www.reddit.com/user/paperlytech">
                       <img className="socialicons" src={Reddit}></img>
                     </Link>
                     &nbsp;
                     &nbsp;
-                    <Link href="https://github.com/IshankaDSenevirathne/Paperly">
+                    <Link target="_blank" href="https://github.com/IshankaDSenevirathne/Paperly">
                       <img className="socialicons" src={GitHub}></img>
                     </Link>
               </Grid>
