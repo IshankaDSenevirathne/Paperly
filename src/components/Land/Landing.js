@@ -9,12 +9,11 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
 import "./Landing.css";
-// import SlideImg from "../Slide/slidehomeimages";
 import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
-import Footer from "./Footer/Footer";
-import Quote from "../Quote/Quote";
+import Quote from "./Quote/Quote";
 import BannerHome from "./BannerHome/BannerHome";
+import Feedback from "./Feedback/Feedback";
 
 import PropTypes from "prop-types";
 
@@ -207,7 +206,7 @@ export default function Album(props) {
           </div>
         </Grid>
       </Grid>
-      <Footer />
+      {/* <Feedback /> */}
       <ScrollTop {...props}>
         <Fab
           style={{ backgroundColor: "#1fa2ff" }}

@@ -25,10 +25,23 @@ const img15q = require("./q15/q15.PNG");
 
 const img16q = require("./q16/q16.PNG");
 
+const img17q = require("./q17/q17.PNG");
+
+const img21q = require("./q21/q21.PNG");
+
+const img22a1 = require("./q22/1.PNG");
+const img22a2 = require("./q22/2.PNG");
+const img22a3 = require("./q22/3.PNG");
+const img22a4 = require("./q22/4.PNG");
+const img22a5 = require("./q22/5.PNG");
+
+const img23q = require("./q23/q23.PNG");
+
 let data = {
   paperId: "1",
   content: {
     title: "Advanced Level 2018 Physics",
+    time:1800,
     pages: [
       {
         title: `## 1. Unit of pressure is `,
@@ -64,9 +77,7 @@ let data = {
             id: 1,
             text: `<img src='${API}/mathjax/getmathimage?env=${
               process.env.NODE_ENV
-            }&env=${process.env.NODE_ENV}&equation=${encodeURIComponent(
-              "AX"
-            )}'/>`,
+            }&equation=${encodeURIComponent("AX")}'/>`,
           },
           {
             id: 2,
@@ -518,6 +529,264 @@ let data = {
 |:-------------:|:-------------:|:-----:|
 | 2      | 1.5 | 1 |
             `,
+          },
+        ],
+        correctAnswer: 1,
+      },
+      {
+        title: `## 17. Figure shows a displacement (x) - time (t) curve for an object executing simple harmonic motion. For this motion, magnitudes of the period T, the frequency f, the angular speed <img style='width:2%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+          process.env.NODE_ENV
+        }&equation=${encodeURIComponent(
+          "\\omega "
+        )}'/>, the maximum speed and	<img style='width:5%;margin-bottom: -7px;' src='${API}/mathjax/getmathimage?env=${
+          process.env.NODE_ENV
+        }&equation=${encodeURIComponent(
+          "\\nu_{max} "
+        )}'/>  maximum acceleration are given by <img style='width:5%;margin-bottom: -7px;' src='${API}/mathjax/getmathimage?env=${
+          process.env.NODE_ENV
+        }&equation=${encodeURIComponent(
+          "a_{max} "
+        )}'/> \n  <img style='width:50%;' src="${img17q}"></img> `,
+        choices: [
+          {
+            id: 1,
+            text: `
+| T (s) &nbsp; | &nbsp; f(Hz)     &nbsp;   | &nbsp; <img style='width:2%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent(
+              "\\omega "
+            )}'/> (s<sup>-1</sup>)   &nbsp;  |
+|:-------------:|:-------------:|:-----:|
+| 0      | 0 | 0 |
+`,
+          },
+          {
+            id: 2,
+            text: `
+| F(N) 0 < t < 2 &nbsp; | &nbsp; F(N)    2 < t < 4     &nbsp;   | &nbsp; F(N)  4 < t < 5   &nbsp;  |
+|:-------------:|:-------------:|:-----:|
+| 0      | 1.5 | 0 |
+            `,
+          },
+          {
+            id: 3,
+            text: `
+| F(N) 0 < t < 2 &nbsp; | &nbsp; F(N)    2 < t < 4     &nbsp;   | &nbsp; F(N)  4 < t < 5   &nbsp;  |
+|:-------------:|:-------------:|:-----:|
+| 0      | 2 | 0 |
+            `,
+          },
+          {
+            id: 4,
+            text: `
+| F(N) 0 < t < 2 &nbsp; | &nbsp; F(N)    2 < t < 4     &nbsp;   | &nbsp; F(N)  4 < t < 5   &nbsp;  |
+|:-------------:|:-------------:|:-----:|
+| 1      | 0 | 0 |
+            `,
+          },
+          {
+            id: 5,
+            text: `
+| F(N) 0 < t < 2 &nbsp; | &nbsp; F(N)    2 < t < 4     &nbsp;   | &nbsp; F(N)  4 < t < 5   &nbsp;  |
+|:-------------:|:-------------:|:-----:|
+| 2      | 1.5 | 1 |
+            `,
+          },
+        ],
+        correctAnswer: 1,
+      },
+      {
+        title: `## 18. An elephant at rest is observed by a person 1 km away from his location. The sound intensity if trumpet of the elephant heard by the person is 10<sup>-10</sup> Wm<sup>-2</sup> . Assume that the sound comes from a point source.If the threshold of hearing of the person is 10<sup>-12</sup> Wm<sup>-2</sup> , what is the maximum distance from which he can hear this trumpet`,
+        choices: [
+          {
+            id: 1,
+            text: `1 km`,
+          },
+          {
+            id: 2,
+            text: `2 km`,
+          },
+          {
+            id: 3,
+            text: `4.5 km`,
+          },
+          {
+            id: 4,
+            text: `10 km`,
+          },
+          {
+            id: 5,
+            text: `20 km`,
+          },
+        ],
+        correctAnswer: 1,
+      },
+      {
+        title: `## 19. Two mercury-in-glass thermometers *P* and *Q* are to be constructed this *P* having a lager bulb of mercvury that that of *Q* , and both calibrated in the range 0°C - 100°C . Assume that walls of both bulbs have same thickness. Consider the folowing statements. \n ## Using capillary tubes with appropriate unifor, bore radii, the two thermometers can be constructed to have \n ### (A) the same capillary length between 0°C - 100°C  markings. \n ### (B) the smae response time for rapid changes in the measuring temparature. \n ### (C) a higher sensitivity in thermometer *P* that the sensitivity of *Q* thermometer. \n ## Of the above statements ,  `,
+        choices: [
+          {
+            id: 1,
+            text: ` only A is true.`,
+          },
+          {
+            id: 2,
+            text: ` only B is true.`,
+          },
+          {
+            id: 3,
+            text: `only B and C are true.`,
+          },
+          {
+            id: 4,
+            text: `only A and C are true.`,
+          },
+          {
+            id: 5,
+            text: `all A, B and C are true.`,
+          },
+        ],
+        correctAnswer: 1,
+      },
+      {
+        title: `## 20 . Water at 0 °C is continuously fed into a fully insulated boiler fixed with an immersion heater at a constant rate of 1 x 10<sup>-2</sup> kg s<sup>-1</sup> . The specific heat capacity and the specific latent heat of vaporization of water are 4.2 x 10<sup>3</sup> Jkg<sup>-1</sup> °C<sup>-1</sup> and 2.25 x 10<sup>6</sup> Jkg<sup>-1</sup> respectively. If the steam at 100 °C is to be produced at the same rate as that of supply of water, the power cf the immersion heater should be`,
+        choices: [
+          {
+            id: 1,
+            text: ` 4.2 kW.`,
+          },
+          {
+            id: 2,
+            text: ` 22,5 kW.`,
+          },
+          {
+            id: 3,
+            text: `  26.7 kW.`,
+          },
+          {
+            id: 4,
+            text: ` 42.0 kW.`,
+          },
+          {
+            id: 5,
+            text: ` 267.0 kW.`,
+          },
+        ],
+        correctAnswer: 1,
+      },
+      {
+        title: `## 21 . In the circuit shown, value of each capacitor is 1<img style='width:1.3%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+          process.env.NODE_ENV
+        }&equation=${encodeURIComponent(
+          "\\mu "
+        )}'/>F . When the capacitors are fully charged, the total charge stored in capacitors is \n <img style='width:40%;' src='${img21q}' />`,
+        choices: [
+          {
+            id: 1,
+            text: `2<img style='width:1.3%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\mu ")}'/>C`,
+          },
+          {
+            id: 2,
+            text: `4<img style='width:1.3%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\mu ")}'/>C`,
+          },
+          {
+            id: 3,
+            text: `5<img style='width:1.3%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\mu ")}'/>C`,
+          },
+          {
+            id: 4,
+            text: `8<img style='width:1.3%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\mu ")}'/>C`,
+          },
+          {
+            id: 5,
+            text: `10<img style='width:1.3%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\mu ")}'/>C`,
+          },
+        ],
+        correctAnswer: 1,
+      },
+      {
+        title: `## 22. Figures show five clusters of soap bubbles in air, as drawn by a student. If centres of the bubbles in each cluster are coplanar, which of the following shows the cluster with physically possible`,
+        choices: [
+          {
+            id: 1,
+            text: `<img style='width:106%;' src='${img22a1}' />`,
+          },
+          {
+            id: 2,
+            text: `<img style='width:100%;' src='${img22a2}' />`,
+          },
+          {
+            id: 3,
+            text: `<img style='width:118%;' src='${img22a3}' />`,
+          },
+          {
+            id: 4,
+            text: `<img style='width:122%;' src='${img22a4}' />`,
+          },
+          {
+            id: 5,
+            text: `<img style='width:100%;' src='${img22a5}' />`,
+          },
+        ],
+        correctAnswer: 1,
+      },
+      {
+        title: `## 23. A Gaussian surface S is drawn enclosing a charge distribution of net positive charge as shown in the figure. If the electric flux through the portion of the surface marked as A is <img style='width:1.5%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+          process.env.NODE_ENV
+        }&equation=${encodeURIComponent(
+          "\\psi "
+        )}'/> is - <img style='width:1.5%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+          process.env.NODE_ENV
+        }&equation=${encodeURIComponent(
+          "\\psi "
+        )}'/> (<img style='width:1.5%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+          process.env.NODE_ENV
+        }&equation=${encodeURIComponent(
+          "\\psi "
+        )}'/> > 0), which of the following is true regarding the electric flux <img style='width:2.5%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+          process.env.NODE_ENV
+        }&equation=${encodeURIComponent(
+          "\\psi_R "
+        )}'/> through the rest of the Gaussian surface? \n <img style='width:40%;' src='${img23q}' /> `,
+        choices: [
+          {
+            id: 1,
+            text: `<img style='width:200%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\psi_R = - \\psi ")}'/>`,
+          },
+          {
+            id: 2,
+            text: `<img style='width:200%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\psi_R = + \\psi ")}'/>`,
+          },
+          {
+            id: 3,
+            text: `<img style='width:200%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\psi_R < - \\psi ")}'/>`,
+          },
+          {
+            id: 4,
+            text: `<img style='width:200%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\psi_R < + \\psi ")}'/>`,
+          },
+          {
+            id: 5,
+            text: `<img style='width:200%;margin-bottom: -6px;' src='${API}/mathjax/getmathimage?env=${
+              process.env.NODE_ENV
+            }&equation=${encodeURIComponent("\\psi_R > + \\psi ")}'/>`,
           },
         ],
         correctAnswer: 1,

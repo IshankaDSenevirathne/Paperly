@@ -49,25 +49,22 @@ const useStyles = makeStyles((theme) => ({
 export default function QuizTemp(props) {
   const classes = useStyles();
 
-  const { paper, questions, getAnswers, getTimeSpent } = props;
-  
+  const { paper, questions, getAnswers, getTimeSpent,timeForPaper } = props;
   const answersHolder = Array.from({ length: questions.length }, (_, i) => 0); 
   const timeHolder = Array.from({ length: questions.length }, (_, i) => 0); 
   const [activeQuestion, setActiveQuestion] = React.useState(0);
   const [answers, setAnswers] = React.useState(answersHolder);
-  const [unanswered, setUnanswered] = React.useState([]);
   const [timeSpent, setTimeSpent] = React.useState(timeHolder);
   const [startingTime, setStartingTime] = React.useState(new Date().getTime());
   const [value, setValue] = React.useState(null);
-  const [checkLast, setCheckLast] = React.useState(false);
   const [open, setOpen] = React.useState(false);
+  const [lastQuestion,setLastQuestion]= React.useState(0);
   const [severity, setSeverityType] = React.useState("info");
   const [alert, setAlertText] = React.useState("Please select an option!");
 
   const handleRadioChange = (event) => {
     const answer = event.target.value;
     setValue(answer);
-
     setAnswers((answers) => {
       answers[activeQuestion] = answer;
       return answers;
@@ -75,8 +72,15 @@ export default function QuizTemp(props) {
   };
 
   React.useEffect(() => {
-    getAnswers(answers, timeSpent, checkLast,unanswered);
-  }, [answers,timeSpent, checkLast]);
+    let unansweredQ = [];
+    answers.forEach((answer,index)=>{
+      if(answer===0){
+        unansweredQ.push(index+1);
+      }
+    });
+    getAnswers(answers, timeSpent,unansweredQ,lastQuestion);
+  }, [...answers,lastQuestion]);
+   
   const handleSubmit = (event) => {
     event.preventDefault();
     const userAnswer = parseInt(value);
@@ -105,9 +109,8 @@ export default function QuizTemp(props) {
 
     setOpen(false);
   };
-  const handlePageChange = (event, page) => {
+  const handlePageChange = (event,page) => {
     const q = page - 1;
-    let unansweredQ = [];
     const endingTime = new Date().getTime();
     setTimeSpent((timeSpent) => {
       const timeDiffInSec = Math.round((endingTime - startingTime) / 1000) % 60;
@@ -115,25 +118,14 @@ export default function QuizTemp(props) {
         parseInt(timeSpent[activeQuestion]) + parseInt(timeDiffInSec);
       return timeSpent;
     });
-    
-    if (answers[q] != "") {
+    setLastQuestion(q);
+    setActiveQuestion(q);
+    if (answers[q] !== "") {
       setValue(answers[q]);
     } else {
       setValue(null);
     }
-    answers.forEach((answer,index)=>{
-      if(answer===0){
-        unansweredQ.push(index+1);
-      }
-    });
-    setUnanswered(unansweredQ);
-    setActiveQuestion(q);
     setStartingTime(endingTime);
-    if (page == questions.length) {
-      setCheckLast(true);
-    } else {
-      setCheckLast(false);
-    }
   };
   return (
     <div style={{ color: "white" }}>
@@ -157,7 +149,7 @@ export default function QuizTemp(props) {
               alignItems="flex-start"
             >
               <FormLabel component="legend">
-                <Timer getTimeSpent={getTimeSpent} />
+                <Timer timeForPaper={timeForPaper} getTimeSpent={getTimeSpent} />
                 <div style={{ color: "white" }}>
                   <div
                     dangerouslySetInnerHTML={{
@@ -216,11 +208,11 @@ export default function QuizTemp(props) {
       </div>
       <div>
         <hr></hr>
-        <Grid container direction="row" justify="center" alignItems="center">
-            <Button color="primary">
+        <Grid container  direction="row" justify="center" alignItems="center">
+            <Button disabled={activeQuestion===0} onClick={()=>handlePageChange("",activeQuestion)} color="primary">
               Prev
             </Button>
-            <Button color="primary">
+            <Button disabled={activeQuestion===questions.length-1} onClick={()=>handlePageChange("",activeQuestion+2)} color="primary">
               Next
             </Button>
         </Grid>
@@ -230,11 +222,11 @@ export default function QuizTemp(props) {
               count={questions.length}
               showFirstButton
               showLastButton
+              page={activeQuestion+1}
               color="primary"
               className={classes.pagination}
               siblingCount={2}
               onChange={handlePageChange}
-              defaultPage={1}
             />
           </div>
         </Grid>

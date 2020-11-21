@@ -144,7 +144,7 @@ export default function Navigation() {
                                 </div>
                             </Link>
                             {pageItems.map((item)=>(
-                                <Link href={item.link} style={{textDecoration:"none"}}>
+                                <Link key={pageItems.indexOf(item)} href={item.link} style={{textDecoration:"none"}}>
                                     <Typography variant="subtitle1" align="center" className={classes.link}>
                                             {item.name.toUpperCase()}
                                     </Typography>
@@ -190,7 +190,7 @@ export default function Navigation() {
                     <div className={classes.list}>
                         <List>
                             {pageItems.map((item, index) => (
-                            <ListItem button key={index}>
+                            <ListItem key={index} button key={index}>
                                 <Link href={item.link} style={{textDecoration:"none"}}>
                                     <div style={{display:"flex",alignItems:"center"}}>
                                         <ListItemIcon><CategoryIcon style={{color:"white"}}/></ListItemIcon>

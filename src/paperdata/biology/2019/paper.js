@@ -9,6 +9,7 @@ let data = {
   paperId: "1",
   content: {
     title: "Advanced Level 2019 Biology",
+    time:3600,
     pages: [
       {
         title: "## 1. Some nucleotides",
