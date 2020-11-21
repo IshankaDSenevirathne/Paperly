@@ -17,12 +17,12 @@ import Button from "@material-ui/core/Button";
 import Tadaa from "../Animations/Tadaa";
 
 
-const API =
-  process.env.NODE_ENV === "production"
-    ? `https://paperly-114b9e.us1.kinto.io`
-    : "http://localhost:5000";
+// const API =
+//   process.env.NODE_ENV === "production"
+//     ? `https://paperly-114b9e.us1.kinto.io`
+//     : "http://localhost:5000";
 
-// const API = `https://paperly-114b9e.us1.kinto.io`;
+const API = `https://paperly-114b9e.us1.kinto.io`;
 
 
 const customIcons = {
@@ -83,16 +83,13 @@ const useStyles=makeStyles(()=>({
 
 export default function CompletedSurvey(props) {
     const classes=useStyles();
-    const [name, setname] = useState('')
-    const [feedback, setfeedback] = useState('')
+    const [name, setname] = useState('');
+    const [feedbackStatus,setFeedbackStatus]=useState(true);
+    const [feedback, setfeedback] = useState('');
 
 
    const formSubmit=(e)=>{
         e.preventDefault()
-        console.log(name)
-        console.log(feedback)
-        console.log(props.year)
-        console.log(props.subject)
 
         let payload = {
             name,
@@ -112,10 +109,11 @@ export default function CompletedSurvey(props) {
           })
             .then((res) => res.json())
             .then((res) => {
-              console.log(res);
+              if(res.status==="success"){
+                setFeedbackStatus(false)
+              }
             });
-
-
+        
 }
     
     return (
@@ -147,17 +145,25 @@ export default function CompletedSurvey(props) {
                                         IconContainerComponent={IconContainer}
                                     />
                             </Box>
-                          
-                            <form className={classes.forminner} autoComplete="off" onSubmit={(e)=>formSubmit(e)}>
-                
-                                <TextField required  placeholder="Your awesome name " variant="filled" fullWidth={true} inputProps={{className:classes.feedback}} onChange={e=>setname(e.target.value)} />
-                                <div className={classes.feedbacknamedivider} ></div>
-                                <TextField required  placeholder="Tell us what you think... " variant="filled" fullWidth={true} inputProps={{className:classes.feedback}} multiline rows={6} rowsMax={6} id="feedback" onChange={e=>setfeedback(e.target.value)} />
-                                <div className={classes.feedbacknamedivider} ></div>
-                                <Button type="submit" variant="contained" color="primary" className={classes.submit}>
-                                    Submit
-                                </Button>
-                            </form>
+                            <div>
+                                {feedbackStatus && 
+                                <form className={classes.forminner} autoComplete="off" onSubmit={(e)=>formSubmit(e)}>
+                    
+                                    <TextField required  placeholder="Your awesome name " variant="filled" fullWidth={true} inputProps={{className:classes.feedback}} onChange={e=>setname(e.target.value)} />
+                                    <div className={classes.feedbacknamedivider} ></div>
+                                    <TextField required  placeholder="Tell us what you think... " variant="filled" fullWidth={true} inputProps={{className:classes.feedback}} multiline rows={6} rowsMax={6} id="feedback" onChange={e=>setfeedback(e.target.value)} />
+                                    <div className={classes.feedbacknamedivider} ></div>
+                                    <Button type="submit" variant="contained" color="primary" className={classes.submit}>
+                                        Submit
+                                    </Button>
+                                </form>
+                                }
+                                {!feedbackStatus &&
+                                    <Typography variant="h5" align="center">
+                                        Thank you for your feedback!
+                                    </Typography>
+                                }
+                            </div>
                         </div>
                     </Grid>
                 </div>
