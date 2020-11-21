@@ -5,7 +5,6 @@ import Categories from "./Categories/Categories";
 
 import InputBase from "@material-ui/core/InputBase";
 import { fade } from "@material-ui/core/styles";
-import Footer from "../Footer/Footer";
 import SearchIcon from "@material-ui/icons/Search";
 let papers = require("../../paperdata/papers.json");
 
@@ -120,7 +119,6 @@ const SubjectMenu = () => {
           />
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

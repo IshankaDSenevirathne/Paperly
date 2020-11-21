@@ -10,6 +10,7 @@ import Tos from "./components/tos/tos";
 import SubjectMenu from "./components/subjectmenu/subjectmenu";
 import SocialIcons from "./components/SocialIcons/SocialIcons";
 import Navigation from "./components/Navigation/Navigation";
+import Footer from "./components/Footer/Footer";
 
 import Complet from "./components/SurveyPages/CompletedSurvey";
 
@@ -30,6 +31,7 @@ function App() {
 
           {/* <Route path="*" component={Notfound} /> */}
         </Switch>
+        <Footer />
       </BrowserRouter>
     </div>
   );

@@ -1,7 +1,0 @@
-.socialicons {
-  filter: grayscale(100%);
-  transition: 0.3s ease-out;
-}
-.socialicons:hover {
-  filter: none;
-}

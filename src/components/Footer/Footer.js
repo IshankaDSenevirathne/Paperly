@@ -7,6 +7,8 @@ import Typography from "@material-ui/core/Typography";
 import FaceBook from "../../img/icons/facebook.svg";
 import GitHub from "../../img/icons/github.svg";
 import Twitter from "../../img/icons/twitter.svg";
+import Reddit from "../../img/icons/reddit.svg";
+import Instagram from "../../img/icons/instagram.svg";
 
 import Coffee from  "../Animations/Coffee";
 
@@ -71,17 +73,27 @@ const Footer = () => {
                 </p>
               </Grid>
               <Grid item>
-                    <Link  href="/">
+                    <Link  href="https://www.facebook.com/Paperly-110864100824156">
                       <img className="socialicons" src={FaceBook}></img>
                     </Link>
                     &nbsp;
                     &nbsp;
-                    <Link href="/">
+                    <Link href="https://twitter.com/paperlytech">
                       <img className="socialicons" src={Twitter}></img>
                     </Link>
                     &nbsp;
                     &nbsp;
-                    <Link href="/">
+                    <Link href="https://www.instagram.com/paperly.tech/">
+                      <img className="socialicons" src={Instagram}></img>
+                    </Link>
+                    &nbsp;
+                    &nbsp;
+                    <Link href="https://www.reddit.com/user/paperlytech">
+                      <img className="socialicons" src={Reddit}></img>
+                    </Link>
+                    &nbsp;
+                    &nbsp;
+                    <Link href="https://github.com/IshankaDSenevirathne/Paperly">
                       <img className="socialicons" src={GitHub}></img>
                     </Link>
               </Grid>

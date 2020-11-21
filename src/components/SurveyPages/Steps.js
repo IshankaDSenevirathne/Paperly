@@ -24,6 +24,7 @@ import Results from "./Results";
 import Review from "./Review";
 import CompletedSurvey from "./CompletedSurvey";
 import VerificationAlert from "./VerificationAlert";
+import ReviewPass from "./ReviewPass";
 
 
 
@@ -238,7 +239,8 @@ export default function Steps(props) {
   const [timeSpent, setTimeSpent] = useState(undefined);
   const [open, setOpen] = useState(false);
   const [paperYear, setpaperYear] = useState(0);
-  const [verificationAlertStatus,setVerificationAlertStatus]=useState(false);
+  const [resultsVerificationAlertStatus,setResultsVerificationAlertStatus]=useState(false);
+  const [reviewVerificationAlertStatus,setReviewVerificationAlertStatus]=useState(false);
 
   const steps = getSteps();
   const classes = useStyles();
@@ -266,7 +268,11 @@ export default function Steps(props) {
       return;
     }
     if(activeStep==1){
-      setVerificationAlertStatus(true);
+      setResultsVerificationAlertStatus(true);
+      return;
+    }
+    if(activeStep==3){
+      setReviewVerificationAlertStatus(true);
       return;
     }
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -287,7 +293,8 @@ export default function Steps(props) {
     setActiveUnanswered([]);
     setTimeSpentForEach([]);
     setTimeSpent(undefined);
-    setVerificationAlertStatus(false);
+    setResultsVerificationAlertStatus(false);
+    setReviewVerificationAlertStatus(false);
     setLastQuestion(0);
     setTimeForPaper(undefined);
   };
@@ -308,7 +315,13 @@ export default function Steps(props) {
     if(status){
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
-    setVerificationAlertStatus(false);
+    setResultsVerificationAlertStatus(false);
+  }
+  const getReviewPass =(status)=>{
+    if(status){
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
+    setReviewVerificationAlertStatus(false);
   }
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -356,7 +369,7 @@ export default function Steps(props) {
         <div>
           {activeQuestions && activeStep == 1 && (
             <div>
-              {verificationAlertStatus && <VerificationAlert state={true} unanswered={activeUnanswered} getVerification={getVerification}/>}
+              {resultsVerificationAlertStatus && <VerificationAlert state={true} unanswered={activeUnanswered} getVerification={getVerification}/>}
               <QuizTemp
                 getAnswers={getAnswers}
                 getTimeSpent={getTimeSpent}
@@ -382,15 +395,18 @@ export default function Steps(props) {
         </div>
         <div>
           {activeStep == 3 && (
-            <Review
-              paper={activePaper}
-              questions={activeQuestions}
-              answers={activeAnswers}
-              totalTimeSpent={timeSpent}
-              timeSpentForEach={timeSpentForEach}
-              lastQuestion={lastQuestion}
-              timeForPaper={timeForPaper}
-            />
+            <div>
+            {reviewVerificationAlertStatus && <ReviewPass state={true} getReviewPass={getReviewPass}/>}
+              <Review
+                paper={activePaper}
+                questions={activeQuestions}
+                answers={activeAnswers}
+                totalTimeSpent={timeSpent}
+                timeSpentForEach={timeSpentForEach}
+                lastQuestion={lastQuestion}
+                timeForPaper={timeForPaper}
+              />
+            </div>
           )}
         </div>
         <div style={{ paddingTop: "30px" }}>

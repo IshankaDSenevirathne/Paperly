@@ -11,7 +11,6 @@ import Grid from "@material-ui/core/Grid";
 import "./Landing.css";
 import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
-import Footer from "./Footer/Footer";
 import Quote from "./Quote/Quote";
 import BannerHome from "./BannerHome/BannerHome";
 import Announcements from "./Announcements/Announcements";
@@ -210,7 +209,6 @@ export default function Album(props) {
         </Grid>
       </Grid>
       <Feedback />
-      <Footer />
       <ScrollTop {...props}>
         <Fab
           style={{ backgroundColor: "#1fa2ff" }}
