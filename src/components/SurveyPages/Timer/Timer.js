@@ -11,8 +11,8 @@ const useStyles = makeStyles(()=>({
 })) 
 
 export default function Timer(props) {
-  const { getTimeSpent } = props;
-  const [time, setTime] = useState(120 * 60);
+  const { getTimeSpent,timeForPaper } = props;
+  const [time, setTime] = useState(timeForPaper);
   const classes=useStyles();
   useEffect(() => {
     const interval = setInterval(() => {

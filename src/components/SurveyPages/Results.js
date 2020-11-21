@@ -117,14 +117,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Results(props) {
   const classes = useStyles();
-  const { answers, questions, paper, timeSpent } = props;
+  const { answers, questions, paper, timeSpent,timeForPaper } = props;
   const [graphData, setgraphData] = useState([]);
   const [marks, setmarks] = useState(0);
 
   useEffect(() => {
     console.log(answers);
     console.log(questions);
-    console.log(120 * 60 - timeSpent);
+    console.log(timeForPaper - timeSpent);
 
     console.log(paper);
     console.log(props);
@@ -165,7 +165,7 @@ export default function Results(props) {
 
   const evaluatedResults = (answers, questions, timeSpent) => {
     let correctAnswers = 0;
-    const elapsedTime = 120 * 60 - timeSpent;
+    const elapsedTime = timeForPaper - timeSpent;
     let hours = Math.floor(elapsedTime / 3600);
     const spentHours = hours * 60;
     let minutes = Math.floor(elapsedTime / 60 - spentHours);

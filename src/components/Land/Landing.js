@@ -15,7 +15,6 @@ import Footer from "./Footer/Footer";
 import Quote from "./Quote/Quote";
 import BannerHome from "./BannerHome/BannerHome";
 import Announcements from "./Announcements/Announcements";
-import Changelog from "./Changelog/Changelog";
 import Feedback from "./Feedback/Feedback";
 
 import PropTypes from "prop-types";
@@ -211,7 +210,6 @@ export default function Album(props) {
         </Grid>
       </Grid>
       <Feedback />
-      <Changelog />
       <Footer />
       <ScrollTop {...props}>
         <Fab

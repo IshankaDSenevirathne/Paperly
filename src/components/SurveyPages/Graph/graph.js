@@ -18,7 +18,7 @@ export const MarksPercentile = (props) => (
           axis: "x",
           value: props.mark,
           lineStyle: { stroke: "#0BF7D3", strokeWidth: 2 },
-          legend: "You are here",
+          legend: "You",
           textStyle: {  
             fill: "white",
             fontSize: "0.5rem",

@@ -99,20 +99,20 @@ ScrollTop.propTypes = {
 };
 
 export default function Review(props) {
-  const { answers, questions, paper, timeSpentForEach, totalTimeSpent } = props;
+  const { answers, questions, paper, timeSpentForEach, totalTimeSpent,lastQuestion,timeForPaper} = props;
+  console.log(timeSpentForEach,totalTimeSpent);
   const classes = useStyles();
   const timeForLastQuestion = (totalTimeElapsed) => {
-    const elapsedTime = 120 * 60 - totalTimeElapsed;
+    const elapsedTime = timeForPaper - totalTimeElapsed;
     let totalTime = 0;
     for (var i = 0; i < timeSpentForEach.length - 1; i++) {
-      console.log(timeSpentForEach[i]);
+      if(i===lastQuestion){
+        continue;
+      }
       totalTime = totalTime + parseInt(timeSpentForEach[i]);
     }
-    console.log(totalTime);
-    console.log(elapsedTime);
     const timeforlastquestion = elapsedTime - totalTime;
-
-    if (timeforlastquestion == NaN) {
+    if (totalTime===elapsedTime) {
       return 0;
     } else {
       return timeforlastquestion;
@@ -206,7 +206,7 @@ export default function Review(props) {
           const correctAnswer = question.correctAnswer;
           const result = correctAnswer == userAnswer;
           let timeSpent = 0;
-          if (index == 2) {
+          if (index === lastQuestion) {
             timeSpent = timeForLastQuestion(totalTimeSpent);
           } else {
             timeSpent = timeSpentForEach[index];

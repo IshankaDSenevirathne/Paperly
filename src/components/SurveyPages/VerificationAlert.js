@@ -7,7 +7,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Grid from "@material-ui/core/Grid";
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, unstable_createMuiStrictModeTheme, useTheme } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import ReportProblemOutlined from "@material-ui/icons/ReportProblemOutlined";
 
@@ -73,14 +73,25 @@ export default function VerificationAlert(props) {
                 <DialogTitle className={classes.title}>
                     <ReportProblemOutlined style={{color:"#1fa2ff",fontSize:"50px"}}/>
                 </DialogTitle>
-                <DialogContent>
+                    <DialogContent>
                     <DialogContentText style={{color:"#ffffff"}}>
                         You wont be able to edit your answers after this step, are you sure you want to continue?
                     </DialogContentText>
-                    <Typography style={{color:"#ffffff"}} variant="subtitle2" align="left">
-                        You have following questions unanswered,
-                    </Typography>
-                    {unansweredQ}
+                    {unanswered.length!==0 && 
+                        <span>
+                            <Typography style={{color:"#ffffff"}} variant="subtitle2" align="left">
+                            You have following questions unanswered,
+                            </Typography>
+                            {unansweredQ}
+                        </span>
+                    }
+                    {unanswered.length===0 && 
+                        <span>
+                            <Typography style={{color:"#ffffff"}} variant="subtitle2" align="left">
+                            You have answered all the questions.
+                            </Typography>
+                        </span>
+                    }
                 </DialogContent>
                 <DialogActions>
                     <Button autoFocus onClick={handleClose} color="primary">

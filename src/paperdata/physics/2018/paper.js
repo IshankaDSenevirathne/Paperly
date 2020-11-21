@@ -41,6 +41,7 @@ let data = {
   paperId: "1",
   content: {
     title: "Advanced Level 2018 Physics",
+    time:1800,
     pages: [
       {
         title: `## 1. Unit of pressure is `,

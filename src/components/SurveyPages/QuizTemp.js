@@ -49,17 +49,16 @@ const useStyles = makeStyles((theme) => ({
 export default function QuizTemp(props) {
   const classes = useStyles();
 
-  const { paper, questions, getAnswers, getTimeSpent } = props;
+  const { paper, questions, getAnswers, getTimeSpent,timeForPaper } = props;
   const answersHolder = Array.from({ length: questions.length }, (_, i) => 0); 
   const timeHolder = Array.from({ length: questions.length }, (_, i) => 0); 
   const [activeQuestion, setActiveQuestion] = React.useState(0);
   const [answers, setAnswers] = React.useState(answersHolder);
-  const [lastAnswer, setLastAnswer] = React.useState(null);
   const [timeSpent, setTimeSpent] = React.useState(timeHolder);
   const [startingTime, setStartingTime] = React.useState(new Date().getTime());
   const [value, setValue] = React.useState(null);
-  const [checkLast, setCheckLast] = React.useState(false);
   const [open, setOpen] = React.useState(false);
+  const [lastQuestion,setLastQuestion]= React.useState(0);
   const [severity, setSeverityType] = React.useState("info");
   const [alert, setAlertText] = React.useState("Please select an option!");
 
@@ -70,9 +69,6 @@ export default function QuizTemp(props) {
       answers[activeQuestion] = answer;
       return answers;
     });
-    if(activeQuestion===questions.length-1){
-      setLastAnswer(true);
-    }
   };
 
   React.useEffect(() => {
@@ -82,8 +78,8 @@ export default function QuizTemp(props) {
         unansweredQ.push(index+1);
       }
     });
-    getAnswers(answers, timeSpent, checkLast,unansweredQ);
-  }, [lastAnswer,checkLast]);
+    getAnswers(answers, timeSpent,unansweredQ,lastQuestion);
+  }, [...answers,lastQuestion]);
    
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -122,19 +118,14 @@ export default function QuizTemp(props) {
         parseInt(timeSpent[activeQuestion]) + parseInt(timeDiffInSec);
       return timeSpent;
     });
+    setLastQuestion(q);
     setActiveQuestion(q);
     if (answers[q] !== "") {
       setValue(answers[q]);
     } else {
       setValue(null);
     }
-    
     setStartingTime(endingTime);
-    if (page === questions.length) {
-      setCheckLast(true);
-    } else {
-      setCheckLast(false);
-    }
   };
   return (
     <div style={{ color: "white" }}>
@@ -158,7 +149,7 @@ export default function QuizTemp(props) {
               alignItems="flex-start"
             >
               <FormLabel component="legend">
-                <Timer getTimeSpent={getTimeSpent} />
+                <Timer timeForPaper={timeForPaper} getTimeSpent={getTimeSpent} />
                 <div style={{ color: "white" }}>
                   <div
                     dangerouslySetInnerHTML={{

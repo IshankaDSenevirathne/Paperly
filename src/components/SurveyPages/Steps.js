@@ -216,21 +216,33 @@ function getSteps() {
   ];
 }
 
+function getButtonText() {
+  return [
+    "Exam",
+    "Results",
+    "Review",
+    "Finish",
+  ];
+}
+
+
 export default function Steps(props) {
-  const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [activePaper, setActivePaper] = useState(undefined);
   const [activeQuestions, setActiveQuestions] = useState(undefined);
   const [activeAnswers, setActiveAnswers] = useState([]);
   const [activeUnanswered, setActiveUnanswered] = useState(undefined);
+  const [timeForPaper, setTimeForPaper] = useState(undefined);
+  const [lastQuestion,setLastQuestion]=useState(0);
   const [timeSpentForEach, setTimeSpentForEach] = useState([]);
-  const [timeSpent, setTimeSpent] = useState(120 * 60);
-  const [checkLast, setCheckLast] = useState(false);
+  const [timeSpent, setTimeSpent] = useState(undefined);
   const [open, setOpen] = useState(false);
   const [paperYear, setpaperYear] = useState(0);
   const [verificationAlertStatus,setVerificationAlertStatus]=useState(false);
 
   const steps = getSteps();
+  const classes = useStyles();
+  const buttonTxt = getButtonText();
 
   const { papersList, subject } = props;
 
@@ -241,15 +253,13 @@ export default function Steps(props) {
     //need to load the selected paper
     const regex = /\d+/;
     let year = activePaper.match(regex)[0];
-    console.log(year);
     setpaperYear(year);
 
     let paper = require(`../../paperdata/${subject}/${year}/paper`);
 
-    console.log(paper.default.content);
-
     setActiveQuestions(paper.default.content.pages);
-  }, [activePaper, activeQuestions]);
+    setTimeForPaper(paper.default.content.time);
+  }, [activePaper, activeQuestions,timeForPaper]);
   const handleNext = () => {
     if (activePaper == undefined) {
       setOpen(true);
@@ -276,17 +286,18 @@ export default function Steps(props) {
     setActiveAnswers([]);
     setActiveUnanswered([]);
     setTimeSpentForEach([]);
-    setTimeSpent(120 * 60);
-    setCheckLast(false);
+    setTimeSpent(undefined);
     setVerificationAlertStatus(false);
+    setLastQuestion(0);
+    setTimeForPaper(undefined);
   };
 
   const setPaper = (index) => {
     setActivePaper(papersList[index]);
   };
-  const getAnswers = (answers, timeSpentForEach, checkLast,unanswered) => {
-    setCheckLast(checkLast);
+  const getAnswers = (answers, timeSpentForEach,unanswered,lastQuestion) => {
     setActiveAnswers(answers);
+    setLastQuestion(lastQuestion);
     setTimeSpentForEach(timeSpentForEach);
     setActiveUnanswered(unanswered);
   };
@@ -350,6 +361,7 @@ export default function Steps(props) {
                 getAnswers={getAnswers}
                 getTimeSpent={getTimeSpent}
                 questions={activeQuestions}
+                timeForPaper={timeForPaper}
                 paper={activePaper}
               />
             </div>
@@ -364,6 +376,7 @@ export default function Steps(props) {
               timeSpent={timeSpent}
               paperName={subject}
               paperYear={paperYear}
+              timeForPaper={timeForPaper}
             />
           )}
         </div>
@@ -375,6 +388,8 @@ export default function Steps(props) {
               answers={activeAnswers}
               totalTimeSpent={timeSpent}
               timeSpentForEach={timeSpentForEach}
+              lastQuestion={lastQuestion}
+              timeForPaper={timeForPaper}
             />
           )}
         </div>
@@ -407,9 +422,8 @@ export default function Steps(props) {
                   color="primary"
                   onClick={handleNext}
                   className={classes.button}
-                  disabled={activeStep == 1 && !checkLast}
                 >
-                  {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                  {buttonTxt[activeStep]}
                 </Button>
               </div>
             </div>
@@ -423,7 +437,7 @@ export default function Steps(props) {
           autoHideDuration={2000}
           onClose={handleClose}
         >
-          <MuiAlert elevation={6} variant="filled" severity="error">
+          <MuiAlert elevation={6} variant="filled" severity="info">
             Please select an exam!
           </MuiAlert>
         </Snackbar>
