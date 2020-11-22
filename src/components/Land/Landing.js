@@ -25,11 +25,6 @@ import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 
-
-const gradient =
-  "linear-gradient(98deg, rgba(31,162,255,0.5085609243697479) 0%, rgba(18,216,250,0.002931547619047619) 100%)";
-
-
 const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(2),
@@ -46,56 +41,8 @@ const useStyles = makeStyles((theme) => ({
   botBanner: {
     minHeight: "300px",
   },
-  // https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80
-
-  heroContent: {
-    padding: theme.spacing(18, 10, 18),
-    // backgroundImage: `${gradient}, url(${bg})`,
-    backgroundImage: `${gradient}, url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80)`,
-    "background-position": "center",
-    "background-repeat": "no-repeat",
-    "background-size": "cover",
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4),
-  },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
-  },
-  card: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-  },
-  cardMedia: {
-    paddingTop: "56.25%", // 16:9
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  footer: {
-    padding: theme.spacing(0, 0),
-    marginTop: "auto",
-    // height: "35vh",
-    //     backgroundatt -attachment: fixed;
-    // background-size: cover;
-    // backgroundColor:
-    //   theme.palette.type === "light"
-    //     ? theme.palette.grey[200]
-    //     : theme.palette.grey[800],
-  },
-  paper: {
-    height: 200,
-    width: 200,
-    textAlign: "center",
-    // position: "sticky",
-    background: "#1fa2ff",
-    color: "#ffffff",
-  },
   statbar: {
     padding: "3rem",
-    // backgroundImage: `${gradientstatbar}`,
     background: "rgb(245, 245, 245)",
   },
 }));
@@ -154,13 +101,10 @@ export default function Album(props) {
       <div id="back-to-top-anchor"></div>
       <BannerHome />
       <Banner />
-      <Container className={classes.cardGrid} maxWidth="md">
-        <Container
-          style={{
-            paddingBottom: "1rem",
-          }}
-        ></Container>
-        <StepGuide />
+      <Container maxWidth="lg">
+        <div style={{paddingTop:"100px"}}>
+          <StepGuide />
+        </div>
       </Container>
       <div></div>{" "}
       <VisibilitySensor
@@ -201,7 +145,7 @@ export default function Album(props) {
           </div>
         </Grid>
       </Grid>
-      <ScrollTop {...props}>
+      <ScrollTop {...props} >
         <Fab
           style={{ backgroundColor: "#1fa2ff"}}
           size="medium"

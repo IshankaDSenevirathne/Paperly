@@ -10,12 +10,12 @@ import Tadaa from "../Animations/Tadaa";
 import Loader from "../Animations/Loader";
 
 
-// const API =
-//   process.env.NODE_ENV === "production"
-//     ? `https://paperly-114b9e.us1.kinto.io`
-//     : "http://localhost:5000";
+const API =
+  process.env.NODE_ENV === "production"
+    ? `https://paperly-114b9e.us1.kinto.io`
+    : "http://localhost:5000";
 
-const API = `https://paperly-114b9e.us1.kinto.io`;
+// const API = `https://paperly-114b9e.us1.kinto.io`;
 
 
 
