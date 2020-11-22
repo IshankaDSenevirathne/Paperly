@@ -3,7 +3,7 @@ import Container from "@material-ui/core/Container";
 
 const Tos = () => {
   return (
-    <div>
+    <div style={{color:"#ffffff"}}>
       <Container>
         <h2>
           <strong>Terms and Conditions</strong>

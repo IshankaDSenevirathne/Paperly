@@ -5,3 +5,11 @@
 .socialicons:hover {
   filter: none;
 }
+.linkZ {
+  text-decoration: none;
+  color: #cccdcd;
+  transition: 0.3s ease-out;
+}
+.linkZ:hover {
+  color: #1fa2ff;
+}

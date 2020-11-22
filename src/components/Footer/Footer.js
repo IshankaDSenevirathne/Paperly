@@ -2,6 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import Hidden from "@material-ui/core/Hidden";
+import OpenInNew from "@material-ui/icons/OpenInNew";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import FaceBook from "../../img/icons/facebook.svg";
@@ -56,6 +57,9 @@ const Footer = () => {
                     <Typography variant="subtitle2" align="left">
                       TERMS OF SERVICE
                     </Typography>
+                    <Link href="/terms" target="_blank">
+                     <OpenInNew className="linkZ" fontSize="small" />
+                    </Link>
                   </div>
                 </Grid>
               </Grid>
@@ -69,7 +73,7 @@ const Footer = () => {
               <Grid item>
                 <p>
                   Copyright &copy; {new Date().getFullYear()}{" "}
-                  <Link className="paperly_footer_link" href="/">Paperly LLC .</Link>
+                  <Link href="/"><span className="linkZ">Paperly LLC .</span></Link>
                 </p>
               </Grid>
               <Grid item>
@@ -139,6 +143,9 @@ const Footer = () => {
                     <Typography variant="subtitle2" align="left">
                       TERMS OF SERVICE
                     </Typography>
+                    <Link href="/terms" target="_blank">
+                      <OpenInNew className="linkZ" fontSize="small" />
+                    </Link>
                   </div>
                 </Grid>
               </Grid>
@@ -147,23 +154,33 @@ const Footer = () => {
               <div>
                 <p>
                   Copyright &copy; {new Date().getFullYear()}{" "}
-                  <Link href="/">Paperly LLC .</Link>
+                  <Link href="/"><span className="linkZ">Paperly LLC .</span></Link>
                 </p>
               </div>
               <div>
-                <Link  href="/">
-                  <img src={FaceBook}></img>
-                </Link>
-                &nbsp;
-                &nbsp;
-                <Link href="/">
-                  <img src={Twitter}></img>
-                </Link>
-                &nbsp;
-                &nbsp;
-                <Link href="/">
-                  <img src={GitHub}></img>
-                </Link>
+                  <Link target="_blank"  href="https://www.facebook.com/Paperly-110864100824156">
+                    <img src={FaceBook}></img>
+                  </Link>
+                  &nbsp;
+                  &nbsp;
+                  <Link target="_blank" href="https://twitter.com/paperlytech">
+                    <img src={Twitter}></img>
+                  </Link>
+                  &nbsp;
+                  &nbsp;
+                  <Link target="_blank" href="https://www.instagram.com/paperly.tech/">
+                    <img src={Instagram}></img>
+                  </Link>
+                  &nbsp;
+                  &nbsp;
+                  <Link target="_blank" href="https://www.reddit.com/user/paperlytech">
+                    <img src={Reddit}></img>
+                  </Link>
+                  &nbsp;
+                  &nbsp;
+                  <Link target="_blank" href="https://github.com/IshankaDSenevirathne/Paperly">
+                    <img src={GitHub}></img>
+                  </Link>
                 </div>
             </div>
           </Container>
