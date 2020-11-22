@@ -13,7 +13,6 @@ import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
 import Quote from "./Quote/Quote";
 import BannerHome from "./BannerHome/BannerHome";
-import Feedback from "./Feedback/Feedback";
 
 import PropTypes from "prop-types";
 
@@ -26,14 +25,10 @@ import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const gradient =
   "linear-gradient(98deg, rgba(31,162,255,0.5085609243697479) 0%, rgba(18,216,250,0.002931547619047619) 100%)";
 
-const gradientstatbar =
-  "linear-gradient(98deg, rgba(31,162,255,0.5085609243697479) 0%, rgba(18,216,250,0.2931547619047619) 100%)";
-// linear-gradient(90deg,#271066,rgba(39,16,102,0) 85%,rgba(39,16,102,0) 0,#271066)
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -208,7 +203,7 @@ export default function Album(props) {
       </Grid>
       <ScrollTop {...props}>
         <Fab
-          style={{ backgroundColor: "#1fa2ff" }}
+          style={{ backgroundColor: "#1fa2ff"}}
           size="medium"
           aria-label="scroll back to top"
         >

@@ -23,8 +23,7 @@ import QuizTemp from "./QuizTemp";
 import Results from "./Results";
 import Review from "./Review";
 import CompletedSurvey from "./CompletedSurvey";
-import VerificationAlert from "./VerificationAlert";
-import ReviewPass from "./ReviewPass";
+import {AnswerPass,ReviewPass} from "./Alerts/Alerts";
 
 
 
@@ -369,7 +368,7 @@ export default function Steps(props) {
         <div>
           {activeQuestions && activeStep == 1 && (
             <div>
-              {resultsVerificationAlertStatus && <VerificationAlert state={true} unanswered={activeUnanswered} getVerification={getVerification}/>}
+              {resultsVerificationAlertStatus && <AnswerPass state={true} unanswered={activeUnanswered} getVerification={getVerification}/>}
               <QuizTemp
                 getAnswers={getAnswers}
                 getTimeSpent={getTimeSpent}

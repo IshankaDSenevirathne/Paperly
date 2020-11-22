@@ -3,18 +3,11 @@ import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
-import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
-import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
-import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAltOutlined';
-import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
 import { lightBlue } from "@material-ui/core/colors";
 
-import Box from '@material-ui/core/Box';
-import PropTypes from 'prop-types';
-import Rating from '@material-ui/lab/Rating';
 import Button from "@material-ui/core/Button";
 import Tadaa from "../Animations/Tadaa";
+import Loader from "../Animations/Loader";
 
 
 // const API =
@@ -25,37 +18,6 @@ import Tadaa from "../Animations/Tadaa";
 const API = `https://paperly-114b9e.us1.kinto.io`;
 
 
-const customIcons = {
-    1: {
-      icon: <SentimentVeryDissatisfiedIcon />,
-      label: 'Very Dissatisfied',
-    },
-    2: {
-      icon: <SentimentDissatisfiedIcon />,
-      label: 'Dissatisfied',
-    },
-    3: {
-      icon: <SentimentSatisfiedIcon />,
-      label: 'Neutral',
-    },
-    4: {
-      icon: <SentimentSatisfiedAltIcon />,
-      label: 'Satisfied',
-    },
-    5: {
-      icon: <SentimentVerySatisfiedIcon />,
-      label: 'Very Satisfied',
-    },
-  };
-  
-function IconContainer(props) {
-const { value, ...other } = props;
-return <span {...other}>{customIcons[value].icon}</span>;
-}
-
-IconContainer.propTypes = {
-value: PropTypes.number.isRequired,
-};
 
 const useStyles=makeStyles(()=>({
     root:{
@@ -86,11 +48,11 @@ export default function CompletedSurvey(props) {
     const [name, setname] = useState('');
     const [feedbackStatus,setFeedbackStatus]=useState(true);
     const [feedback, setfeedback] = useState('');
-
-
+    const [loaderStatus,setLoaderStatus]=useState(false);
+    
    const formSubmit=(e)=>{
-        e.preventDefault()
-
+        e.preventDefault();
+        setLoaderStatus(true);
         let payload = {
             name,
             feedback,
@@ -110,7 +72,8 @@ export default function CompletedSurvey(props) {
             .then((res) => res.json())
             .then((res) => {
               if(res.status==="success"){
-                setFeedbackStatus(false)
+                setLoaderStatus(false);
+                setFeedbackStatus(false);
               }
             });
         
@@ -120,7 +83,7 @@ export default function CompletedSurvey(props) {
         <div id="my-canvas" className="content">
             <Tadaa />
             <div className={classes.root}>
-                <div style={{color:"#5AF38B",paddingTop:"20px",paddingBottom:"20px"}}>
+                <div style={{color:"#1fa2ff",paddingTop:"20px",paddingBottom:"20px"}}>
                     <Typography variant="h4" align="center">
                         <b>Congratulations !</b>
                     </Typography>
@@ -133,25 +96,13 @@ export default function CompletedSurvey(props) {
                     </div>
                     <Grid container justify="center">
                         <div style={{width:"90%"}}>
-                            
-                            <Box component="fieldset" mb={3} borderColor="transparent">
-                                <Typography variant="subtitle1" align="center" style={{paddingBottom:"20px"}}>
-                                    <b>Give us your review</b>
-                                </Typography>
-                                    <Rating
-                                        name="customized-icons"
-                                        defaultValue={5}
-                                        getLabelText={(value) => customIcons[value].label}
-                                        IconContainerComponent={IconContainer}
-                                    />
-                            </Box>
                             <div>
                                 {feedbackStatus && 
                                 <form className={classes.forminner} autoComplete="off" onSubmit={(e)=>formSubmit(e)}>
                     
-                                    <TextField required  placeholder="Your awesome name " variant="filled" fullWidth={true} inputProps={{className:classes.feedback}} onChange={e=>setname(e.target.value)} />
+                                    <TextField required placeholder="Your awesome name " variant="filled" fullWidth={true} inputProps={{className:classes.feedback}} onChange={e=>setname(e.target.value)} />
                                     <div className={classes.feedbacknamedivider} ></div>
-                                    <TextField required  placeholder="Tell us what you think... " variant="filled" fullWidth={true} inputProps={{className:classes.feedback}} multiline rows={6} rowsMax={6} id="feedback" onChange={e=>setfeedback(e.target.value)} />
+                                    <TextField required placeholder="Tell us what you think... " variant="filled" fullWidth={true} inputProps={{className:classes.feedback}} multiline rows={6} rowsMax={6} id="feedback" onChange={e=>setfeedback(e.target.value)} />
                                     <div className={classes.feedbacknamedivider} ></div>
                                     <Button type="submit" variant="contained" color="primary" className={classes.submit}>
                                         Submit
@@ -168,6 +119,7 @@ export default function CompletedSurvey(props) {
                     </Grid>
                 </div>
             </div>
+            {loaderStatus && <Loader/>}
         </div>
     )
 }
