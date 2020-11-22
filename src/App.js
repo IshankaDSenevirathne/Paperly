@@ -28,7 +28,6 @@ function App() {
           <Route path="/terms" component={Tos} />
           <Route path="/subjectmenu" component={SubjectMenu} />
           <Route path="/complet" component={Complet} />
-
           {/* <Route path="*" component={Notfound} /> */}
         </Switch>
         <Footer />

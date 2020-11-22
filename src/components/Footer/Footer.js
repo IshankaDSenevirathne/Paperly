@@ -151,19 +151,29 @@ const Footer = () => {
                 </p>
               </div>
               <div>
-                <Link  href="/">
-                  <img src={FaceBook}></img>
-                </Link>
-                &nbsp;
-                &nbsp;
-                <Link href="/">
-                  <img src={Twitter}></img>
-                </Link>
-                &nbsp;
-                &nbsp;
-                <Link href="/">
-                  <img src={GitHub}></img>
-                </Link>
+                  <Link target="_blank"  href="https://www.facebook.com/Paperly-110864100824156">
+                    <img src={FaceBook}></img>
+                  </Link>
+                  &nbsp;
+                  &nbsp;
+                  <Link target="_blank" href="https://twitter.com/paperlytech">
+                    <img src={Twitter}></img>
+                  </Link>
+                  &nbsp;
+                  &nbsp;
+                  <Link target="_blank" href="https://www.instagram.com/paperly.tech/">
+                    <img src={Instagram}></img>
+                  </Link>
+                  &nbsp;
+                  &nbsp;
+                  <Link target="_blank" href="https://www.reddit.com/user/paperlytech">
+                    <img src={Reddit}></img>
+                  </Link>
+                  &nbsp;
+                  &nbsp;
+                  <Link target="_blank" href="https://github.com/IshankaDSenevirathne/Paperly">
+                    <img src={GitHub}></img>
+                  </Link>
                 </div>
             </div>
           </Container>

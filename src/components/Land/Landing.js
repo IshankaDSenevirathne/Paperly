@@ -206,7 +206,6 @@ export default function Album(props) {
           </div>
         </Grid>
       </Grid>
-      <Feedback />
       <ScrollTop {...props}>
         <Fab
           style={{ backgroundColor: "#1fa2ff" }}
