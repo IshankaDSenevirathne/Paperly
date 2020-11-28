@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import  Link  from "@material-ui/core/Link";
+import Link from "@material-ui/core/Link";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
@@ -25,6 +25,12 @@ import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 
+import Collapse from "@material-ui/core/Collapse";
+import CloseIcon from "@material-ui/icons/Close";
+import { Alert } from "@material-ui/lab";
+import IconButton from "@material-ui/core/IconButton";
+import Snackbar from "@material-ui/core/Snackbar";
+
 const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(2),
@@ -35,8 +41,8 @@ const useStyles = makeStyles((theme) => ({
   },
   rootsroll: {
     position: "fixed",
-    bottom: theme.spacing(10),
-    right: "21px",
+    bottom: theme.spacing(1),
+    right: "15px",
   },
   botBanner: {
     minHeight: "300px",
@@ -44,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   statbar: {
     padding: "3rem",
     background: "rgb(245, 245, 245)",
-  },
+  }
 }));
 
 function ScrollTop(props) {
@@ -94,6 +100,11 @@ ScrollTop.propTypes = {
 export default function Album(props) {
   const classes = useStyles();
   const [counterVisible, setcounterVisible] = useState(false);
+  const [cookieBanner, setcookieBanner] = useState(true);
+
+  const handlecookieBannerClose = () => {
+    setcookieBanner(false);
+  };
 
   return (
     <div className={classes.root}>
@@ -102,7 +113,7 @@ export default function Album(props) {
       <BannerHome />
       <Banner />
       <Container maxWidth="lg">
-        <div style={{paddingTop:"100px"}}>
+        <div style={{ paddingTop: "100px" }}>
           <StepGuide />
         </div>
       </Container>
@@ -145,15 +156,83 @@ export default function Album(props) {
           </div>
         </Grid>
       </Grid>
-      <ScrollTop {...props} >
+      <ScrollTop {...props}>
         <Fab
-          style={{ backgroundColor: "#1fa2ff"}}
+          style={{ backgroundColor: "#1fa2ff" }}
           size="medium"
           aria-label="scroll back to top"
         >
           <KeyboardArrowUpIcon style={{ color: "#ffffff" }} />
         </Fab>
       </ScrollTop>
+      <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        open={cookieBanner}
+        autoHideDuration={1000000}
+      >
+        <Collapse in={cookieBanner}>
+          <Alert
+            icon={false}
+            severity="info"
+            action={
+              <IconButton
+                aria-label="close"
+                color="inherit"
+                size="small"
+                onClick={() => {
+                  handlecookieBannerClose();
+                }}
+              >
+                <CloseIcon fontSize="inherit" />
+              </IconButton>
+            }
+          >
+            {/* <AlertTitle>Info</AlertTitle> */}
+            <div className={classes.cookieBanner}>
+              <div className={classes.cookieBannerClose}>
+                We use cookies to enhance your experience
+              </div>
+            </div>
+          </Alert>
+        </Collapse>
+      </Snackbar>
     </div>
   );
 }
+
+/** wadagat weda mewwa hum
+ *   {/* <Alert icon={false} severity="info">
+            <AlertTitle>
+              <div className={classes.cookieBanner}>
+                <div className={classes.cookieBannerItem}>Info</div>
+                <div className={classes.cookieBannerItem}>
+                  <IconButton
+                    aria-label="close"
+                    color="inherit"
+                    size="small"
+                    onClick={() => {
+                      handlecookieBannerClose();
+                    }}
+                  >
+                    <CloseIcon fontSize="inherit" />
+                  </IconButton>
+                </div>
+              </div>
+            </AlertTitle>
+            <div className={classes.cookieBanner}>
+              We use cookies to give you best experience
+              <div className={classes.cookieBannerClose}>
+                <IconButton
+                  aria-label="close"
+                  color="inherit"
+                  size="small"
+                  onClick={() => {
+                    handlecookieBannerClose();
+                  }}
+                >
+                  <CloseIcon fontSize="inherit" />
+                </IconButton>
+              </div>
+            </div>
+          </Alert>}
+ */
