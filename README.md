@@ -32,6 +32,7 @@ A web application for Advanced Level students in Sri Lanka to answer past paper 
 ### Prerequisites
 
 This application requires _Node.js_ and its package manager _npm_ to be installed on the system.
+<br>
 ![npm](https://img.shields.io/npm/v/npm?style=plastic) 
 ### Installation
 
