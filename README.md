@@ -32,7 +32,7 @@ A web application for Advanced Level students in Sri Lanka to answer past paper 
 ### Prerequisites
 
 This application requires _Node.js_ and its package manager _npm_ to be installed on the system.
-
+![npm](https://img.shields.io/npm/v/npm?style=plastic) 
 ### Installation
 
 Installing the dependencies using `npm`
@@ -59,3 +59,4 @@ Looking for a first issue to take on?
 
 - Look out for good first issue labels
 - Not ready to make a code contribution yet? Then look out for our documentation labels
+![GitHub issues](https://img.shields.io/github/issues/IshankaDSenevirathne/Paperly)
