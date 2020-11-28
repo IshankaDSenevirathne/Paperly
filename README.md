@@ -60,5 +60,6 @@ Looking for a first issue to take on?
 
 - Look out for good first issue labels
 - Not ready to make a code contribution yet? Then look out for our documentation labels
-<br>
+<br></br>
+
 ![GitHub issues](https://img.shields.io/github/issues/IshankaDSenevirathne/Paperly)
