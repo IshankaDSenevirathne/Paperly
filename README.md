@@ -7,7 +7,15 @@
   Paperly
 </h1>
 
-![npm](https://img.shields.io/npm/v/npm?style=plastic) ![GitHub issues](https://img.shields.io/github/issues/IshankaDSenevirathne/Paperly)
+![HTML5](https://img.shields.io/badge/-HTML5-333333?style=flat&logo=HTML5)
+![CSS](https://img.shields.io/badge/-CSS-333333?style=flat&logo=CSS3&logoColor=1572B6)
+![JavaScript](https://img.shields.io/badge/-JavaScript-333333?style=flat&logo=javascript)
+![Node.js](https://img.shields.io/badge/-Node.js-333333?style=flat&logo=node.js)
+![React](https://img.shields.io/badge/-React-333333?style=flat&logo=react)
+![Material-UI](https://img.shields.io/badge/-Material--UI-333333?style=flat&logo=Material-UI&logoColor=0081CB)
+![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-336791?style=flat&logo=PostgreSQL)
+![npm](https://img.shields.io/npm/v/npm?style=plastic) 
+![GitHub issues](https://img.shields.io/github/issues/IshankaDSenevirathne/Paperly)
 
 # Table of Contents
 
