@@ -14,8 +14,6 @@
 ![React](https://img.shields.io/badge/-React-333333?style=flat&logo=react)
 ![Material-UI](https://img.shields.io/badge/-Material--UI-333333?style=flat&logo=Material-UI&logoColor=0081CB)
 ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-333333?style=flat&logo=PostgreSQL&logoColor=336791)
-![npm](https://img.shields.io/npm/v/npm?style=plastic) 
-![GitHub issues](https://img.shields.io/github/issues/IshankaDSenevirathne/Paperly)
 
 # Table of Contents
 
@@ -48,18 +46,13 @@ Running the application
 npm run start
 ```
 
-# Contribution
+### Contribution
 
 If you're interested in contributing, then any support from documentation, to bugfixes to even new feature improvements is welcome.
 
-- Pull requests and ⭐ stars are welcome!
-- Read the start contributing guide to find out ways in which you can start contributing
-- If you are looking for more detailed information on how to contribute then take a look at our contribution guide
+- Pull requests and ⭐ stars are always welcome!
 
-Looking for a first issue to take on?
-
-- Look out for good first issue labels
-- Not ready to make a code contribution yet? Then look out for our documentation labels
+- Look for the following issues to contribute
 <br></br>
 
 ![GitHub issues](https://img.shields.io/github/issues/IshankaDSenevirathne/Paperly)
