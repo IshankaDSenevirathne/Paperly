@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import QuizesPage from "./components/QuizesPage/QuizesPage";
@@ -10,13 +10,17 @@ import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer";
 
 import ReactGA from "react-ga";
-import history from "./ga/history";
-
+// import history from "./ga/history";
+// import { createBrowserHistory } from "history";
 import ttiPolyfill from "tti-polyfill";
 
-ReactGA.initialize("G-GFF7NTCF2Z");
+// let history =  createBrowserHistory();
+
+ReactGA.initialize("UA-184133338-1");
 
 ttiPolyfill.getFirstConsistentlyInteractive().then((tti) => {
+  console.log(tti);
+
   ReactGA.timing({
     category: "Load Performace",
     variable: "Time to Interactive",
@@ -24,10 +28,11 @@ ttiPolyfill.getFirstConsistentlyInteractive().then((tti) => {
   });
 });
 
-history.listen((location) => {
-  ReactGA.set({ page: location.pathname });
-  ReactGA.pageview(location.pathname);
-});
+// history.listen((location) => {
+//   console.log(location);
+//   ReactGA.set({ page: location.pathname });
+//   ReactGA.pageview(location.pathname);
+// });
 
 const loadPerformanceObservercallback = (list) => {
   list.getEntries().forEach((entry) => {
@@ -58,6 +63,11 @@ var observer = new PerformanceObserver(performanceObservercallback);
 observer.observe({ entryTypes: ["mark", "measure"] });
 
 function App() {
+  useEffect(() => {
+    // This line will trigger on a route change
+    // console.log(window.location.pathname + window.location.search);
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  });
   return (
     <div className="App">
       <BrowserRouter>
