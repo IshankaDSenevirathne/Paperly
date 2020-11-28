@@ -52,7 +52,7 @@ If you're interested in contributing, then any support from documentation, to bu
 
 - Pull requests and ⭐ stars are always welcome!
 
-- Look for the following issues to contribute
+- Look for the issues to contribute
 <br></br>
 
 ![GitHub issues](https://img.shields.io/github/issues/IshankaDSenevirathne/Paperly)
