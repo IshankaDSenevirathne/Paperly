@@ -1,9 +1,6 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 import QuizesPage from "./components/QuizesPage/QuizesPage";
 import Landing from "./components/Land/Landing";
 import Tos from "./components/tos/tos";
@@ -12,8 +9,53 @@ import SocialIcons from "./components/SocialIcons/SocialIcons";
 import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer";
 
+import ReactGA from "react-ga";
+import history from "./ga/history";
 
-AOS.init();
+import ttiPolyfill from "tti-polyfill";
+
+ReactGA.initialize("G-GFF7NTCF2Z");
+
+ttiPolyfill.getFirstConsistentlyInteractive().then((tti) => {
+  ReactGA.timing({
+    category: "Load Performace",
+    variable: "Time to Interactive",
+    value: tti,
+  });
+});
+
+history.listen((location) => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
+
+const loadPerformanceObservercallback = (list) => {
+  list.getEntries().forEach((entry) => {
+    ReactGA.timing({
+      category: "Load Performace",
+      variable: "Server Latency",
+      value: entry.responseStart - entry.requestStart,
+    });
+  });
+};
+
+var observer = new PerformanceObserver(loadPerformanceObservercallback);
+observer.observe({ entryTypes: ["navigation"] });
+
+const performanceObservercallback = (list) => {
+  list.getEntries().forEach((entry) => {
+    if (entry.name.includes("App")) {
+      ReactGA.timing({
+        category: "App Render Performace",
+        variable: entry.name,
+        value: entry.duration,
+      });
+    }
+  });
+};
+
+var observer = new PerformanceObserver(performanceObservercallback);
+observer.observe({ entryTypes: ["mark", "measure"] });
 
 function App() {
   return (
