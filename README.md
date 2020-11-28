@@ -15,17 +15,17 @@
 ![Material-UI](https://img.shields.io/badge/-Material--UI-333333?style=flat&logo=Material-UI&logoColor=0081CB)
 ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-333333?style=flat&logo=PostgreSQL&logoColor=336791)
 
-# Table of Contents
+## Table of Contents
 
 - :question: Introduction
 - :rocket: Getting Started
 - :clap: Contribution
 
-# Introduction
+## Introduction
 
 A web application for Advanced Level students in Sri Lanka to answer past paper questions and get an evaluation real-time.
 
-# Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -46,7 +46,7 @@ Running the application
 npm run start
 ```
 
-### Contribution
+## Contribution
 
 If you're interested in contributing, then any support from documentation, to bugfixes to even new feature improvements is welcome.
 
