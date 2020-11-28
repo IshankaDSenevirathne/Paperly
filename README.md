@@ -13,7 +13,7 @@
 ![Node.js](https://img.shields.io/badge/-Node.js-333333?style=flat&logo=node.js)
 ![React](https://img.shields.io/badge/-React-333333?style=flat&logo=react)
 ![Material-UI](https://img.shields.io/badge/-Material--UI-333333?style=flat&logo=Material-UI&logoColor=0081CB)
-![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-336791?style=flat&logo=PostgreSQL)
+![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-333333?style=flat&logo=PostgreSQL&logoColor=336791)
 ![npm](https://img.shields.io/npm/v/npm?style=plastic) 
 ![GitHub issues](https://img.shields.io/github/issues/IshankaDSenevirathne/Paperly)
 
