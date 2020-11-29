@@ -16,7 +16,7 @@ export default function Tadaaa(){
         setWindowDimensions(getWindowDimensions);
     }
     window.addEventListener('resize',handleResize);
-    return()=>window.removeEventListener('resize',handleResize)
+    return()=>window.removeEventListener('resize',handleResize);
   },[])
   return (
     <Confetti

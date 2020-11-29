@@ -25,9 +25,7 @@ import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 
-import Collapse from "@material-ui/core/Collapse";
-import CloseIcon from "@material-ui/icons/Close";
-import { Alert } from "@material-ui/lab";
+import Check from "@material-ui/icons/Check";
 import IconButton from "@material-ui/core/IconButton";
 import Snackbar from "@material-ui/core/Snackbar";
 
@@ -50,6 +48,17 @@ const useStyles = makeStyles((theme) => ({
   statbar: {
     padding: "3rem",
     background: "rgb(245, 245, 245)",
+  },
+  snackbar:{
+    background:"#ffffff",
+    color:"#363f44"
+  },
+  cookieButton:{
+    color:"#D0D3D4",
+    transition:"0.3s easeOut",
+    "&:hover":{
+      color:"#1fa2ff"
+    }
   }
 }));
 
@@ -165,74 +174,37 @@ export default function Album(props) {
           <KeyboardArrowUpIcon style={{ color: "#ffffff" }} />
         </Fab>
       </ScrollTop>
-      <Snackbar
-        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-        open={cookieBanner}
-        autoHideDuration={1000000}
-      >
-        <Collapse in={cookieBanner}>
-          <Alert
-            icon={false}
-            severity="info"
-            action={
-              <IconButton
-                aria-label="close"
-                color="inherit"
-                size="small"
-                onClick={() => {
-                  handlecookieBannerClose();
-                }}
-              >
-                <CloseIcon fontSize="inherit" />
-              </IconButton>
-            }
-          >
-            {/* <AlertTitle>Info</AlertTitle> */}
-            <div className={classes.cookieBanner}>
-              <div className={classes.cookieBannerClose}>
-                We use cookies to enhance your experience
+       
+
+          <Snackbar
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center',
+          }}
+          open={cookieBanner}
+          autoHideDuration={1000000}
+          ContentProps={{className:classes.snackbar}}
+          message={
+            <div style={{display:"flex",alignItems:"center"}}>
+              <div style={{textAlign:"center"}}>
+                <svg  width="70px" height="70px" viewBox="0 0 500 501.52"><title>Paperly (11)</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="Paperly"><text/><g id="PaperlyLogo"><g id="Paperly_logo"><g><path d="M376.83,150a10,10,0,0,0-5.09-8.3l-5.3-2.52-.21-.11s-2.39-1.15-5.31-2.54L187.42,54.05c-2.93-1.39-3.59-.52-1.47,1.92l79.45,91.94a33.7,33.7,0,0,0,9.16,7l53.88,25.6c2.92,1.39,5.31,2.54,5.3,2.56s2.37,1.16,5.29,2.55l22.77,10.84L372,201.27c2.67,1.27,4.86-.34,4.86-3.57Z" style={{fill:"#363f44"}}/></g><g><path d="M189.08,63.19c-2.42-2.79-4.4-2-4.4,1.64v380c0,3.7,1.95,4.41,4.33,1.59l48.21-57.1a21.39,21.39,0,0,0,4.33-11.85V130.35a20.93,20.93,0,0,0-4.4-11.79Z" style={{fill:"#363f44"}}/></g><g ><path d="M380.85,141.22c0-3.7-2.68-5.32-6-3.61L125.08,267.92c-3.27,1.71-3.4,4.73-.29,6.72l44.7,28.52a12.87,12.87,0,0,0,11.62.51L374.92,202.41a12.23,12.23,0,0,0,5.95-9.83Z" style={{fill:"#31c5f4"}}/></g></g></g></g></g></g></svg>   
+              </div>
+              <div>
+                <Typography variant="subtitle1">
+                  <b>Why we use cookies ?</b>
+                </Typography>
+                <Typography variant="subtitle2">
+                  Paperly use cookies to deliver and improve the website experience. See our cookie policy for further details on how we use cookies and how to change your cookie settings.
+                </Typography>
+                <div style={{textAlign:"right"}}>
+                <IconButton size="small" aria-label="accept" onClick={handlecookieBannerClose}>
+                  <Check fontSize="large" className={classes.cookieButton}/>
+                </IconButton>
+              </div>
               </div>
             </div>
-          </Alert>
-        </Collapse>
-      </Snackbar>
+          }
+        />
     </div>
   );
 }
-
-/** wadagat weda mewwa hum
- *   {/* <Alert icon={false} severity="info">
-            <AlertTitle>
-              <div className={classes.cookieBanner}>
-                <div className={classes.cookieBannerItem}>Info</div>
-                <div className={classes.cookieBannerItem}>
-                  <IconButton
-                    aria-label="close"
-                    color="inherit"
-                    size="small"
-                    onClick={() => {
-                      handlecookieBannerClose();
-                    }}
-                  >
-                    <CloseIcon fontSize="inherit" />
-                  </IconButton>
-                </div>
-              </div>
-            </AlertTitle>
-            <div className={classes.cookieBanner}>
-              We use cookies to give you best experience
-              <div className={classes.cookieBannerClose}>
-                <IconButton
-                  aria-label="close"
-                  color="inherit"
-                  size="small"
-                  onClick={() => {
-                    handlecookieBannerClose();
-                  }}
-                >
-                  <CloseIcon fontSize="inherit" />
-                </IconButton>
-              </div>
-            </div>
-          </Alert>}
- */
