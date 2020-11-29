@@ -17,9 +17,11 @@ import ttiPolyfill from "tti-polyfill";
 
 // let history =  createBrowserHistory();
 
-ReactGA.initialize("G-GFF7NTCF2Z");
+ReactGA.initialize("UA-184133338-1");
 
 ttiPolyfill.getFirstConsistentlyInteractive().then((tti) => {
+  console.log(tti);
+
   ReactGA.timing({
     category: "Load Performace",
     variable: "Time to Interactive",
