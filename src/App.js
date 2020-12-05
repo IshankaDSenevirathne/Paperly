@@ -9,6 +9,7 @@ import SocialIcons from "./components/SocialIcons/SocialIcons";
 import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer";
 import Last from "./components/SurveyPages/CompletedSurvey";
+import Contributors from "./components/contributors/contributors";
 
 import ReactGA from "react-ga";
 // import history from "./ga/history";
@@ -80,6 +81,7 @@ function App() {
           <Route path="/terms" component={Tos} />
           <Route path="/subjectmenu" component={SubjectMenu} />
           <Route path="/last" component={Last} />
+          <Route path="/contributors" component={Contributors} />
         </Switch>
         <Footer />
       </BrowserRouter>
