@@ -4,11 +4,14 @@ import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     marginTop: "12vh",
+    height: "45vh"
   },
   small: {
     width: theme.spacing(3),
@@ -30,12 +33,16 @@ const useStyles = makeStyles((theme) => ({
     width: "200px",
     height: "200px",
   },
+  loading: {
+    // height: "66vh",
+  },
 }));
 
 const Contributors = () => {
   const classes = useStyles();
 
   const [contributors, setcontributors] = useState([]);
+  const [loading, setloading] = useState(true);
 
   useEffect(() => {
     fetch(
@@ -44,10 +51,12 @@ const Contributors = () => {
       .then((res) => res.json())
       .then((response) => {
         console.log(response);
-        setcontributors([...response, ...response, ...response]);
+        setcontributors([...response]);
+        setloading(false);
       })
       .catch((error) => {
         console.log(error);
+        setloading(false);
       });
   }, []);
 
@@ -56,7 +65,22 @@ const Contributors = () => {
       <Container maxWidth="lg" className={classes.root}>
         <Grid container className={classes.root} spacing={2}>
           <Grid item xs={12}>
+            <Typography
+              align="center"
+              variant="h3"
+              color="inherit"
+              gutterBottom="true"
+              className={classes.name}
+            >
+              Our Awesome Contributors
+            </Typography>
             <Grid container justify="center" spacing={2}>
+              {loading && (
+                <div className={classes.loading}>
+                  <CircularProgress />
+                </div>
+              )}
+
               {contributors.map((value) => (
                 <Grid key={value.id} item className={classes.card}>
                   <Grid

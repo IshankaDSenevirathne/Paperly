@@ -55,6 +55,13 @@ const Footer = () => {
                   </div>
                   <div style={{paddingBottom:"10px"}}>
                     <Typography variant="subtitle2" align="left">
+                    <Link href="/contributors" color="inherit" underline="none" target="_blank">
+                      OUR AWESOME CONTRIBUTORS 
+                        </Link>
+                      </Typography>
+                  </div>
+                  <div style={{paddingBottom:"10px"}}>
+                    <Typography variant="subtitle2" align="left">
                       TERMS OF SERVICE
                     </Typography>
                     <Link href="/terms" target="_blank">
