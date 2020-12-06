@@ -11,8 +11,8 @@ const useStyles = makeStyles(()=>({
 })) 
 
 export default function Timer(props) {
-  const { getTimeSpent } = props;
-  const [time, setTime] = useState(120 * 60);
+  const { getTimeSpent,timeForPaper } = props;
+  const [time, setTime] = useState(timeForPaper);
   const classes=useStyles();
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,23 +34,23 @@ export default function Timer(props) {
       seconds = "0" + 0;
     }
     return (
-      <div>
+      <div style={{width:"fit-content",maxWidth:"800px"}}>
         <p className="countdownTimer">
           {hours} : {minutes} : {seconds}
         </p>
         {time > 0 && (
           <Alert severity="info">
             <AlertTitle>Hint</AlertTitle>
-            Complete answering the paper within the given amount of time and
+            Try to Answer the paper within the given amount of time and
             {"  "}
-            <strong>Click Next to evaluate your answers.</strong>
+            <strong>proceed to the next step to evaluate your answers.</strong>
           </Alert>
         )}
         {time <= 0 && (
           <Alert severity="warning" classes={{root:classes.alertBox}} variant="outlined">
             <AlertTitle>Your time is up!</AlertTitle>
             You can keep answering the paper —{" "}
-            <strong>Click Next after you finished answering.</strong>
+            <strong>proceed to the next step after you finished answering.</strong>
           </Alert>
         )}
       </div>

@@ -11,16 +11,20 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "animated-number-react": "^0.1.1",
-    "aos": "^3.0.0-beta.6",
+    "dompurify": "^2.2.0",
     "gsap": "^3.5.1",
+    "history": "^5.0.0",
+    "marked": "^1.2.2",
     "qs": "^6.9.4",
     "react": "^16.13.1",
-    "react-animated-number": "^0.4.4",
+    "react-confetti": "^6.0.0",
     "react-dom": "^16.13.1",
+    "react-ga": "^3.3.0",
     "react-moment": "^0.9.7",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-visibility-sensor": "^5.1.1"
+    "react-visibility-sensor": "^5.1.1",
+    "tti-polyfill": "^0.2.2"
   },
   "scripts": {
     "start": "react-scripts start",

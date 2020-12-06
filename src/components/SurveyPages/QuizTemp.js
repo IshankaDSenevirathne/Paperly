@@ -2,9 +2,8 @@ import React from "react";
 
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-
 import Pagination from "@material-ui/lab/Pagination";
-
+import Typography from "@material-ui/core/Typography";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -18,13 +17,17 @@ import MuiAlert from "@material-ui/lab/Alert";
 
 import Timer from "./Timer/Timer";
 
+import marked from "marked";
+import DOMPurify from "dompurify";
+
+marked.setOptions({ gfm: true });
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(2),
   },
   button: {
-    width:"200px",
+    width: "200px",
     margin: theme.spacing(1, 1, 0, 0),
   },
   root: {
@@ -32,33 +35,30 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   },
-  radio:{
-    color:"white"
+  radio: {
+    color: "white",
   },
- 
+
   pagination: {
-      "& .MuiPaginationItem-root": {
-      color:"white",
+    "& .MuiPaginationItem-root": {
+      color: "white",
     },
   },
-}
-));
-
+}));
 
 export default function QuizTemp(props) {
   const classes = useStyles();
 
-  const answersHolder = [0, 0, 0];
-  const timeHolder = [0, 0, 0];
-
-  const { paper, questions, getAnswers, getTimeSpent } = props;
+  const { paper, questions, getAnswers, getTimeSpent,timeForPaper } = props;
+  const answersHolder = Array.from({ length: questions.length }, (_, i) => 0); 
+  const timeHolder = Array.from({ length: questions.length }, (_, i) => 0); 
   const [activeQuestion, setActiveQuestion] = React.useState(0);
   const [answers, setAnswers] = React.useState(answersHolder);
   const [timeSpent, setTimeSpent] = React.useState(timeHolder);
   const [startingTime, setStartingTime] = React.useState(new Date().getTime());
   const [value, setValue] = React.useState(null);
-  const [checkLast, setCheckLast] = React.useState(false);
   const [open, setOpen] = React.useState(false);
+  const [lastQuestion,setLastQuestion]= React.useState(0);
   const [severity, setSeverityType] = React.useState("info");
   const [alert, setAlertText] = React.useState("Please select an option!");
 
@@ -70,20 +70,32 @@ export default function QuizTemp(props) {
       return answers;
     });
   };
+
   React.useEffect(() => {
-    getAnswers(answers, timeSpent, checkLast);
-  }, [answers, getAnswers]);
+    let unansweredQ = [];
+    answers.forEach((answer,index)=>{
+      if(answer===0){
+        unansweredQ.push(index+1);
+      }
+    });
+    getAnswers(answers, timeSpent,unansweredQ,lastQuestion);
+  }, [...answers,lastQuestion]);
+   
   const handleSubmit = (event) => {
     event.preventDefault();
+    const userAnswer = parseInt(value);
     if (!value) {
       setOpen(true);
       setSeverityType("info");
       setAlertText("Please select an option!");
-    } else if (value === questions[activeQuestion].correctAnswer) {
+    } else if (userAnswer === questions[activeQuestion].correctAnswer) {
       setOpen(true);
       setSeverityType("success");
       setAlertText("Your answer is correct!");
-    } else if (value && value !== questions[activeQuestion].correctAnswer) {
+    } else if (
+      value &&
+      userAnswer !== questions[activeQuestion].correctAnswer
+    ) {
       setOpen(true);
       setSeverityType("error");
       setAlertText("Sorry, your answer is incorrect!");
@@ -97,9 +109,8 @@ export default function QuizTemp(props) {
 
     setOpen(false);
   };
-  const handlePageChange = (event, page) => {
+  const handlePageChange = (event,page) => {
     const q = page - 1;
-
     const endingTime = new Date().getTime();
     setTimeSpent((timeSpent) => {
       const timeDiffInSec = Math.round((endingTime - startingTime) / 1000) % 60;
@@ -107,34 +118,28 @@ export default function QuizTemp(props) {
         parseInt(timeSpent[activeQuestion]) + parseInt(timeDiffInSec);
       return timeSpent;
     });
-
-    if (answers[q] != "") {
+    setLastQuestion(q);
+    setActiveQuestion(q);
+    if (answers[q] !== "") {
       setValue(answers[q]);
     } else {
       setValue(null);
     }
-    setActiveQuestion(q);
     setStartingTime(endingTime);
-    if (page == 3) {
-      setCheckLast(true);
-    } else {
-      setCheckLast(false);
-    }
-    console.log(timeSpent);
   };
-
   return (
-    <div style={{color:"white"}}>
+    <div style={{ color: "white" }}>
       <div
         style={{
           color: "#1fa2ff",
           textTransform: "uppercase",
           paddingTop: "60px",
+          paddingBottom: "20px",
         }}
       >
-        <h1>{paper}</h1>
+        <Typography align="center" variant="h5">{paper}</Typography>
       </div>
-      <div style={{ textAlign: "left"}}>
+      <div style={{ textAlign: "left" }}>
         <form onSubmit={handleSubmit}>
           <FormControl component="fieldset" className={classes.formControl}>
             <Grid
@@ -144,48 +149,52 @@ export default function QuizTemp(props) {
               alignItems="flex-start"
             >
               <FormLabel component="legend">
-                <Timer getTimeSpent={getTimeSpent} />
-
-                <h3 style={{color:"white"}}>
-                  {activeQuestion + 1} ) {questions[activeQuestion].title}
-                </h3>
+                <Timer timeForPaper={timeForPaper} getTimeSpent={getTimeSpent} />
+                <div style={{ color: "white" }}>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(
+                        marked(questions[activeQuestion].title)
+                      ),
+                    }}
+                  />
+                </div>
               </FormLabel>
             </Grid>
 
             <RadioGroup
               aria-label="quiz"
               name="quiz"
-              value={value}
+              value={parseInt(value)}
               onChange={handleRadioChange}
             >
-              <FormControlLabel
-                value={questions[activeQuestion].choices[0]}
-                control={<Radio color="primary" className={classes.radio} />}
-                label={questions[activeQuestion].choices[0]}
-              />
-              <FormControlLabel
-                value={questions[activeQuestion].choices[1]}
-                control={<Radio color="primary" className={classes.radio} />}
-                label={questions[activeQuestion].choices[1]}
-              />
-              <FormControlLabel
-                value={questions[activeQuestion].choices[2]}
-                control={<Radio color="primary" className={classes.radio} />}
-                label={questions[activeQuestion].choices[2]}
-              />
-              <FormControlLabel
-                value={questions[activeQuestion].choices[3]}
-                control={<Radio color="primary" className={classes.radio} />}
-                label={questions[activeQuestion].choices[3]}
-              />
-              <FormControlLabel
-                value={questions[activeQuestion].choices[4]}
-                control={<Radio color="primary" className={classes.radio} />}
-                label={questions[activeQuestion].choices[4]}
-              />
+              {questions[activeQuestion].choices.map((ele, index) => {
+                return (
+                  <FormControlLabel
+                    key={index}
+                    value={ele.id}
+                    control={
+                      <Radio color="primary" className={classes.radio} />
+                    }
+                    label={
+                      <>
+                        <div style={{ color: "white" }}>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: DOMPurify.sanitize(marked(ele.text)),
+                            }}
+                          />
+                        </div>
+                      </>
+                    }
+                  />
+                );
+              })}
             </RadioGroup>
             <br></br>
-            <FormHelperText><span style={{color:"white"}}>Review your answer now</span></FormHelperText>
+            <FormHelperText>
+              <span style={{ color: "white" }}>Review your answer now</span>
+            </FormHelperText>
             <Button
               type="submit"
               variant="outlined"
@@ -199,17 +208,25 @@ export default function QuizTemp(props) {
       </div>
       <div>
         <hr></hr>
+        <Grid container  direction="row" justify="center" alignItems="center">
+            <Button disabled={activeQuestion===0} onClick={()=>handlePageChange("",activeQuestion)} color="primary">
+              Prev
+            </Button>
+            <Button disabled={activeQuestion===questions.length-1} onClick={()=>handlePageChange("",activeQuestion+2)} color="primary">
+              Next
+            </Button>
+        </Grid>
         <Grid container direction="row" justify="center" alignItems="center">
           <div className={classes.root}>
             <Pagination
-              count={50}
+              count={questions.length}
               showFirstButton
               showLastButton
+              page={activeQuestion+1}
               color="primary"
               className={classes.pagination}
               siblingCount={2}
               onChange={handlePageChange}
-              defaultPage={1}
             />
           </div>
         </Grid>
@@ -220,7 +237,7 @@ export default function QuizTemp(props) {
         autoHideDuration={2000}
         onClose={handleClose}
       >
-        <MuiAlert  elevation={6} variant="filled" severity={severity}>
+        <MuiAlert elevation={6} variant="filled" severity={severity}>
           {alert}
         </MuiAlert>
       </Snackbar>

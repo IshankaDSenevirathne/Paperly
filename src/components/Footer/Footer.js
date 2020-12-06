@@ -1,193 +1,193 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-import { withStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
+import Hidden from "@material-ui/core/Hidden";
+import OpenInNew from "@material-ui/icons/OpenInNew";
+import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import { Container } from "@material-ui/core";
+import FaceBook from "../../img/icons/facebook.svg";
+import GitHub from "../../img/icons/github.svg";
+import Twitter from "../../img/icons/twitter.svg";
+import Reddit from "../../img/icons/reddit.svg";
+import Instagram from "../../img/icons/instagram.svg";
+
+import Coffee from  "../Animations/Coffee";
+
 import "./Footer.css";
-
-const WhiteTextTypography = withStyles({
-  root: {
-    color: "#FFFFFF",
-  },
-})(Typography);
-
-const useStyles = makeStyles((theme) => ({
-  footer: {
-    padding: theme.spacing(0, 0),
-    marginTop: "auto",
-    // height: "35vh",
-    //     backgroundatt -attachment: fixed;
-    // background-size: cover;
-    // backgroundColor:
-    //   theme.palette.type === "light"
-    //     ? theme.palette.grey[200]
-    //     : theme.palette.grey[800],
-  },
-}));
-
 const Footer = () => {
-  const classes = useStyles();
 
   return (
-    <footer className="site-footer">
-      <Container>
-        <div className="row">
-          <Grid
-            className="copyright-grid"
-            container
-            alignItems="center"
-            md="8"
-            sm="6"
-            xs="12"
-          >
-            <p className="copyright-text">
-              Copyright &copy; {new Date().getFullYear()}{" "}
-              <a href="/">EduEra LLC</a>.
-            </p>
-          </Grid>
+    <div style={{color:"#ffffff",width:'100%',background:"#363f44",paddingTop:"50px",paddingBottom:"100px",position:"absolute",bottom:"-100"}}>
+      <footer>
+        <Hidden xsDown>
+          <Container>
+            <div style={{borderBottom:"1px solid grey"}}>
+              <Grid container alignItems="flex-start" justify="space-between">
+                <Grid sm={6} md={8} item >
+                  <div>
+                    <Typography variant="h6" align="left">
+                      WE TRY TO MAKE AWSOME SOFTWARE.
+                    </Typography>
+                  </div>
+                  <div style={{paddingBottom:"10px"}}>
+                    <Coffee />
+                    <Typography variant="body2" align="left">
+                      <span style={{color:"#1fa2ff"}}>MADE WITH LOVE AND COFFEE</span>
+                    </Typography>
+                  </div>
+                </Grid>
+                <Grid sm={4} md={4} item >
+                  <div style={{paddingBottom:"10px"}}>
+                    <Typography variant="subtitle2" align="left">
+                      ABOUT US
+                    </Typography>
+                    <Typography variant="body2" align="left">
+                      <span style={{color:"#CCCDCD"}}>We are just a small group of individuals trying to take the great minds of Sri Lanka where it belongs.</span> 
+                    </Typography>
+                  </div>
+                  <div style={{paddingBottom:"10px"}}>
+                    <Typography variant="subtitle2" align="left">
+                      CONTACT US
+                    </Typography>
+                    <Typography variant="body2" align="left">
+                      <span style={{color:"#CCCDCD"}}>Paperlytech@gmail.com</span> 
+                    </Typography>
+                  </div>
+                  <div style={{paddingBottom:"10px"}}>
+                    <Typography variant="subtitle2" align="left">
+                      TERMS OF SERVICE
+                    </Typography>
+                    <Link href="/terms" target="_blank">
+                     <OpenInNew className="linkZ" fontSize="small" />
+                    </Link>
+                  </div>
+                </Grid>
+              </Grid>
+            </div>
+            <div>
+              <Grid
+                container
+                alignItems="center"
+                justify="space-between"
+              >
+              <Grid item>
+                <p>
+                  Copyright &copy; {new Date().getFullYear()}{" "}
+                  <Link href="/"><span className="linkZ">Paperly LLC .</span></Link>
+                </p>
+              </Grid>
+              <Grid item>
+                    <Link target="_blank"  href="https://www.facebook.com/Paperly-110864100824156">
+                      <img className="socialicons" src={FaceBook}></img>
+                    </Link>
+                    &nbsp;
+                    &nbsp;
+                    <Link target="_blank" href="https://twitter.com/paperlytech">
+                      <img className="socialicons" src={Twitter}></img>
+                    </Link>
+                    &nbsp;
+                    &nbsp;
+                    <Link target="_blank" href="https://www.instagram.com/paperly.tech/">
+                      <img className="socialicons" src={Instagram}></img>
+                    </Link>
+                    &nbsp;
+                    &nbsp;
+                    <Link target="_blank" href="https://www.reddit.com/user/paperlytech">
+                      <img className="socialicons" src={Reddit}></img>
+                    </Link>
+                    &nbsp;
+                    &nbsp;
+                    <Link target="_blank" href="https://github.com/IshankaDSenevirathne/Paperly">
+                      <img className="socialicons" src={GitHub}></img>
+                    </Link>
+              </Grid>
+            </Grid>
+            </div>
+          </Container>
+        </Hidden>
+        <Hidden smUp>
+          <Container>
+            <div style={{borderBottom:"1px solid grey"}}>
+              <Grid container justify="flex-start">
+                <Grid sm={6} md={8} item >
+                  <div>
+                    <Typography variant="h6" align="left">
+                      WE TRY TO MAKE AWSOME SOFTWARE.
+                    </Typography>
+                  </div>
+                  <div style={{paddingBottom:"10px"}}>
+                    <Coffee />
+                    <Typography variant="body2" align="left">
+                      <span style={{color:"#1fa2ff"}}>MADE WITH LOVE AND COFFEE</span>
+                    </Typography>
+                  </div>
+                </Grid>
+                <Grid sm={4} md={4} item  >
+                  <div style={{paddingBottom:"10px"}}>
+                    <Typography variant="subtitle2" align="left">
+                      ABOUT US
+                    </Typography>
+                    <Typography variant="body2" align="left">
+                      <span style={{color:"#CCCDCD"}}>We are just a small group of individuals trying to take the great minds of Sri Lanka where it belongs.</span> 
+                    </Typography>
+                  </div>
+                  <div style={{paddingBottom:"10px"}}>
+                    <Typography variant="subtitle2" align="left">
+                      CONTACT US
+                    </Typography>
+                    <Typography variant="body2" align="left">
+                      <span style={{color:"#CCCDCD"}}>Paperlytech@gmail.com</span> 
+                    </Typography>
+                  </div>
+                  <div style={{paddingBottom:"10px"}}>
+                    <Typography variant="subtitle2" align="left">
+                      TERMS OF SERVICE
+                    </Typography>
+                    <Link href="/terms" target="_blank">
+                      <OpenInNew className="linkZ" fontSize="small" />
+                    </Link>
+                  </div>
+                </Grid>
+              </Grid>
+            </div>
+            <div style={{textAlign:'center'}}>
+              <div>
+                <p>
+                  Copyright &copy; {new Date().getFullYear()}{" "}
+                  <Link href="/"><span className="linkZ">Paperly LLC .</span></Link>
+                </p>
+              </div>
+              <div>
+                  <Link target="_blank"  href="https://www.facebook.com/Paperly-110864100824156">
+                    <img src={FaceBook}></img>
+                  </Link>
+                  &nbsp;
+                  &nbsp;
+                  <Link target="_blank" href="https://twitter.com/paperlytech">
+                    <img src={Twitter}></img>
+                  </Link>
+                  &nbsp;
+                  &nbsp;
+                  <Link target="_blank" href="https://www.instagram.com/paperly.tech/">
+                    <img src={Instagram}></img>
+                  </Link>
+                  &nbsp;
+                  &nbsp;
+                  <Link target="_blank" href="https://www.reddit.com/user/paperlytech">
+                    <img src={Reddit}></img>
+                  </Link>
+                  &nbsp;
+                  &nbsp;
+                  <Link target="_blank" href="https://github.com/IshankaDSenevirathne/Paperly">
+                    <img src={GitHub}></img>
+                  </Link>
+                </div>
+            </div>
+          </Container>
+        </Hidden>
+      </footer>
+    </div>
 
-          <Grid md="4" sm="6" xs="12">
-            <ul className="social-icons">
-              <li>
-                <a className="facebook" href="/">
-                  <i className="fa icon-footer fa-facebook"></i>
-                  {/* <i className="fab fa-facebook-f"></i> */}
-                </a>
-              </li>
-              <li>
-                <a
-                  className="facebook"
-                  href="https://github.com/IshankaDSenevirathne/EduEra"
-                >
-                  {/* <i className="fa icon-footer fa-facebook"></i> */}
-                  <i className="fa icon-footer fa-github"></i>
-                </a>
-              </li>
-              <li>
-                <a className="twitter" href="/">
-                  <i className="fa icon-footer fa-twitter"></i>
-                </a>
-              </li>
-              {/* <li>
-                  <a className="twitter" href="#">
-                    <i className="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a className="dribbble" href="#">
-                    <i class=" fa-3x fab fa-github"></i>
-                  </a>
-                </li>
-                <li>
-                  <a className="linkedin" href="#">
-                    <i className="fa fa-linkedin"></i>
-                  </a>
-                </li> */}
-            </ul>
-          </Grid>
-        </div>
-      </Container>
-    </footer>
   );
 };
 export default Footer;
-
-/**
-
-  <!-- Site footer -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-6">
-            <h6>About</h6>
-            <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
-          </div>
-
-          <div class="col-xs-6 col-md-3">
-            <h6>Categories</h6>
-            <ul class="footer-links">
-              <li><a href="c-language/">C</a></li>
-              <li><a href="front-end-development/">UI Design</a></li>
-              <li><a href="back-end-development/">PHP</a></li>
-              <li><a href="java-programming-language/">Java</a></li>
-              <li><a href="android/">Android</a></li>
-              <li><a href="templates/">Templates</a></li>
-            </ul>
-          </div>
-
-          <div class="col-xs-6 col-md-3">
-            <h6>Quick Links</h6>
-            <ul class="footer-links">
-              <li><a href="http://scanfcode.com/about/">About Us</a></li>
-              <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-              <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-              <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-              <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
-            </ul>
-          </div>
-
-        </div>
-        <hr>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by 
-         <a href="#">Scanfcode</a>.
-            </p>
-          </div>
-
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <ul class="social-icons">
-              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
-            </ul>
-          </div>
-        </div>
-      </div>
-</footer>
-
- */
-
-//*old
-
-/* <footer classNameName={classNamees.footer}>
-        <div className="footerdiv">
-          <div className="footerinner">
-            <Copyright />
-            <Divider style={{ margin: "24px auto", width: "60%" }} />
-            <Grid
-              container
-              justify={"center"}
-              alignItems={"center"}
-              spacing={0}
-            >
-              <a href="/">
-                <i class=" icons fa-3x fab fa-github"></i>
-              </a>
-
-              <Grid item xs={12} sm={6} md={3}>
-                <a className="linkanchor" href="/terms">
-                  <WhiteTextTypography
-                    style={{ fontSize: "1.2rem" }}
-                    align={"center"}
-                    gutterBottom
-                    color={"textSecondary"}
-                  >
-                    Terms & Conditions{" "}
-                  </WhiteTextTypography>
-                </a>
-              </Grid>
-
-              <a href="/">
-                <i class="  icons fa-3x fab fa-facebook-f"></i>
-              </a>
-            </Grid>{" "}
-          </div>
-        </div>
-      </footer> */

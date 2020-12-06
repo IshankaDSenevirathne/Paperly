@@ -20,6 +20,15 @@ import { teal } from "@material-ui/core/colors";
 import { MarksPercentile } from "./Graph/graph";
 import Grade from "./Grading/Grade";
 
+// const API =
+//   process.env.NODE_ENV === "production"
+//     ? `https://paperly-114b9e.us1.kinto.io`
+//     : "http://localhost:5000";
+
+const API = `https://paperly-114b9e.us1.kinto.io`;
+
+console.log(process.env.NODE_ENV);
+
 const useStylesFacebook = makeStyles((theme) => ({
   root: {
     position: "relative",
@@ -97,25 +106,25 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     background: "#363f44",
     borderRadius: "4px",
-    color:"white",
-    height:"fit-content"
+    color: "white",
+    height: "fit-content",
   },
-  divider:{
-    background:"grey",
-    width:"60%"
+  divider: {
+    background: "grey",
+    width: "60%",
   },
 }));
 
 export default function Results(props) {
   const classes = useStyles();
-  const { answers, questions, paper, timeSpent } = props;
+  const { answers, questions, paper, timeSpent,timeForPaper } = props;
   const [graphData, setgraphData] = useState([]);
   const [marks, setmarks] = useState(0);
 
   useEffect(() => {
     console.log(answers);
     console.log(questions);
-    console.log(120 * 60 - timeSpent);
+    console.log(timeForPaper - timeSpent);
 
     console.log(paper);
     console.log(props);
@@ -135,7 +144,7 @@ export default function Results(props) {
     console.log(progress);
     setmarks(progress);
     fetch(
-      `https://paperly-114b9e.us1.kinto.io/landingstats/papersubmission?submissions=${progress}&paper=${props.paperName}&paperyear=${props.paperYear}`
+      `${API}/landingstats/papersubmission?submissions=${progress}&paper=${props.paperName}&paperyear=${props.paperYear}`
       // `http://localhost:5000/landingstats/papersubmission?submissions=${progress}&paper=${props.paperName}&paperyear=${props.paperYear}`
     )
       .then((res) => res.json())
@@ -156,7 +165,7 @@ export default function Results(props) {
 
   const evaluatedResults = (answers, questions, timeSpent) => {
     let correctAnswers = 0;
-    const elapsedTime = 120 * 60 - timeSpent;
+    const elapsedTime = timeForPaper - timeSpent;
     let hours = Math.floor(elapsedTime / 3600);
     const spentHours = hours * 60;
     let minutes = Math.floor(elapsedTime / 60 - spentHours);
@@ -194,13 +203,28 @@ export default function Results(props) {
             backgroundColor: "#2a3136",
             borderRadius: "4px",
           }}
-        > 
+        >
           <Paper elevation={3} className={classes.paper}>
-            <Typography gutterBottom align="center" variant="h5" style={{paddingTop:"20px"}}>
+            <Typography
+              gutterBottom
+              align="center"
+              variant="h5"
+              style={{ paddingTop: "20px" }}
+            >
               <b>YOUR GRADE</b>
             </Typography>
-            <Grid container direction="row" alignItems="center" justify="center">
-              <Grid item c xs={12} sm={8}> 
+            <Grid
+              container
+              direction="row"
+              alignItems="center"
+              justify="center"
+            >
+              <Grid item xs={12} sm={4}>
+                <div>
+                  <Grade marks={marks} />
+                </div>
+              </Grid>
+              <Grid item xs={12} sm={8}>
                 <List className={classes.root}>
                   <ListItem>
                     <ListItemAvatar>
@@ -214,7 +238,11 @@ export default function Results(props) {
                       secondaryTypographyProps={{ color: "whitesmoke" }}
                     />
                   </ListItem>
-                  <Divider className={classes.divider} variant="inset" component="li" />
+                  <Divider
+                    className={classes.divider}
+                    variant="inset"
+                    component="li"
+                  />
 
                   <ListItem>
                     <ListItemAvatar>
@@ -230,16 +258,21 @@ export default function Results(props) {
                   </ListItem>
                 </List>
               </Grid>
-              <Grid item xs={12} sm={4}>
-                  <div>
-                    <Grade marks={marks} />
-                  </div>
-              </Grid>
             </Grid>
           </Paper>{" "}
         </div>
-        <div style={{paddingTop:"10px",width:"100%"}} >
+        <div style={{ paddingTop: "10px", width: "100%" }}>
           <Paper elevation={3} className={classes.paper}>
+            <div>
+              <Typography
+                gutterBottom
+                align="center"
+                variant="h5"
+                style={{ paddingTop: "20px" }}
+              >
+                <b>MARKS DISTRIBUTION</b>
+              </Typography>
+            </div>
             <div className={classes.root}>
               <MarksPercentile
                 data={graphData}
@@ -263,7 +296,7 @@ export default function Results(props) {
           paddingTop: "60px",
         }}
       >
-        <h1>{paper}</h1>
+        <Typography align="center" variant="h5">{paper}</Typography>
       </div>
       <div className="evaluation">
         {evaluatedResults(answers, questions, timeSpent)}

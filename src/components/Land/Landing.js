@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "@material-ui/core/Link";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
@@ -8,14 +8,10 @@ import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
-
 import "./Landing.css";
-// import SlideImg from "../Slide/slidehomeimages";
 import VisibilitySensor from "react-visibility-sensor";
 import Statsbar from "./Statsbar/statsbar";
-import Footer from "./Footer/Footer";
-import Navbar from "../navbar/navbar";
-import Quote from "../Quote/Quote";
+import Quote from "./Quote/Quote";
 import BannerHome from "./BannerHome/BannerHome";
 
 import PropTypes from "prop-types";
@@ -29,15 +25,11 @@ import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-const gradient =
-  "linear-gradient(98deg, rgba(31,162,255,0.5085609243697479) 0%, rgba(18,216,250,0.002931547619047619) 100%)";
-
-const gradientstatbar =
-  "linear-gradient(98deg, rgba(31,162,255,0.5085609243697479) 0%, rgba(18,216,250,0.2931547619047619) 100%)";
-// linear-gradient(90deg,#271066,rgba(39,16,102,0) 85%,rgba(39,16,102,0) 0,#271066)
+import Collapse from "@material-ui/core/Collapse";
+import CloseIcon from "@material-ui/icons/Close";
+import { Alert } from "@material-ui/lab";
+import IconButton from "@material-ui/core/IconButton";
+import Snackbar from "@material-ui/core/Snackbar";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -49,64 +41,16 @@ const useStyles = makeStyles((theme) => ({
   },
   rootsroll: {
     position: "fixed",
-    bottom: theme.spacing(2),
-    right: theme.spacing(2),
+    bottom: theme.spacing(1),
+    right: "15px",
   },
-  botBanner:{
-    minHeight:"300px"
-  },
-  // https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80
-
-  heroContent: {
-    padding: theme.spacing(18, 10, 18),
-    // backgroundImage: `${gradient}, url(${bg})`,
-    backgroundImage: `${gradient}, url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80)`,
-    "background-position": "center",
-    "background-repeat": "no-repeat",
-    "background-size": "cover",
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4),
-  },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
-  },
-  card: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-  },
-  cardMedia: {
-    paddingTop: "56.25%", // 16:9
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  footer: {
-    padding: theme.spacing(0, 0),
-    marginTop: "auto",
-    // height: "35vh",
-    //     backgroundatt -attachment: fixed;
-    // background-size: cover;
-    // backgroundColor:
-    //   theme.palette.type === "light"
-    //     ? theme.palette.grey[200]
-    //     : theme.palette.grey[800],
-  },
-  paper: {
-    height: 200,
-    width: 200,
-    textAlign: "center",
-    // position: "sticky",
-    background: "#1fa2ff",
-    color: "#ffffff",
+  botBanner: {
+    minHeight: "300px",
   },
   statbar: {
     padding: "3rem",
-    // backgroundImage: `${gradientstatbar}`,
     background: "rgb(245, 245, 245)",
-  },
+  }
 }));
 
 function ScrollTop(props) {
@@ -156,6 +100,11 @@ ScrollTop.propTypes = {
 export default function Album(props) {
   const classes = useStyles();
   const [counterVisible, setcounterVisible] = useState(false);
+  const [cookieBanner, setcookieBanner] = useState(true);
+
+  const handlecookieBannerClose = () => {
+    setcookieBanner(false);
+  };
 
   return (
     <div className={classes.root}>
@@ -163,19 +112,12 @@ export default function Album(props) {
       <div id="back-to-top-anchor"></div>
       <BannerHome />
       <Banner />
-      <Container className={classes.cardGrid} maxWidth="md">
-        <Container
-          style={{
-            paddingBottom: "1rem",
-          }}
-        >
-        </Container>
-        <StepGuide />
-
+      <Container maxWidth="lg">
+        <div style={{ paddingTop: "100px" }}>
+          <StepGuide />
+        </div>
       </Container>
-
-      <div>
-      </div>{" "}
+      <div></div>{" "}
       <VisibilitySensor
         onChange={(e) => {
           if (e) {
@@ -185,35 +127,35 @@ export default function Album(props) {
       >
         <div className="scrollvisibile"></div>
       </VisibilitySensor>
-      <Quote/>
+      <Quote />
       <Statsbar counterVisible={counterVisible} />
-      <Grid container direction="row" alignItems="center" justify="center" className={classes.botBanner}>
+      <Grid
+        container
+        direction="row"
+        alignItems="center"
+        justify="center"
+        className={classes.botBanner}
+      >
         <Grid item>
-              <Typography variant="h5" align="center">
-                READY TO JUMP IN ?
-              </Typography>
-              <div style={{paddingTop:"20px"}}>
-              <Typography gutterBottom variant="subtitle1" align="center">
-                <Link
-                  to="/subjectmenu"
-                  style={{
-                    textDecoration: "none",
-                  }}
-                >
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                  >
-                    GET STARTED
-                  </Button>
-                </Link>
-              </Typography>
-              </div>
-
+          <Typography variant="h5" align="center">
+            READY TO JUMP IN ?
+          </Typography>
+          <div style={{ paddingTop: "20px" }}>
+            <Typography gutterBottom variant="subtitle1" align="center">
+              <Link
+                href="/subjectmenu"
+                style={{
+                  textDecoration: "none",
+                }}
+              >
+                <Button variant="contained" color="primary" size="large">
+                  GET STARTED
+                </Button>
+              </Link>
+            </Typography>
+          </div>
         </Grid>
       </Grid>
-      <Footer />
       <ScrollTop {...props}>
         <Fab
           style={{ backgroundColor: "#1fa2ff" }}
@@ -223,7 +165,74 @@ export default function Album(props) {
           <KeyboardArrowUpIcon style={{ color: "#ffffff" }} />
         </Fab>
       </ScrollTop>
+      <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        open={cookieBanner}
+        autoHideDuration={1000000}
+      >
+        <Collapse in={cookieBanner}>
+          <Alert
+            icon={false}
+            severity="info"
+            action={
+              <IconButton
+                aria-label="close"
+                color="inherit"
+                size="small"
+                onClick={() => {
+                  handlecookieBannerClose();
+                }}
+              >
+                <CloseIcon fontSize="inherit" />
+              </IconButton>
+            }
+          >
+            {/* <AlertTitle>Info</AlertTitle> */}
+            <div className={classes.cookieBanner}>
+              <div className={classes.cookieBannerClose}>
+                We use cookies to enhance your experience
+              </div>
+            </div>
+          </Alert>
+        </Collapse>
+      </Snackbar>
     </div>
   );
 }
 
+/** wadagat weda mewwa hum
+ *   {/* <Alert icon={false} severity="info">
+            <AlertTitle>
+              <div className={classes.cookieBanner}>
+                <div className={classes.cookieBannerItem}>Info</div>
+                <div className={classes.cookieBannerItem}>
+                  <IconButton
+                    aria-label="close"
+                    color="inherit"
+                    size="small"
+                    onClick={() => {
+                      handlecookieBannerClose();
+                    }}
+                  >
+                    <CloseIcon fontSize="inherit" />
+                  </IconButton>
+                </div>
+              </div>
+            </AlertTitle>
+            <div className={classes.cookieBanner}>
+              We use cookies to give you best experience
+              <div className={classes.cookieBannerClose}>
+                <IconButton
+                  aria-label="close"
+                  color="inherit"
+                  size="small"
+                  onClick={() => {
+                    handlecookieBannerClose();
+                  }}
+                >
+                  <CloseIcon fontSize="inherit" />
+                </IconButton>
+              </div>
+            </div>
+          </Alert>}
+ */

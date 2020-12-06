@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../navbar/navbar";
 import { makeStyles } from "@material-ui/core/styles";
-import Hidden from "@material-ui/core/Hidden";
 
-import SubjectTabs from "./subjects/desktop/tabs";
-import SubjectList from "./subjects/mobile/subjectlist";
+import Categories from "./Categories/Categories";
 
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-
-import ListItemText from "@material-ui/core/ListItemText";
 import InputBase from "@material-ui/core/InputBase";
-import { Container } from "@material-ui/core";
 import { fade } from "@material-ui/core/styles";
-import Footer from "../Footer/Footer";
 import SearchIcon from "@material-ui/icons/Search";
 let papers = require("../../paperdata/papers.json");
 
@@ -57,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create("width"),
     width: "100%",
@@ -70,11 +60,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
 
-const Subjectmenu = () => {
+const SubjectMenu = () => {
   const [paperNameList, setpaperNameList] = useState([]);
   const [paperNameListDefault, setpaperNameListDefault] = useState([]);
 
@@ -112,62 +99,27 @@ const Subjectmenu = () => {
 
   return (
     <div style={{ color: "white" }}>
-      <Navbar />
-
-      <div style={{ marginTop: "120px", marginBottom: "120px" }}>
-        <Hidden xsDown>
-          <SubjectTabs />
-        </Hidden>
-        <Hidden smUp>
-          <SubjectList />
-        </Hidden>
+      <div style={{ marginBottom: "120px" }}>
+          <Categories />
       </div>
-      <Container>
-        <div className={classes.paperlist}>
-          {" "}
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ "aria-label": "search" }}
-              onChange={(e) => search(e.target.value)}
-            />
+      <div className={classes.paperlist}>
+        {" "}
+        <div className={classes.search}>
+          <div className={classes.searchIcon}>
+            <SearchIcon />
           </div>
-          {paperNameList.length > 0 ? (
-            paperNameList.map((ele) => {
-              console.log(ele);
-
-              return (
-                <div className={classes.root}>
-                  <List component="nav" aria-label="secondary mailbox folders">
-                    <ListItemLink
-                      href={`/quizes?subject=${ele.subject}&year=${ele.year}`}
-                    >
-                      <ListItemText primary={ele.name} />
-                    </ListItemLink>
-                  </List>
-                </div>
-              );
-            })
-          ) : (
-            <div className={classes.root}>
-              <List component="nav" aria-label="secondary mailbox folders">
-                <ListItem>
-                  <ListItemText primary="Paper Not Found" />
-                </ListItem>
-              </List>
-            </div>
-          )}
+          <InputBase
+            placeholder="Search…"
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput,
+            }}
+            inputProps={{ "aria-label": "search" }}
+            onChange={(e) => search(e.target.value)}
+          />
         </div>
-      </Container>
-      <Footer />
+      </div>
     </div>
   );
 };
-export default Subjectmenu;
+export default SubjectMenu;

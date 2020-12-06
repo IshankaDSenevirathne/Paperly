@@ -1,10 +1,4 @@
 import React, { useState, useEffect } from "react";
-
-import QuizList from "./QuizList";
-import QuizTemp from "./QuizTemp";
-import Results from "./Results";
-import Review from "./Review";
-
 import PropTypes from "prop-types";
 import Hidden from "@material-ui/core/Hidden";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
@@ -24,7 +18,14 @@ import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 import { lightBlue } from "@material-ui/core/colors";
 
+import QuizList from "./QuizList";
+import QuizTemp from "./QuizTemp";
+import Results from "./Results";
+import Review from "./Review";
 import CompletedSurvey from "./CompletedSurvey";
+import {AnswerPass,ReviewPass} from "./Alerts/Alerts";
+
+
 
 const useQontoStepIconStyles = makeStyles({
   root: {
@@ -215,19 +216,34 @@ function getSteps() {
   ];
 }
 
+function getButtonText() {
+  return [
+    "Exam",
+    "Results",
+    "Review",
+    "Finish",
+  ];
+}
+
+
 export default function Steps(props) {
-  const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [activePaper, setActivePaper] = useState(undefined);
   const [activeQuestions, setActiveQuestions] = useState(undefined);
   const [activeAnswers, setActiveAnswers] = useState([]);
+  const [activeUnanswered, setActiveUnanswered] = useState(undefined);
+  const [timeForPaper, setTimeForPaper] = useState(undefined);
+  const [lastQuestion,setLastQuestion]=useState(0);
   const [timeSpentForEach, setTimeSpentForEach] = useState([]);
-  const [timeSpent, setTimeSpent] = useState(120 * 60);
-  const [checkLast, setCheckLast] = useState(false);
-  const [open, setOpen] = React.useState(false);
+  const [timeSpent, setTimeSpent] = useState(undefined);
+  const [open, setOpen] = useState(false);
   const [paperYear, setpaperYear] = useState(0);
+  const [resultsVerificationAlertStatus,setResultsVerificationAlertStatus]=useState(false);
+  const [reviewVerificationAlertStatus,setReviewVerificationAlertStatus]=useState(false);
 
   const steps = getSteps();
+  const classes = useStyles();
+  const buttonTxt = getButtonText();
 
   const { papersList, subject } = props;
 
@@ -238,14 +254,24 @@ export default function Steps(props) {
     //need to load the selected paper
     const regex = /\d+/;
     let year = activePaper.match(regex)[0];
-    console.log(year);
     setpaperYear(year);
-    let paper = require(`../../paperdata/${subject}/${year}/paper.json`);
-    setActiveQuestions(paper.content.pages);
-  }, [activePaper, activeQuestions]);
+
+    let paper = require(`../../paperdata/${subject}/${year}/paper`);
+
+    setActiveQuestions(paper.default.content.pages);
+    setTimeForPaper(paper.default.content.time);
+  }, [activePaper, activeQuestions,timeForPaper]);
   const handleNext = () => {
     if (activePaper == undefined) {
       setOpen(true);
+      return;
+    }
+    if(activeStep==1){
+      setResultsVerificationAlertStatus(true);
+      return;
+    }
+    if(activeStep==3){
+      setReviewVerificationAlertStatus(true);
       return;
     }
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -263,35 +289,51 @@ export default function Steps(props) {
     setActiveAnswers([]);
     setActiveQuestions(undefined);
     setActiveAnswers([]);
+    setActiveUnanswered([]);
     setTimeSpentForEach([]);
-    setTimeSpent(120 * 60);
-    setCheckLast(false);
+    setTimeSpent(undefined);
+    setResultsVerificationAlertStatus(false);
+    setReviewVerificationAlertStatus(false);
+    setLastQuestion(0);
+    setTimeForPaper(undefined);
   };
 
   const setPaper = (index) => {
     setActivePaper(papersList[index]);
   };
-  const getAnswers = (answers, timeSpentForEach, checkLast) => {
-    setCheckLast(checkLast);
+  const getAnswers = (answers, timeSpentForEach,unanswered,lastQuestion) => {
     setActiveAnswers(answers);
+    setLastQuestion(lastQuestion);
     setTimeSpentForEach(timeSpentForEach);
+    setActiveUnanswered(unanswered);
   };
   const getTimeSpent = (timeSpent) => {
     setTimeSpent(timeSpent);
   };
+  const getVerification=(status)=>{
+    if(status){
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
+    setResultsVerificationAlertStatus(false);
+  }
+  const getReviewPass =(status)=>{
+    if(status){
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
+    setReviewVerificationAlertStatus(false);
+  }
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       setOpen(false);
       return;
     }
-
     setOpen(false);
   };
   return (
     <div className={classes.root}>
       <ThemeProvider theme={theme}>
         <Hidden xsDown>
-          <div className="stepbar">
+          <div style={{paddingTop:"80px"}}>
             <Stepper
               className={classes.stepper}
               alternativeLabel
@@ -326,10 +368,12 @@ export default function Steps(props) {
         <div>
           {activeQuestions && activeStep == 1 && (
             <div>
+              {resultsVerificationAlertStatus && <AnswerPass state={true} unanswered={activeUnanswered} getVerification={getVerification}/>}
               <QuizTemp
                 getAnswers={getAnswers}
                 getTimeSpent={getTimeSpent}
                 questions={activeQuestions}
+                timeForPaper={timeForPaper}
                 paper={activePaper}
               />
             </div>
@@ -344,24 +388,30 @@ export default function Steps(props) {
               timeSpent={timeSpent}
               paperName={subject}
               paperYear={paperYear}
+              timeForPaper={timeForPaper}
             />
           )}
         </div>
         <div>
           {activeStep == 3 && (
-            <Review
-              paper={activePaper}
-              questions={activeQuestions}
-              answers={activeAnswers}
-              totalTimeSpent={timeSpent}
-              timeSpentForEach={timeSpentForEach}
-            />
+            <div>
+            {reviewVerificationAlertStatus && <ReviewPass state={true} getReviewPass={getReviewPass}/>}
+              <Review
+                paper={activePaper}
+                questions={activeQuestions}
+                answers={activeAnswers}
+                totalTimeSpent={timeSpent}
+                timeSpentForEach={timeSpentForEach}
+                lastQuestion={lastQuestion}
+                timeForPaper={timeForPaper}
+              />
+            </div>
           )}
         </div>
         <div style={{ paddingTop: "30px" }}>
           {activeStep === steps.length ? (
             <div>
-              <CompletedSurvey />
+              <CompletedSurvey year={paperYear} subject={subject} />
               <Button
                 variant="contained"
                 color="primary"
@@ -387,9 +437,8 @@ export default function Steps(props) {
                   color="primary"
                   onClick={handleNext}
                   className={classes.button}
-                  disabled={activeStep == 1 && !checkLast}
                 >
-                  {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                  {buttonTxt[activeStep]}
                 </Button>
               </div>
             </div>
@@ -403,7 +452,7 @@ export default function Steps(props) {
           autoHideDuration={2000}
           onClose={handleClose}
         >
-          <MuiAlert elevation={6} variant="filled" severity="error">
+          <MuiAlert elevation={6} variant="filled" severity="info">
             Please select an exam!
           </MuiAlert>
         </Snackbar>

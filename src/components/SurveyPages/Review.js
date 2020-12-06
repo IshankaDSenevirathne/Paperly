@@ -8,15 +8,9 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import PropTypes from "prop-types";
-import Paper from "@material-ui/core/Paper"
-
-// import Toolbar from '@material-ui/core/Toolbar';
-// import Typography from '@material-ui/core/Typography';
-// import { makeStyles } from '@material-ui/core/styles';
-// import CssBaseline from '@material-ui/core/CssBaseline';
+import Paper from "@material-ui/core/Paper";
+import Typography from '@material-ui/core/Typography';
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-// import Box from '@material-ui/core/Box';
-// import Container from '@material-ui/core/Container';
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
@@ -29,12 +23,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    color:"white"
+    color: "white",
   },
   rootsroll: {
     position: "fixed",
-    bottom: theme.spacing(2),
-    right: theme.spacing(2),
+    bottom: theme.spacing(10),
+    right: "21px",
   },
   item: {
     border: "1px solid #4199FF",
@@ -46,13 +40,13 @@ const useStyles = makeStyles((theme) => ({
       border: "1px solid #1fa2ff",
     },
   },
-  paper:{
-    background:"#363f44",
-    borderRadius:"4px",
-    padding:"20px 25px 20px 25px",
-    marginBottom:"20px",
-    color:"white",
-  }
+  paper: {
+    background: "#363f44",
+    borderRadius: "4px",
+    padding: "20px 25px 20px 25px",
+    marginBottom: "20px",
+    color: "white",
+  },
 }));
 
 const options = ["Show All", "Show Correct", "Show Incorrect"];
@@ -105,20 +99,20 @@ ScrollTop.propTypes = {
 };
 
 export default function Review(props) {
-  const { answers, questions, paper, timeSpentForEach, totalTimeSpent } = props;
+  const { answers, questions, paper, timeSpentForEach, totalTimeSpent,lastQuestion,timeForPaper} = props;
+  console.log(timeSpentForEach,totalTimeSpent);
   const classes = useStyles();
   const timeForLastQuestion = (totalTimeElapsed) => {
-    const elapsedTime = 120 * 60 - totalTimeElapsed;
+    const elapsedTime = timeForPaper - totalTimeElapsed;
     let totalTime = 0;
     for (var i = 0; i < timeSpentForEach.length - 1; i++) {
-      console.log(timeSpentForEach[i]);
+      if(i===lastQuestion){
+        continue;
+      }
       totalTime = totalTime + parseInt(timeSpentForEach[i]);
     }
-    console.log(totalTime);
-    console.log(elapsedTime);
     const timeforlastquestion = elapsedTime - totalTime;
-
-    if (timeforlastquestion == NaN) {
+    if (totalTime===elapsedTime) {
       return 0;
     } else {
       return timeforlastquestion;
@@ -149,8 +143,9 @@ export default function Review(props) {
           textTransform: "uppercase",
           paddingTop: "60px",
         }}
+        id="back-to-top-anchor"
       >
-        <h1 id="back-to-top-anchor">{paper}</h1>
+        <Typography align="center" variant="h5">{paper}</Typography>
       </div>
       <div
         style={{
@@ -185,10 +180,12 @@ export default function Review(props) {
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}
-            PaperProps={{style:{
-              background:"#363f44",
-              color:"white"
-            }}}
+            PaperProps={{
+              style: {
+                background: "#363f44",
+                color: "white",
+              },
+            }}
           >
             {options.map((option, index) => (
               <MenuItem
@@ -209,7 +206,7 @@ export default function Review(props) {
           const correctAnswer = question.correctAnswer;
           const result = correctAnswer == userAnswer;
           let timeSpent = 0;
-          if (index == 2) {
+          if (index === lastQuestion) {
             timeSpent = timeForLastQuestion(totalTimeSpent);
           } else {
             timeSpent = timeSpentForEach[index];
@@ -224,10 +221,7 @@ export default function Review(props) {
           if (selectedIndex == 0) {
             return (
               <Paper elevation={3} className={classes.paper}>
-                <div
-                  id={index}
-                  key={index}
-                >
+                <div id={index} key={index}>
                   <ResultTemp
                     result={result}
                     question={question}
@@ -248,10 +242,7 @@ export default function Review(props) {
           } else if (selectedIndex == 1 && result == true) {
             return (
               <Paper elevation={3} className={classes.paper}>
-                <div
-                  id={index}
-                  key={index}
-                >
+                <div id={index} key={index}>
                   <ResultTemp
                     result={result}
                     question={question}
@@ -272,10 +263,7 @@ export default function Review(props) {
           } else if (selectedIndex == 2 && result == false) {
             return (
               <Paper elevation={3} className={classes.paper}>
-                <div
-                  id={index}
-                  key={index}
-                >
+                <div id={index} key={index}>
                   <ResultTemp
                     result={result}
                     question={question}
@@ -298,7 +286,7 @@ export default function Review(props) {
       <ScrollTop {...props}>
         <Fab
           style={{ backgroundColor: "#1fa2ff" }}
-          size="small"
+          size="medium"
           aria-label="scroll back to top"
         >
           <KeyboardArrowUpIcon style={{ color: "#ffffff" }} />

@@ -3,13 +3,29 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
-
+import Button from "@material-ui/core/Button";
+import Link  from "@material-ui/core/Link";
+import { lightBlue } from "@material-ui/core/colors";
 
 //Images
 import BannerImg from "../../../img/BannerHome.svg";
 import Wave from "../../../img/wavebottom.svg";
 
 const useStyles=makeStyles((theme)=>({
+  button: {
+    color: "whitesmoke",
+    "&:hover": {
+      color: "white",
+    },
+  },
+  button2: {
+    color: "#2a3136",
+    borderColor:"#2a3136",
+    "&:hover": {
+      borderColor:lightBlue[400],
+      color: lightBlue[400],
+    },
+  },
   item1:{
     order:1,
     [theme.breakpoints.down("sm")]:{
@@ -52,6 +68,44 @@ export default function Banner() {
                       Everything you need, 100% free.
                     </Typography>
                   </div>
+                  <div>
+                <div>
+                    <Typography gutterBottom variant="subtitle1" align="center">
+                        <Link
+                            href="/subjectmenu"
+                            style={{
+                            textDecoration: "none",
+                            }}
+                        >
+                            <Button
+                            variant="contained"
+                            color="primary"
+                            className={classes.button}
+                            size="large"
+                            >
+                            GET STARTED
+                            </Button>
+                        </Link>
+                        &nbsp;
+                        &nbsp;
+                        <Link
+                        href="#features"
+                        style={{
+                        textDecoration: "none",
+                        }}
+                        >
+                            <Button
+                            variant="outlined"
+                            color="primary"
+                            className={classes.button2}
+                            size="large"
+                            >
+                            LEARN MORE
+                            </Button>
+                        </Link>
+                    </Typography>
+                </div>
+            </div>
                 </div>
             </Grid>
             <Grid item sm={12} md={6} container justify="center" className={classes.item2}>

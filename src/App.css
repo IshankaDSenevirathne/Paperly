@@ -2,6 +2,10 @@ html {
   scroll-behavior: smooth;
   background-color: #2a3136;
 }
+@font-face {
+  font-family: titleFont;
+  src: url("./fonts/Monda-Regular.ttf");
+}
 .landing {
   height: 600px;
   width: 100%;

@@ -1,0 +1,18 @@
+.logo {
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  .logo {
+    width: 700px;
+  }
+}
+@media (min-width: 900px) {
+  .logo {
+    width: 600px;
+  }
+}
+@media (min-width: 700px) {
+  .logo {
+    width: 500px;
+  }
+}

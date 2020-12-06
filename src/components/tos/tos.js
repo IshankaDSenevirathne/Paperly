@@ -3,22 +3,22 @@ import Container from "@material-ui/core/Container";
 
 const Tos = () => {
   return (
-    <div>
+    <div style={{color:"#ffffff"}}>
       <Container>
         <h2>
           <strong>Terms and Conditions</strong>
         </h2>
 
-        <p>Welcome to eduera!</p>
+        <p>Welcome to Paperly!</p>
 
         <p>
           These terms and conditions outline the rules and regulations for the
-          use of Eduera's Website, located at Eduera.
+          use of Paperly's Website, located at Paperly.
         </p>
 
         <p>
           By accessing this website we assume you accept these terms and
-          conditions. Do not continue to use eduera if you do not agree to take
+          conditions. Do not continue to use Paperly if you do not agree to take
           all of the terms and conditions stated on this page.
         </p>
 
@@ -44,8 +44,8 @@ const Tos = () => {
         </h3>
 
         <p>
-          We employ the use of cookies. By accessing eduera, you agreed to use
-          cookies in agreement with the Eduera's Privacy Policy.{" "}
+          We employ the use of cookies. By accessing Paperly, you agreed to use
+          cookies in agreement with the Paperly's Privacy Policy.{" "}
         </p>
 
         <p>
@@ -61,19 +61,19 @@ const Tos = () => {
         </h3>
 
         <p>
-          Unless otherwise stated, Eduera and/or its licensors own the
-          intellectual property rights for all material on eduera. All
+          Unless otherwise stated, Paperly and/or its licensors own the
+          intellectual property rights for all material on Paperly. All
           intellectual property rights are reserved. You may access this from
-          eduera for your own personal use subjected to restrictions set in
+          Paperly for your own personal use subjected to restrictions set in
           these terms and conditions.
         </p>
 
         <p>You must not:</p>
         <ul>
-          <li>Republish material from eduera</li>
-          <li>Sell, rent or sub-license material from eduera</li>
-          <li>Reproduce, duplicate or copy material from eduera</li>
-          <li>Redistribute content from eduera</li>
+          <li>Republish material from Paperly</li>
+          <li>Sell, rent or sub-license material from Paperly</li>
+          <li>Reproduce, duplicate or copy material from Paperly</li>
+          <li>Redistribute content from Paperly</li>
         </ul>
 
         <p>
@@ -92,18 +92,18 @@ const Tos = () => {
         <p>
           Parts of this website offer an opportunity for users to post and
           exchange opinions and information in certain areas of the website.
-          Eduera does not filter, edit, publish or review Comments prior to
+          Paperly does not filter, edit, publish or review Comments prior to
           their presence on the website. Comments do not reflect the views and
-          opinions of Eduera,its agents and/or affiliates. Comments reflect the
+          opinions of Paperly,its agents and/or affiliates. Comments reflect the
           views and opinions of the person who post their views and opinions. To
-          the extent permitted by applicable laws, Eduera shall not be liable
+          the extent permitted by applicable laws, Paperly shall not be liable
           for the Comments or for any liability, damages or expenses caused
           and/or suffered as a result of any use of and/or posting of and/or
           appearance of the Comments on this website.
         </p>
 
         <p>
-          Eduera reserves the right to monitor all Comments and to remove any
+          Paperly reserves the right to monitor all Comments and to remove any
           Comments which can be considered inappropriate, offensive or causes
           breach of these Terms and Conditions.
         </p>
@@ -132,7 +132,7 @@ const Tos = () => {
         </ul>
 
         <p>
-          You hereby grant Eduera a non-exclusive license to use, reproduce,
+          You hereby grant Paperly a non-exclusive license to use, reproduce,
           edit and authorize others to use, reproduce and edit any of your
           Comments in any and all forms, formats or media.
         </p>
@@ -190,7 +190,7 @@ const Tos = () => {
           that: (a) the link would not make us look unfavorably to ourselves or
           to our accredited businesses; (b) the organization does not have any
           negative records with us; (c) the benefit to us from the visibility of
-          the hyperlink compensates the absence of Eduera; and (d) the link is
+          the hyperlink compensates the absence of Paperly; and (d) the link is
           in the context of general resource information.
         </p>
 
@@ -204,7 +204,7 @@ const Tos = () => {
         <p>
           If you are one of the organizations listed in paragraph 2 above and
           are interested in linking to our website, you must inform us by
-          sending an e-mail to Eduera. Please include your name, your
+          sending an e-mail to Paperly. Please include your name, your
           organization name, contact information as well as the URL of your
           site, a list of any URLs from which you intend to link to our Website,
           and a list of the URLs on our site to which you would like to link.
@@ -224,7 +224,7 @@ const Tos = () => {
         </ul>
 
         <p>
-          No use of Eduera's logo or other artwork will be allowed for linking
+          No use of Paperly's logo or other artwork will be allowed for linking
           absent a trademark license agreement.
         </p>
 
