@@ -256,10 +256,10 @@ export default function Steps(props) {
     let year = activePaper.match(regex)[0];
     setpaperYear(year);
 
-    let paper = require(`../../paperdata/${subject}/${year}/paper`);
-
-    setActiveQuestions(paper.default.content.pages);
-    setTimeForPaper(paper.default.content.time);
+    let data = require(`../../paperdata/${subject}/${year}/paper`);
+    //console.log(data)
+    setActiveQuestions(data.content.pages);
+    setTimeForPaper(data.content.time);
   }, [activePaper, activeQuestions,timeForPaper]);
   const handleNext = () => {
     if (activePaper == undefined) {
@@ -437,6 +437,7 @@ export default function Steps(props) {
                   color="primary"
                   onClick={handleNext}
                   className={classes.button}
+                  data-cy={buttonTxt[activeStep]}
                 >
                   {buttonTxt[activeStep]}
                 </Button>

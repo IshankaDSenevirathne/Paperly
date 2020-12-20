@@ -61,10 +61,10 @@ export function ReviewPass(props) {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button autoFocus onClick={handleClose} color="primary">
+                    <Button autoFocus onClick={handleClose} color="primary" data-cy="disagree" >
                         Disagree
                     </Button>
-                    <Button onClick={handleAgree} color="primary" autoFocus>
+                    <Button onClick={handleAgree} color="primary" autoFocus data-cy="agree" >
                         Agree
                     </Button>
                 </DialogActions>
@@ -137,10 +137,10 @@ export function AnswerPass(props) {
                     }
                 </DialogContent>
                 <DialogActions>
-                    <Button autoFocus onClick={handleClose} color="primary">
+                    <Button autoFocus onClick={handleClose} color="primary" data-cy="disagree">
                         Disagree
                     </Button>
-                    <Button onClick={handleAgree} color="primary" autoFocus>
+                    <Button onClick={handleAgree} color="primary" autoFocus data-cy="agree">
                         Agree
                     </Button>
                 </DialogActions>

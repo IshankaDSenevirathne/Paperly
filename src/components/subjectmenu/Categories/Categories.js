@@ -170,13 +170,13 @@ export default function Categories() {
                     </div>
                     <Grid alignItems="center" justify="flex-start" spacing={1} container>
                         {science.map((subject)=>(
-                            <Grid key={subject.title} item xs={6} sm={3} md={3}>
-                                <div>
-                                    <Paper elevation={2} className={classes.paper}>
-                                        <Link href={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
+                            <Grid  key={subject.title} item xs={6} sm={3} md={3}>
+                                <div >
+                                    <Paper elevation={2} className={classes.paper}  >
+                                        <Link  href={`/quizes?subject=${subject.link}`} style={{textDecoration:"none"}}>
                                             <Button className={classes.button}>
                                                 <div>
-                                                    <img src={subject.image}></img>
+                                                    <img data-cy={`submit-${subject.title}`} src={subject.image}></img>
                                                     <Typography align="center" variant="subtitle1">
                                                         {subject.title}
                                                     </Typography>

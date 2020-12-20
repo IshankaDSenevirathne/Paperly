@@ -101,15 +101,16 @@ export default function QuizList(props) {
         </div>
         <div className={classes.root}>
           <Container maxWidth="sm">
-            <List component="nav" aria-label="Device settings">
+            <List component="nav" aria-label="Device settings"  data-cy="subject-menu">
               <ListItem
+               
                 button
                 aria-haspopup="true"
                 aria-controls="lock-menu"
                 aria-label="when device is locked"
                 onClick={handleClickListItem}
                 className={classes.item}
-              >
+              > 
                 <ListItemText primary={papersList[selectedIndex]} />
               </ListItem>
             </List>
@@ -130,6 +131,7 @@ export default function QuizList(props) {
                 disabled={index === 0}
                 selected={index === selectedIndex}
                 onClick={(event) => handleMenuItemClick(event, index)}
+                data-cy={"subject-"+option.replaceAll(' ', '')}
               >
                 {option}
               </MenuItem>

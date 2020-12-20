@@ -795,4 +795,5 @@ let data = {
   },
 };
 
-export default data;
+//export default data;
+module.exports = data

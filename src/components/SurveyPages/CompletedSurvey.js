@@ -100,11 +100,11 @@ export default function CompletedSurvey(props) {
                                 {feedbackStatus && 
                                 <form className={classes.forminner} autoComplete="off" onSubmit={(e)=>formSubmit(e)}>
                     
-                                    <TextField required placeholder="Your awesome name " variant="filled" fullWidth={true} inputProps={{className:classes.feedback}} onChange={e=>setname(e.target.value)} />
+                                    <TextField required placeholder="Your awesome name " variant="filled" fullWidth={true} inputProps={{className:classes.feedback}} onChange={e=>setname(e.target.value)} data-cy="name-feild" />
                                     <div className={classes.feedbacknamedivider} ></div>
-                                    <TextField required placeholder="Tell us what you think... " variant="filled" fullWidth={true} inputProps={{className:classes.feedback}} multiline rows={6} rowsMax={6} id="feedback" onChange={e=>setfeedback(e.target.value)} />
+                                    <TextField required placeholder="Tell us what you think... " variant="filled" fullWidth={true} inputProps={{className:classes.feedback}} multiline rows={6} rowsMax={6} id="feedback" onChange={e=>setfeedback(e.target.value)} data-cy="feedback-feild"/>
                                     <div className={classes.feedbacknamedivider} ></div>
-                                    <Button type="submit" variant="contained" color="primary" className={classes.submit}>
+                                    <Button type="submit" variant="contained" color="primary" className={classes.submit} data-cy="submit-feedback" >
                                         Submit
                                     </Button>
                                 </form>
