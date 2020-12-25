@@ -41,7 +41,7 @@ const useStyles=makeStyles(()=>({
             color: "white",
         }
     }
-}))
+}));
 
 export default function CompletedSurvey(props) {
     const classes=useStyles();
@@ -80,7 +80,7 @@ export default function CompletedSurvey(props) {
 }
     
     return (
-        <div id="my-canvas" className="content">
+        <div className="content">
             <Tadaa />
             <div className={classes.root}>
                 <div style={{color:"#1fa2ff",paddingTop:"20px",paddingBottom:"20px"}}>

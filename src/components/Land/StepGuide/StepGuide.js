@@ -48,7 +48,7 @@ export default function StepGuide() {
               </Typography>
 
               <Typography gutterBottom variant="subtitle1" align="center">
-                You have access to all the past papers under thes subjects
+                You have access to all the past papers under these subjects
               </Typography>
             </div>
           </Grid>
@@ -67,7 +67,7 @@ export default function StepGuide() {
             <Grid item>
               <div>
                 <Typography gutterBottom variant="h6" align="center">
-                  <b>WE WILL TIME YOUR ATTEMP</b>
+                  <b>WE WILL TIME YOUR ATTEMPT</b>
                 </Typography>
 
                 <Typography gutterBottom variant="subtitle1" align="center">
