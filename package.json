@@ -32,7 +32,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
-    "cypress:headless": "cypress run --headless --browser chrome --spec 'cypress/integration/sample_spec.js,cypress/integration/paper.spec.js'",
+    "cypress:headless": "cypress run --headless --browser chrome --spec 'cypress/integration/physics2018paper.spec.js,cypress/integration/paper.spec.js'",
     "test-mocha": "mocha"
   },
   "eslintConfig": {
