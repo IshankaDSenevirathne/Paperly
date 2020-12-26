@@ -1,0 +1,22 @@
+.notfoundmaindiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #17446c;
+}
+
+.whitetext {
+  color: #fff;
+  font-size: 3rem;
+  padding: 1rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.cat {
+  height: 30vh;
+  width: 100%;
+}

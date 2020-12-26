@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import QuizesPage from "./components/QuizesPage/QuizesPage";
@@ -65,20 +65,27 @@ const performanceObservercallback = (list) => {
 var observer = new PerformanceObserver(performanceObservercallback);
 observer.observe({ entryTypes: ["mark", "measure"] });
 
-
 function App() {
-  
+  const [hideFooterandNavbar, sethideFooterandNavbar] = useState(false);
+
   useEffect(() => {
     // This line will trigger on a route change
     // console.log(window.location.pathname + window.location.search);
     ReactGA.pageview(window.location.pathname + window.location.search);
+
+    console.log(window.location.pathname);
+
+    if (window.location.pathname === "/404") {
+      sethideFooterandNavbar(true);
+    }
   });
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Navigation />
-        <SocialIcons />
+        {hideFooterandNavbar ? null : <Navigation />}
+        {hideFooterandNavbar ? null : <SocialIcons />}
+
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/quizes" component={QuizesPage} />
@@ -88,7 +95,7 @@ function App() {
           <Route path="/contributors" component={Contributors} />
           <Route path="/404" component={NotFound} />
         </Switch>
-        <Footer />
+        {hideFooterandNavbar ? null : <Footer />}
       </BrowserRouter>
     </div>
   );
