@@ -157,7 +157,7 @@ export default function Album(props) {
                   textDecoration: "none",
                 }}
               >
-                <Button variant="contained" color="primary" size="large">
+                <Button variant="contained" color="primary" size="large" data-cy="getstarted">
                   GET STARTED
                 </Button>
               </Link>

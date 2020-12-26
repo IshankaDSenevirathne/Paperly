@@ -173,6 +173,7 @@ export default function QuizTemp(props) {
                   <FormControlLabel
                     key={index}
                     value={ele.id}
+                    data-cy={ele.id}
                     control={
                       <Radio color="primary" className={classes.radio} />
                     }
@@ -209,10 +210,10 @@ export default function QuizTemp(props) {
       <div>
         <hr></hr>
         <Grid container  direction="row" justify="center" alignItems="center">
-            <Button disabled={activeQuestion===0} onClick={()=>handlePageChange("",activeQuestion)} color="primary">
+            <Button disabled={activeQuestion===0} onClick={()=>handlePageChange("",activeQuestion)} color="primary" data-cy="prev" >
               Prev
             </Button>
-            <Button disabled={activeQuestion===questions.length-1} onClick={()=>handlePageChange("",activeQuestion+2)} color="primary">
+            <Button disabled={activeQuestion===questions.length-1} onClick={()=>handlePageChange("",activeQuestion+2)} color="primary" data-cy="next" >
               Next
             </Button>
         </Grid>
