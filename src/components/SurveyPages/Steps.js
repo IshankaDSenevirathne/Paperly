@@ -288,9 +288,9 @@ export default function Steps(props) {
             setpaperYear(year);
             let paper = require(`../../paperdata/${subject}/${year}/paper`);
 
-            setActiveQuestions(paper.default.content.pages);
+            setActiveQuestions(paper.content.pages);
 
-            setTimeForPaper(paper.default.content.time);
+            setTimeForPaper(paper.content.time);
 
             setpaperIndex(urlPaper);
           } catch (error) {
@@ -314,8 +314,8 @@ export default function Steps(props) {
 
         let paper = require(`../../paperdata/${subject}/${year}/paper`);
 
-        setActiveQuestions(paper.default.content.pages);
-        setTimeForPaper(paper.default.content.time);
+        setActiveQuestions(paper.content.pages);
+        setTimeForPaper(paper.content.time);
       } catch (error) {
         console.log(error);
       }
@@ -508,6 +508,7 @@ export default function Steps(props) {
                   color="primary"
                   onClick={handleNext}
                   className={classes.button}
+                  data-cy={buttonTxt[activeStep]}
                 >
                   {buttonTxt[activeStep]}
                 </Button>

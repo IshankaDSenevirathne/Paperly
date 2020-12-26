@@ -117,42 +117,42 @@ export default function QuizList(props) {
         </div>
         <div className={classes.root}>
           <Container maxWidth="sm">
-            <List component="nav" aria-label="Device settings">
+            <List component="nav" aria-label="Device settings"  data-cy="subject-menu">
               <ListItem
+               
                 button
                 aria-haspopup="true"
                 aria-controls="lock-menu"
                 aria-label="when device is locked"
                 onClick={handleClickListItem}
                 className={classes.item}
-              >
+              > 
                 <ListItemText primary={papersList[selectedIndex]} />
               </ListItem>
             </List>
-            <Menu
-              id="lock-menu"
-              anchorEl={anchorEl}
-              keepMounted
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-              PaperProps={{
-                style: {
-                  background: "#363f44",
-                  color: "white",
-                },
-              }}
-            >
-              {papersList.map((option, index) => (
-                <MenuItem
-                  key={option}
-                  disabled={index === 0}
-                  selected={index === selectedIndex}
-                  onClick={(event) => handleMenuItemClick(event, index)}
-                >
-                  {option}
-                </MenuItem>
-              ))}
-            </Menu>
+          <Menu
+            id="lock-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+            PaperProps={{style:{
+              background:"#363f44",
+              color:"white"
+            }}}
+          >
+            {papersList.map((option, index) => (
+              <MenuItem
+                key={option}
+                disabled={index === 0}
+                selected={index === selectedIndex}
+                onClick={(event) => handleMenuItemClick(event, index)}
+                data-cy={"subject-"+option.replaceAll(' ', '')}
+              >
+                {option}
+              </MenuItem>
+            ))}
+          </Menu>
           </Container>
         </div>
         <div style={{ color: "#B2B2B2" }}>

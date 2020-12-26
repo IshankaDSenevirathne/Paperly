@@ -30,7 +30,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open",
+    "cypress:headless": "cypress run --headless --browser chrome --spec 'cypress/integration/physics2018paper.spec.js,cypress/integration/paper.spec.js'",
+    "test-mocha": "mocha"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,5 +49,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cypress": "^5.6.0",
+    "ignore-styles": "^5.0.1",
+    "mocha": "^8.2.1"
   }
 }
