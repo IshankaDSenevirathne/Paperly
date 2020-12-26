@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
@@ -37,6 +37,14 @@ export default function QuizList(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const { papersList, setPaper, subject } = props;
+
+  useEffect(() => {
+    console.log(props);
+    // setSelectedIndex(index);
+
+    setSelectedIndex(props.paperIndex);
+  }, [props.paperIndex]);
+
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -78,24 +86,32 @@ export default function QuizList(props) {
           <h1>{subject}</h1>
           <img src={getImage(subject)}></img>
         </div>
-        <div style={{padding:"10px 10px 10px 0px",borderRadius:"4px",marginLeft:"10px",marginRight:"10px",marginBottom:"20px",background:"#E8F3FB"}}>
+        <div
+          style={{
+            padding: "10px 10px 10px 0px",
+            borderRadius: "4px",
+            marginLeft: "10px",
+            marginRight: "10px",
+            marginBottom: "20px",
+            background: "#E8F3FB",
+          }}
+        >
           <Typography variant="body1">
-            <Info style={{color:"#1fa2ff",textAlign:"center"}} fontSize="large"/>
+            <Info
+              style={{ color: "#1fa2ff", textAlign: "center" }}
+              fontSize="large"
+            />
           </Typography>
-          <div style={{textAlign:"left",fontSize:"13px",lineHeight:"20px"}}> 
+          <div
+            style={{ textAlign: "left", fontSize: "13px", lineHeight: "20px" }}
+          >
             <ul>
-              <li>
-                The exam will begin as you proceed to the next step.
-              </li>
-              <li>
-                You have a total of 2 hours to complete this exam.
-              </li>
+              <li>The exam will begin as you proceed to the next step.</li>
+              <li>You have a total of 2 hours to complete this exam.</li>
               <li>
                 Time taken for every individual question will be recorded.
               </li>
-              <li>
-                Try to answer all questions and proceed to the next step.
-              </li>
+              <li>Try to answer all questions and proceed to the next step.</li>
             </ul>
           </div>
         </div>
@@ -113,28 +129,30 @@ export default function QuizList(props) {
                 <ListItemText primary={papersList[selectedIndex]} />
               </ListItem>
             </List>
-          <Menu
-            id="lock-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-            PaperProps={{style:{
-              background:"#363f44",
-              color:"white"
-            }}}
-          >
-            {papersList.map((option, index) => (
-              <MenuItem
-                key={option}
-                disabled={index === 0}
-                selected={index === selectedIndex}
-                onClick={(event) => handleMenuItemClick(event, index)}
-              >
-                {option}
-              </MenuItem>
-            ))}
-          </Menu>
+            <Menu
+              id="lock-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+              PaperProps={{
+                style: {
+                  background: "#363f44",
+                  color: "white",
+                },
+              }}
+            >
+              {papersList.map((option, index) => (
+                <MenuItem
+                  key={option}
+                  disabled={index === 0}
+                  selected={index === selectedIndex}
+                  onClick={(event) => handleMenuItemClick(event, index)}
+                >
+                  {option}
+                </MenuItem>
+              ))}
+            </Menu>
           </Container>
         </div>
         <div style={{ color: "#B2B2B2" }}>

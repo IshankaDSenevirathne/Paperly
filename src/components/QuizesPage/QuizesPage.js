@@ -8,18 +8,29 @@ export default function QuizesPage(props) {
   let query = qs.parse(props.location.search, { ignoreQueryPrefix: true });
   let { subject, year } = query;
   let papers = require("../../paperdata/papers.json");
+  let paperList = []
 
-  let sructpaper = papers[subject].map((ele) => ele.name);
+  try {
+    let sructpaper = papers[subject].map((ele) => ele.name);
 
-  let paperList = ["SELECT PAPER", ...sructpaper];
+    paperList = ["SELECT PAPER", ...sructpaper];
 
-  console.log(paperList);
+    console.log(paperList);
+    console.log(year);
+  } catch (error) {
+    console.log(error)
+    props.history.push("/404");
+  }
 
   return (
     <>
       <div className="content">
         <div>
-          <CustomSurvey papersList={paperList} subject={subject} year={year} />
+          <CustomSurvey
+            papersList={paperList}
+            subject={subject}
+            year={year}
+          />
         </div>
       </div>
     </>

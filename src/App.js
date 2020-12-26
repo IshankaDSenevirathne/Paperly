@@ -10,6 +10,7 @@ import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer";
 import Last from "./components/SurveyPages/CompletedSurvey";
 import Contributors from "./components/contributors/contributors";
+import NotFound from "./components/notFound/notFound";
 
 import ReactGA from "react-ga";
 // import history from "./ga/history";
@@ -64,12 +65,15 @@ const performanceObservercallback = (list) => {
 var observer = new PerformanceObserver(performanceObservercallback);
 observer.observe({ entryTypes: ["mark", "measure"] });
 
+
 function App() {
+  
   useEffect(() => {
     // This line will trigger on a route change
     // console.log(window.location.pathname + window.location.search);
     ReactGA.pageview(window.location.pathname + window.location.search);
   });
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -82,6 +86,7 @@ function App() {
           <Route path="/subjectmenu" component={SubjectMenu} />
           <Route path="/last" component={Last} />
           <Route path="/contributors" component={Contributors} />
+          <Route path="/404" component={NotFound} />
         </Switch>
         <Footer />
       </BrowserRouter>
