@@ -5,25 +5,81 @@ you can contribute to this repository in two main ways
 1. adding a paper to the our platform
 2. Adding new features and fixing issues in the platform
 
-
 ## Add a paper to Paperly
 
+### step 1
+
+To add a paper to the platform , we first have to make sure we have the correct paper catorgory in the `papers.js` file.
+there are four catagories in `papers.js` file. `science` , `art` , `commerce` , `other` .
+and inside this catogories there are sub catogories ex `physics` is a subccatogoryof science so on.
+
+if the paper you are willing to add belongs to one of this catogory then you are good to go to the next step
+
+### step 2
+
+next goto `paperdata` directory and make sure that directory with the subcatogory is created , if not create a directory for that subcatogory.
+next create a folder with the paper year . next step is to add the paper .
+
+### step 3
+
+create `paper.js` file inside that year directory . this js file sould export a object . every object should have following properties
+
+```javascript
+paperId: "1", //paper id
+  content: {
+    title: "Advanced Level 2018 Physics", //name of the paper
+    time:1800, // paper evaluation time
+    pages: [ { // question object
+        title: `## 1. Unit of pressure is `,
+        choices: [
+          {
+            id: 1,
+            text: `kg ms<sup>-2</sup>`,
+          },
+          {
+            id: 2,
+            text: `kg m<sup>2</sup> s<sup>-2</sup>`,
+          },
+          {
+            id: 3,
+            text: `kg m<sup>-1</sup> s<sup>-2</sup>`,
+          },
+          {
+            id: 4,
+            text: "kg m<sup>2</sup> s</sup>-3</sup>",
+          },
+          {
+            id: 5,
+            text: "kg m<sup>-2</sup> s<sup>-2</sup> A<sup>-1</sup>",
+          },
+        ],
+        correctAnswer: 3,
+      },]
+    }
+
+```
+
+this paper is a object array . each object must have a `title` and another object array for the mcq choices as `choices` and finally index of the correct awnser as `correctAnswer` . each object in choices array must have it's id as `id` and the text to be shown as `text`.
+
+`title` and `text` supports markdown syntax . 
 
 
 
-Please note we have a code of conduct, please follow it in all your interactions with the project.
+
+
+<!-- Please note we have a code of conduct, please follow it in all your interactions with the project.
 
 ## Pull Request Process
 
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a 
+1. Ensure any install or build dependencies are removed before the end of the layer when doing a
    build.
-2. Update the README.md with details of changes to the interface, this includes new environment 
+2. Update the README.md with details of changes to the interface, this includes new environment
    variables, exposed ports, useful file locations and container parameters.
 3. Increase the version numbers in any examples files and the README.md to the new version that this
    Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
-4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you 
-   do not have permission to do that, you may request the second reviewer to merge it for you.
-
+4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you
+   do not have permission to do that, you may request the second reviewer to merge it for you. -->
+<!-- 
 ## Code of Conduct
 
 ### Our Pledge
@@ -40,21 +96,21 @@ orientation.
 Examples of behavior that contributes to creating a positive environment
 include:
 
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
-* Showing empathy towards other community members
+- Using welcoming and inclusive language
+- Being respectful of differing viewpoints and experiences
+- Gracefully accepting constructive criticism
+- Focusing on what is best for the community
+- Showing empathy towards other community members
 
 Examples of unacceptable behavior by participants include:
 
-* The use of sexualized language or imagery and unwelcome sexual attention or
-advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic
+- The use of sexualized language or imagery and unwelcome sexual attention or
+  advances
+- Trolling, insulting/derogatory comments, and personal or political attacks
+- Public or private harassment
+- Publishing others' private information, such as a physical or electronic
   address, without explicit permission
-* Other conduct which could reasonably be considered inappropriate in a
+- Other conduct which could reasonably be considered inappropriate in a
   professional setting
 
 ### Our Responsibilities
@@ -97,4 +153,4 @@ This Code of Conduct is adapted from the [Contributor Covenant][homepage], versi
 available at [http://contributor-covenant.org/version/1/4][version]
 
 [homepage]: http://contributor-covenant.org
-[version]: http://contributor-covenant.org/version/1/4/
+[version]: http://contributor-covenant.org/version/1/4/ -->
