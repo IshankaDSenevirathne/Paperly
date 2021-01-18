@@ -11,6 +11,7 @@ import Footer from "./components/Footer/Footer";
 import Last from "./components/SurveyPages/CompletedSurvey";
 import Contributors from "./components/contributors/contributors";
 import NotFound from "./components/notFound/notFound";
+import Editor from "./pages/editor/editor";
 
 import ReactGA from "react-ga";
 // import history from "./ga/history";
@@ -75,7 +76,9 @@ function App() {
 
     console.log(window.location.pathname);
 
-    if (window.location.pathname === "/404") {
+    let blacklist = ["/404", "/editor"];
+
+    if (blacklist.includes(window.location.pathname)) {
       sethideFooterandNavbar(true);
     }
   });
@@ -90,6 +93,7 @@ function App() {
           <Route exact path="/" component={Landing} />
           <Route path="/quizes" component={QuizesPage} />
           <Route path="/terms" component={Tos} />
+          <Route path="/editor" component={Editor} />
           <Route path="/subjectmenu" component={SubjectMenu} />
           <Route path="/last" component={Last} />
           <Route path="/contributors" component={Contributors} />

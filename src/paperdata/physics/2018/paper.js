@@ -1,9 +1,9 @@
-const API =
-  process.env.NODE_ENV === "production"
-    ? `https://paperly-114b9e.us1.kinto.io`
-    : "http://localhost:5000";
+// const API =
+//   process.env.NODE_ENV === "production"
+//     ? `https://paperly-114b9e.us1.kinto.io`
+//     : "http://localhost:5000";
 
-// const API = `https://paperly-114b9e.us1.kinto.io`;
+ const API = `https://paperly-114b9e.us1.kinto.io`;
 
 const img10q = require("./q10/10q.PNG");
 const img10a1 = require("./q10/1.PNG");
