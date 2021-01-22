@@ -11,54 +11,26 @@ const Cardcontainer = ({ getDataFromDnD }) => {
         id: 1,
         text: "Write a cool JS library",
       },
-      {
-        id: 2,
-        text: "Make it generic enough",
-      },
-      {
-        id: 3,
-        text: "Write README",
-      },
-      {
-        id: 4,
-        text: "Create some examples",
-      },
-      {
-        id: 5,
-        text:
-          "Spam in Twitter and IRC to promote it (note that this element is taller than the others)",
-      },
-      {
-        id: 6,
-        text: "???",
-      },
-      {
-        id: 7,
-        text: "PROFIT",
-      },
     ]);
 
     const addCard = () => {
-      setCards((pre) => {
-        return [
-          ...pre,
-          {
-            id: pre.length + 1,
-            text: "PROFIT",
-          },
-        ];
-      });
+      let temp = [
+        ...cards,
+        {
+          id: cards.length + 1,
+          text: "PROFIT",
+        },
+      ];
+      setCards(temp);
+      getDataFromDnD(temp);
     };
 
     const cardupdate = (id, text) => {
       console.log(id, text);
-      //   getDataFromDnD()
-      setCards((pre) => {
-        pre[id - 1] = { id, text };
-        return pre;
-      });
-      getDataFromDnD(cards);
-      // setcardData(update(cardData, {$}));
+      let temp = [...cards];
+      temp[id - 1] = { id, text };
+      getDataFromDnD(temp);
+      setCards(temp);
     };
 
     // const carddelete = ()
@@ -87,7 +59,7 @@ const Cardcontainer = ({ getDataFromDnD }) => {
           text={card.text}
           moveCard={moveCard}
           cardupdate={cardupdate}
-          cardupdate={cardupdate}
+          //   cardupdate={cardupdate}
         />
       );
     };
