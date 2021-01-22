@@ -5,6 +5,9 @@ import TextField from "@material-ui/core/TextField";
 import { lightBlue } from "@material-ui/core/colors";
 import "./editor.css";
 import marked from "marked";
+import Cardcontainer from "./dndcomponent/cardcontainer";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 const API = `https://paperly-114b9e.us1.kinto.io`;
 
@@ -39,8 +42,9 @@ const Editor = () => {
   const [imgArray, setimgArray] = useState([]);
   const [width, setwidth] = useState("");
   const [style, setstyle] = useState(`style=""`);
-
   const [compiledMarkdown, setcompiledMarkdown] = useState("");
+  const [cardData, setcardData] = useState([]);
+
   const classes = useStyles();
   // console.log(mathjax);
   const compileEquation = (text) => {
@@ -73,9 +77,26 @@ const Editor = () => {
     // console.log(images);
   };
 
+  const getDataFromDnD = (data) => {
+    console.log(data);
+    setcardData([...data]);
+  };
+
   return (
     <>
       <div className="container editor">
+        <Container maxWidth="lg" className="editor">
+          <DndProvider backend={HTML5Backend}>
+            <Cardcontainer getDataFromDnD={getDataFromDnD}  />
+          </DndProvider>
+        </Container>
+
+        {/* {cardData} */}
+        {cardData.map((ele) => {
+          return <span>{ele.text}</span>;
+        })}
+        <p>{cardData && JSON.stringify(cardData)} </p>
+
         <Container maxWidth="lg" className="editor">
           <h1>editor</h1>
           <form
