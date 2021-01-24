@@ -1,5 +1,10 @@
 import React, { useRef } from "react";
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
+import marked from "marked";
 import { useDrag, useDrop } from "react-dnd";
+
+
 // import { ItemTypes } from "./ItemTypes";
 const style = {
   border: "1px dashed gray",
@@ -8,7 +13,16 @@ const style = {
   //   backgroundColor: "white",
   cursor: "move",
 };
+
+const useStyles = makeStyles(() => ({
+  feedback: {
+    color: "white",
+  },
+}));
+
 export const Card = ({ id, text, index, moveCard, cardupdate, cardremove }) => {
+  const classes = useStyles();
+
   const ref = useRef(null);
   const [, drop] = useDrop({
     accept: "card",
@@ -61,13 +75,28 @@ export const Card = ({ id, text, index, moveCard, cardupdate, cardremove }) => {
   drag(drop(ref));
   return (
     <div ref={ref} style={{ ...style, opacity }}>
-      {text}
-      <input
-        type="text"
+      <div style={{ color: "white" }}>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: marked(text),
+          }}
+        />
+      </div>
+
+      <TextField
+        placeholder="Tell us what you think... "
+        variant="filled"
+        fullWidth={true}
+        inputProps={{ className: classes.feedback }}
+        multiline
+        rows={6}
+        rowsMax={6}
         defaultValue={text}
+        id="feedback"
         onChange={(e) => {
           cardupdate(index, id, e.target.value);
         }}
+        data-cy="feedback-feild"
       />
       <button
         onClick={(e) => {

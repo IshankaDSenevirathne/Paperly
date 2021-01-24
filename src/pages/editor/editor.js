@@ -79,6 +79,16 @@ const Editor = () => {
 
   const getDataFromDnD = (data) => {
     console.log(data);
+
+    let str = data
+      .map((ele) => {
+        return ele.text;
+      })
+      .join(" ");
+
+    console.log(str);
+    setcompiledMarkdown(marked(str));
+
     setcardData([...data]);
   };
 
@@ -86,91 +96,38 @@ const Editor = () => {
     <>
       <div className="container editor">
         <Container maxWidth="lg" className="editor">
+          {" "}
+          <h1>editor</h1>{" "}
           <DndProvider backend={HTML5Backend}>
-            <Cardcontainer getDataFromDnD={getDataFromDnD}  />
+            <Cardcontainer getDataFromDnD={getDataFromDnD} />
           </DndProvider>
         </Container>
-
         {/* {cardData} */}
-        {cardData.map((ele) => {
+        {/* {cardData.map((ele) => {
           return <span>{ele.text}</span>;
-        })}
-        <p>{cardData && JSON.stringify(cardData)} </p>
-
-        <Container maxWidth="lg" className="editor">
-          <h1>editor</h1>
-          <form
-            className={classes.forminner}
-            autoComplete="off"
-            // onSubmit={(e) => formSubmit(e)}
-          >
-            {" "}
-            <TextField
-              required
-              placeholder="Enter equation ex : \\frac{(AX) (CZ)}{BY}"
-              variant="filled"
-              fullWidth={true}
-              inputProps={{ className: classes.feedback }}
-              onChange={(e) => compileEquation(e.target.value)}
-              data-cy="name-feild"
-            />
-            <div className={classes.feedbacknamedivider}></div>
-            <TextField
-              required
-              placeholder="Tell us what you think... "
-              variant="filled"
-              fullWidth={true}
-              inputProps={{ className: classes.feedback }}
-              multiline
-              rows={6}
-              rowsMax={6}
-              id="feedback"
-              onChange={(e) => compileMarkdown(e.target.value)}
-              data-cy="feedback-feild"
-            />
-            <input
-              type="number"
-              onChange={(e) => {
-                let newstyle = `style='width:${e.target.value}%'`;
-                console.log(style, e.target.value);
-                let lol = compiledMarkdown.replace(style, newstyle);
-                setstyle(newstyle);
-                setcompiledMarkdown(lol);
-                console.log(lol);
-                console.log(style, e.target.value);
-
-                // setwidth(e.target.value);
+        })} */}
+        {/* <p>{cardData && JSON.stringify(cardData)} </p> */}
+        <div className={classes.feedbacknamedivider}></div>
+        <Container>
+          <div className={classes.feedbacknamedivider}></div>
+          <div style={{ color: "white" }}>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: compiledMarkdown,
               }}
             />
-            <Container>
-              <div className={classes.feedbacknamedivider}></div>
-              <div>
-                <span> equation code </span> {euqtion}
-              </div>
-              <div
-                className={classes.equationimage}
-                dangerouslySetInnerHTML={{
-                  __html: euqtion,
-                }}
-              />
-              <div style={{ color: "white" }}>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: compiledMarkdown,
-                  }}
-                />
-              </div>
-            </Container>
-            {/* <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              data-cy="submit-feedback"
-            >
-              Submit
-            </Button> */}
-          </form>
+          </div>
+        </Container>
+        <Container maxWidth="lg" className="editor">
+          <TextField
+            required
+            placeholder="Enter equation ex : \\frac{(AX) (CZ)}{BY}"
+            variant="filled"
+            fullWidth={true}
+            inputProps={{ className: classes.feedback }}
+            onChange={(e) => compileEquation(e.target.value)}
+            data-cy="name-feild"
+          />
         </Container>
       </div>
     </>
