@@ -8,7 +8,7 @@ const style = {
   //   backgroundColor: "white",
   cursor: "move",
 };
-export const Card = ({ id, text, index, moveCard , cardupdate }) => {
+export const Card = ({ id, text, index, moveCard, cardupdate, cardremove }) => {
   const ref = useRef(null);
   const [, drop] = useDrop({
     accept: "card",
@@ -62,7 +62,20 @@ export const Card = ({ id, text, index, moveCard , cardupdate }) => {
   return (
     <div ref={ref} style={{ ...style, opacity }}>
       {text}
-      <input type="text" onChange={(e)=>{cardupdate(id , e.target.value)}} />
+      <input
+        type="text"
+        defaultValue={text}
+        onChange={(e) => {
+          cardupdate(index, id, e.target.value);
+        }}
+      />
+      <button
+        onClick={(e) => {
+          cardremove(index);
+        }}
+      >
+        x
+      </button>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { Card } from "./card";
 import update from "immutability-helper";
+import { removeItem } from "../../../lib/dndcardremove";
 const style = {
   width: 400,
 };
@@ -8,7 +9,7 @@ const Cardcontainer = ({ getDataFromDnD }) => {
   {
     const [cards, setCards] = useState([
       {
-        id: 1,
+        id: 4,
         text: "Write a cool JS library",
       },
     ]);
@@ -17,7 +18,7 @@ const Cardcontainer = ({ getDataFromDnD }) => {
       let temp = [
         ...cards,
         {
-          id: cards.length + 1,
+          id: Math.floor((Math.random() * 10000) % 100),
           text: "PROFIT",
         },
       ];
@@ -25,27 +26,39 @@ const Cardcontainer = ({ getDataFromDnD }) => {
       getDataFromDnD(temp);
     };
 
-    const cardupdate = (id, text) => {
+    const cardupdate = (index, id, text) => {
+      console.log("card update");
       console.log(id, text);
       let temp = [...cards];
-      temp[id - 1] = { id, text };
+      temp[index] = { id, text };
       getDataFromDnD(temp);
       setCards(temp);
     };
 
-    // const carddelete = ()
+    const cardremove = useCallback(
+      (id) => {
+        console.log("card remove");
+        console.log(id);
+        let shiftedArr = removeItem([...cards], id);
+        console.log(shiftedArr);
+        setCards(shiftedArr);
+        getDataFromDnD(shiftedArr);
+      },
+      [cards]
+    );
 
     const moveCard = useCallback(
       (dragIndex, hoverIndex) => {
+        console.log("card move");
         const dragCard = cards[dragIndex];
-        setCards(
-          update(cards, {
-            $splice: [
-              [dragIndex, 1],
-              [hoverIndex, 0, dragCard],
-            ],
-          })
-        );
+        let temp = update(cards, {
+          $splice: [
+            [dragIndex, 1],
+            [hoverIndex, 0, dragCard],
+          ],
+        });
+        setCards(temp);
+        getDataFromDnD(temp);
       },
       [cards]
     );
@@ -59,7 +72,7 @@ const Cardcontainer = ({ getDataFromDnD }) => {
           text={card.text}
           moveCard={moveCard}
           cardupdate={cardupdate}
-          //   cardupdate={cardupdate}
+          cardremove={cardremove}
         />
       );
     };
@@ -72,6 +85,13 @@ const Cardcontainer = ({ getDataFromDnD }) => {
           }}
         >
           add
+        </button>
+        <button
+          onClick={(e) => {
+            cardremove(2);
+          }}
+        >
+          master
         </button>
         <div style={style}>{cards.map((card, i) => renderCard(card, i))}</div>
       </>
