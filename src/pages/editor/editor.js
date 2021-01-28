@@ -38,7 +38,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Editor = () => {
-  const [euqtion, seteuqtion] = useState("");
+  const [markdownSyntax, setmarkdownSyntax] = useState("");
   const [imgArray, setimgArray] = useState([]);
   const [width, setwidth] = useState("");
   const [style, setstyle] = useState(`style=""`);
@@ -52,7 +52,7 @@ const Editor = () => {
       process.env.NODE_ENV
     }&equation=${encodeURIComponent(text)}`;
     let componentText = `<img ${style} src='${url}'/>`;
-    seteuqtion(componentText);
+    // seteuqtion(componentText);
   };
 
   const compileMarkdown = (text) => {
@@ -88,7 +88,7 @@ const Editor = () => {
 
     console.log(str);
     setcompiledMarkdown(marked(str));
-
+    setmarkdownSyntax(str);
     setcardData([...data]);
   };
 
@@ -126,6 +126,17 @@ const Editor = () => {
             fullWidth={true}
             inputProps={{ className: classes.feedback }}
             onChange={(e) => compileEquation(e.target.value)}
+            data-cy="name-feild"
+          />
+          <TextField
+            // required
+            // placeholder="Enter equation ex : \\frac{(AX) (CZ)}{BY}"
+            variant="filled"
+            fullWidth={true}
+            inputProps={{ className: classes.feedback }}
+            value={markdownSyntax}
+            rows={6}
+            // onChange={(e) => compileEquation(e.target.value)}
             data-cy="name-feild"
           />
         </Container>

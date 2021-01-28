@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import marked from "marked";
 import { useDrag, useDrop } from "react-dnd";
-
+const API = `https://paperly-114b9e.us1.kinto.io`;
 
 // import { ItemTypes } from "./ItemTypes";
 const style = {
@@ -18,10 +18,14 @@ const useStyles = makeStyles(() => ({
   feedback: {
     color: "white",
   },
+  closebtndiv: {
+    textAlign: "right",
+  },
 }));
 
 export const Card = ({ id, text, index, moveCard, cardupdate, cardremove }) => {
   const classes = useStyles();
+  const [type, settype] = useState("text");
 
   const ref = useRef(null);
   const [, drop] = useDrop({
@@ -73,8 +77,39 @@ export const Card = ({ id, text, index, moveCard, cardupdate, cardremove }) => {
   });
   const opacity = isDragging ? 0 : 1;
   drag(drop(ref));
+
+  const cardUpdateImg = (index, id, value) => {
+    let url = `${API}/mathjax/getmathimage?env=${
+      process.env.NODE_ENV
+    }&equation=${encodeURIComponent(value)}`;
+
+    let componentText = `<img src='${url}'/>`;
+    console.log(componentText);
+    cardupdate(index, id, componentText);
+  };
+
   return (
     <div ref={ref} style={{ ...style, opacity }}>
+      <div className={classes.closebtndiv}>
+        <button
+          onClick={(e) => {
+            cardremove(index);
+          }}
+        >
+          x
+        </button>
+      </div>
+
+      <select
+        onChange={(e) => {
+          console.log(e.target.value);
+          settype(e.target.value);
+        }}
+      >
+        <option value="text">text</option>
+        <option value="img">image</option>
+      </select>
+
       <div style={{ color: "white" }}>
         <div
           dangerouslySetInnerHTML={{
@@ -94,17 +129,14 @@ export const Card = ({ id, text, index, moveCard, cardupdate, cardremove }) => {
         defaultValue={text}
         id="feedback"
         onChange={(e) => {
-          cardupdate(index, id, e.target.value);
+          if (type === "text") {
+            cardupdate(index, id, e.target.value);
+          } else {
+            cardUpdateImg(index, id, e.target.value);
+          }
         }}
         data-cy="feedback-feild"
       />
-      <button
-        onClick={(e) => {
-          cardremove(index);
-        }}
-      >
-        x
-      </button>
     </div>
   );
 };
