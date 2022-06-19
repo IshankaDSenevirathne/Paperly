@@ -73,11 +73,11 @@ const science = [
       image:Biology
 
     },
-    {
-      title: "IT",
-      link: "it",
-      image:iT
-    },
+//     {
+//       title: "IT",
+//       link: "it",
+//       image:iT
+//     },
   ];
   const art = [
     {
